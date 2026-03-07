@@ -23,7 +23,7 @@ export function Navigation() {
       <nav className="max-w-[1200px] mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="text-[13px] font-bold tracking-[0.2em] uppercase text-foreground"
+          className="text-[13px] font-medium tracking-[0.2em] uppercase text-foreground"
         >
           Everton Resende
         </a>
