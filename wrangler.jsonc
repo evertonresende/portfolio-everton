@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "portfolio-everton",
+  "account_id": "7b0332bf3aba2d959f95b3681d4b1cf5",
   "compatibility_date": "2026-03-07",
   "compatibility_flags": ["nodejs_compat"],
   "main": "./worker/index.ts",
