@@ -9,5 +9,9 @@
   "assets": {
     "not_found_handling": "none",
     "binding": "ASSETS"
-  }
+  },
+  "routes": [
+    { "pattern": "evertonresende.com", "custom_domain": true },
+    { "pattern": "www.evertonresende.com", "custom_domain": true }
+  ]
 }
