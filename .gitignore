@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.wrangler/
+.vinext/
+.vite/
+*.local
+.DS_Store
