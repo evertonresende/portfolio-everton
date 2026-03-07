@@ -5,6 +5,7 @@
   "compatibility_date": "2026-03-07",
   "compatibility_flags": ["nodejs_compat"],
   "main": "./worker/index.ts",
+  "workers_dev": true,
   "preview_urls": true,
   "assets": {
     "not_found_handling": "none",
