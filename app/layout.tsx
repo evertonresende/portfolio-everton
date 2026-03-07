@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Everton Resende — Portfolio",
-  description: "Software Developer & Designer. Criando experiências digitais excepcionais.",
+  description: "AI Product Designer. Desenhando produtos inteligentes com IA.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

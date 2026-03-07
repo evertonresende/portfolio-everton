@@ -46,16 +46,18 @@ const projects = [
 ];
 
 const skills = [
-  "React",
+  "AI / LLMs",
+  "OpenAI SDK",
+  "Anthropic SDK",
+  "MCP",
+  "React Native",
+  "Expo",
   "TypeScript",
-  "Node.js",
   "Next.js",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "UI/UX Design",
+  "Cloudflare Workers",
   "Figma",
-  "AWS",
-  "Docker",
+  "Product Design",
+  "A/B Testing",
 ];
 
 export default function HomePage() {
@@ -81,10 +83,10 @@ export default function HomePage() {
             </h1>
             <div className="mt-8 sm:mt-10 space-y-3 animate-fade-in-up delay-2">
               <p className="text-lg sm:text-xl font-medium text-muted-foreground tracking-tight">
-                Software Developer & Designer
+                AI Product Designer
               </p>
               <p className="font-serif italic text-xl sm:text-2xl text-muted-foreground/70">
-                criando experiências digitais excepcionais
+                desenhando produtos inteligentes com IA
               </p>
             </div>
             <div className="mt-8 flex items-center gap-6 animate-fade-in-up delay-3">
@@ -155,17 +157,19 @@ export default function HomePage() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Developer apaixonado por criar experiências digitais que
-                    combinam design refinado com engenharia sólida.
+                    AI Product Designer com background técnico em engenharia de
+                    software. Combino product thinking com implementação real
+                    para criar produtos inteligentes.
                   </p>
                   <p>
-                    Com experiência em desenvolvimento full-stack e UI/UX design,
-                    transformo ideias complexas em produtos intuitivos e
-                    performáticos.
+                    Experiência em apps publicados na App Store e Google Play,
+                    SaaS multi-tenant com 250k+ linhas de código, e integração
+                    de LLMs em produtos reais via OpenAI, Anthropic e MCP.
                   </p>
                   <p>
-                    Atualmente focado em aplicações web modernas com React,
-                    TypeScript e arquiteturas serverless.
+                    Anteriormente na Softplan (maior legal tech da América
+                    Latina) e atualmente no SAT Bank, onde lidero a integração
+                    de IA em fluxos bancários.
                   </p>
                 </div>
               </div>
@@ -199,7 +203,7 @@ export default function HomePage() {
 
           <div className="flex flex-wrap items-center gap-6 mb-16">
             <a
-              href="mailto:everton@email.com"
+              href="mailto:everton.augustor@gmail.com"
               className="text-sm font-medium text-accent link-underline"
             >
               Email
