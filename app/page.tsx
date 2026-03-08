@@ -112,9 +112,15 @@ export default function HomePage() {
         <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-20 px-6 sm:px-8 overflow-hidden">
           <div className="max-w-[1200px] mx-auto relative">
             <div className="flex items-start gap-5 sm:gap-6 mb-8 animate-fade-in-up">
-              {/* Avatar placeholder */}
-              <div className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-foreground text-background flex items-center justify-center text-lg sm:text-xl font-semibold tracking-tight">
-                ER
+              {/* Avatar */}
+              <div className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-foreground flex items-center justify-center overflow-hidden">
+                <img
+                  src="/avatar.png"
+                  alt="Everton Resende"
+                  width={48}
+                  height={48}
+                  className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
+                />
               </div>
               <div>
                 <p className="text-lg sm:text-xl text-muted-foreground">
