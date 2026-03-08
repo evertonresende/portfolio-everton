@@ -128,7 +128,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-medium tracking-[-0.04em] leading-[1] text-foreground animate-fade-in-up delay-1">
+            <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-normal tracking-[-0.02em] leading-[1] text-foreground animate-fade-in-up delay-1">
               AI Product Designer
             </h1>
             <div className="mt-6 sm:mt-8 max-w-xl animate-fade-in-up delay-2">
@@ -178,7 +178,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-8 sm:gap-10">
               {beliefs.map((belief, index) => (
                 <ScrollReveal key={index} delay={index * 0.1}>
-                  <p className="font-display text-xl sm:text-2xl lg:text-[1.75rem] font-medium text-foreground/80 leading-snug text-center">
+                  <p className="font-display text-xl sm:text-2xl lg:text-[1.75rem] font-normal text-foreground/80 leading-snug text-center">
                     {belief}
                   </p>
                 </ScrollReveal>
@@ -192,7 +192,7 @@ export default function HomePage() {
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
               <div className="mb-12 sm:mb-16">
-                <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight">
+                <h2 className="font-display text-2xl sm:text-3xl font-normal tracking-tight">
                   Projetos
                 </h2>
               </div>
@@ -222,7 +222,7 @@ export default function HomePage() {
                               {project.year}
                             </span>
                           </div>
-                          <h3 className="font-display font-medium text-lg sm:text-xl text-card-foreground leading-snug mb-4">
+                          <h3 className="font-display font-normal text-lg sm:text-xl text-card-foreground leading-snug mb-4">
                             {project.title}
                           </h3>
                           <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
@@ -250,7 +250,7 @@ export default function HomePage() {
         <section id="about" className="py-20 sm:py-28 px-6 sm:px-8 bg-card border-y border-border/40">
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
-              <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight mb-12 sm:mb-16">
+              <h2 className="font-display text-2xl sm:text-3xl font-normal tracking-tight mb-12 sm:mb-16">
                 Sobre
               </h2>
             </ScrollReveal>
