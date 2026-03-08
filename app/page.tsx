@@ -45,19 +45,28 @@ const projects = [
   },
 ];
 
-const skills = [
-  "AI / LLMs",
-  "OpenAI SDK",
-  "Anthropic SDK",
-  "MCP",
-  "React Native",
-  "Expo",
-  "TypeScript",
-  "Next.js",
-  "Cloudflare Workers",
-  "Figma",
-  "Product Design",
-  "A/B Testing",
+const pillars = [
+  {
+    title: "AI Strategy",
+    description: "Identifico onde IA cria valor real no produto",
+    skills: ["LLMs", "OpenAI", "Anthropic", "Gemini", "MCP", "Agentes autônomos"],
+  },
+  {
+    title: "Product Design",
+    description: "Do discovery ao produto shipado",
+    skills: ["Product Thinking", "A/B Testing", "Feature Flags", "Prototipagem funcional", "Figma"],
+  },
+  {
+    title: "Technical Fluency",
+    description: "Falo a língua da engenharia — e implemento se preciso",
+    skills: ["React Native", "TypeScript", "Next.js", "Edge Computing"],
+  },
+];
+
+const timeline = [
+  { period: "2024–presente", role: "AI Product Designer", company: "SAT Bank", highlight: "IA em fluxos bancários" },
+  { period: "2022–presente", role: "Product Owner & Builder", company: "Independente", highlight: "SaaS clínico end-to-end" },
+  { period: "2021–2024", role: "Product Designer (Mobile)", company: "Softplan", highlight: "Legal tech, 8k+ colaboradores" },
 ];
 
 export default function HomePage() {
@@ -144,43 +153,70 @@ export default function HomePage() {
         {/* About */}
         <section id="about" className="py-20 sm:py-28 px-6 sm:px-8 bg-card border-y border-border/40">
           <div className="max-w-[1200px] mx-auto">
-            <div className="grid lg:grid-cols-[1fr,1fr] gap-16 sm:gap-20">
-              <div>
-                <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight mb-6">
-                  About
-                </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    AI Product Designer com background técnico em engenharia de
-                    software. Combino product thinking com implementação real
-                    para criar produtos inteligentes.
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight mb-12 sm:mb-16">
+              About
+            </h2>
+
+            {/* Bio */}
+            <div className="max-w-2xl space-y-4 text-muted-foreground leading-relaxed mb-16 sm:mb-20">
+              <p className="text-foreground font-medium">
+                Desenho produtos que usam IA de forma inteligente — não como
+                buzzword, mas como motor de valor real.
+              </p>
+              <p>
+                Meu diferencial é o background técnico: consigo prototipar com
+                código real, falar a mesma língua da engenharia e validar
+                hipóteses com usuários antes de escalar. Produtos que liderei
+                foram publicados na App Store e Google Play.
+              </p>
+            </div>
+
+            {/* Pillars */}
+            <div className="grid md:grid-cols-3 gap-8 sm:gap-10 mb-16 sm:mb-20">
+              {pillars.map((pillar) => (
+                <div key={pillar.title}>
+                  <h3 className="font-display font-medium text-base text-foreground mb-1">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-[13px] text-muted-foreground/60 mb-4">
+                    {pillar.description}
                   </p>
-                  <p>
-                    Experiência em apps publicados na App Store e Google Play,
-                    SaaS multi-tenant com 250k+ linhas de código, e integração
-                    de LLMs em produtos reais via OpenAI, Anthropic e MCP.
-                  </p>
-                  <p>
-                    Anteriormente na Softplan (maior legal tech da América
-                    Latina) e atualmente no SAT Bank, onde lidero a integração
-                    de IA em fluxos bancários.
-                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {pillar.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-secondary rounded-full text-[12px] font-medium text-secondary-foreground"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-medium tracking-[0.1em] uppercase text-muted-foreground mb-6">
-                  Skills & Tecnologias
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3.5 py-1.5 bg-secondary rounded-full text-[13px] font-medium text-secondary-foreground"
-                    >
-                      {skill}
+              ))}
+            </div>
+
+            {/* Timeline */}
+            <div>
+              <h3 className="text-sm font-medium tracking-[0.1em] uppercase text-muted-foreground mb-6">
+                Trajetória
+              </h3>
+              <div className="space-y-4">
+                {timeline.map((item) => (
+                  <div
+                    key={item.company}
+                    className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-0"
+                  >
+                    <span className="text-[13px] text-muted-foreground/60 sm:w-36 shrink-0">
+                      {item.period}
                     </span>
-                  ))}
-                </div>
+                    <span className="text-[14px] text-foreground font-medium">
+                      {item.role}
+                      <span className="text-muted-foreground font-normal">
+                        {" "}— {item.company}
+                      </span>
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
