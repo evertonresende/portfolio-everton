@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 
-const NAV_ITEMS = ["work", "about", "contact"];
+const NAV_ITEMS = [
+  { href: "work", label: "Projetos" },
+  { href: "about", label: "Sobre" },
+  { href: "contact", label: "Contato" },
+];
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,11 +35,11 @@ export function Navigation() {
         <div className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <a
-              key={item}
-              href={`#${item}`}
+              key={item.href}
+              href={`#${item.href}`}
               className="text-[11px] font-medium tracking-[0.18em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>
@@ -73,12 +77,12 @@ export function Navigation() {
         <div className="px-6 py-6 flex flex-col gap-5">
           {NAV_ITEMS.map((item) => (
             <a
-              key={item}
-              href={`#${item}`}
+              key={item.href}
+              href={`#${item.href}`}
               onClick={() => setMenuOpen(false)}
               className="text-sm font-medium tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>

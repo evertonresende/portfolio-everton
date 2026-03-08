@@ -4,42 +4,42 @@ const projects = [
   {
     id: 1,
     title: "SaaS Dashboard",
-    category: "Product Design",
+    category: "Design de Produto",
     year: "2024",
     gradient: "linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%)",
   },
   {
     id: 2,
     title: "Mobile Banking",
-    category: "AI Integration",
+    category: "Integração de IA",
     year: "2024",
     gradient: "linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%)",
   },
   {
     id: 3,
     title: "E-commerce Platform",
-    category: "Web Development",
+    category: "Desenvolvimento Web",
     year: "2023",
     gradient: "linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%)",
   },
   {
     id: 4,
     title: "Design System",
-    category: "Component Library",
+    category: "Biblioteca de Componentes",
     year: "2024",
     gradient: "linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%)",
   },
   {
     id: 5,
     title: "Marketing Site",
-    category: "Frontend Development",
+    category: "Desenvolvimento Frontend",
     year: "2023",
     gradient: "linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%)",
   },
   {
     id: 6,
     title: "Analytics Tool",
-    category: "Product Design",
+    category: "Design de Produto",
     year: "2024",
     gradient: "linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%)",
   },
@@ -47,7 +47,7 @@ const projects = [
 
 const pillars = [
   {
-    title: "AI Strategy",
+    title: "Estratégia de IA",
     description: "Identifico onde IA cria valor real no produto",
     skills: ["LLMs", "OpenAI", "Anthropic", "Gemini", "MCP", "Agentes autônomos"],
   },
@@ -57,7 +57,7 @@ const pillars = [
     skills: ["Product Thinking", "A/B Testing", "Feature Flags", "Prototipagem funcional", "Figma"],
   },
   {
-    title: "Technical Fluency",
+    title: "Fluência Técnica",
     description: "Falo a língua da engenharia — e implemento se preciso",
     skills: ["React Native", "TypeScript", "Next.js", "Edge Computing"],
   },
@@ -113,7 +113,7 @@ export default function HomePage() {
           <div className="max-w-[1200px] mx-auto">
             <div className="flex items-baseline justify-between mb-12 sm:mb-16 animate-fade-in">
               <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight">
-                Selected Work
+                Projetos
               </h2>
               <span className="text-sm text-muted-foreground">
                 {projects.length} projetos
@@ -154,7 +154,7 @@ export default function HomePage() {
         <section id="about" className="py-20 sm:py-28 px-6 sm:px-8 bg-card border-y border-border/40">
           <div className="max-w-[1200px] mx-auto">
             <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight mb-12 sm:mb-16">
-              About
+              Sobre
             </h2>
 
             {/* Bio */}
@@ -256,12 +256,9 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="pt-8 border-t border-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="pt-8 border-t border-border/40">
             <p className="text-[13px] text-muted-foreground">
               © {new Date().getFullYear()} Everton Resende
-            </p>
-            <p className="text-[13px] text-muted-foreground/60">
-              Feito com Vinext + Cloudflare Workers
             </p>
           </div>
         </div>
