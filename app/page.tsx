@@ -12,44 +12,32 @@ const beliefs = [
 const projects = [
   {
     id: 1,
-    title: "SaaS Dashboard",
-    category: "Design de Produto",
+    title: "Integrando IA em fluxos bancários para reduzir fricção operacional",
+    company: "SAT Bank",
+    context: "App bancário React Native publicado na App Store e Google Play. Integrei LLMs via OpenAI e Anthropic para automatizar processos internos com servidores MCP.",
+    role: "AI Product Designer",
+    result: "Feature flags com Statsig permitiram releases progressivos e validação com usuários reais antes de escalar.",
     year: "2024",
     gradient: "linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%)",
   },
   {
     id: 2,
-    title: "Mobile Banking",
-    category: "Integração de IA",
-    year: "2024",
+    title: "SaaS clínico end-to-end para gestão de consultórios",
+    company: "Projeto independente",
+    context: "Sistema multi-tenant com agenda, financeiro, CRM, estoque e integração WhatsApp — entregue solo com 250k+ linhas de código e 91 PRs.",
+    role: "Product Owner & Builder",
+    result: "Arquitetura com Row Level Security no PostgreSQL garantiu isolamento total entre clínicas desde o dia 1.",
+    year: "2022–presente",
     gradient: "linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%)",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
-    category: "Desenvolvimento Web",
-    year: "2023",
-    gradient: "linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%)",
-  },
-  {
-    id: 4,
-    title: "Design System",
-    category: "Biblioteca de Componentes",
-    year: "2024",
-    gradient: "linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%)",
-  },
-  {
-    id: 5,
-    title: "Marketing Site",
-    category: "Desenvolvimento Frontend",
-    year: "2023",
-    gradient: "linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%)",
-  },
-  {
-    id: 6,
-    title: "Analytics Tool",
-    category: "Design de Produto",
-    year: "2024",
+    title: "Validando hipóteses de produto com protótipos funcionais no setor jurídico",
+    company: "Softplan",
+    context: "Na maior legal tech da América Latina (8k+ colaboradores), construí protótipos com código real para validar fluxos com stakeholders e usuários finais.",
+    role: "Product Designer (Mobile)",
+    result: "Ciclo de feedback acelerado — código real em vez de wireframes permitiu decisões mais rápidas com evidência concreta.",
+    year: "2021–2024",
     gradient: "linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%)",
   },
 ];
@@ -156,37 +144,55 @@ export default function HomePage() {
         <section id="work" className="py-20 sm:py-28 px-6 sm:px-8">
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
-              <div className="flex items-baseline justify-between mb-12 sm:mb-16">
+              <div className="mb-12 sm:mb-16">
                 <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight">
                   Projetos
                 </h2>
-                <span className="text-sm text-muted-foreground">
-                  {projects.length} projetos
-                </span>
               </div>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            <div className="space-y-8 sm:space-y-12">
               {projects.map((project, index) => (
                 <ScrollReveal key={project.id} delay={index * 0.08}>
                   <article className="project-card group rounded-xl overflow-hidden border border-border/40 bg-card cursor-pointer">
-                    <div className="aspect-[4/3] relative overflow-hidden">
-                      <div
-                        className="absolute inset-0 project-image-wrapper"
-                        style={{ background: project.gradient }}
-                      />
-                      <span className="card-number absolute bottom-3 right-4 text-7xl sm:text-8xl font-medium text-black leading-none select-none z-10">
-                        {String(project.id).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <div className="p-4 sm:p-5">
-                      <h3 className="font-display font-medium text-[15px] text-card-foreground">
-                        {project.title}
-                      </h3>
-                      <p className="text-[13px] text-muted-foreground mt-1.5">
-                        {project.category}
-                        <span className="mx-2 text-border">·</span>
-                        {project.year}
-                      </p>
+                    <div className="grid md:grid-cols-[1fr,1.2fr] gap-0">
+                      {/* Imagem placeholder */}
+                      <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
+                        <div
+                          className="absolute inset-0 project-image-wrapper"
+                          style={{ background: project.gradient }}
+                        />
+                        <span className="card-number absolute bottom-4 right-5 text-8xl sm:text-9xl font-medium text-black leading-none select-none z-10">
+                          {String(project.id).padStart(2, "0")}
+                        </span>
+                      </div>
+                      {/* Conteúdo */}
+                      <div className="p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center gap-2 mb-4">
+                            <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground/50">
+                              {project.company}
+                            </span>
+                            <span className="text-muted-foreground/30">·</span>
+                            <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground/50">
+                              {project.year}
+                            </span>
+                          </div>
+                          <h3 className="font-display font-medium text-lg sm:text-xl text-card-foreground leading-snug mb-4">
+                            {project.title}
+                          </h3>
+                          <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
+                            {project.context}
+                          </p>
+                        </div>
+                        <div className="pt-4 border-t border-border/30 space-y-2">
+                          <p className="text-[12px] font-medium tracking-[0.05em] uppercase text-muted-foreground/50">
+                            Meu papel: {project.role}
+                          </p>
+                          <p className="text-[13px] text-muted-foreground leading-relaxed">
+                            {project.result}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </article>
                 </ScrollReveal>
