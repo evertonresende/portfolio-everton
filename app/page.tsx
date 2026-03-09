@@ -101,41 +101,14 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Column: Photo + Labels */}
-              <div className="lg:col-span-5 xl:col-span-4 w-full animate-fade-in-up delay-2 relative group/photo">
-                <div className="aspect-[3/4] w-full max-w-[400px] mx-auto lg:ml-auto relative overflow-visible">
-                  <div className="absolute inset-0 overflow-hidden">
-                    <img
-                      src="/evertonresende.png"
-                      alt="Everton Resende"
-                      className="absolute inset-0 w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
-                    />
-                  </div>
-
-                  {/* Minimal Labels — No shadow, no rotation, grid-aligned */}
-                  <div className="absolute top-6 -left-4 sm:-left-8 z-20 animate-fade-in-up delay-stagger-1">
-                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
-                      01 — Ferramenta, não mágica
-                    </div>
-                  </div>
-
-                  <div className="absolute top-1/4 -right-4 sm:-right-10 z-20 animate-fade-in-up delay-stagger-2">
-                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
-                      02 — Código real {">"} Wireframes
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-1/3 -left-4 sm:-left-12 z-20 animate-fade-in-up delay-stagger-3">
-                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
-                      03 — Design + Engenharia
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-10 -right-4 sm:-right-6 z-20 animate-fade-in-up delay-stagger-4">
-                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
-                      04 — Simplicidade é sofisticação
-                    </div>
-                  </div>
+              {/* Right Column: Photo */}
+              <div className="lg:col-span-5 xl:col-span-4 w-full animate-fade-in-up delay-2">
+                <div className="aspect-[2/3] w-full max-w-[400px] mx-auto lg:ml-auto relative overflow-hidden">
+                  <img
+                    src="/evertonresende.png"
+                    alt="Everton Resende"
+                    className="absolute inset-0 w-full h-full object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-500"
+                  />
                 </div>
               </div>
             </div>
@@ -321,7 +294,16 @@ export default function HomePage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 pt-16 border-t border-[#fafafa]/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-16 border-t border-[#fafafa]/10">
+              <a
+                href="https://wa.me/5537999133556"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-3"
+              >
+                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">WhatsApp</span>
+                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">+55 37 99913-3556</span>
+              </a>
               <a
                 href="mailto:everton.augustor@gmail.com"
                 className="group flex flex-col gap-3"
