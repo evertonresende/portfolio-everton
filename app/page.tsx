@@ -1,7 +1,7 @@
 import { Navigation } from "./components/nav";
 import { ScrollReveal } from "./components/scroll-reveal";
 
-const companies = ["SAT Bank", "Softplan", "FAPAM", "Projeto Independente"];
+const companies = ["SAT Bank", "Softplan", "FAPAM"];
 
 const beliefs = [
   "IA é ferramenta, não mágica — o valor está no problema certo.",
@@ -13,47 +13,46 @@ const beliefs = [
 const projects = [
   {
     id: 1,
-    title: "Integrando IA em fluxos bancários para reduzir fricção operacional",
+    title: "Processo AI-first no design de produto bancário mobile",
     company: "SAT Bank",
-    context: "App bancário React Native. Integrei LLMs via OpenAI e Anthropic para automatizar processos internos com servidores MCP.",
+    context: "Implementação de processo AI-first para app bancário na App Store e Google Play. Prototipação rápida com Claude Code e Cursor, design de features de IA e automação com MCP.",
     role: "AI Product Designer",
-    result: "Feature flags permitiram releases progressivos e validação com usuários reais antes de escalar.",
-    year: "2024",
+    result: "A/B testing com Statsig validou decisões de design com usuários reais. Design system escalável com tokens e componentes reutilizáveis.",
+    year: "2025",
   },
   {
     id: 2,
-    title: "SaaS clínico end-to-end para gestão de consultórios",
-    company: "Independente",
-    context: "Sistema multi-tenant com agenda, financeiro, CRM, estoque e integração WhatsApp — entregue solo.",
-    role: "Product Owner & Builder",
-    result: "Arquitetura com RLS no PostgreSQL garantiu isolamento total entre clínicas desde o dia 1. (250k+ LOC)",
-    year: "2022—24",
+    title: "Projetando soluções para o setor público e jurídico",
+    company: "Softplan",
+    context: "Time de Produto da maior legaltech da América Latina (2.000+ cols). Discovery, pesquisa com usuários, testes de usabilidade e prototipação de alta fidelidade.",
+    role: "Product Designer",
+    result: "Reconhecido mais de 10 vezes no programa "Softplayer A+" pelo impacto nas entregas de produto.",
+    year: "2022—25",
   },
   {
     id: 3,
-    title: "Validando hipóteses de produto com protótipos funcionais",
-    company: "Softplan",
-    context: "Na maior legal tech da América Latina (8k+ cols), construí protótipos com código para validar fluxos complexos.",
-    role: "Product Designer (Mobile)",
-    result: "Feedback acelerado — código real em vez de wireframes permitiu decisões baseadas em evidência concreta.",
-    year: "2021—24",
+    title: "Redesign do portal institucional e Portal do Aluno",
+    company: "FAPAM",
+    context: "Redesign completo com pesquisa com usuários, wireframes, design de interfaces e acompanhamento da implementação.",
+    role: "UI/UX Designer",
+    result: "Melhoria da experiência para alunos e comunidade acadêmica.",
+    year: "2018—21",
   },
 ];
 
 const expertise = [
-  "Integração de LLMs em Produtos",
-  "Discovery e Validação com Usuários",
-  "Prototipagem Funcional (Código Real)",
-  "Design de Interfaces e Design Systems",
-  "Testes A/B e Feature Flags",
-  "Handoff Colaborativo e Engenharia"
+  "Design AI-first e Integração de LLMs",
+  "Discovery e Pesquisa com Usuários",
+  "Prototipação com IA (Claude Code, Cursor)",
+  "Design Systems e Tokens Escaláveis",
+  "A/B Testing e Feature Flags",
+  "Product Analytics e Monitoramento UX"
 ];
 
 const timeline = [
-  { period: "2024 — Presente", role: "AI Product Designer", company: "SAT Bank" },
-  { period: "2022 — Presente", role: "Product Owner & Builder", company: "Independente" },
-  { period: "2021 — 2024", role: "Product Designer", company: "Softplan" },
-  { period: "2018 — 2021", role: "Full-Stack Developer", company: "FAPAM" },
+  { period: "2025 — Presente", role: "AI Product Designer", company: "SAT Bank" },
+  { period: "2022 — 2025", role: "Product Designer", company: "Softplan" },
+  { period: "2018 — 2021", role: "UI/UX Designer", company: "FAPAM" },
 ];
 
 function padIndex(n: number): string {

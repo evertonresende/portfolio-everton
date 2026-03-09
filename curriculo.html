@@ -6,15 +6,8 @@
 <title>Currículo — Everton Resende</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  @page {
-    size: A4;
-    margin: 0;
-  }
-
-  @media print {
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  }
-
+  @page { size: A4; margin: 0; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -36,11 +29,9 @@
     min-height: 100vh;
   }
 
-  @media (max-width: 640px) {
-    .page { padding: 32px 24px; }
-  }
+  @media (max-width: 640px) { .page { padding: 32px 24px; } }
 
-  /* --- Header --- */
+  /* Header */
   .header { margin-bottom: 40px; }
 
   .name {
@@ -48,7 +39,6 @@
     font-weight: 300;
     letter-spacing: -0.04em;
     line-height: 1;
-    color: #141414;
     margin-bottom: 8px;
   }
 
@@ -56,7 +46,6 @@
     font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: #141414;
     margin-bottom: 14px;
   }
 
@@ -66,14 +55,8 @@
     line-height: 1.7;
   }
 
-  .contact-line a {
-    color: #767676;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .contact-line a { color: #767676; text-decoration: none; transition: color 0.2s; }
   .contact-line a:hover { color: #141414; }
-
   .sep { color: #e0e0e0; margin: 0 8px; }
 
   .header-rule {
@@ -82,7 +65,7 @@
     margin-top: 20px;
   }
 
-  /* --- Section --- */
+  /* Sections */
   .section { margin-bottom: 32px; }
 
   .section-label {
@@ -96,7 +79,7 @@
     border-bottom: 1px solid #e0e0e0;
   }
 
-  /* --- Experience --- */
+  /* Experience */
   .exp { margin-bottom: 24px; }
   .exp:last-child { margin-bottom: 0; }
 
@@ -107,24 +90,9 @@
     margin-bottom: 2px;
   }
 
-  .exp-role {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  .exp-date {
-    font-size: 10px;
-    color: #767676;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-
-  .exp-meta {
-    font-size: 10px;
-    color: #767676;
-    margin-bottom: 8px;
-  }
+  .exp-role { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
+  .exp-date { font-size: 10px; color: #767676; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .exp-meta { font-size: 10px; color: #767676; margin-bottom: 8px; }
 
   .bullets { list-style: none; }
 
@@ -145,18 +113,15 @@
     font-weight: 300;
   }
 
-  .bullets li strong {
-    font-weight: 600;
-    color: #141414;
-  }
+  .bullets li strong { font-weight: 600; color: #141414; }
 
-  .stack {
+  .tools {
     margin-top: 6px;
     font-size: 9.5px;
     color: #999;
   }
 
-  .stack em {
+  .tools em {
     font-style: normal;
     font-weight: 600;
     color: #767676;
@@ -165,17 +130,12 @@
     letter-spacing: 0.15em;
   }
 
-  /* --- Education --- */
-  .edu-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
+  /* Education */
+  .edu-row { display: flex; justify-content: space-between; align-items: baseline; }
   .edu-name { font-size: 11.5px; font-weight: 500; }
   .edu-date { font-size: 10px; color: #767676; font-variant-numeric: tabular-nums; }
 
-  /* --- Skills --- */
+  /* Skills */
   .skills-grid {
     display: grid;
     grid-template-columns: 120px 1fr;
@@ -183,21 +143,9 @@
     align-items: baseline;
   }
 
-  @media (max-width: 640px) {
-    .skills-grid { grid-template-columns: 1fr; gap: 4px 0; }
-  }
-
-  .sk-label {
-    font-size: 10.5px;
-    font-weight: 600;
-    color: #141414;
-  }
-
-  .sk-value {
-    font-size: 10.5px;
-    color: #555;
-    line-height: 1.55;
-  }
+  @media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr; gap: 4px 0; } }
+  .sk-label { font-size: 10.5px; font-weight: 600; color: #141414; }
+  .sk-value { font-size: 10.5px; color: #555; line-height: 1.55; }
 </style>
 </head>
 <body>
@@ -229,57 +177,49 @@
       <div class="exp">
         <div class="exp-top">
           <span class="exp-role">AI Product Designer — SAT Bank</span>
-          <span class="exp-date">Out 2024 — Presente</span>
+          <span class="exp-date">Out 2025 — Presente</span>
         </div>
-        <div class="exp-meta">Remoto</div>
+        <div class="exp-meta">Remoto · Tempo integral</div>
         <ul class="bullets">
-          <li>Desenho de produto e integração de <strong>LLMs (OpenAI, Anthropic, Gemini)</strong> em fluxos bancários com servidores <strong>MCP</strong> para automação de processos internos</li>
-          <li>Discovery técnico e validação de hipóteses com <strong>feature flags e A/B testing</strong> via Statsig, permitindo releases progressivos e decisões baseadas em dados reais</li>
-          <li>Prototipagem funcional com <strong>React Native + Expo SDK 54</strong> — app em produção na App Store e Google Play</li>
-          <li>Pipeline <strong>CI/CD GitHub Actions</strong> com 6 build profiles EAS, OTA Updates segmentados e monitoramento Sentry com 100% trace sampling</li>
-          <li>Construção de serviço de autenticação com <strong>Cloudflare Workers, Hono, JWT refresh rotation, 2FA</strong></li>
-          <li>Painel admin <strong>Next.js 15</strong> com <strong>RBAC (14+ permissões)</strong> para gestão de operações internas</li>
+          <li>Implementação de processo <strong>AI-first</strong> no design de produto para aplicativo bancário mobile publicado na App Store e Google Play</li>
+          <li>Prototipação rápida de produtos com <strong>Claude Code</strong> e <strong>Cursor</strong>, reduzindo o ciclo de iteração</li>
+          <li>Design de features de IA, fluxos inteligentes, personalização e automação da experiência do usuário</li>
+          <li>Automação de fluxos de design com <strong>MCP (Model Context Protocol)</strong>, conectando IA ao pipeline de produto</li>
+          <li><strong>A/B testing e feature flags</strong> com Statsig, com decisões de design validadas com usuários reais</li>
+          <li>Criação de <strong>design system escalável</strong> com tokens e componentes reutilizáveis</li>
+          <li>Monitoramento da experiência com <strong>Sentry</strong>, análise de jornadas e identificação de oportunidades de melhoria</li>
         </ul>
-        <div class="stack"><em>Stack</em> TypeScript, React Native, Expo, Statsig, Sentry, GitHub Actions, Cloudflare Workers, Hono, Next.js, OpenAI SDK, Anthropic SDK</div>
+        <div class="tools"><em>Ferramentas</em> Figma, Claude Code, Cursor, MCP, Statsig, Sentry</div>
       </div>
 
       <div class="exp">
         <div class="exp-top">
-          <span class="exp-role">Product Owner & Builder — Independente</span>
-          <span class="exp-date">2022 — Presente</span>
+          <span class="exp-role">Product Designer — Softplan</span>
+          <span class="exp-date">Nov 2022 — Out 2025</span>
         </div>
-        <div class="exp-meta">Remoto</div>
+        <div class="exp-meta">Remoto · Tempo integral · Maior legaltech da América Latina, 2.000+ colaboradores</div>
         <ul class="bullets">
-          <li>Concepção, design e entrega solo de <strong>SaaS multi-tenant</strong> para gestão clínica: agenda, financeiro, CRM, estoque e integração WhatsApp — <strong>250k+ LOC</strong>, 91 PRs</li>
-          <li>Arquitetura com <strong>Row Level Security</strong> no PostgreSQL, 28 migrations e 8 Edge Functions serverless</li>
-          <li>~100 custom hooks com <strong>TanStack Query</strong> para estado server-side com cache inteligente e sincronização otimista</li>
+          <li>Time de Produto projetando soluções para o <strong>setor público e jurídico</strong></li>
+          <li><strong>Discovery e pesquisa</strong> com usuários, entrevistas, testes de usabilidade e mapeamento de jornadas</li>
+          <li>Prototipação de alta fidelidade e validação rápida com stakeholders</li>
+          <li>Definição de requisitos, fluxos e especificações para engenharia</li>
+          <li>Reconhecido mais de <strong>10 vezes</strong> no programa <strong>"Softplayer A+"</strong> pelo impacto nas entregas de produto</li>
         </ul>
-        <div class="stack"><em>Stack</em> TypeScript, React, Next.js, PostgreSQL (RLS, Realtime), TanStack Query, Tailwind CSS, shadcn/ui</div>
+        <div class="tools"><em>Ferramentas</em> Figma, Mixpanel</div>
       </div>
 
       <div class="exp">
         <div class="exp-top">
-          <span class="exp-role">Product Designer (Mobile) — Softplan</span>
-          <span class="exp-date">Nov 2021 — Nov 2024</span>
-        </div>
-        <div class="exp-meta">Remoto · Maior legal tech da América Latina, 8.000+ colaboradores</div>
-        <ul class="bullets">
-          <li>Discovery e validação de hipóteses de produto no setor público/jurídico com <strong>protótipos funcionais</strong> (código real)</li>
-          <li>Construção de apps end-to-end com <strong>React Native e Firebase</strong> publicados na App Store e Google Play</li>
-          <li>Aceleração do ciclo de feedback com stakeholders — código funcional em vez de wireframes estáticos</li>
-        </ul>
-        <div class="stack"><em>Stack</em> React Native, Firebase, TypeScript, Figma, metodologias ágeis</div>
-      </div>
-
-      <div class="exp">
-        <div class="exp-top">
-          <span class="exp-role">Full-Stack Developer — FAPAM</span>
+          <span class="exp-role">UI/UX Designer — FAPAM</span>
           <span class="exp-date">Nov 2018 — Out 2021</span>
         </div>
-        <div class="exp-meta">Pará de Minas, MG</div>
+        <div class="exp-meta">Pará de Minas, MG · Híbrido · Tempo integral</div>
         <ul class="bullets">
-          <li>Reconstrução do portal institucional e sustentação do Portal do Aluno com <strong>React.js</strong></li>
+          <li>Redesign completo do <strong>portal institucional</strong> e do <strong>Portal do Aluno</strong></li>
+          <li>Pesquisa com usuários, wireframes, design de interfaces e acompanhamento da implementação</li>
+          <li>Melhoria da experiência para alunos e comunidade acadêmica</li>
         </ul>
+        <div class="tools"><em>Ferramentas</em> Figma</div>
       </div>
     </div>
 
@@ -296,26 +236,20 @@
     <div class="section">
       <div class="section-label">Competências</div>
       <div class="skills-grid">
-        <span class="sk-label">AI / LLMs</span>
-        <span class="sk-value">OpenAI SDK, Anthropic SDK, Google Gemini SDK, MCP (Model Context Protocol), LangChain, Prompt Engineering</span>
+        <span class="sk-label">AI & Produto</span>
+        <span class="sk-value">Design AI-first, Prompt Engineering, MCP, Claude Code, Cursor, Feature Flags, A/B Testing, Prototipação com IA</span>
 
-        <span class="sk-label">Product</span>
-        <span class="sk-value">Discovery, Validação com Usuários, Feature Flags, A/B Testing, Prototipagem Funcional, Design Systems</span>
+        <span class="sk-label">Design</span>
+        <span class="sk-value">Figma, Design Systems, Tokens, Prototipação de Alta Fidelidade, UI/UX, Wireframes, User Research</span>
 
-        <span class="sk-label">Mobile</span>
-        <span class="sk-value">React Native, Expo SDK 54, EAS Build/Submit, OTA Updates, Statsig, Sentry</span>
+        <span class="sk-label">Discovery</span>
+        <span class="sk-value">Pesquisa com Usuários, Entrevistas, Testes de Usabilidade, Mapeamento de Jornadas, Validação de Hipóteses</span>
 
-        <span class="sk-label">Frontend</span>
-        <span class="sk-value">React, Next.js 15, TypeScript, Tailwind CSS, TanStack Query, shadcn/ui</span>
+        <span class="sk-label">Analytics</span>
+        <span class="sk-value">Mixpanel, Statsig, Sentry, Product Analytics, Análise de Jornadas</span>
 
-        <span class="sk-label">Backend</span>
-        <span class="sk-value">Node.js, Cloudflare Workers, Hono, Edge Functions, Firebase, REST APIs</span>
-
-        <span class="sk-label">Banco de Dados</span>
-        <span class="sk-value">PostgreSQL (RLS, Realtime), Drizzle ORM, Neon</span>
-
-        <span class="sk-label">DevOps</span>
-        <span class="sk-value">GitHub Actions, CI/CD, EAS Build, Docker</span>
+        <span class="sk-label">Técnico</span>
+        <span class="sk-value">React Native, TypeScript, Expo, Next.js, Tailwind CSS, PostgreSQL, Cloudflare Workers</span>
       </div>
     </div>
 

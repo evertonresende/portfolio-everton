@@ -6,15 +6,8 @@
 <title>Carta de Apresentação — Everton Resende</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  @page {
-    size: A4;
-    margin: 0;
-  }
-
-  @media print {
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  }
-
+  @page { size: A4; margin: 0; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -36,11 +29,8 @@
     min-height: 100vh;
   }
 
-  @media (max-width: 640px) {
-    .page { padding: 32px 24px; }
-  }
+  @media (max-width: 640px) { .page { padding: 32px 24px; } }
 
-  /* --- Header --- */
   .header { margin-bottom: 48px; }
 
   .name {
@@ -48,46 +38,25 @@
     font-weight: 300;
     letter-spacing: -0.04em;
     line-height: 1;
-    color: #141414;
     margin-bottom: 14px;
   }
 
-  .contact-line {
-    font-size: 10.5px;
-    color: #767676;
-    line-height: 1.7;
-  }
-
-  .contact-line a {
-    color: #767676;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .contact-line { font-size: 10.5px; color: #767676; line-height: 1.7; }
+  .contact-line a { color: #767676; text-decoration: none; transition: color 0.2s; }
   .contact-line a:hover { color: #141414; }
-
   .sep { color: #e0e0e0; margin: 0 8px; }
+  .header-rule { height: 1px; background: #141414; margin-top: 20px; }
 
-  .header-rule {
-    height: 1px;
-    background: #141414;
-    margin-top: 20px;
-  }
-
-  /* --- Date --- */
   .date {
     text-align: right;
     font-size: 10.5px;
     color: #767676;
     margin-bottom: 44px;
-    letter-spacing: 0.02em;
   }
 
-  /* --- Letter --- */
   .greeting {
     font-size: 13px;
     font-weight: 600;
-    color: #141414;
     margin-bottom: 24px;
     letter-spacing: -0.01em;
   }
@@ -101,26 +70,11 @@
     hyphens: auto;
   }
 
-  .body p strong {
-    font-weight: 600;
-    color: #141414;
-  }
+  .body p strong { font-weight: 600; color: #141414; }
 
-  /* --- Signature --- */
   .signature { margin-top: 40px; }
-
-  .closing {
-    font-size: 11.5px;
-    color: #767676;
-    margin-bottom: 28px;
-  }
-
-  .sig-name {
-    font-size: 15px;
-    font-weight: 500;
-    color: #141414;
-    letter-spacing: -0.01em;
-  }
+  .closing { font-size: 11.5px; color: #767676; margin-bottom: 28px; }
+  .sig-name { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
 </style>
 </head>
 <body>
@@ -148,19 +102,19 @@
 
     <div class="body">
       <p>
-        Sou AI Product Designer com background técnico profundo — desenho produtos que usam IA de forma inteligente e prototipo com código real para validar hipóteses antes de escalar. Acredito poder contribuir de forma significativa desde o primeiro dia.
+        Sou AI Product Designer — desenho produtos que usam IA de forma inteligente, com um diferencial raro: background técnico que me permite prototipar com código real e traduzir problemas de negócio em experiências concretas. Acredito poder contribuir de forma significativa desde o primeiro dia.
       </p>
 
       <p>
-        Atualmente atuo na <strong>SAT Bank</strong>, onde integrei <strong>LLMs (OpenAI, Anthropic, Gemini)</strong> em fluxos bancários com servidores MCP para automação de processos. Conduzo discovery técnico, valido hipóteses com <strong>feature flags e A/B testing</strong> via Statsig, e prototipo com React Native em produção na App Store e Google Play. Meu diferencial é traduzir problemas de negócio em soluções de produto com IA — não apenas consumir APIs, mas desenhar a experiência inteira.
+        Atualmente atuo na <strong>SAT Bank</strong>, onde implementei um processo <strong>AI-first</strong> no design de produto para o app bancário mobile. Prototipo rapidamente com <strong>Claude Code e Cursor</strong>, desenho features de IA e fluxos inteligentes, e automatizo etapas do pipeline com <strong>MCP (Model Context Protocol)</strong>. Decisões de design são validadas com usuários reais via <strong>A/B testing e feature flags</strong> (Statsig), e monitoro a experiência com Sentry para identificar oportunidades de melhoria contínua.
       </p>
 
       <p>
-        Na <strong>Softplan</strong> (8.000+ colaboradores, maior legal tech da América Latina), passei três anos no time de produto construindo protótipos funcionais para o setor público. Essa experiência me deu uma vantagem rara: entendo o problema do usuário antes de escrever a primeira linha de código — faço discovery, valido hipóteses e só então construo.
+        Antes disso, passei três anos como Product Designer na <strong>Softplan</strong> (maior legaltech da América Latina, 2.000+ colaboradores), projetando soluções para o setor público e jurídico. Conduzia <strong>discovery, pesquisa com usuários, testes de usabilidade</strong> e prototipação de alta fidelidade. Fui reconhecido mais de <strong>10 vezes no programa "Softplayer A+"</strong> pelo impacto nas entregas de produto.
       </p>
 
       <p>
-        Como builder independente, entreguei um <strong>SaaS multi-tenant</strong> de gestão clínica com <strong>250k+ linhas de TypeScript</strong> — solo, com 91 PRs e arquitetura com Row Level Security no PostgreSQL. Demonstra minha capacidade de ir da concepção ao produto final, cobrindo design, engenharia, IA e infraestrutura.
+        Minha trajetória começou como UI/UX Designer na <strong>FAPAM</strong>, onde redesenhei o portal institucional e o Portal do Aluno — experiência que consolidou minha base em pesquisa, wireframes e acompanhamento de implementação. Ao longo dos anos, adicionei profundidade técnica ao perfil de design, o que me permite hoje operar na interseção entre produto, IA e engenharia.
       </p>
 
       <p>
