@@ -26,7 +26,7 @@ const projects = [
     company: "Softplan",
     context: "Time de Produto da maior legaltech da América Latina (2.000+ cols). Discovery, pesquisa com usuários, testes de usabilidade e prototipação de alta fidelidade.",
     role: "Product Designer",
-    result: "Reconhecido mais de 10 vezes no programa "Softplayer A+" pelo impacto nas entregas de produto.",
+    result: "Reconhecido mais de 10 vezes no programa 'Softplayer A+' pelo impacto nas entregas de produto.",
     year: "2022—25",
   },
   {
