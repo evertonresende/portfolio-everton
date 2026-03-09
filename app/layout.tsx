@@ -20,7 +20,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "179fdff39ebf42cab633d8ef1b46ca4e"}'
+        />
+      </body>
     </html>
   );
 }
