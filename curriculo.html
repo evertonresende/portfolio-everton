@@ -24,7 +24,7 @@
   .page {
     max-width: 800px;
     margin: 0 auto;
-    padding: 48px 56px 40px;
+    padding: 44px 52px 36px;
     background: #fff;
     min-height: 100vh;
   }
@@ -32,7 +32,7 @@
   @media (max-width: 640px) { .page { padding: 32px 24px; } }
 
   /* Header */
-  .header { margin-bottom: 40px; }
+  .header { margin-bottom: 28px; }
 
   .name {
     font-size: 36px;
@@ -46,27 +46,32 @@
     font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.01em;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
-  .contact-line {
-    font-size: 10.5px;
-    color: #767676;
-    line-height: 1.7;
-  }
-
+  .contact-line { font-size: 10px; color: #767676; line-height: 1.7; }
   .contact-line a { color: #767676; text-decoration: none; transition: color 0.2s; }
   .contact-line a:hover { color: #141414; }
-  .sep { color: #e0e0e0; margin: 0 8px; }
+  .sep { color: #e0e0e0; margin: 0 7px; }
+  .header-rule { height: 1px; background: #141414; margin-top: 16px; }
 
-  .header-rule {
-    height: 1px;
-    background: #141414;
-    margin-top: 20px;
+  /* About */
+  .about {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
   }
 
+  .about p {
+    font-size: 11px;
+    line-height: 1.65;
+    color: #444;
+  }
+
+  .about p strong { font-weight: 600; color: #141414; }
+
   /* Sections */
-  .section { margin-bottom: 32px; }
+  .section { margin-bottom: 24px; }
 
   .section-label {
     font-size: 9px;
@@ -74,34 +79,28 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #767676;
-    margin-bottom: 18px;
-    padding-bottom: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
     border-bottom: 1px solid #e0e0e0;
   }
 
   /* Experience */
-  .exp { margin-bottom: 24px; }
+  .exp { margin-bottom: 18px; }
   .exp:last-child { margin-bottom: 0; }
 
-  .exp-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 2px;
-  }
-
-  .exp-role { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
+  .exp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1px; }
+  .exp-role { font-size: 12.5px; font-weight: 600; letter-spacing: -0.01em; }
   .exp-date { font-size: 10px; color: #767676; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .exp-meta { font-size: 10px; color: #767676; margin-bottom: 8px; }
+  .exp-meta { font-size: 10px; color: #767676; margin-bottom: 6px; }
 
   .bullets { list-style: none; }
 
   .bullets li {
-    padding-left: 16px;
+    padding-left: 14px;
     position: relative;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     font-size: 10.5px;
-    line-height: 1.6;
+    line-height: 1.55;
     color: #333;
   }
 
@@ -115,37 +114,32 @@
 
   .bullets li strong { font-weight: 600; color: #141414; }
 
-  .tools {
-    margin-top: 6px;
-    font-size: 9.5px;
-    color: #999;
-  }
-
+  .tools { margin-top: 5px; font-size: 9px; color: #999; }
   .tools em {
-    font-style: normal;
-    font-weight: 600;
-    color: #767676;
-    text-transform: uppercase;
-    font-size: 8.5px;
-    letter-spacing: 0.15em;
+    font-style: normal; font-weight: 600; color: #767676;
+    text-transform: uppercase; font-size: 8px; letter-spacing: 0.15em;
   }
 
   /* Education */
-  .edu-row { display: flex; justify-content: space-between; align-items: baseline; }
-  .edu-name { font-size: 11.5px; font-weight: 500; }
+  .edu { margin-bottom: 10px; }
+  .edu:last-child { margin-bottom: 0; }
+  .edu-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-name { font-size: 11px; font-weight: 500; }
   .edu-date { font-size: 10px; color: #767676; font-variant-numeric: tabular-nums; }
+  .edu-detail { font-size: 10px; color: #767676; }
 
   /* Skills */
-  .skills-grid {
+  .skills-cols {
     display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 10px 24px;
-    align-items: baseline;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 32px;
   }
 
-  @media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr; gap: 4px 0; } }
-  .sk-label { font-size: 10.5px; font-weight: 600; color: #141414; }
-  .sk-value { font-size: 10.5px; color: #555; line-height: 1.55; }
+  @media (max-width: 640px) { .skills-cols { grid-template-columns: 1fr; } }
+
+  .sk-group { margin-bottom: 2px; }
+  .sk-label { font-size: 10px; font-weight: 600; color: #141414; margin-bottom: 2px; }
+  .sk-value { font-size: 10px; color: #555; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -163,11 +157,16 @@
         <span class="sep">|</span>
         <a href="https://linkedin.com/in/evertonresende">linkedin.com/in/evertonresende</a>
         <span class="sep">|</span>
-        <a href="https://github.com/evertonresende">github.com/evertonresende</a>
-        <span class="sep">|</span>
         <a href="https://evertonresende.com">evertonresende.com</a>
       </div>
       <div class="header-rule"></div>
+    </div>
+
+    <!-- Apresentação -->
+    <div class="about">
+      <p>
+        <strong>Product Designer com 6 anos de experiência e processo AI-first.</strong> Prototipo produtos com inteligência artificial usando Claude Code, Cursor e outras ferramentas de IA, acelerando cada etapa do design. Trabalho remoto há mais de 4 anos. Disponível para novos desafios.
+      </p>
     </div>
 
     <!-- Experiência -->
@@ -181,13 +180,13 @@
         </div>
         <div class="exp-meta">Remoto · Tempo integral</div>
         <ul class="bullets">
-          <li>Implementação de processo <strong>AI-first</strong> no design de produto para aplicativo bancário mobile publicado na App Store e Google Play</li>
-          <li>Prototipação rápida de produtos com <strong>Claude Code</strong> e <strong>Cursor</strong>, reduzindo o ciclo de iteração</li>
+          <li>Implementação de processo <strong>AI-first</strong> no design de produto para app bancário mobile (App Store e Google Play)</li>
+          <li>Prototipação rápida com <strong>Claude Code</strong> e <strong>Cursor</strong>, reduzindo o ciclo de iteração</li>
           <li>Design de features de IA, fluxos inteligentes, personalização e automação da experiência do usuário</li>
           <li>Automação de fluxos de design com <strong>MCP (Model Context Protocol)</strong>, conectando IA ao pipeline de produto</li>
-          <li><strong>A/B testing e feature flags</strong> com Statsig, com decisões de design validadas com usuários reais</li>
+          <li><strong>A/B testing e feature flags</strong> com Statsig, decisões de design validadas com usuários reais</li>
           <li>Criação de <strong>design system escalável</strong> com tokens e componentes reutilizáveis</li>
-          <li>Monitoramento da experiência com <strong>Sentry</strong>, análise de jornadas e identificação de oportunidades de melhoria</li>
+          <li>Monitoramento da experiência com Sentry, análise de jornadas e oportunidades de melhoria</li>
         </ul>
         <div class="tools"><em>Ferramentas</em> Figma, Claude Code, Cursor, MCP, Statsig, Sentry</div>
       </div>
@@ -203,7 +202,7 @@
           <li><strong>Discovery e pesquisa</strong> com usuários, entrevistas, testes de usabilidade e mapeamento de jornadas</li>
           <li>Prototipação de alta fidelidade e validação rápida com stakeholders</li>
           <li>Definição de requisitos, fluxos e especificações para engenharia</li>
-          <li>Reconhecido mais de <strong>10 vezes</strong> no programa <strong>"Softplayer A+"</strong> pelo impacto nas entregas de produto</li>
+          <li>Reconhecido <strong>10 vezes</strong> no programa <strong>"Softplayer A+"</strong> pelo impacto nas entregas</li>
         </ul>
         <div class="tools"><em>Ferramentas</em> Figma, Mixpanel</div>
       </div>
@@ -226,30 +225,48 @@
     <!-- Formação -->
     <div class="section">
       <div class="section-label">Formação</div>
-      <div class="edu-row">
-        <span class="edu-name">Sistemas de Informação (incompleto) — FAPAM</span>
-        <span class="edu-date">Nov 2018 — Dez 2020</span>
+
+      <div class="edu">
+        <div class="edu-top">
+          <span class="edu-name">Design Circuit</span>
+          <span class="edu-date">Out 2021 — Out 2022</span>
+        </div>
+        <div class="edu-detail">UX Design, Tecnologia da Informação</div>
+      </div>
+
+      <div class="edu">
+        <div class="edu-top">
+          <span class="edu-name">Faculdade de Pará de Minas — FAPAM</span>
+          <span class="edu-date">Nov 2018 — Dez 2020</span>
+        </div>
+        <div class="edu-detail">Graduação (Incompleta), Sistemas de Informação</div>
       </div>
     </div>
 
     <!-- Competências -->
     <div class="section">
       <div class="section-label">Competências</div>
-      <div class="skills-grid">
-        <span class="sk-label">AI & Produto</span>
-        <span class="sk-value">Design AI-first, Prompt Engineering, MCP, Claude Code, Cursor, Feature Flags, A/B Testing, Prototipação com IA</span>
-
-        <span class="sk-label">Design</span>
-        <span class="sk-value">Figma, Design Systems, Tokens, Prototipação de Alta Fidelidade, UI/UX, Wireframes, User Research</span>
-
-        <span class="sk-label">Discovery</span>
-        <span class="sk-value">Pesquisa com Usuários, Entrevistas, Testes de Usabilidade, Mapeamento de Jornadas, Validação de Hipóteses</span>
-
-        <span class="sk-label">Analytics</span>
-        <span class="sk-value">Mixpanel, Statsig, Sentry, Product Analytics, Análise de Jornadas</span>
-
-        <span class="sk-label">Técnico</span>
-        <span class="sk-value">React Native, TypeScript, Expo, Next.js, Tailwind CSS, PostgreSQL, Cloudflare Workers</span>
+      <div class="skills-cols">
+        <div class="sk-group">
+          <div class="sk-label">Design</div>
+          <div class="sk-value">Figma, Design Systems, Tokens, Prototipação de Alta Fidelidade, UI/UX, Wireframes, Componentes Reutilizáveis</div>
+        </div>
+        <div class="sk-group">
+          <div class="sk-label">AI & Ferramentas</div>
+          <div class="sk-value">Claude Code, Cursor, MCP, Prompt Engineering, Prototipação com IA, Automação de Fluxos</div>
+        </div>
+        <div class="sk-group">
+          <div class="sk-label">Pesquisa & Produto</div>
+          <div class="sk-value">Discovery, Entrevistas, Testes de Usabilidade, Mapeamento de Jornadas, A/B Testing, Feature Flags</div>
+        </div>
+        <div class="sk-group">
+          <div class="sk-label">Analytics</div>
+          <div class="sk-value">Mixpanel, Statsig, Sentry, Product Analytics</div>
+        </div>
+        <div class="sk-group">
+          <div class="sk-label">Técnico</div>
+          <div class="sk-value">React Native, TypeScript, Next.js, Tailwind CSS, PostgreSQL, Cloudflare Workers</div>
+        </div>
       </div>
     </div>
 
