@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo — Everton Resende</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #141414;
+    background: #fafafa;
+    font-size: 10.5px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 56px 40px;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 32px 24px; }
+  }
+
+  /* --- Header --- */
+  .header { margin-bottom: 40px; }
+
+  .name {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: #141414;
+    margin-bottom: 8px;
+  }
+
+  .title-role {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #141414;
+    margin-bottom: 14px;
+  }
+
+  .contact-line {
+    font-size: 10.5px;
+    color: #767676;
+    line-height: 1.7;
+  }
+
+  .contact-line a {
+    color: #767676;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-line a:hover { color: #141414; }
+
+  .sep { color: #e0e0e0; margin: 0 8px; }
+
+  .header-rule {
+    height: 1px;
+    background: #141414;
+    margin-top: 20px;
+  }
+
+  /* --- Section --- */
+  .section { margin-bottom: 32px; }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #767676;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  /* --- Experience --- */
+  .exp { margin-bottom: 24px; }
+  .exp:last-child { margin-bottom: 0; }
+
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .exp-role {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .exp-date {
+    font-size: 10px;
+    color: #767676;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .exp-meta {
+    font-size: 10px;
+    color: #767676;
+    margin-bottom: 8px;
+  }
+
+  .bullets { list-style: none; }
+
+  .bullets li {
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 4px;
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #c0c0c0;
+    font-weight: 300;
+  }
+
+  .bullets li strong {
+    font-weight: 600;
+    color: #141414;
+  }
+
+  .stack {
+    margin-top: 6px;
+    font-size: 9.5px;
+    color: #999;
+  }
+
+  .stack em {
+    font-style: normal;
+    font-weight: 600;
+    color: #767676;
+    text-transform: uppercase;
+    font-size: 8.5px;
+    letter-spacing: 0.15em;
+  }
+
+  /* --- Education --- */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .edu-name { font-size: 11.5px; font-weight: 500; }
+  .edu-date { font-size: 10px; color: #767676; font-variant-numeric: tabular-nums; }
+
+  /* --- Skills --- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 10px 24px;
+    align-items: baseline;
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid { grid-template-columns: 1fr; gap: 4px 0; }
+  }
+
+  .sk-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #141414;
+  }
+
+  .sk-value {
+    font-size: 10.5px;
+    color: #555;
+    line-height: 1.55;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="header">
+      <div class="name">EVERTON RESENDE</div>
+      <div class="title-role">AI Product Designer</div>
+      <div class="contact-line">
+        Pará de Minas, MG
+        <span class="sep">|</span>
+        <a href="mailto:everton.augustor@gmail.com">everton.augustor@gmail.com</a>
+        <span class="sep">|</span>
+        <a href="https://wa.me/5537999133556">(37) 99913-3556</a>
+        <span class="sep">|</span>
+        <a href="https://linkedin.com/in/evertonresende">linkedin.com/in/evertonresende</a>
+        <span class="sep">|</span>
+        <a href="https://github.com/evertonresende">github.com/evertonresende</a>
+        <span class="sep">|</span>
+        <a href="https://evertonresende.com">evertonresende.com</a>
+      </div>
+      <div class="header-rule"></div>
+    </div>
+
+    <!-- Experiência -->
+    <div class="section">
+      <div class="section-label">Experiência Profissional</div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <span class="exp-role">AI Product Designer — SAT Bank</span>
+          <span class="exp-date">Out 2024 — Presente</span>
+        </div>
+        <div class="exp-meta">Remoto</div>
+        <ul class="bullets">
+          <li>Desenho de produto e integração de <strong>LLMs (OpenAI, Anthropic, Gemini)</strong> em fluxos bancários com servidores <strong>MCP</strong> para automação de processos internos</li>
+          <li>Discovery técnico e validação de hipóteses com <strong>feature flags e A/B testing</strong> via Statsig, permitindo releases progressivos e decisões baseadas em dados reais</li>
+          <li>Prototipagem funcional com <strong>React Native + Expo SDK 54</strong> — app em produção na App Store e Google Play</li>
+          <li>Pipeline <strong>CI/CD GitHub Actions</strong> com 6 build profiles EAS, OTA Updates segmentados e monitoramento Sentry com 100% trace sampling</li>
+          <li>Construção de serviço de autenticação com <strong>Cloudflare Workers, Hono, JWT refresh rotation, 2FA</strong></li>
+          <li>Painel admin <strong>Next.js 15</strong> com <strong>RBAC (14+ permissões)</strong> para gestão de operações internas</li>
+        </ul>
+        <div class="stack"><em>Stack</em> TypeScript, React Native, Expo, Statsig, Sentry, GitHub Actions, Cloudflare Workers, Hono, Next.js, OpenAI SDK, Anthropic SDK</div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <span class="exp-role">Product Owner & Builder — Independente</span>
+          <span class="exp-date">2022 — Presente</span>
+        </div>
+        <div class="exp-meta">Remoto</div>
+        <ul class="bullets">
+          <li>Concepção, design e entrega solo de <strong>SaaS multi-tenant</strong> para gestão clínica: agenda, financeiro, CRM, estoque e integração WhatsApp — <strong>250k+ LOC</strong>, 91 PRs</li>
+          <li>Arquitetura com <strong>Row Level Security</strong> no PostgreSQL, 28 migrations e 8 Edge Functions serverless</li>
+          <li>~100 custom hooks com <strong>TanStack Query</strong> para estado server-side com cache inteligente e sincronização otimista</li>
+        </ul>
+        <div class="stack"><em>Stack</em> TypeScript, React, Next.js, PostgreSQL (RLS, Realtime), TanStack Query, Tailwind CSS, shadcn/ui</div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <span class="exp-role">Product Designer (Mobile) — Softplan</span>
+          <span class="exp-date">Nov 2021 — Nov 2024</span>
+        </div>
+        <div class="exp-meta">Remoto · Maior legal tech da América Latina, 8.000+ colaboradores</div>
+        <ul class="bullets">
+          <li>Discovery e validação de hipóteses de produto no setor público/jurídico com <strong>protótipos funcionais</strong> (código real)</li>
+          <li>Construção de apps end-to-end com <strong>React Native e Firebase</strong> publicados na App Store e Google Play</li>
+          <li>Aceleração do ciclo de feedback com stakeholders — código funcional em vez de wireframes estáticos</li>
+        </ul>
+        <div class="stack"><em>Stack</em> React Native, Firebase, TypeScript, Figma, metodologias ágeis</div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <span class="exp-role">Full-Stack Developer — FAPAM</span>
+          <span class="exp-date">Nov 2018 — Out 2021</span>
+        </div>
+        <div class="exp-meta">Pará de Minas, MG</div>
+        <ul class="bullets">
+          <li>Reconstrução do portal institucional e sustentação do Portal do Aluno com <strong>React.js</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formação -->
+    <div class="section">
+      <div class="section-label">Formação</div>
+      <div class="edu-row">
+        <span class="edu-name">Sistemas de Informação (incompleto) — FAPAM</span>
+        <span class="edu-date">Nov 2018 — Dez 2020</span>
+      </div>
+    </div>
+
+    <!-- Competências -->
+    <div class="section">
+      <div class="section-label">Competências</div>
+      <div class="skills-grid">
+        <span class="sk-label">AI / LLMs</span>
+        <span class="sk-value">OpenAI SDK, Anthropic SDK, Google Gemini SDK, MCP (Model Context Protocol), LangChain, Prompt Engineering</span>
+
+        <span class="sk-label">Product</span>
+        <span class="sk-value">Discovery, Validação com Usuários, Feature Flags, A/B Testing, Prototipagem Funcional, Design Systems</span>
+
+        <span class="sk-label">Mobile</span>
+        <span class="sk-value">React Native, Expo SDK 54, EAS Build/Submit, OTA Updates, Statsig, Sentry</span>
+
+        <span class="sk-label">Frontend</span>
+        <span class="sk-value">React, Next.js 15, TypeScript, Tailwind CSS, TanStack Query, shadcn/ui</span>
+
+        <span class="sk-label">Backend</span>
+        <span class="sk-value">Node.js, Cloudflare Workers, Hono, Edge Functions, Firebase, REST APIs</span>
+
+        <span class="sk-label">Banco de Dados</span>
+        <span class="sk-value">PostgreSQL (RLS, Realtime), Drizzle ORM, Neon</span>
+
+        <span class="sk-label">DevOps</span>
+        <span class="sk-value">GitHub Actions, CI/CD, EAS Build, Docker</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

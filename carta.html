@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta de Apresentação — Everton Resende</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #141414;
+    background: #fafafa;
+    font-size: 11.5px;
+    line-height: 1.75;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 56px 40px;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 32px 24px; }
+  }
+
+  /* --- Header --- */
+  .header { margin-bottom: 48px; }
+
+  .name {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: #141414;
+    margin-bottom: 14px;
+  }
+
+  .contact-line {
+    font-size: 10.5px;
+    color: #767676;
+    line-height: 1.7;
+  }
+
+  .contact-line a {
+    color: #767676;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-line a:hover { color: #141414; }
+
+  .sep { color: #e0e0e0; margin: 0 8px; }
+
+  .header-rule {
+    height: 1px;
+    background: #141414;
+    margin-top: 20px;
+  }
+
+  /* --- Date --- */
+  .date {
+    text-align: right;
+    font-size: 10.5px;
+    color: #767676;
+    margin-bottom: 44px;
+    letter-spacing: 0.02em;
+  }
+
+  /* --- Letter --- */
+  .greeting {
+    font-size: 13px;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .body p {
+    font-size: 11.5px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 18px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .body p strong {
+    font-weight: 600;
+    color: #141414;
+  }
+
+  /* --- Signature --- */
+  .signature { margin-top: 40px; }
+
+  .closing {
+    font-size: 11.5px;
+    color: #767676;
+    margin-bottom: 28px;
+  }
+
+  .sig-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #141414;
+    letter-spacing: -0.01em;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="header">
+      <div class="name">EVERTON RESENDE</div>
+      <div class="contact-line">
+        Pará de Minas, MG
+        <span class="sep">|</span>
+        <a href="mailto:everton.augustor@gmail.com">everton.augustor@gmail.com</a>
+        <span class="sep">|</span>
+        <a href="https://wa.me/5537999133556">(37) 99913-3556</a>
+        <span class="sep">|</span>
+        <a href="https://linkedin.com/in/evertonresende">linkedin.com/in/evertonresende</a>
+        <span class="sep">|</span>
+        <a href="https://evertonresende.com">evertonresende.com</a>
+      </div>
+      <div class="header-rule"></div>
+    </div>
+
+    <div class="date">9 de março de 2026</div>
+
+    <div class="greeting">Prezada equipe de recrutamento,</div>
+
+    <div class="body">
+      <p>
+        Sou AI Product Designer com background técnico profundo — desenho produtos que usam IA de forma inteligente e prototipo com código real para validar hipóteses antes de escalar. Acredito poder contribuir de forma significativa desde o primeiro dia.
+      </p>
+
+      <p>
+        Atualmente atuo na <strong>SAT Bank</strong>, onde integrei <strong>LLMs (OpenAI, Anthropic, Gemini)</strong> em fluxos bancários com servidores MCP para automação de processos. Conduzo discovery técnico, valido hipóteses com <strong>feature flags e A/B testing</strong> via Statsig, e prototipo com React Native em produção na App Store e Google Play. Meu diferencial é traduzir problemas de negócio em soluções de produto com IA — não apenas consumir APIs, mas desenhar a experiência inteira.
+      </p>
+
+      <p>
+        Na <strong>Softplan</strong> (8.000+ colaboradores, maior legal tech da América Latina), passei três anos no time de produto construindo protótipos funcionais para o setor público. Essa experiência me deu uma vantagem rara: entendo o problema do usuário antes de escrever a primeira linha de código — faço discovery, valido hipóteses e só então construo.
+      </p>
+
+      <p>
+        Como builder independente, entreguei um <strong>SaaS multi-tenant</strong> de gestão clínica com <strong>250k+ linhas de TypeScript</strong> — solo, com 91 PRs e arquitetura com Row Level Security no PostgreSQL. Demonstra minha capacidade de ir da concepção ao produto final, cobrindo design, engenharia, IA e infraestrutura.
+      </p>
+
+      <p>
+        Disponível para início imediato, trabalho remoto há mais de quatro anos com total flexibilidade de horário. Seria um prazer discutir como posso contribuir para os desafios da equipe.
+      </p>
+    </div>
+
+    <div class="signature">
+      <div class="closing">Atenciosamente,</div>
+      <div class="sig-name">Everton Resende</div>
+    </div>
+
+  </div>
+</body>
+</html>
