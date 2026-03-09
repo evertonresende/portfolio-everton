@@ -1,13 +1,13 @@
 import { Navigation } from "./components/nav";
 import { ScrollReveal } from "./components/scroll-reveal";
 
-const companies = ["SAT Bank", "Softplan", "FAPAM"];
+const companies = ["SAT Bank", "Softplan", "FAPAM", "Projeto Independente"];
 
 const beliefs = [
-  "IA é ferramenta, não mágica — o valor está no problema certo",
-  "Protótipos com código real validam mais que wireframes",
-  "Produtos bons nascem de quem entende design e engenharia",
-  "Simplicidade é a sofisticação definitiva",
+  "IA é ferramenta, não mágica — o valor está no problema certo.",
+  "Protótipos com código real validam mais rápido que wireframes.",
+  "Produtos excelentes nascem de quem entende design e engenharia em profundidade.",
+  "Simplicidade é a sofisticação definitiva."
 ];
 
 const projects = [
@@ -15,91 +15,49 @@ const projects = [
     id: 1,
     title: "Integrando IA em fluxos bancários para reduzir fricção operacional",
     company: "SAT Bank",
-    context: "App bancário React Native publicado na App Store e Google Play. Integrei LLMs via OpenAI e Anthropic para automatizar processos internos com servidores MCP.",
+    context: "App bancário React Native. Integrei LLMs via OpenAI e Anthropic para automatizar processos internos com servidores MCP.",
     role: "AI Product Designer",
-    result: "Feature flags com Statsig permitiram releases progressivos e validação com usuários reais antes de escalar.",
+    result: "Feature flags permitiram releases progressivos e validação com usuários reais antes de escalar.",
     year: "2024",
-    gradient: "linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%)",
   },
   {
     id: 2,
     title: "SaaS clínico end-to-end para gestão de consultórios",
-    company: "Projeto independente",
-    context: "Sistema multi-tenant com agenda, financeiro, CRM, estoque e integração WhatsApp — entregue solo com 250k+ linhas de código e 91 PRs.",
+    company: "Independente",
+    context: "Sistema multi-tenant com agenda, financeiro, CRM, estoque e integração WhatsApp — entregue solo.",
     role: "Product Owner & Builder",
-    result: "Arquitetura com Row Level Security no PostgreSQL garantiu isolamento total entre clínicas desde o dia 1.",
-    year: "2022–presente",
-    gradient: "linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%)",
+    result: "Arquitetura com RLS no PostgreSQL garantiu isolamento total entre clínicas desde o dia 1. (250k+ LOC)",
+    year: "2022—24",
   },
   {
     id: 3,
-    title: "Validando hipóteses de produto com protótipos funcionais no setor jurídico",
+    title: "Validando hipóteses de produto com protótipos funcionais",
     company: "Softplan",
-    context: "Na maior legal tech da América Latina (8k+ colaboradores), construí protótipos com código real para validar fluxos com stakeholders e usuários finais.",
+    context: "Na maior legal tech da América Latina (8k+ cols), construí protótipos com código para validar fluxos complexos.",
     role: "Product Designer (Mobile)",
-    result: "Ciclo de feedback acelerado — código real em vez de wireframes permitiu decisões mais rápidas com evidência concreta.",
-    year: "2021–2024",
-    gradient: "linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 100%)",
+    result: "Feedback acelerado — código real em vez de wireframes permitiu decisões baseadas em evidência concreta.",
+    year: "2021—24",
   },
 ];
 
 const expertise = [
-  "Integração de LLMs em produtos",
-  "Discovery e validação com usuários",
-  "Prototipagem funcional com código",
-  "Design de interfaces mobile",
-  "Testes A/B e feature flags",
-  "Stakeholder management",
-  "Handoff colaborativo com devs",
-  "Design systems",
-];
-
-const highlights = [
-  { icon: "rocket", text: "Apps publicados na App Store e Google Play" },
-  { icon: "code", text: "250k+ linhas de código entregues solo" },
-  { icon: "building", text: "Softplan — maior legal tech da América Latina" },
-  { icon: "brain", text: "Integração multi-modelo: OpenAI, Anthropic, Gemini" },
-  { icon: "users", text: "Experiência em times de produto de 8k+ pessoas" },
-  { icon: "zap", text: "Fundador de SaaS multi-tenant em produção" },
+  "Integração de LLMs em Produtos",
+  "Discovery e Validação com Usuários",
+  "Prototipagem Funcional (Código Real)",
+  "Design de Interfaces e Design Systems",
+  "Testes A/B e Feature Flags",
+  "Handoff Colaborativo e Engenharia"
 ];
 
 const timeline = [
-  { period: "2024–presente", role: "AI Product Designer", company: "SAT Bank" },
-  { period: "2022–presente", role: "Product Owner & Builder", company: "Independente" },
-  { period: "2021–2024", role: "Product Designer (Mobile)", company: "Softplan" },
-  { period: "2018–2021", role: "Full-Stack Developer", company: "FAPAM" },
+  { period: "2024 — Presente", role: "AI Product Designer", company: "SAT Bank" },
+  { period: "2022 — Presente", role: "Product Owner & Builder", company: "Independente" },
+  { period: "2021 — 2024", role: "Product Designer", company: "Softplan" },
+  { period: "2018 — 2021", role: "Full-Stack Developer", company: "FAPAM" },
 ];
 
-const iconMap: Record<string, string> = {
-  rocket: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0 M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5",
-  code: "m18 16 4-4-4-4 M6 8l-4 4 4 4 M14.5 4l-5 16",
-  building: "M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2 M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2 M10 6h4 M10 10h4 M10 14h4 M10 18h4",
-  brain: "M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z M12 5v13 M6.399 8l5.6 3.6 M17.6 8l-5.6 3.6",
-  users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
-  zap: "M13 2 3 14h9l-1 10 10-12h-9l1-10z",
-};
-
-function Icon({ name, className = "" }: { name: string; className?: string }) {
-  const path = iconMap[name];
-  if (!path) return null;
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      {path.split(" M").map((d, i) => (
-        <path key={i} d={i === 0 ? d : `M${d}`} />
-      ))}
-    </svg>
-  );
+function padIndex(n: number): string {
+  return String(n).padStart(2, "0");
 }
 
 export default function HomePage() {
@@ -108,68 +66,88 @@ export default function HomePage() {
       <Navigation />
 
       <main>
-        {/* Hero */}
-        <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-20 px-6 sm:px-8 overflow-hidden">
-          <div className="max-w-[1200px] mx-auto relative">
-            <div className="flex items-start gap-5 sm:gap-6 mb-8 animate-fade-in-up">
-              {/* Avatar */}
-              <div className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-foreground flex items-center justify-center overflow-hidden">
-                <img
-                  src="/avatar.png"
-                  alt="Everton Resende"
-                  width={48}
-                  height={48}
-                  className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
-                />
+        {/* Hero Section */}
+        <section className="relative pt-40 pb-28 sm:pt-56 sm:pb-36 px-6 sm:px-8">
+          <div className="max-w-[1200px] mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+              {/* Left Column */}
+              <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-center">
+                <div className="animate-fade-in-up">
+                  <h1 className="text-[clamp(3.5rem,8vw,7.5rem)] font-light tracking-[-0.04em] leading-[0.88] text-foreground">
+                    AI Product
+                    <br />
+                    Designer.
+                  </h1>
+                </div>
+
+                <div className="mt-12 sm:mt-16 max-w-xl animate-fade-in-up delay-1">
+                  <p className="text-xl sm:text-[22px] font-medium tracking-[-0.01em] text-foreground leading-snug">
+                    Desenho produtos que usam IA de forma inteligente.
+                  </p>
+                  <p className="text-base text-muted-foreground leading-relaxed mt-5">
+                    Meu diferencial é o background técnico — prototipar com código
+                    real, falar a língua da engenharia e validar hipóteses de produto antes de escalar.
+                    Baseado em Pará de Minas, Brasil.
+                  </p>
+                </div>
+
+                <div className="mt-14 flex items-center gap-10 animate-fade-in-up delay-2">
+                  <a href="#work" className="swiss-label link-underline pb-0.5">
+                    Explorar Projetos
+                  </a>
+                  <a href="#contact" className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200">
+                    Contato
+                  </a>
+                </div>
               </div>
-              <div>
-                <p className="text-lg sm:text-xl text-muted-foreground">
-                  Oi, eu sou o Everton
-                  <span className="inline-block ml-2 animate-[wave_1.5s_ease-in-out_infinite]">
-                    👋
-                  </span>
-                </p>
-                <p className="text-sm text-muted-foreground/50 mt-0.5">
-                  Pará de Minas, MG
-                </p>
+
+              {/* Right Column: Photo + Labels */}
+              <div className="lg:col-span-5 xl:col-span-4 w-full animate-fade-in-up delay-2 relative group/photo">
+                <div className="aspect-[3/4] w-full max-w-[400px] mx-auto lg:ml-auto relative overflow-visible">
+                  <div className="absolute inset-0 overflow-hidden">
+                    <img
+                      src="/evertonresende.png"
+                      alt="Everton Resende"
+                      className="absolute inset-0 w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+
+                  {/* Minimal Labels — No shadow, no rotation, grid-aligned */}
+                  <div className="absolute top-6 -left-4 sm:-left-8 z-20 animate-fade-in-up delay-stagger-1">
+                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
+                      01 — Ferramenta, não mágica
+                    </div>
+                  </div>
+
+                  <div className="absolute top-1/4 -right-4 sm:-right-10 z-20 animate-fade-in-up delay-stagger-2">
+                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
+                      02 — Código real {">"} Wireframes
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-1/3 -left-4 sm:-left-12 z-20 animate-fade-in-up delay-stagger-3">
+                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
+                      03 — Design + Engenharia
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-10 -right-4 sm:-right-6 z-20 animate-fade-in-up delay-stagger-4">
+                    <div className="bg-background border border-border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground whitespace-nowrap">
+                      04 — Simplicidade é sofisticação
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-normal tracking-[-0.02em] leading-[1] text-foreground animate-fade-in-up delay-1">
-              AI Product Designer
-            </h1>
-            <div className="mt-6 sm:mt-8 max-w-xl animate-fade-in-up delay-2">
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Desenho produtos que usam IA de forma inteligente.
-                Meu diferencial é o background técnico — prototipar com código
-                real, falar a língua da engenharia e validar antes de escalar.
-              </p>
-            </div>
-            <div className="mt-8 flex items-center gap-6 animate-fade-in-up delay-3">
-              <a
-                href="#work"
-                className="text-sm font-medium text-foreground link-underline"
-              >
-                Ver projetos
-              </a>
-              <a
-                href="#contact"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Entrar em contato
-              </a>
             </div>
 
-            {/* Company logos */}
-            <div className="mt-14 sm:mt-16 pt-8 border-t border-border/40 animate-fade-in-up delay-4">
-              <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted-foreground/50 mb-4">
-                Empresas onde atuei
+            {/* Companies */}
+            <div className="mt-32 pt-8 border-t border-border animate-fade-in-up delay-3">
+              <p className="swiss-label text-muted-foreground mb-8">
+                Experiência & Colaborações
               </p>
-              <div className="flex items-center gap-8 sm:gap-12">
+              <div className="flex flex-wrap items-center gap-x-14 gap-y-4">
                 {companies.map((company) => (
-                  <span
-                    key={company}
-                    className="text-sm sm:text-base font-medium text-muted-foreground/40 tracking-tight"
-                  >
+                  <span key={company} className="text-base font-medium text-foreground/70 tracking-[-0.01em] hover:text-foreground transition-colors duration-200">
                     {company}
                   </span>
                 ))}
@@ -178,71 +156,92 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Beliefs — statements assertivos */}
-        <section className="py-20 sm:py-28 px-6 sm:px-8 border-y border-border/40 bg-card">
-          <div className="max-w-[900px] mx-auto">
-            <div className="flex flex-col gap-8 sm:gap-10">
+        {/* Beliefs / Manifesto */}
+        <section className="py-32 sm:py-44 px-6 sm:px-8 bg-[#141414] text-[#fafafa]">
+          <div className="max-w-[1000px] mx-auto">
+            <ScrollReveal>
+              <p className="swiss-label text-[#fafafa]/30 mb-20">
+                Princípios
+              </p>
+            </ScrollReveal>
+
+            <div className="flex flex-col">
               {beliefs.map((belief, index) => (
-                <ScrollReveal key={index} delay={index * 0.1}>
-                  <p className="font-display text-xl sm:text-2xl lg:text-[1.75rem] font-normal text-foreground/80 leading-snug text-center">
-                    {belief}
-                  </p>
+                <ScrollReveal key={index} delay={index * 0.08}>
+                  <div className={index > 0 ? "pt-12 sm:pt-16" : ""}>
+                    {index > 0 && <div className="divider-light mb-12 sm:mb-16" />}
+                    <div className="flex gap-6 sm:gap-10 items-baseline">
+                      <span className="index-number text-[#fafafa]/25 shrink-0">
+                        {padIndex(index + 1)}
+                      </span>
+                      <p className="text-2xl sm:text-3xl lg:text-[2.5rem] font-light tracking-[-0.02em] text-[#fafafa]/80 leading-tight">
+                        {belief}
+                      </p>
+                    </div>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Work */}
-        <section id="work" className="py-20 sm:py-28 px-6 sm:px-8">
+        {/* Work / Projects */}
+        <section id="work" className="py-32 sm:py-40 px-6 sm:px-8">
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
-              <div className="mb-12 sm:mb-16">
-                <h2 className="font-display text-2xl sm:text-3xl font-normal tracking-tight">
-                  Projetos
+              <div className="mb-20 sm:mb-28 flex items-baseline justify-between border-b border-border pb-6">
+                <h2 className="text-4xl sm:text-5xl font-light tracking-[-0.03em]">
+                  Trabalho Selecionado
                 </h2>
+                <span className="swiss-label text-muted-foreground hidden sm:block">
+                  2021 — {new Date().getFullYear()}
+                </span>
               </div>
             </ScrollReveal>
-            <div className="space-y-8 sm:space-y-12">
+
+            <div className="flex flex-col">
               {projects.map((project, index) => (
-                <ScrollReveal key={project.id} delay={index * 0.08}>
-                  <article className="project-card group rounded-xl overflow-hidden border border-border/40 bg-card cursor-pointer">
-                    <div className="grid md:grid-cols-[1fr,1.2fr] gap-0">
-                      <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
-                        <div
-                          className="absolute inset-0 project-image-wrapper"
-                          style={{ background: project.gradient }}
-                        />
-                        <span className="card-number absolute bottom-4 right-5 text-8xl sm:text-9xl font-medium text-black leading-none select-none z-10">
-                          {String(project.id).padStart(2, "0")}
+                <ScrollReveal key={project.id}>
+                  <article className="project-row group border-b border-border cursor-pointer">
+                    <div className="py-10 sm:py-14 pl-4 grid grid-cols-1 lg:grid-cols-[auto,1fr,2fr,auto] gap-6 lg:gap-12 items-baseline">
+                      {/* Index */}
+                      <span className="index-number hidden lg:block pt-1">
+                        {padIndex(index + 1)}
+                      </span>
+
+                      {/* Meta */}
+                      <div className="flex flex-col gap-1.5">
+                        <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-foreground">
+                          {project.company}
+                        </span>
+                        <span className="text-sm text-muted-foreground tabular-nums">
+                          {project.year}
                         </span>
                       </div>
-                      <div className="p-6 sm:p-8 flex flex-col justify-between">
-                        <div>
-                          <div className="flex items-center gap-2 mb-4">
-                            <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground/50">
-                              {project.company}
-                            </span>
-                            <span className="text-muted-foreground/30">·</span>
-                            <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground/50">
-                              {project.year}
-                            </span>
-                          </div>
-                          <h3 className="font-display font-normal text-lg sm:text-xl text-card-foreground leading-snug mb-4">
-                            {project.title}
-                          </h3>
-                          <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
-                            {project.context}
+
+                      {/* Content */}
+                      <div>
+                        <h3 className="text-xl sm:text-[22px] font-medium tracking-[-0.01em] leading-snug mb-4 group-hover:translate-x-1 transition-transform duration-200">
+                          {project.title}
+                        </h3>
+                        <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
+                          {project.context}
+                        </p>
+                        <div className="flex flex-col gap-1">
+                          <p className="text-sm font-medium text-foreground">
+                            {project.role}
                           </p>
-                        </div>
-                        <div className="pt-4 border-t border-border/30 space-y-2">
-                          <p className="text-[12px] font-medium tracking-[0.05em] uppercase text-muted-foreground/50">
-                            Meu papel: {project.role}
-                          </p>
-                          <p className="text-[13px] text-muted-foreground leading-relaxed">
+                          <p className="text-sm text-muted-foreground">
                             {project.result}
                           </p>
                         </div>
+                      </div>
+
+                      {/* Arrow */}
+                      <div className="hidden lg:flex items-start pt-1">
+                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-0 group-hover:translate-x-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
                       </div>
                     </div>
                   </article>
@@ -252,156 +251,111 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* About */}
-        <section id="about" className="py-20 sm:py-28 px-6 sm:px-8 bg-card border-y border-border/40">
+        {/* About / Expertise */}
+        <section id="about" className="py-32 sm:py-40 px-6 sm:px-8 border-t border-border">
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
-              <h2 className="font-display text-2xl sm:text-3xl font-normal tracking-tight mb-12 sm:mb-16">
-                Sobre
+              <h2 className="text-4xl sm:text-5xl font-light tracking-[-0.03em] mb-20 sm:mb-28">
+                Sobre & Expertise
               </h2>
             </ScrollReveal>
 
-            {/* Expertise + Highlights — 2 colunas (ref: Apparicio) */}
-            <div className="grid md:grid-cols-2 gap-12 sm:gap-16 mb-16 sm:mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 sm:gap-16 md:divide-x md:divide-border">
               <ScrollReveal>
-                <div>
-                  <h3 className="text-sm font-medium tracking-[0.1em] uppercase text-muted-foreground mb-6">
-                    Expertise
-                  </h3>
-                  <ul className="space-y-3">
+                <div className="md:pr-16">
+                  <p className="swiss-label text-muted-foreground mb-10 pb-4 border-b border-border">
+                    Áreas de Foco
+                  </p>
+                  <ul className="flex flex-col gap-4">
                     {expertise.map((item) => (
-                      <li
-                        key={item}
-                        className="text-[14px] text-foreground/80 flex items-center gap-3"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-muted-foreground/30 shrink-0" />
-                        {item}
+                      <li key={item} className="flex items-baseline gap-3 text-[15px] font-medium text-foreground tracking-[-0.01em] group/item">
+                        <span className="text-muted-foreground text-xs shrink-0">—</span>
+                        <span className="group-hover/item:translate-x-1 transition-transform duration-200">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </ScrollReveal>
+
               <ScrollReveal delay={0.1}>
-                <div>
-                  <h3 className="text-sm font-medium tracking-[0.1em] uppercase text-muted-foreground mb-6">
-                    Destaques
-                  </h3>
-                  <ul className="space-y-4">
-                    {highlights.map((item) => (
-                      <li
-                        key={item.text}
-                        className="flex items-start gap-3"
-                      >
-                        <Icon
-                          name={item.icon}
-                          className="text-muted-foreground/40 mt-0.5 shrink-0"
-                        />
-                        <span className="text-[14px] text-foreground/80 leading-snug">
-                          {item.text}
-                        </span>
-                      </li>
+                <div className="md:pl-16">
+                  <p className="swiss-label text-muted-foreground mb-10 pb-4 border-b border-border">
+                    Trajetória
+                  </p>
+                  <div className="flex flex-col gap-6">
+                    {timeline.map((item, index) => (
+                      <div key={item.company} className="flex items-baseline gap-4">
+                        <span className="index-number shrink-0">{padIndex(index + 1)}</span>
+                        <div className="flex flex-col gap-0.5">
+                          <span className="text-[15px] font-medium text-foreground">
+                            {item.role}
+                          </span>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <span>{item.company}</span>
+                            <span className="text-border">|</span>
+                            <span className="tabular-nums text-xs tracking-wide">{item.period}</span>
+                          </div>
+                        </div>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </ScrollReveal>
             </div>
-
-            {/* Timeline */}
-            <ScrollReveal>
-              <div>
-                <h3 className="text-sm font-medium tracking-[0.1em] uppercase text-muted-foreground mb-6">
-                  Trajetória
-                </h3>
-                <div className="space-y-4">
-                  {timeline.map((item) => (
-                    <div
-                      key={item.company}
-                      className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-0"
-                    >
-                      <span className="text-[13px] text-muted-foreground/50 sm:w-36 shrink-0">
-                        {item.period}
-                      </span>
-                      <span className="text-[14px] text-foreground font-medium">
-                        {item.role}
-                        <span className="text-muted-foreground font-normal">
-                          {" "}— {item.company}
-                        </span>
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
         </section>
       </main>
 
       {/* Footer / Contact */}
-      <footer id="contact" className="py-20 sm:py-28 px-6 sm:px-8">
+      <footer id="contact" className="py-32 sm:py-48 px-6 sm:px-8 bg-[#141414] text-[#fafafa]">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
-            <p className="font-serif italic text-2xl sm:text-3xl text-foreground/70 max-w-lg leading-snug mb-3">
-              Vamos conversar sobre design, IA, ou qualquer ideia maluca que
-              você queira tirar do papel?
-            </p>
-            <p className="text-muted-foreground/50 text-sm mb-12">
-              Sempre aberto a novos projetos e parcerias.
+            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-light tracking-[-0.03em] leading-[0.92] mb-8">
+              Vamos construir
+              <br />
+              algo excelente.
+            </h2>
+            <p className="text-lg text-[#fafafa]/40 max-w-xl mb-20">
+              Sempre aberto a discutir novos projetos, produtos IA, ou oportunidades de design.
             </p>
           </ScrollReveal>
 
-          {/* Contact cards com ícones (ref: Apparicio) */}
           <ScrollReveal delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 pt-16 border-t border-[#fafafa]/10">
               <a
                 href="mailto:everton.augustor@gmail.com"
-                className="group flex items-center gap-4 p-5 rounded-xl border border-border/40 hover:border-foreground/15 transition-colors"
+                className="group flex flex-col gap-3"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground/40 group-hover:text-foreground/60 transition-colors">
-                  <rect width="20" height="16" x="2" y="4" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                <div>
-                  <p className="text-sm font-medium text-foreground">Email</p>
-                  <p className="text-[12px] text-muted-foreground/50">everton.augustor@gmail.com</p>
-                </div>
+                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">Email</span>
+                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">everton.augustor@gmail.com</span>
               </a>
               <a
                 href="https://linkedin.com/in/evertonresende"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-5 rounded-xl border border-border/40 hover:border-foreground/15 transition-colors"
+                className="group flex flex-col gap-3"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground/40 group-hover:text-foreground/60 transition-colors">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect width="4" height="12" x="2" y="9"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                <div>
-                  <p className="text-sm font-medium text-foreground">LinkedIn</p>
-                  <p className="text-[12px] text-muted-foreground/50">in/evertonresende</p>
-                </div>
+                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">LinkedIn</span>
+                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">/in/evertonresende</span>
               </a>
               <a
                 href="https://github.com/evertonresende"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-5 rounded-xl border border-border/40 hover:border-foreground/15 transition-colors"
+                className="group flex flex-col gap-3"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground/40 group-hover:text-foreground/60 transition-colors">
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                  <path d="M9 18c-4.51 2-5-2-7-2"/>
-                </svg>
-                <div>
-                  <p className="text-sm font-medium text-foreground">GitHub</p>
-                  <p className="text-[12px] text-muted-foreground/50">evertonresende</p>
-                </div>
+                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">GitHub</span>
+                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">evertonresende</span>
               </a>
             </div>
           </ScrollReveal>
 
-          <div className="pt-8 border-t border-border/40">
-            <p className="text-[13px] text-muted-foreground">
-              © {new Date().getFullYear()} Everton Resende
+          <div className="mt-32 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-t border-[#fafafa]/10">
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#fafafa]/20">
+              &copy; {new Date().getFullYear()} Everton Resende
+            </p>
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#fafafa]/20">
+              Design & Code by Everton
             </p>
           </div>
         </div>
