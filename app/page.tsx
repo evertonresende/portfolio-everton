@@ -21,11 +21,11 @@ const expertise = [
 
 const timeline = [
   { period: "2025 — Presente", role: "AI Product Designer", company: "SAT Bank" },
-  { period: "2022 — 2025", role: "Product Designer", company: "Softplan" },
+  { period: "2024", role: "AI Product Designer", company: "Dental Smart" },
   { period: "2018 — 2021", role: "UI/UX Designer", company: "FAPAM" },
 ];
 
-const companies = ["SAT Bank", "Softplan", "FAPAM"];
+const companies = ["SAT Bank", "Dental Smart", "FAPAM"];
 
 function padIndex(n: number): string {
   return String(n).padStart(2, "0");

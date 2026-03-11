@@ -4,8 +4,8 @@ import { getProjectBySlug } from "@/data/projects";
 import { Footer } from "@/components/footer";
 import { PageTransition } from "@/components/page-transition";
 
-export default function SoftplanPage() {
-  const project = getProjectBySlug("softplan")!;
+export default function DentalSmartPage() {
+  const project = getProjectBySlug("dental-smart")!;
   return (
     <PageTransition>
       <Navigation backLink />
