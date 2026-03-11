@@ -1,50 +1,20 @@
 import { Navigation } from "./components/nav";
 import { ScrollReveal } from "./components/scroll-reveal";
-
-const companies = ["SAT Bank", "Softplan", "FAPAM"];
+import { Footer } from "./components/footer";
+import { projects } from "./data/projects";
 
 const beliefs = [
-  "IA é ferramenta, não mágica — o valor está no problema certo.",
-  "Protótipos com código real validam mais rápido que wireframes.",
+  "IA e ferramenta, nao magica — o valor esta no problema certo.",
+  "Prototipos com codigo real validam mais rapido que wireframes.",
   "Produtos excelentes nascem de quem entende design e engenharia em profundidade.",
-  "Simplicidade é a sofisticação definitiva."
-];
-
-const projects = [
-  {
-    id: 1,
-    title: "Processo AI-first no design de produto bancário mobile",
-    company: "SAT Bank",
-    context: "Implementação de processo AI-first para app bancário na App Store e Google Play. Prototipação rápida com Claude Code e Cursor, design de features de IA e automação com MCP.",
-    role: "AI Product Designer",
-    result: "A/B testing com Statsig validou decisões de design com usuários reais. Design system escalável com tokens e componentes reutilizáveis.",
-    year: "2025",
-  },
-  {
-    id: 2,
-    title: "Projetando soluções para o setor público e jurídico",
-    company: "Softplan",
-    context: "Time de Produto da maior legaltech da América Latina (2.000+ cols). Discovery, pesquisa com usuários, testes de usabilidade e prototipação de alta fidelidade.",
-    role: "Product Designer",
-    result: "Reconhecido mais de 10 vezes no programa 'Softplayer A+' pelo impacto nas entregas de produto.",
-    year: "2022—25",
-  },
-  {
-    id: 3,
-    title: "Redesign do portal institucional e Portal do Aluno",
-    company: "FAPAM",
-    context: "Redesign completo com pesquisa com usuários, wireframes, design de interfaces e acompanhamento da implementação.",
-    role: "UI/UX Designer",
-    result: "Melhoria da experiência para alunos e comunidade acadêmica.",
-    year: "2018—21",
-  },
+  "Simplicidade e a sofisticacao definitiva."
 ];
 
 const expertise = [
-  "Design AI-first e Integração de LLMs",
-  "Discovery e Pesquisa com Usuários",
-  "Prototipação com IA (Claude Code, Cursor)",
-  "Design Systems e Tokens Escaláveis",
+  "Design AI-first e Integracao de LLMs",
+  "Discovery e Pesquisa com Usuarios",
+  "Prototipacao com IA (Claude Code, Cursor)",
+  "Design Systems e Tokens Escalaveis",
   "A/B Testing e Feature Flags",
   "Product Analytics e Monitoramento UX"
 ];
@@ -54,6 +24,8 @@ const timeline = [
   { period: "2022 — 2025", role: "Product Designer", company: "Softplan" },
   { period: "2018 — 2021", role: "UI/UX Designer", company: "FAPAM" },
 ];
+
+const companies = ["SAT Bank", "Softplan", "FAPAM"];
 
 function padIndex(n: number): string {
   return String(n).padStart(2, "0");
@@ -84,9 +56,9 @@ export default function HomePage() {
                     Desenho produtos que usam IA de forma inteligente.
                   </p>
                   <p className="text-base text-muted-foreground leading-relaxed mt-5">
-                    Meu diferencial é o background técnico — prototipar com código
-                    real, falar a língua da engenharia e validar hipóteses de produto antes de escalar.
-                    Baseado em Pará de Minas, Brasil.
+                    Meu diferencial e o background tecnico — prototipar com codigo
+                    real, falar a lingua da engenharia e validar hipoteses de produto antes de escalar.
+                    Baseado em Para de Minas, Brasil.
                   </p>
                 </div>
 
@@ -115,7 +87,7 @@ export default function HomePage() {
             {/* Companies */}
             <div className="mt-32 pt-8 border-t border-border animate-fade-in-up delay-3">
               <p className="swiss-label text-muted-foreground mb-8">
-                Experiência & Colaborações
+                Experiencia & Colaboracoes
               </p>
               <div className="flex flex-wrap items-center gap-x-14 gap-y-4">
                 {companies.map((company) => (
@@ -133,7 +105,7 @@ export default function HomePage() {
           <div className="max-w-[1000px] mx-auto">
             <ScrollReveal>
               <p className="swiss-label text-[#fafafa]/30 mb-20">
-                Princípios
+                Principios
               </p>
             </ScrollReveal>
 
@@ -166,57 +138,56 @@ export default function HomePage() {
                   Trabalho Selecionado
                 </h2>
                 <span className="swiss-label text-muted-foreground hidden sm:block">
-                  2021 — {new Date().getFullYear()}
+                  2018 — {new Date().getFullYear()}
                 </span>
               </div>
             </ScrollReveal>
 
             <div className="flex flex-col">
               {projects.map((project, index) => (
-                <ScrollReveal key={project.id}>
-                  <article className="project-row group border-b border-border cursor-pointer">
-                    <div className="py-10 sm:py-14 pl-4 grid grid-cols-1 lg:grid-cols-[auto,1fr,2fr,auto] gap-6 lg:gap-12 items-baseline">
-                      {/* Index */}
-                      <span className="index-number hidden lg:block pt-1">
-                        {padIndex(index + 1)}
-                      </span>
-
-                      {/* Meta */}
-                      <div className="flex flex-col gap-1.5">
-                        <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-foreground">
-                          {project.company}
+                <ScrollReveal key={project.slug}>
+                  <a href={`/projects/${project.slug}`} className="block">
+                    <article className="project-row group border-b border-border cursor-pointer">
+                      <div className="py-10 sm:py-14 pl-4 grid grid-cols-1 lg:grid-cols-[auto,1fr,2fr,auto] gap-6 lg:gap-12 items-baseline">
+                        {/* Index */}
+                        <span className="index-number hidden lg:block pt-1">
+                          {padIndex(index + 1)}
                         </span>
-                        <span className="text-sm text-muted-foreground tabular-nums">
-                          {project.year}
-                        </span>
-                      </div>
 
-                      {/* Content */}
-                      <div>
-                        <h3 className="text-xl sm:text-[22px] font-medium tracking-[-0.01em] leading-snug mb-4 group-hover:translate-x-1 transition-transform duration-200">
-                          {project.title}
-                        </h3>
-                        <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
-                          {project.context}
-                        </p>
-                        <div className="flex flex-col gap-1">
-                          <p className="text-sm font-medium text-foreground">
-                            {project.role}
+                        {/* Meta */}
+                        <div className="flex flex-col gap-1.5">
+                          <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-foreground">
+                            {project.company}
+                          </span>
+                          <span className="text-sm text-muted-foreground tabular-nums">
+                            {project.year}
+                          </span>
+                        </div>
+
+                        {/* Content */}
+                        <div>
+                          <h3 className="text-xl sm:text-[22px] font-medium tracking-[-0.01em] leading-snug mb-4 group-hover:translate-x-1 transition-transform duration-200">
+                            {project.title}
+                          </h3>
+                          <p className="text-[15px] text-muted-foreground leading-relaxed mb-5">
+                            {project.context[0]}
                           </p>
-                          <p className="text-sm text-muted-foreground">
-                            {project.result}
-                          </p>
+                          <div className="flex flex-col gap-1">
+                            <p className="text-sm font-medium text-foreground">
+                              {project.role}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="hidden lg:flex items-start pt-1">
+                          <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-0 group-hover:translate-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                          </span>
                         </div>
                       </div>
-
-                      {/* Arrow */}
-                      <div className="hidden lg:flex items-start pt-1">
-                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-0 group-hover:translate-x-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </span>
-                      </div>
-                    </div>
-                  </article>
+                    </article>
+                  </a>
                 </ScrollReveal>
               ))}
             </div>
@@ -236,7 +207,7 @@ export default function HomePage() {
               <ScrollReveal>
                 <div className="md:pr-16">
                   <p className="swiss-label text-muted-foreground mb-10 pb-4 border-b border-border">
-                    Áreas de Foco
+                    Areas de Foco
                   </p>
                   <ul className="flex flex-col gap-4">
                     {expertise.map((item) => (
@@ -252,7 +223,7 @@ export default function HomePage() {
               <ScrollReveal delay={0.1}>
                 <div className="md:pl-16">
                   <p className="swiss-label text-muted-foreground mb-10 pb-4 border-b border-border">
-                    Trajetória
+                    Trajetoria
                   </p>
                   <div className="flex flex-col gap-6">
                     {timeline.map((item, index) => (
@@ -278,69 +249,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      {/* Footer / Contact */}
-      <footer id="contact" className="py-32 sm:py-48 px-6 sm:px-8 bg-[#141414] text-[#fafafa]">
-        <div className="max-w-[1200px] mx-auto">
-          <ScrollReveal>
-            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-light tracking-[-0.03em] leading-[0.92] mb-8">
-              Vamos construir
-              <br />
-              algo excelente.
-            </h2>
-            <p className="text-lg text-[#fafafa]/40 max-w-xl mb-20">
-              Sempre aberto a discutir novos projetos, produtos IA, ou oportunidades de design.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-16 border-t border-[#fafafa]/10">
-              <a
-                href="https://wa.me/5537999133556"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col gap-3"
-              >
-                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">WhatsApp</span>
-                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">+55 37 99913-3556</span>
-              </a>
-              <a
-                href="mailto:everton.augustor@gmail.com"
-                className="group flex flex-col gap-3"
-              >
-                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">Email</span>
-                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">everton.augustor@gmail.com</span>
-              </a>
-              <a
-                href="https://linkedin.com/in/evertonresende"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col gap-3"
-              >
-                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">LinkedIn</span>
-                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">/in/evertonresende</span>
-              </a>
-              <a
-                href="https://github.com/evertonresende"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col gap-3"
-              >
-                <span className="swiss-label text-[#fafafa]/25 group-hover:text-[#fafafa]/60 transition-colors duration-200">GitHub</span>
-                <span className="text-[15px] font-medium text-[#fafafa]/70 group-hover:text-[#fafafa] transition-colors duration-200">evertonresende</span>
-              </a>
-            </div>
-          </ScrollReveal>
-
-          <div className="mt-32 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-t border-[#fafafa]/10">
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#fafafa]/20">
-              &copy; {new Date().getFullYear()} Everton Resende
-            </p>
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#fafafa]/20">
-              Design & Code by Everton
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

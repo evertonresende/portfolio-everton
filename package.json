@@ -3,6 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "postinstall": "node scripts/patch-vinext.js",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
@@ -27,7 +28,7 @@
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.8.2",
-    "vinext": "^0.0.24",
+    "vinext": "^0.0.27",
     "vite": "^7.3.1",
     "wrangler": "^4.65.0"
   }

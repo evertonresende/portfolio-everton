@@ -195,3 +195,20 @@
   background-color: rgba(250, 250, 250, 0.12);
   width: 100%;
 }
+
+/* --- Page Transition --- */
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
