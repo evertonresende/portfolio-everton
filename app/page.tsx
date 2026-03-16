@@ -3,26 +3,19 @@ import { ScrollReveal } from "./components/scroll-reveal";
 import { Footer } from "./components/footer";
 import { projects } from "./data/projects";
 
-const beliefs = [
-  "IA e ferramenta, nao magica — o valor esta no problema certo.",
-  "Prototipos com codigo real validam mais rapido que wireframes.",
-  "Produtos excelentes nascem de quem entende design e engenharia em profundidade.",
-  "Simplicidade e a sofisticacao definitiva."
-];
-
 const expertise = [
-  "Design AI-first e Integracao de LLMs",
-  "Discovery e Pesquisa com Usuarios",
-  "Prototipacao com IA (Claude Code, Cursor)",
-  "Design Systems e Tokens Escalaveis",
+  "Design AI-first e Integração de LLMs",
+  "Discovery e Pesquisa com Usuários",
+  "Prototipação com IA (Claude Code, Cursor)",
+  "Design Systems e Tokens Escaláveis",
   "A/B Testing e Feature Flags",
   "Product Analytics e Monitoramento UX"
 ];
 
 const timeline = [
-  { period: "2025 — Presente", role: "AI Product Designer", company: "SAT Bank" },
+  { period: "2025 até hoje", role: "AI Product Designer", company: "SAT Bank" },
   { period: "2024", role: "AI Product Designer", company: "Dental Smart" },
-  { period: "2018 — 2021", role: "UI/UX Designer", company: "FAPAM" },
+  { period: "2018 a 2021", role: "UI/UX Designer", company: "FAPAM" },
 ];
 
 const companies = ["SAT Bank", "Dental Smart", "FAPAM"];
@@ -56,9 +49,9 @@ export default function HomePage() {
                     Desenho produtos que usam IA de forma inteligente.
                   </p>
                   <p className="text-base text-muted-foreground leading-relaxed mt-5">
-                    Meu diferencial e o background tecnico — prototipar com codigo
-                    real, falar a lingua da engenharia e validar hipoteses de produto antes de escalar.
-                    Baseado em Para de Minas, Brasil.
+                    Meu diferencial é o background técnico. Gosto de prototipar com código
+                    real, falar a língua da engenharia e validar hipóteses de produto antes de escalar.
+                    Baseado em Pará de Minas, Brasil.
                   </p>
                 </div>
 
@@ -87,7 +80,7 @@ export default function HomePage() {
             {/* Companies */}
             <div className="mt-32 pt-8 border-t border-border animate-fade-in-up delay-3">
               <p className="swiss-label text-muted-foreground mb-8">
-                Experiencia & Colaboracoes
+                Experiência e Colaborações
               </p>
               <div className="flex flex-wrap items-center gap-x-14 gap-y-4">
                 {companies.map((company) => (
@@ -96,35 +89,6 @@ export default function HomePage() {
                   </span>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Beliefs / Manifesto */}
-        <section className="py-32 sm:py-44 px-6 sm:px-8 bg-[#141414] text-[#fafafa]">
-          <div className="max-w-[1000px] mx-auto">
-            <ScrollReveal>
-              <p className="swiss-label text-[#fafafa]/30 mb-20">
-                Principios
-              </p>
-            </ScrollReveal>
-
-            <div className="flex flex-col">
-              {beliefs.map((belief, index) => (
-                <ScrollReveal key={index} delay={index * 0.08}>
-                  <div className={index > 0 ? "pt-12 sm:pt-16" : ""}>
-                    {index > 0 && <div className="divider-light mb-12 sm:mb-16" />}
-                    <div className="flex gap-6 sm:gap-10 items-baseline">
-                      <span className="index-number text-[#fafafa]/25 shrink-0">
-                        {padIndex(index + 1)}
-                      </span>
-                      <p className="text-2xl sm:text-3xl lg:text-[2.5rem] font-light tracking-[-0.02em] text-[#fafafa]/80 leading-tight">
-                        {belief}
-                      </p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
             </div>
           </div>
         </section>
@@ -138,7 +102,7 @@ export default function HomePage() {
                   Trabalho Selecionado
                 </h2>
                 <span className="swiss-label text-muted-foreground hidden sm:block">
-                  2018 — {new Date().getFullYear()}
+                  2018 a {new Date().getFullYear()}
                 </span>
               </div>
             </ScrollReveal>
@@ -207,12 +171,12 @@ export default function HomePage() {
               <ScrollReveal>
                 <div className="md:pr-16">
                   <p className="swiss-label text-muted-foreground mb-10 pb-4 border-b border-border">
-                    Areas de Foco
+                    Áreas de Foco
                   </p>
                   <ul className="flex flex-col gap-4">
                     {expertise.map((item) => (
                       <li key={item} className="flex items-baseline gap-3 text-[15px] font-medium text-foreground tracking-[-0.01em] group/item">
-                        <span className="text-muted-foreground text-xs shrink-0">—</span>
+                        <span className="text-muted-foreground text-xs shrink-0">•</span>
                         <span className="group-hover/item:translate-x-1 transition-transform duration-200">{item}</span>
                       </li>
                     ))}
@@ -223,7 +187,7 @@ export default function HomePage() {
               <ScrollReveal delay={0.1}>
                 <div className="md:pl-16">
                   <p className="swiss-label text-muted-foreground mb-10 pb-4 border-b border-border">
-                    Trajetoria
+                    Trajetória
                   </p>
                   <div className="flex flex-col gap-6">
                     {timeline.map((item, index) => (

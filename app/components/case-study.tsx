@@ -49,11 +49,11 @@ export function CaseStudy({ project }: CaseStudyProps) {
           <ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-b border-border">
               <div className="py-8 sm:py-10 sm:border-r border-border sm:pr-10">
-                <p className="swiss-label text-muted-foreground mb-3">Funcao</p>
+                <p className="swiss-label text-muted-foreground mb-3">Função</p>
                 <p className="text-[15px] font-medium text-foreground">{project.role}</p>
               </div>
               <div className="py-8 sm:py-10 sm:border-r border-border sm:px-10 border-t sm:border-t-0">
-                <p className="swiss-label text-muted-foreground mb-3">Periodo</p>
+                <p className="swiss-label text-muted-foreground mb-3">Período</p>
                 <p className="text-[15px] font-medium text-foreground">{project.timeline}</p>
               </div>
               <div className="py-8 sm:py-10 sm:pl-10 border-t sm:border-t-0">
@@ -217,7 +217,7 @@ export function CaseStudy({ project }: CaseStudyProps) {
       >
         <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <p className="swiss-label opacity-30 mb-4">Proximo Projeto</p>
+            <p className="swiss-label opacity-30 mb-4">Próximo Projeto</p>
             <h3 className="text-3xl sm:text-4xl font-light tracking-[-0.03em] leading-snug">
               {nextProject.title}
             </h3>
