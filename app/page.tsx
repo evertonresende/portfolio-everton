@@ -18,8 +18,6 @@ const timeline = [
   { period: "2018 a 2021", role: "UI/UX Designer", company: "FAPAM" },
 ];
 
-const companies = ["SAT Bank", "Dental Smart", "FAPAM"];
-
 function padIndex(n: number): string {
   return String(n).padStart(2, "0");
 }
@@ -77,19 +75,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Companies */}
-            <div className="mt-32 pt-8 border-t border-border animate-fade-in-up delay-3">
-              <p className="swiss-label text-muted-foreground mb-8">
-                Experiência e Colaborações
-              </p>
-              <div className="flex flex-wrap items-center gap-x-14 gap-y-4">
-                {companies.map((company) => (
-                  <span key={company} className="text-base font-medium text-foreground/70 tracking-[-0.01em] hover:text-foreground transition-colors duration-200">
-                    {company}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
