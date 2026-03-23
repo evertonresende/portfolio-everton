@@ -21,13 +21,6 @@ export function CaseStudy({ project }: CaseStudyProps) {
       <section className="pt-32 pb-20 sm:pt-44 sm:pb-28 px-6 sm:px-8">
         <div className="max-w-[1200px] mx-auto">
           <div className="animate-fade-in-up">
-            <a
-              href="/"
-              className="swiss-label text-muted-foreground hover:text-foreground transition-colors duration-200 inline-flex items-center gap-2 mb-16"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-              Voltar
-            </a>
           </div>
 
           <div className="animate-fade-in-up delay-1">
