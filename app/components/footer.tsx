@@ -59,7 +59,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Everton Resende
           </p>
           <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#fafafa]/20">
-            Design & Code by Everton
+            Design by Everton Resende
           </p>
         </div>
       </div>
