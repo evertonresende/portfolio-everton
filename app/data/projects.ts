@@ -30,28 +30,27 @@ export const projects: readonly Project[] = [
     slug: "sat-bank",
     title: "IA no centro do design de um app bancário com milhares de usuários",
     company: "SAT Bank",
-    year: "2025",
+    year: "2025–2026",
     role: "AI Product Designer",
-    timeline: "2025 até hoje",
+    timeline: "Out 2025 — Mar 2026",
     responsibilities: [
       "Liderança do processo de design AI-first",
-      "Prototipação com código real via Claude Code e Cursor",
+      "Prototipação rápida com ferramentas de IA",
       "Criação de design system com tokens semânticos",
-      "Implementação de A/B testing e feature flags com Statsig",
+      "A/B testing e experimentação com Statsig",
       "Design e especificação de features de IA no produto",
-      "Automação de fluxos internos com MCP servers",
     ],
     context: [
       "O SAT Bank é um banco digital com app na App Store e Google Play. Fui contratado para liderar o design de produto com uma abordagem diferente: usar IA não só como feature do produto, mas como ferramenta central do próprio processo de design.",
-      "Com Claude Code e Cursor, passei a prototipar com código real em vez de mockups estáticos. Isso mudou a dinâmica com engenharia. Em vez de entregar telas no Figma e esperar semanas, eu entregava protótipos funcionais que viravam ponto de partida para a implementação. O ciclo de validação caiu de semanas para dias.",
+      "Com ferramentas de IA, passei a prototipar em alta fidelidade em vez de mockups estáticos. Isso mudou a dinâmica com engenharia. Em vez de entregar telas no Figma e esperar semanas, eu entregava protótipos que viravam ponto de partida para a implementação. O ciclo de validação caiu de semanas para dias.",
       "Ao mesmo tempo, projetei features de IA dentro do produto: categorização inteligente de gastos, alertas preditivos de saldo, e um assistente que responde dúvidas sobre extrato e limites em linguagem natural. Cada feature foi validada com A/B testing antes do rollout.",
     ],
     challenges: [
-      "Convencer stakeholders de que protótipos com código eram mais eficientes que mockups",
+      "Convencer stakeholders de que prototipação rápida com IA era mais eficiente que mockups tradicionais",
       "Projetar features de IA que fossem úteis sem causar desconfiança em contexto financeiro",
       "Criar um design system do zero com tokens semânticos para iOS, Android e web",
       "Configurar pipeline de A/B testing para validar cada decisão com dados reais",
-      "Integrar LLMs no produto mantendo latência abaixo de 2 segundos",
+      "Integrar IA no produto mantendo latência abaixo de 2 segundos",
       "Equilibrar personalização por IA com privacidade e regulamentação bancária",
     ],
     goals: [
@@ -60,7 +59,7 @@ export const projects: readonly Project[] = [
       "Construir design system escalável que garanta consistência em todas as plataformas",
     ],
     metrics: [
-      { value: "74%", label: "Redução no tempo de ciclo de design usando Claude Code e Cursor" },
+      { value: "74%", label: "Redução no tempo de ciclo de design com prototipação rápida via IA" },
       { value: "38%", label: "Adoção das features de IA no primeiro mês após lançamento" },
       { value: "120+", label: "Componentes no design system com tokens semânticos" },
       { value: "17%", label: "Aumento na retenção de usuários após lançamento do assistente IA" },
@@ -68,7 +67,7 @@ export const projects: readonly Project[] = [
     process: [
       {
         title: "Como prototipar mais rápido sem abrir mão de fidelidade?",
-        description: "Substituímos o fluxo tradicional de wireframe, mockup e handoff por prototipação direta com código usando Claude Code e Cursor. Em vez de criar telas estáticas no Figma, eu construía protótipos funcionais em React que a engenharia podia iterar. Isso eliminou o gap entre design e implementação. O protótipo era o ponto de partida do código final. Em uma sprint, validamos 3 variantes de onboarding com usuários reais, algo que antes levaria um mês.",
+        description: "Substituímos o fluxo tradicional de wireframe, mockup e handoff por prototipação rápida com ferramentas de IA. Em vez de criar telas estáticas no Figma, eu construía protótipos de alta fidelidade que a engenharia podia iterar diretamente. Isso eliminou o gap entre design e implementação. O protótipo era o ponto de partida da entrega final. Em uma sprint, validamos 3 variantes de onboarding com usuários reais, algo que antes levaria um mês.",
         imageAspect: "16:9",
       },
       {
@@ -83,7 +82,7 @@ export const projects: readonly Project[] = [
       },
     ],
     retrospective:
-      "Esse projeto provou que IA no processo de design não é hype. É vantagem competitiva real. Prototipar com código via Claude Code me deu uma velocidade que nenhum outro designer do time tinha. Mas a maior lição foi sobre as features de IA no produto: em contexto financeiro, a confiança do usuário é tudo. Não basta a IA funcionar bem. O design precisa comunicar transparência, dar controle e construir confiança progressivamente. Os números de retenção só melhoraram quando paramos de tentar impressionar e começamos a resolver problemas reais.",
+      "Esse projeto provou que IA no processo de design não é hype. É vantagem competitiva real. Prototipação rápida com IA me deu uma velocidade que nenhum outro designer do time tinha. Mas a maior lição foi sobre as features de IA no produto: em contexto financeiro, a confiança do usuário é tudo. Não basta a IA funcionar bem. O design precisa comunicar transparência, dar controle e construir confiança progressivamente. Os números de retenção só melhoraram quando paramos de tentar impressionar e começamos a resolver problemas reais.",
   },
   {
     slug: "dental-smart",
