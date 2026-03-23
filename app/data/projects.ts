@@ -23,6 +23,7 @@ export interface Project {
   readonly metrics: readonly ProjectMetric[]
   readonly process: readonly ProjectProcess[]
   readonly retrospective: string
+  readonly protected?: boolean
 }
 
 export const projects: readonly Project[] = [
@@ -83,6 +84,64 @@ export const projects: readonly Project[] = [
     ],
     retrospective:
       "Esse projeto provou que IA no processo de design não é hype. É vantagem competitiva real. Prototipação rápida com IA me deu uma velocidade que nenhum outro designer do time tinha. Mas a maior lição foi sobre as features de IA no produto: em contexto financeiro, a confiança do usuário é tudo. Não basta a IA funcionar bem. O design precisa comunicar transparência, dar controle e construir confiança progressivamente. Os números de retenção só melhoraram quando paramos de tentar impressionar e começamos a resolver problemas reais.",
+  },
+  {
+    slug: "softplan",
+    title: "Design de produto para legaltech com mais de 2.000 colaboradores",
+    company: "Softplan",
+    year: "2022–2025",
+    role: "Product Designer",
+    timeline: "Nov 2022 — Out 2025",
+    protected: true,
+    responsibilities: [
+      "Discovery e mapeamento de jornadas em sistemas jurídicos complexos",
+      "Pesquisa com usuários em tribunais e órgãos públicos",
+      "Prototipação de alta fidelidade e testes de usabilidade",
+      "Acompanhamento de métricas de produto com Mixpanel",
+      "Colaboração com times multidisciplinares em squads ágeis",
+    ],
+    context: [
+      "A Softplan é uma empresa de tecnologia com mais de 2.000 colaboradores, referência em soluções para o setor público e jurídico. Os produtos atendem tribunais, cartórios e órgãos governamentais em todo o Brasil.",
+      "Durante 3 anos no time de produto, trabalhei com discovery, pesquisa com usuários e design de funcionalidades para sistemas usados diariamente por servidores públicos e profissionais do direito. O contexto era de alta complexidade regulatória e processos com dezenas de etapas.",
+      "O desafio constante era simplificar fluxos jurídicos intrincados em interfaces que qualquer servidor pudesse usar sem treinamento extensivo. Cada decisão de design impactava milhares de usuários simultâneos.",
+    ],
+    challenges: [
+      "Simplificar processos jurídicos de dezenas de etapas em interfaces intuitivas",
+      "Atender necessidades de múltiplos perfis: juízes, advogados, servidores, cidadãos",
+      "Projetar para conformidade regulatória rigorosa do setor público",
+      "Escalar soluções de design para produtos com milhares de usuários simultâneos",
+      "Conduzir pesquisa com usuários em ambiente institucional com restrições de acesso",
+    ],
+    goals: [
+      "Melhorar a experiência de uso de sistemas jurídicos complexos através de pesquisa e design centrado no usuário",
+      "Reduzir tempo de treinamento de novos usuários com interfaces mais intuitivas",
+      "Estabelecer práticas de discovery e experimentação no time de produto",
+    ],
+    metrics: [
+      { value: "10x", label: "Reconhecido no programa Softplayer A+ por entregas de qualidade" },
+      { value: "3 anos", label: "Atuação contínua em produto de alta complexidade regulatória" },
+      { value: "2.000+", label: "Colaboradores na empresa — escala enterprise" },
+      { value: "100%", label: "Discovery com pesquisa antes de qualquer entrega de design" },
+    ],
+    process: [
+      {
+        title: "Como entender as necessidades de quem trabalha em tribunais?",
+        description: "Conduzi sessões de discovery com servidores públicos, advogados e juízes para entender fluxos de trabalho reais. Mapeei jornadas completas de processos jurídicos, identificando pontos de fricção que consumiam horas de trabalho manual. A pesquisa revelou que muitos problemas não eram de interface, mas de arquitetura de informação — usuários não encontravam funcionalidades que já existiam.",
+        imageAspect: "16:9",
+      },
+      {
+        title: "Como validar design em um contexto institucional restrito?",
+        description: "Testes de usabilidade no setor público exigiam planejamento diferente. Agendamentos com semanas de antecedência, sessões limitadas a 30 minutos, ambiente formal. Adaptei a metodologia: testes remotos moderados, protótipos de alta fidelidade no Figma para parecerem o produto final, e roteiros objetivos. Consegui manter ciclos de validação quinzenais mesmo com essas restrições.",
+        imageAspect: "16:9",
+      },
+      {
+        title: "Como medir impacto em produtos com ciclos longos de desenvolvimento?",
+        description: "Implementei acompanhamento contínuo com Mixpanel para medir adoção e engajamento de cada funcionalidade lançada. Em vez de esperar meses por feedback qualitativo, conseguia ver em dias se uma mudança de design estava sendo adotada. Isso permitiu ajustes rápidos e argumentação baseada em dados com stakeholders.",
+        imageAspect: "4:3",
+      },
+    ],
+    retrospective:
+      "Três anos na Softplan me ensinaram a projetar sob restrição. Regulamentação rigorosa, usuários com pouca tolerância a mudança, ciclos longos de desenvolvimento. Aprendi que bom design em enterprise não é sobre criar algo bonito — é sobre reduzir complexidade sem perder conformidade. As melhores entregas foram as mais invisíveis: fluxos que os usuários completavam sem perceber que tinham sido redesenhados.",
   },
   {
     slug: "dental-smart",
