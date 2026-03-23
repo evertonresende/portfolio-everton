@@ -147,9 +147,9 @@ export const projects: readonly Project[] = [
     slug: "dental-smart",
     title: "Software odontológico com IA que transformou a rotina de mais de 200 clínicas",
     company: "Dental Smart",
-    year: "2021–2022",
+    year: "2023–2025",
     role: "Product Designer",
-    timeline: "2021–2022",
+    timeline: "2023–2025",
     responsibilities: [
       "Design de produto end-to-end com IA integrada",
       "Pesquisa de campo em clínicas odontológicas",
