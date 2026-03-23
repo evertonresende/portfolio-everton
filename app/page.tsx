@@ -4,18 +4,19 @@ import { Footer } from "./components/footer";
 import { projects } from "./data/projects";
 
 const expertise = [
-  "Design AI-first e Integração de LLMs",
+  "Design AI-first e Features Inteligentes",
   "Discovery e Pesquisa com Usuários",
-  "Prototipação com IA (Claude Code, Cursor)",
+  "Prototipação Rápida com IA",
   "Design Systems e Tokens Escaláveis",
-  "A/B Testing e Feature Flags",
-  "Product Analytics e Monitoramento UX"
+  "A/B Testing e Experimentação",
+  "Product Analytics e Monitoramento UX",
 ];
 
 const timeline = [
-  { period: "2025 até hoje", role: "AI Product Designer", company: "SAT Bank" },
-  { period: "2024", role: "AI Product Designer", company: "Dental Smart" },
-  { period: "2018 a 2021", role: "UI/UX Designer", company: "FAPAM" },
+  { period: "2025–2026", role: "AI Product Designer", company: "SAT Bank" },
+  { period: "2022–2025", role: "Product Designer", company: "Softplan" },
+  { period: "2021–2022", role: "Product Designer", company: "Freelancer" },
+  { period: "2018–2021", role: "UI/UX Designer", company: "FAPAM" },
 ];
 
 function padIndex(n: number): string {
@@ -44,12 +45,10 @@ export default function HomePage() {
 
                 <div className="mt-12 sm:mt-16 max-w-xl animate-fade-in-up delay-1">
                   <p className="text-xl sm:text-[22px] font-medium tracking-[-0.01em] text-foreground leading-snug">
-                    Desenho produtos que usam IA de forma inteligente.
+                    Desenho produtos inteligentes — da descoberta à entrega, com IA no processo.
                   </p>
                   <p className="text-base text-muted-foreground leading-relaxed mt-5">
-                    Meu diferencial é o background técnico. Gosto de prototipar com código
-                    real, falar a língua da engenharia e validar hipóteses de produto antes de escalar.
-                    Baseado em Pará de Minas, Brasil.
+                    Com mais de 7 anos de experiência em design de produto, uso inteligência artificial para acelerar cada etapa — da descoberta à validação. Meu foco é transformar problemas complexos em experiências simples, com decisões baseadas em pesquisa, dados e experimentação. Baseado em Pará de Minas, Brasil.
                   </p>
                 </div>
 
@@ -107,6 +106,11 @@ export default function HomePage() {
                         <div className="flex flex-col gap-1.5">
                           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-foreground">
                             {project.company}
+                            {project.protected && (
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="inline-block w-3 h-3 ml-1.5 text-[#767676] align-baseline">
+                                <path fillRule="evenodd" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V7H3v6h10V7h-1.5V4.5A3.5 3.5 0 0 0 8 1Zm2 6V4.5a2 2 0 1 0-4 0V7h4Z" clipRule="evenodd" />
+                              </svg>
+                            )}
                           </span>
                           <span className="text-sm text-muted-foreground tabular-nums">
                             {project.year}
