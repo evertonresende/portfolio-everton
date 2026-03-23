@@ -164,7 +164,7 @@ export const projects: readonly Project[] = [
       "O desafio central era que dentistas são profissionais com pouca paciência para software complexo. Cada feature de IA precisava funcionar de forma invisível. Reduzir cliques, antecipar necessidades e nunca atrapalhar o fluxo clínico.",
     ],
     challenges: [
-      "Reduzir a curva de aprendizado da IA para profissionais sem background técnico",
+      "Reduzir a curva de aprendizado da IA para profissionais de saúde",
       "Projetar interface de análise de radiografia que apoie sem substituir o diagnóstico",
       "Criar prontuário por voz que entende terminologia odontológica com mais de 95% de acurácia",
       "Automatizar agendamento e follow-up sem parecer impessoal para o paciente",
