@@ -206,9 +206,9 @@ export const projects: readonly Project[] = [
     slug: "fapam",
     title: "Redesign completo do Portal do Aluno para mais de 4.000 estudantes",
     company: "FAPAM",
-    year: "2018—21",
+    year: "2018–2021",
     role: "UI/UX Designer",
-    timeline: "2018 a 2021",
+    timeline: "Nov 2018 — Out 2021",
     responsibilities: [
       "Pesquisa com alunos, professores e administrativos",
       "Arquitetura de informação e card sorting",

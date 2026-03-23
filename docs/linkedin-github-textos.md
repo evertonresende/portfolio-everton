@@ -53,12 +53,19 @@ Softplayer A+ por entregas de qualidade.
 
 Case detalhado disponível no portfólio — solicite a senha por e-mail.
 
+**Dental Smart — Product Designer (Freelance)**
+2023 – 2025
+
+Software odontológico com IA que transformou a rotina de mais de 200 clínicas.
+Pesquisa de campo em 8 clínicas, prototipação com IA, design de features
+inteligentes. Redução de 62% em tarefas administrativas.
+Freelance paralelo à Softplan.
+
 **Freelancer — Product Designer**
 Nov 2021 – Out 2022
 
-Projetos independentes incluindo Dental Smart: software odontológico com IA que
-transformou a rotina de mais de 200 clínicas. Pesquisa de campo, prototipação com
-IA, design de features inteligentes. Redução de 62% em tarefas administrativas.
+Projetos independentes de design de produto digital.
+Discovery, prototipação e validação com usuários.
 
 **FAPAM — UI/UX Designer**
 Nov 2018 – Out 2021
@@ -75,8 +82,7 @@ Information Architecture, Interaction Design
 
 ### Skills para remover
 
-React Native, TypeScript, Next.js, Tailwind CSS, JavaScript, HTML, CSS
-(qualquer skill de programação)
+Remover qualquer skill de programação do perfil (se ainda houver).
 
 ### Em Destaque
 
