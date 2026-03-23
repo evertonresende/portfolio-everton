@@ -29,7 +29,7 @@ export interface Project {
 export const projects: readonly Project[] = [
   {
     slug: "sat-bank",
-    title: "App bancário completo com PIX, crypto e onboarding — time de 5 pessoas",
+    title: "App bancário completo com PIX, crypto e onboarding de 8 etapas",
     company: "SAT Bank",
     year: "2025–2026",
     role: "AI Product Designer",
@@ -42,9 +42,9 @@ export const projects: readonly Project[] = [
       "Design system com tokens para iOS, Android e web",
     ],
     context: [
-      "O SAT Bank é um banco digital com app na App Store e Google Play, integrado com Cronos Bank como BaaS. Entrei como o único designer de um time de 5 pessoas. O produto já tinha uma base técnica, mas precisava de alguém que conectasse tudo em uma experiência coesa — do onboarding ao PIX.",
+      "O SAT Bank é um banco digital com app na App Store e Google Play, integrado com Cronos Bank como BaaS. Entrei como o único designer do produto. O produto já tinha uma base técnica, mas precisava de alguém que conectasse tudo em uma experiência coesa, do onboarding ao PIX.",
       "O app cobre o que você esperaria de um banco digital: conta PF e PJ, transferências via PIX (com QR code, chaves, claims e limites dia/noite), pagamento de boleto com leitura de câmera, empréstimos, extrato com filtros, e 2FA por SMS para operações sensíveis. Tudo isso projetado e prototipado com IA para acelerar o ciclo.",
-      "A feature mais complexa foi a compra e venda de criptomoedas. Projetei todo o fluxo — desde a tela de cotação até a confirmação com 2FA — integrando com sistemas de terceiros. Era desafiador porque envolvia regulamentação financeira, limites de operação e uma UX que precisava transmitir segurança em cada etapa, sem parecer complicada.",
+      "A feature mais complexa foi a compra e venda de criptomoedas. Projetei todo o fluxo, desde a tela de cotação até a confirmação com 2FA, integrando com sistemas de terceiros. Era desafiador porque envolvia regulamentação financeira, limites de operação e uma UX que precisava transmitir segurança em cada etapa, sem parecer complicada.",
     ],
     challenges: [
       "Ser o único designer cobrindo app, site institucional, backoffice e design system",
@@ -59,20 +59,19 @@ export const projects: readonly Project[] = [
       "Construir design system que funcionasse em iOS, Android e web",
     ],
     metrics: [
-      { value: "8 etapas", label: "Onboarding completo para PF e PJ — do CPF ao primeiro acesso" },
+      { value: "8 etapas", label: "Onboarding completo para PF e PJ, do CPF ao primeiro acesso" },
       { value: "PIX completo", label: "Transferência, QR code, chaves, claims, limites dia/noite" },
       { value: "Crypto", label: "Compra e venda de criptomoedas com integração de terceiros" },
-      { value: "5 pessoas", label: "Time inteiro — design, engenharia e produto juntos" },
     ],
     process: [
       {
-        title: "Como entregar um banco inteiro com 5 pessoas?",
-        description: "Não existia separação clássica de design, produto e engenharia. Com 5 pessoas, todo mundo fazia de tudo. Prototipava com IA para ganhar velocidade — e isso fez diferença real nos fluxos mais simples. Mas para o onboarding de 8 etapas e o fluxo de criptomoedas, precisei ir pro Figma para detalhar cada edge case: erro de validação de CPF, timeout de SMS, upload de documento falhando, fluxo PJ com representante legal. O protótipo rápido não cobria essa complexidade.",
+        title: "Como entregar um banco inteiro com um time enxuto?",
+        description: "Não existia separação clássica de design, produto e engenharia. O time era enxuto, todo mundo fazia de tudo. Prototipava com IA para ganhar velocidade, e isso fez diferença real nos fluxos mais simples. Mas para o onboarding de 8 etapas e o fluxo de criptomoedas, precisei ir pro Figma para detalhar cada edge case: erro de validação de CPF, timeout de SMS, upload de documento falhando, fluxo PJ com representante legal. O protótipo rápido não cobria essa complexidade.",
         imageAspect: "16:9",
       },
       {
         title: "O que aconteceu quando tentamos colocar IA pra atender usuários?",
-        description: "Projetamos um assistente que respondia dúvidas sobre extrato, limites e operações. Na prática, a maioria dos usuários não gostou. O feedback era direto: 'não quero falar com robô, quero resolver meu problema'. Redesenhamos a abordagem — em vez de chatbot, a IA virou invisível: sugestões contextuais, alertas de saldo, categorização automática de gastos. Parou de ser protagonista e virou camada de apoio. A aceitação melhorou, mas o aprendizado custou tempo.",
+        description: "Projetamos um assistente que respondia dúvidas sobre extrato, limites e operações. Na prática, a maioria dos usuários não gostou. O feedback era direto: 'não quero falar com robô, quero resolver meu problema'. Redesenhamos a abordagem: em vez de chatbot, a IA virou invisível: sugestões contextuais, alertas de saldo, categorização automática de gastos. Parou de ser protagonista e virou camada de apoio. A aceitação melhorou, mas o aprendizado custou tempo.",
         imageAspect: "16:9",
       },
       {
@@ -82,7 +81,7 @@ export const projects: readonly Project[] = [
       },
     ],
     retrospective:
-      "A SAT Bank me mostrou como é trabalhar com IA de verdade, não em pitch deck. Num time de 5 pessoas, entreguei a experiência de um banco digital completo: PIX, boleto, empréstimos, crypto, onboarding. Algumas coisas funcionaram muito bem — prototipação com IA acelerou entregas reais. Outras não: o assistente de IA foi rejeitado e tivemos que repensar tudo. A lição principal foi que em finanças, IA invisível funciona melhor que IA na cara do usuário. As pessoas não querem conversar com o banco. Querem que funcione.",
+      "A SAT Bank me mostrou como é trabalhar com IA de verdade, não em pitch deck. Entreguei a experiência de um banco digital completo: PIX, boleto, empréstimos, crypto, onboarding. Algumas coisas funcionaram muito bem: prototipação com IA acelerou entregas reais. Outras não: o assistente de IA foi rejeitado e tivemos que repensar tudo. A lição principal foi que em finanças, IA invisível funciona melhor que IA na cara do usuário. As pessoas não querem conversar com o banco. Querem que funcione.",
   },
   {
     slug: "softplan",
@@ -101,8 +100,8 @@ export const projects: readonly Project[] = [
     ],
     context: [
       "A Softplan é uma empresa de tecnologia com mais de 2.000 colaboradores, referência em soluções para o setor público e jurídico. Trabalhei especificamente nos produtos voltados para Ministérios Públicos e Procuradorias em todo o Brasil.",
-      "Fazia parte de um Centro de Competência de UX (CCUX) com 30 designers. Na prática, atuava em squads de produto fazendo discovery, pesquisa com usuários e design de funcionalidades para sistemas usados por promotores e servidores públicos. O contexto era de alta complexidade — processos jurídicos com dezenas de etapas e regulamentação rigorosa.",
-      "O dia a dia era equilibrar necessidades de usuários que tinham pouca paciência para software novo com regras legais que não podiam ser simplificadas. Nem todo redesign era bem-vindo — em muitos casos, o desafio era melhorar sem que o usuário percebesse que algo mudou.",
+      "Fazia parte de um Centro de Competência de UX (CCUX) com 30 designers. Na prática, atuava em squads de produto fazendo discovery, pesquisa com usuários e design de funcionalidades para sistemas usados por promotores e servidores públicos. O contexto era de alta complexidade: processos jurídicos com dezenas de etapas e regulamentação rigorosa.",
+      "O dia a dia era equilibrar necessidades de usuários que tinham pouca paciência para software novo com regras legais que não podiam ser simplificadas. Nem todo redesign era bem-vindo. Em muitos casos, o desafio era melhorar sem que o usuário percebesse que algo mudou.",
     ],
     challenges: [
       "Simplificar processos jurídicos sem violar conformidade regulatória",
@@ -119,7 +118,7 @@ export const projects: readonly Project[] = [
     metrics: [
       { value: "10x", label: "Reconhecido no programa Softplayer A+ por qualidade nas entregas" },
       { value: "3 anos", label: "Atuação contínua em produto para o setor público" },
-      { value: "30", label: "Designers no CCUX — trabalhando com escala enterprise" },
+      { value: "30", label: "Designers no CCUX, trabalhando com escala enterprise" },
       { value: "Mixpanel", label: "Acompanhamento de adoção e engajamento de cada entrega" },
     ],
     process: [
@@ -130,12 +129,12 @@ export const projects: readonly Project[] = [
       },
       {
         title: "Como projetar quando o usuário não quer que nada mude?",
-        description: "Servidores públicos usam os mesmos sistemas por anos e criam atalhos mentais. Qualquer mudança de interface, por menor que seja, gera resistência. Aprendi a priorizar melhorias invisíveis — otimizar fluxos sem mudar a estrutura que o usuário já conhecia. Quando uma mudança era inevitável, antecipava o impacto com comunicação dentro do produto e onboarding contextual.",
+        description: "Servidores públicos usam os mesmos sistemas por anos e criam atalhos mentais. Qualquer mudança de interface, por menor que seja, gera resistência. Aprendi a priorizar melhorias invisíveis: otimizar fluxos sem mudar a estrutura que o usuário já conhecia. Quando uma mudança era inevitável, antecipava o impacto com comunicação dentro do produto e onboarding contextual.",
         imageAspect: "16:9",
       },
       {
         title: "Como medir impacto quando o ciclo de entrega é longo?",
-        description: "Usei Mixpanel para acompanhar adoção e engajamento de cada funcionalidade lançada. Em produtos enterprise com ciclos longos, isso era essencial para argumentar com stakeholders. Em vez de esperar meses por feedback qualitativo, conseguia mostrar em dias se uma mudança estava sendo adotada ou ignorada. Nem sempre os números eram bons — mas pelo menos tínhamos dados para decidir o que ajustar.",
+        description: "Usei Mixpanel para acompanhar adoção e engajamento de cada funcionalidade lançada. Em produtos enterprise com ciclos longos, isso era essencial para argumentar com stakeholders. Em vez de esperar meses por feedback qualitativo, conseguia mostrar em dias se uma mudança estava sendo adotada ou ignorada. Nem sempre os números eram bons, mas pelo menos tínhamos dados para decidir o que ajustar.",
         imageAspect: "4:3",
       },
     ],
@@ -144,7 +143,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "dental-smart",
-    title: "SaaS completo para clínicas odontológicas — agenda, financeiro, CRM e IA",
+    title: "SaaS completo para clínicas odontológicas com agenda, financeiro, CRM e IA",
     company: "Dental Smart",
     year: "2023–2025",
     role: "Product Designer",
@@ -157,9 +156,9 @@ export const projects: readonly Project[] = [
       "Integração com WhatsApp para comunicação com pacientes",
     ],
     context: [
-      "O Dental Smart é um SaaS multi-tenant para gestão de clínicas odontológicas, feito como freelance paralelo à Softplan. Nasceu do contato com dentistas que estavam desesperados com as soluções existentes — sistemas antigos, sem automação, com usabilidade precária. O produto foi 100% construído com base no feedback deles.",
+      "O Dental Smart é um SaaS multi-tenant para gestão de clínicas odontológicas, feito como freelance paralelo à Softplan. Nasceu do contato com dentistas que estavam desesperados com as soluções existentes: sistemas antigos, sem automação, com usabilidade precária. O produto foi 100% construído com base no feedback deles.",
       "É um sistema completo: agenda com multi-cadeira, gestão de pacientes com anamnese por link (SMS/WhatsApp), prontuários com gravação e transcrição por voz, plano de tratamento com PDF exportável, módulo financeiro inteiro (caixa, contas a pagar/receber, DRE, conciliação bancária com OFX, NFSe), CRM com funil kanban, e integração com WhatsApp.",
-      "A parte de IA está em três frentes: transcrição automática de consultas (grava, transcreve e resume com IA — em produção), agentes no CRM para reativação de pacientes inativos e follow-up automatizado, e conciliação bancária assistida. Projetei também uma feature de análise de radiografias, mas essa não chegou a produção.",
+      "A parte de IA está em três frentes: transcrição automática de consultas (grava, transcreve e resume com IA, já em produção), agentes no CRM para reativação de pacientes inativos e follow-up automatizado, e conciliação bancária assistida. Projetei também uma feature de análise de radiografias, mas essa não chegou a produção.",
     ],
     challenges: [
       "Projetar um SaaS completo cobrindo agenda, financeiro, CRM e IA como freelance",
@@ -175,33 +174,33 @@ export const projects: readonly Project[] = [
     ],
     metrics: [
       { value: "~20", label: "Clínicas usando o produto até minha saída" },
-      { value: "Em prod.", label: "Transcrição de consultas por voz — gravando e resumindo com IA" },
-      { value: "Financeiro", label: "Caixa, DRE, contas, conciliação bancária OFX, NFSe — tudo funcional" },
+      { value: "Em prod.", label: "Transcrição de consultas por voz, gravando e resumindo com IA" },
+      { value: "Financeiro", label: "Caixa, DRE, contas, conciliação bancária OFX, NFSe: tudo funcional" },
       { value: "0 churn", label: "Nenhuma clínica que adotou o produto quis voltar atrás" },
     ],
     process: [
       {
         title: "Como entender a dor real de quem trabalha numa clínica?",
-        description: "Conversei com dentistas, recepcionistas e auxiliares em clínicas de diferentes tamanhos. O nível de frustração com os sistemas existentes era alto — ninguém gostava do que usava, mas não via alternativa. Dentistas gastavam tempo demais com burocracia, recepcionistas viviam no telefone remarcando, e o financeiro era planilha. O produto nasceu dessas conversas: agenda, financeiro, CRM e IA, tudo num lugar só.",
+        description: "Conversei com dentistas, recepcionistas e auxiliares em clínicas de diferentes tamanhos. O nível de frustração com os sistemas existentes era alto: ninguém gostava do que usava, mas não via alternativa. Dentistas gastavam tempo demais com burocracia, recepcionistas viviam no telefone remarcando, e o financeiro era planilha. O produto nasceu dessas conversas: agenda, financeiro, CRM e IA, tudo num lugar só.",
         imageAspect: "16:9",
       },
       {
         title: "O que foi pro ar e o que ficou no protótipo?",
-        description: "A gravação e transcrição de consultas foi a feature de IA com mais impacto. O dentista grava a consulta, a IA transcreve e resume automaticamente. Projetei a interface com waveform em tempo real e confirmação em um toque. Está em produção. O CRM com agentes de IA para retenção também está rodando — follow-up automático, reativação de inativos via WhatsApp. Já a análise de radiografias ficou no protótipo: priorizamos o financeiro (caixa, DRE, conciliação com OFX, NFSe) que tinha demanda mais urgente.",
+        description: "A gravação e transcrição de consultas foi a feature de IA com mais impacto. O dentista grava a consulta, a IA transcreve e resume automaticamente. Projetei a interface com waveform em tempo real e confirmação em um toque. Está em produção. O CRM com agentes de IA para retenção também está rodando: follow-up automático, reativação de inativos via WhatsApp. Já a análise de radiografias ficou no protótipo: priorizamos o financeiro (caixa, DRE, conciliação com OFX, NFSe) que tinha demanda mais urgente.",
         imageAspect: "16:9",
       },
       {
         title: "Como IA ajudou clínicas a não perder pacientes?",
-        description: "Projetei agentes dentro do CRM com funil kanban: prospecção, negociação, ganho, perda. Agentes de IA faziam follow-up automático via WhatsApp, reativavam pacientes inativos e sugeriam próximas ações. O desafio foi calibrar o tom — mensagem robótica de dentista assusta. Testamos abordagens até encontrar equilíbrio entre automação e naturalidade. A integração com WhatsApp foi essencial: era o canal que os pacientes já usavam.",
+        description: "Projetei agentes dentro do CRM com funil kanban: prospecção, negociação, ganho, perda. Agentes de IA faziam follow-up automático via WhatsApp, reativavam pacientes inativos e sugeriam próximas ações. O desafio foi calibrar o tom. Mensagem robótica de dentista assusta. Testamos abordagens até encontrar equilíbrio entre automação e naturalidade. A integração com WhatsApp foi essencial: era o canal que os pacientes já usavam.",
         imageAspect: "4:3",
       },
     ],
     retrospective:
-      "Dental Smart foi onde mais aprendi sobre construir produto com IA de verdade. É um SaaS completo — não é só uma feature. Agenda, financeiro, CRM, prontuários, plano de tratamento, integração WhatsApp, transcrição por voz, agentes de IA. Nem tudo que projetei foi pro ar (radiografia ficou no protótipo), mas o que funcionou, funcionou porque veio do usuário. Com ~20 clínicas e zero churn, o produto provou que quando você resolve dor real, a adoção vem naturalmente.",
+      "Dental Smart foi onde mais aprendi sobre construir produto com IA de verdade. É um SaaS completo, não é só uma feature. Agenda, financeiro, CRM, prontuários, plano de tratamento, integração WhatsApp, transcrição por voz, agentes de IA. Nem tudo que projetei foi pro ar (radiografia ficou no protótipo), mas o que funcionou, funcionou porque veio do usuário. Com ~20 clínicas e zero churn, o produto provou que quando você resolve dor real, a adoção vem naturalmente.",
   },
   {
     slug: "fapam",
-    title: "Redesign do Portal do Aluno — de sistema TOTVS a experiência responsiva",
+    title: "Redesign do Portal do Aluno: de sistema TOTVS a experiência responsiva",
     company: "FAPAM",
     year: "2018–2021",
     role: "UI/UX Designer",
@@ -215,7 +214,7 @@ export const projects: readonly Project[] = [
       "Acompanhamento de implementação",
     ],
     context: [
-      "A FAPAM é uma instituição de ensino superior com mais de 4.000 alunos. O Portal do Aluno era uma solução TOTVS com anos de uso, só funcionava em desktop e a experiência era ruim. Alunos reclamavam constantemente — mas não existia alternativa, todo mundo usava porque precisava.",
+      "A FAPAM é uma instituição de ensino superior com mais de 4.000 alunos. O Portal do Aluno era uma solução TOTVS com anos de uso, só funcionava em desktop e a experiência era ruim. Alunos reclamavam constantemente, mas não existia alternativa, todo mundo usava porque precisava.",
       "Fui responsável pelo redesign completo. O projeto durou 3 anos e foi feito em conjunto com os próprios alunos. Conversava com eles, testava protótipos, ajustava. Não tinha time de pesquisa nem design system. Era eu e a necessidade.",
       "O maior problema era a resistência ao novo. Alunos e servidores estavam acostumados com o sistema antigo, mesmo reclamando dele. Para contornar isso, mantive as mesmas rotas de navegação principais e adicionei onboarding contextual para as mudanças mais drásticas.",
     ],
@@ -230,7 +229,7 @@ export const projects: readonly Project[] = [
     goals: [
       "Criar uma experiência responsiva que funcionasse em mobile (onde a maioria dos alunos acessava)",
       "Redesenhar a arquitetura de informação com base no que alunos realmente buscavam",
-      "Lançar sem quebrar nada — nenhum aluno podia ficar sem acesso a notas ou matrícula",
+      "Lançar sem quebrar nada: nenhum aluno podia ficar sem acesso a notas ou matrícula",
     ],
     metrics: [
       { value: "4.000+", label: "Alunos ativos impactados pelo redesign" },
@@ -241,17 +240,17 @@ export const projects: readonly Project[] = [
     process: [
       {
         title: "Como redesenhar algo que todo mundo usa mas ninguém gosta?",
-        description: "Comecei conversando com alunos para entender o que mais incomodava. As reclamações mais comuns eram: 'não acho minha situação financeira', 'não funciona no celular' e 'parece sistema dos anos 2000'. A estrutura da TOTVS não correspondia a como os alunos pensavam. Redesenhei a arquitetura de informação priorizando o que era mais buscado — notas, matrícula, calendário, financeiro — e testei com alunos reais antes de implementar.",
+        description: "Comecei conversando com alunos para entender o que mais incomodava. As reclamações mais comuns eram: 'não acho minha situação financeira', 'não funciona no celular' e 'parece sistema dos anos 2000'. A estrutura da TOTVS não correspondia a como os alunos pensavam. Redesenhei a arquitetura de informação priorizando o que era mais buscado (notas, matrícula, calendário, financeiro) e testei com alunos reais antes de implementar.",
         imageAspect: "16:9",
       },
       {
         title: "Como lidar com a resistência de quem já estava acostumado?",
-        description: "A parte mais difícil não foi o redesign, foi a adoção. Servidores e alguns alunos preferiam o sistema antigo simplesmente porque já sabiam usar. A solução foi manter as mesmas rotas de navegação principais — quem já sabia o caminho continuava chegando no mesmo lugar. Para as mudanças maiores, criei onboarding contextual que aparecia só na primeira vez. Não forçava ninguém a reaprender tudo de uma vez.",
+        description: "A parte mais difícil não foi o redesign, foi a adoção. Servidores e alguns alunos preferiam o sistema antigo simplesmente porque já sabiam usar. A solução foi manter as mesmas rotas de navegação principais: quem já sabia o caminho continuava chegando no mesmo lugar. Para as mudanças maiores, criei onboarding contextual que aparecia só na primeira vez. Não forçava ninguém a reaprender tudo de uma vez.",
         imageAspect: "4:3",
       },
     ],
     retrospective:
-      "A FAPAM foi meu primeiro projeto real de design. Não tinha time, não tinha processo, não tinha referência. Construí tudo do zero, desde o argumento para convencer a gestão até os protótipos que testava com alunos no corredor da faculdade. O resultado não foi perfeito — algumas decisões eu faria diferente hoje. Mas foi onde aprendi que design funciona quando vem do usuário, não de suposição. E que resistência à mudança não é problema do usuário, é problema do design.",
+      "A FAPAM foi meu primeiro projeto real de design. Não tinha time, não tinha processo, não tinha referência. Construí tudo do zero, desde o argumento para convencer a gestão até os protótipos que testava com alunos no corredor da faculdade. O resultado não foi perfeito. Algumas decisões eu faria diferente hoje. Mas foi onde aprendi que design funciona quando vem do usuário, não de suposição. E que resistência à mudança não é problema do usuário, é problema do design.",
   },
 ]
 
