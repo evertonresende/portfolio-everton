@@ -6,7 +6,7 @@ import { projects } from "./data/projects";
 const expertise = [
   "Design AI-first e Features Inteligentes",
   "Discovery e Pesquisa com Usuários",
-  "Prototipação Rápida com IA",
+  "Prototipação e Validação com IA",
   "Design Systems e Tokens Escaláveis",
   "A/B Testing e Experimentação",
   "Product Analytics e Monitoramento UX",
@@ -45,10 +45,10 @@ export default function HomePage() {
 
                 <div className="mt-12 sm:mt-16 max-w-xl animate-fade-in-up delay-1">
                   <p className="text-xl sm:text-[22px] font-medium tracking-[-0.01em] text-foreground leading-snug">
-                    Desenho produtos inteligentes — da descoberta à entrega, com IA no processo.
+                    Design de produto orientado por pesquisa, dados e decisão — com IA como camada de raciocínio.
                   </p>
                   <p className="text-base text-muted-foreground leading-relaxed mt-5">
-                    Com mais de 7 anos de experiência em design de produto, uso inteligência artificial para acelerar cada etapa — da descoberta à validação. Meu foco é transformar problemas complexos em experiências simples, com decisões baseadas em pesquisa, dados e experimentação. Baseado em Pará de Minas, Brasil.
+                    Com mais de 7 anos de experiência em design de produto, uso IA para tomar decisões melhores — não só mais rápidas. Foco em pesquisa com usuários, experimentação e impacto mensurável. Baseado em Pará de Minas, Brasil.
                   </p>
                 </div>
 
