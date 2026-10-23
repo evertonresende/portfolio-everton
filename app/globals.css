@@ -72,6 +72,10 @@
   font-weight: 800;
   letter-spacing: -0.045em;
   text-wrap: balance;
+}
+
+/* I com serifa do Inter (cv08): só no "AI Engineer." do hero, que precisa ler certo sem contexto ("Al" vs "AI"). */
+@utility serif-i {
   font-feature-settings: "cv08";
 }
 
@@ -82,7 +86,6 @@
   font-weight: 800;
   letter-spacing: -0.045em;
   text-wrap: balance;
-  font-feature-settings: "cv08";
 }
 
 @utility text-display-2 {
@@ -91,7 +94,6 @@
   font-weight: 800;
   letter-spacing: -0.035em;
   text-wrap: balance;
-  font-feature-settings: "cv08";
 }
 
 @utility text-display-3 {
@@ -100,7 +102,6 @@
   font-weight: 800;
   letter-spacing: -0.04em;
   text-wrap: balance;
-  font-feature-settings: "cv08";
 }
 
 @utility text-heading {
@@ -109,7 +110,6 @@
   font-weight: 800;
   letter-spacing: -0.025em;
   text-wrap: balance;
-  font-feature-settings: "cv08";
 }
 
 @utility text-lead {
@@ -151,7 +151,6 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   text-wrap: balance;
-  font-feature-settings: "cv08";
 }
 
 @utility text-index {

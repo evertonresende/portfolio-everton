@@ -18,7 +18,7 @@ export function Hero({ site }: { site: SiteContent }) {
           <span className="min-w-0 flex-1">{hero.status}</span>
         </p>
         {/* O cargo é o mesmo nos dois idiomas (PERSON.jobTitle), sempre em inglês. */}
-        <h1 id="hero-title" lang="en" className="text-display-1 m-0">
+        <h1 id="hero-title" lang="en" className="text-display-1 serif-i m-0">
           {hero.title}
         </h1>
       </div>
