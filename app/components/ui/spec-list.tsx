@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import type { SpecRow } from "../../content/types";
-import { cn } from "../../../lib/utils";
-import { Dot, StatusMark } from "./status-mark";
+import { cn, glueSeparators } from "../../../lib/utils";
+import { ButtonLink } from "./button-link";
+import { Dot, Marker, StatusMark } from "./status-mark";
 
 interface RowProps {
   readonly term: string;
@@ -17,12 +18,12 @@ export function SpecItem({ term, children, layout = "case" }: RowProps) {
       <dt
         className={cn(
           "label-mono text-muted",
-          layout === "case" ? "spec-term px-gutter pt-4" : "basis-1/4 py-3 pl-gutter",
+          layout === "case" ? "spec-term px-gutter pt-4" : "basis-1/4 py-3 pl-gutter max-sm:basis-full max-sm:pb-0",
         )}
       >
         {term}
       </dt>
-      <dd className={cn("m-0", layout === "case" ? "spec-value px-gutter pb-4 pt-3" : "min-w-0 flex-1 px-gutter py-3")}>
+      <dd className={cn("m-0", layout === "case" ? "spec-value px-gutter pb-4 pt-3" : "min-w-0 flex-1 px-gutter py-3 max-sm:pt-1")}>
         {children}
       </dd>
     </div>
@@ -55,6 +56,16 @@ export function SpecList({ rows, layout = "case", labelledBy, className, childre
 }
 
 function SpecValue({ row, layout }: { row: SpecRow; layout: "case" | "compact" }) {
+  if (row.link) {
+    return (
+      <span className="flex flex-col items-start gap-2">
+        <SpecValue row={{ ...row, link: undefined }} layout={layout} />
+        <ButtonLink href={row.link.href} external={row.link.external} icon={row.link.external ? "external" : "right"}>
+          {row.link.label}
+        </ButtonLink>
+      </span>
+    );
+  }
   if (row.status && layout === "case") {
     return (
       <span className="flex flex-col gap-1.5">
@@ -66,10 +77,11 @@ function SpecValue({ row, layout }: { row: SpecRow; layout: "case" | "compact" }
   if (row.status) {
     return (
       <span className="inline-flex items-baseline gap-2">
-        <Dot />
-        <span>{row.value}</span>
+        {row.statusLabel ? <Marker status={row.status} /> : <Dot />}
+        <span>{glueSeparators(row.statusLabel ? `${row.statusLabel} · ${row.value}` : row.value)}</span>
       </span>
     );
   }
-  return <span className={cn(layout === "case" && (row.mono ? "text-mono-sm" : "text-body block max-w-prose"))}>{row.value}</span>;
+  const value = glueSeparators(row.value);
+  return <span className={cn(layout === "case" && (row.mono ? "text-mono-sm" : "text-body block max-w-prose"))}>{value}</span>;
 }

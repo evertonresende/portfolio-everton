@@ -11,6 +11,14 @@ export function ArrowRight() {
   );
 }
 
+export function ArrowUp() {
+  return (
+    <svg {...base}>
+      <path d="M8 14V3M4 7l4-4 4 4" {...stroke} />
+    </svg>
+  );
+}
+
 export function ArrowDown() {
   return (
     <svg {...base}>

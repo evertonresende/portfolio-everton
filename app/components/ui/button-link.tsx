@@ -17,7 +17,7 @@ const variants: Record<Variant, string> = {
     "h-12 px-7 bg-accent text-on-accent no-underline hover:text-on-accent hover:underline hover:brightness-90 active:brightness-75",
   secondary:
     "h-12 px-4 bg-foreground text-background no-underline hover:text-background hover:underline hover:brightness-125 active:brightness-150",
-  text: "min-h-11 px-1 underline",
+  text: "min-h-11 -mx-1 px-1 underline",
 };
 
 interface Props {

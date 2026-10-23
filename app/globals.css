@@ -71,6 +71,18 @@
   line-height: 0.88;
   font-weight: 800;
   letter-spacing: -0.045em;
+  text-wrap: balance;
+  font-feature-settings: "cv08";
+}
+
+/* Fechamento da home: grande, mas abaixo do H1 do hero. */
+@utility text-display-closing {
+  font-size: clamp(56px, 11vw, 168px);
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  font-feature-settings: "cv08";
 }
 
 @utility text-display-2 {
@@ -78,6 +90,8 @@
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.035em;
+  text-wrap: balance;
+  font-feature-settings: "cv08";
 }
 
 @utility text-display-3 {
@@ -85,6 +99,8 @@
   line-height: 0.95;
   font-weight: 800;
   letter-spacing: -0.04em;
+  text-wrap: balance;
+  font-feature-settings: "cv08";
 }
 
 @utility text-heading {
@@ -92,6 +108,8 @@
   line-height: 1.1;
   font-weight: 800;
   letter-spacing: -0.025em;
+  text-wrap: balance;
+  font-feature-settings: "cv08";
 }
 
 @utility text-lead {
@@ -117,6 +135,23 @@
   line-height: 0.85;
   font-weight: 400;
   letter-spacing: -0.06em;
+}
+
+@utility text-numeral-sm {
+  font-family: var(--font-mono);
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 0.9;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+@utility text-heading-lg {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  font-feature-settings: "cv08";
 }
 
 @utility text-index {
@@ -207,6 +242,11 @@
 @utility spec-term {
   flex: 0 0 22.222%;
   min-width: 140px;
+
+  /* No celular o termo vai para cima do valor, em vez de quebrar em três linhas. */
+  @media (width < 40rem) {
+    flex-basis: 100%;
+  }
 }
 
 @utility spec-value {

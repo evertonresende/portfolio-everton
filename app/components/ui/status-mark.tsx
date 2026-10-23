@@ -5,7 +5,7 @@ import { cn } from "../../../lib/utils";
  * Marcador de status: a forma muda junto com a cor, para não depender só do matiz.
  * Cheio = em produção · vazado = protótipo, fora do ar ou dark launch · quadrado = decisão.
  */
-function Marker({ status }: { status: Status }) {
+export function Marker({ status }: { status: Status }) {
   if (status === "production") {
     return (
       <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" className="shrink-0 fill-accent">
