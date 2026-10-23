@@ -30,7 +30,8 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --container-page: 80rem;
+  /* 1274 px = 1272 px por dentro das bordas (12 colunas de 106 px): hairlines em pixel inteiro, sem borrar. */
+  --container-page: 79.625rem;
   --spacing-gutter: clamp(16px, 2vw, 24px);
   --spacing-section: clamp(48px, 6vw, 96px);
   --spacing-block: clamp(32px, 4vw, 56px);

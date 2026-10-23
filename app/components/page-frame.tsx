@@ -19,7 +19,7 @@ export function PageFrame({
     <div id="topo" className="px-gutter">
       <a
         href="#conteudo"
-        className="label-mono sr-only z-20 bg-foreground px-4 py-3 text-background focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        className="label-mono sr-only z-20 bg-foreground px-4 py-3 text-background focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:px-4 focus:py-3"
       >
         {site.ui.skipToContent}
       </a>

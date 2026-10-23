@@ -41,7 +41,7 @@ export function Nav({ site, alternateHref }: { site: SiteContent; alternateHref:
               href={alternateHref}
               lang={nav.alternate.lang}
               hrefLang={nav.alternate.lang}
-              className="inline-flex min-h-11 items-center px-3 no-underline"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center px-3 no-underline"
             >
               {nav.alternate.label}
             </a>

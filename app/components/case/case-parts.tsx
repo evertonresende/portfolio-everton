@@ -26,7 +26,7 @@ export function CaseHero({ site, kicker, title, lead, facts, factsTitle, crumb, 
       <nav aria-label={site.ui.breadcrumb} className="border-b border-grid px-gutter">
         <ol role="list" className="label-mono m-0 flex list-none flex-wrap items-center gap-x-2.5 p-0">
           <li>
-            <a href={parent.href} className="inline-flex min-h-11 items-center">
+            <a href={parent.href} className="inline-flex min-h-11 min-w-11 items-center">
               {parent.label}
             </a>
           </li>
