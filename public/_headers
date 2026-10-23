@@ -1,0 +1,8 @@
+# Workers Static Assets: cache dos arquivos estáticos (o padrão é max-age=0, que revalida em toda visita).
+# Os chunks de /_next/static têm hash no nome: podem ficar imutáveis. Fontes e imagens não têm hash: 30 dias.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=2592000
+/images/*
+  Cache-Control: public, max-age=2592000
