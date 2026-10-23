@@ -6,3 +6,5 @@ dist/
 *.local
 .DS_Store
 .private/
+.next/
+next-env.d.ts
