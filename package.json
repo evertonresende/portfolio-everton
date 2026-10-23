@@ -1,6 +1,9 @@
 {
   "name": "portfolio-everton",
   "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
   "private": true,
   "scripts": {
     "dev": "vite dev",
