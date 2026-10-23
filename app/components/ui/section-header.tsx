@@ -1,3 +1,5 @@
+import { NoOrphan } from "./no-orphan";
+
 interface Props {
   readonly id: string;
   /** "NN / Título" em mono, no trilho da esquerda. */
@@ -15,7 +17,7 @@ export function SectionHeader({ id, label, title }: Props) {
       <h2 id={id} className="rail-main text-display-2 m-0 px-gutter">
         {lines.map((line, i) => (
           <span key={line} className="block">
-            {line}
+            <NoOrphan text={line} />
             {i < lines.length - 1 ? " " : null}
           </span>
         ))}

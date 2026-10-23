@@ -1,4 +1,5 @@
 import type { SiteContent } from "../../content/types";
+import { NoOrphan } from "../ui/no-orphan";
 import { SectionHeader } from "../ui/section-header";
 
 /** 01 / O que eu entrego: três colunas, cada uma com a sua prova alinhada embaixo (subgrid). */
@@ -16,7 +17,7 @@ export function Delivery({ site }: { site: SiteContent }) {
               className="row-span-4 grid grid-rows-subgrid gap-3.5 border-t border-foreground px-gutter pt-5 pb-8"
             >
               <span className="label-mono text-muted">{item.index}</span>
-              <h3 className="text-heading m-0">{item.title}</h3>
+              <h3 className="text-heading m-0"><NoOrphan text={item.title} /></h3>
               <p className="text-body m-0 max-w-xs">{item.text}</p>
               <p className="text-mono-xs m-0 flex flex-col gap-1 border-t border-rule pt-3">
                 <span className="label-mono text-muted">{delivery.proofLabel}</span>

@@ -35,3 +35,10 @@ export function cn(...inputs: ClassValue[]) {
 export function glueSeparators(text: string): string {
   return text.replaceAll(" · ", "\u00a0· ");
 }
+
+/** Divide um título em [começo, duas últimas palavras]; null com menos de 3 palavras (ver NoOrphan). */
+export function splitLastPair(text: string): readonly [string, string] | null {
+  const words = text.trim().split(/\s+/);
+  if (words.length < 3) return null;
+  return [`${words.slice(0, -2).join(" ")} `, words.slice(-2).join(" ")];
+}

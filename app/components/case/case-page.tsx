@@ -2,6 +2,7 @@ import type { CaseDetail, CaseSection, Column, NumberedItem, SiteContent, Stat }
 import { casePath } from "../../content";
 import { cn, glueSeparators } from "../../../lib/utils";
 import { FlowFigure } from "../ui/flow-figure";
+import { NoOrphan } from "../ui/no-orphan";
 import { SectionHeader } from "../ui/section-header";
 import { SpecList } from "../ui/spec-list";
 import { StatStrip } from "../ui/stat-strip";
@@ -114,7 +115,7 @@ function Items({ items }: { items: readonly NumberedItem[] }) {
             )}
           >
             {item.badge ? <StatusMark status="decision" label={item.badge} /> : null}
-            {item.title ? <h3 className={item.badge ? "text-heading-lg m-0" : "text-heading m-0"}>{item.title}</h3> : null}
+            {item.title ? <h3 className={item.badge ? "text-heading-lg m-0" : "text-heading m-0"}><NoOrphan text={item.title} /></h3> : null}
             <p className={item.badge ? "text-lead m-0 max-w-xl" : "text-body m-0 max-w-prose"}>{item.text}</p>
           </div>
         </li>
