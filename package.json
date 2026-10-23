@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "node scripts/check-content.mjs",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && wrangler deploy"
+    "test": "node --test scripts/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "gsap": "^3.14.2",
