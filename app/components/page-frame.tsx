@@ -23,9 +23,9 @@ export function PageFrame({
       >
         {site.ui.skipToContent}
       </a>
-      <div className="grid-lines relative mx-auto max-w-page border-x border-grid">
+      <div className="grid-lines relative mx-auto flex min-h-dvh max-w-page flex-col border-x border-grid">
         <Nav site={site} alternateHref={alternateHref} />
-        <main id="conteudo" className="relative z-10">
+        <main id="conteudo" className="relative z-10 flex-1">
           {children}
         </main>
         <Footer site={site} />

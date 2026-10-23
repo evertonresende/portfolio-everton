@@ -8,7 +8,7 @@ export function Nav({ site, alternateHref }: { site: SiteContent; alternateHref:
   return (
     <header className="relative z-10 border-b border-grid">
       <nav
-        aria-label={site.locale === "pt" ? "Principal" : "Main"}
+        aria-label={site.ui.mainNav}
         className="flex min-h-18 flex-wrap items-center justify-between gap-x-6 gap-y-2 px-gutter py-3"
       >
         <a
@@ -17,7 +17,7 @@ export function Nav({ site, alternateHref }: { site: SiteContent; alternateHref:
         >
           {nav.brand}
         </a>
-        <ul role="list" className="m-0 flex list-none flex-wrap gap-x-2 p-0">
+        <ul role="list" className="m-0 flex list-none flex-wrap gap-x-2 p-0 max-lg:order-last max-lg:-ml-2 max-lg:w-full">
           {nav.links.map((link) => (
             <li key={link.href}>
               <a
@@ -46,7 +46,7 @@ export function Nav({ site, alternateHref }: { site: SiteContent; alternateHref:
               {nav.alternate.label}
             </a>
           </div>
-          <ButtonLink href={nav.cta.href} external={nav.cta.external} variant="primary" className="px-5">
+          <ButtonLink href={nav.cta.href} external={nav.cta.external} variant="primary" className="px-5 max-sm:hidden">
             {nav.cta.label}
           </ButtonLink>
         </div>
