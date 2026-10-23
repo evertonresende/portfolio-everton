@@ -8,9 +8,18 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./app/*"]
+      "@/*": [
+        "./app/*"
+      ]
     },
-    "types": ["@cloudflare/workers-types"]
+    "types": [
+      "@cloudflare/workers-types",
+      "vinext/types"
+    ]
   },
-  "include": ["app", "worker", "lib"]
+  "include": [
+    "app",
+    "worker",
+    "lib"
+  ]
 }

@@ -1,112 +1,56 @@
-"use client";
+import type { SiteContent } from "../content/types";
+import { homeAnchor, homePath } from "../content";
+import { ButtonLink } from "./ui/button-link";
 
-import { useState, useEffect } from "react";
-
-const NAV_ITEMS = [
-  { href: "work", label: "Projetos" },
-  { href: "about", label: "Sobre" },
-  { href: "contact", label: "Contato" },
-];
-
-interface NavigationProps {
-  backLink?: boolean;
-}
-
-export function Navigation({ backLink = false }: NavigationProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+/** Menu fixo no topo do grid. Server Component: não precisa de JS. */
+export function Nav({ site, alternateHref }: { site: SiteContent; alternateHref: string }) {
+  const { nav, basePath } = site;
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#fafafa]/90 backdrop-blur-xl border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-[1200px] mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
-        {backLink ? (
-          <a
-            href="/"
-            className="text-[11px] font-semibold tracking-[0.2em] uppercase text-foreground hover:opacity-50 transition-opacity duration-200 inline-flex items-center gap-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            Everton Resende
-          </a>
-        ) : (
-          <a
-            href="#"
-            className="text-[11px] font-semibold tracking-[0.2em] uppercase text-foreground hover:opacity-50 transition-opacity duration-200"
-          >
-            Everton Resende
-          </a>
-        )}
-
-        {!backLink && (
-          <div className="hidden md:flex items-center gap-10">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={`#${item.href}`}
-                className="text-[11px] font-medium tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200 link-underline"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        )}
-
-        {!backLink && (
-          <button
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="md:hidden relative w-6 h-4 flex flex-col justify-between"
-            aria-label="Menu"
-          >
-            <span
-              className={`block h-[1px] w-full bg-foreground transition-all duration-200 origin-center ${
-                menuOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
-            />
-            <span
-              className={`block h-[1px] w-full bg-foreground transition-opacity duration-150 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-[1px] w-full bg-foreground transition-all duration-200 origin-center ${
-                menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
-            />
-          </button>
-        )}
-      </nav>
-
-      {!backLink && (
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-200 ease-out ${
-            menuOpen
-              ? "max-h-48 bg-[#fafafa]/95 backdrop-blur-xl border-b border-border"
-              : "max-h-0"
-          }`}
+    <header className="relative z-10 border-b border-grid">
+      <nav
+        aria-label={site.locale === "pt" ? "Principal" : "Main"}
+        className="flex min-h-18 flex-wrap items-center justify-between gap-x-6 gap-y-2 px-gutter py-3"
+      >
+        <a
+          href={homePath(basePath)}
+          className="inline-flex min-h-11 items-center text-lg font-extrabold leading-none tracking-tight no-underline"
         >
-          <div className="px-6 py-6 flex flex-col gap-5">
-            {NAV_ITEMS.map((item) => (
+          {nav.brand}
+        </a>
+        <ul role="list" className="m-0 flex list-none flex-wrap gap-x-2 p-0">
+          {nav.links.map((link) => (
+            <li key={link.href}>
               <a
-                key={item.href}
-                href={`#${item.href}`}
-                onClick={() => setMenuOpen(false)}
-                className="text-[11px] font-medium tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200"
+                href={homeAnchor(basePath, link.href)}
+                className="label-mono inline-flex min-h-11 items-center px-2 no-underline"
               >
-                {item.label}
+                {link.label}
               </a>
-            ))}
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+          <div role="group" aria-label={nav.languageLabel} className="label-mono flex items-center gap-1">
+            <span aria-current="true" className="inline-flex min-h-7 items-center bg-foreground px-2 text-background">
+              {nav.currentLabel}
+            </span>
+            <span aria-hidden="true" className="text-muted">
+              /
+            </span>
+            <a
+              href={alternateHref}
+              lang={nav.alternate.lang}
+              hrefLang={nav.alternate.lang}
+              className="inline-flex min-h-11 items-center px-3 no-underline"
+            >
+              {nav.alternate.label}
+            </a>
           </div>
+          <ButtonLink href={nav.cta.href} external={nav.cta.external} variant="primary" className="px-5">
+            {nav.cta.label}
+          </ButtonLink>
         </div>
-      )}
+      </nav>
     </header>
   );
 }
