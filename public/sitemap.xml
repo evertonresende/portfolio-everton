@@ -60,16 +60,4 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://evertonresende.com/en/projects/softplan"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://evertonresende.com/projects/softplan"/>
   </url>
-  <url>
-    <loc>https://evertonresende.com/projects/fapam</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://evertonresende.com/projects/fapam"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://evertonresende.com/en/projects/fapam"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://evertonresende.com/projects/fapam"/>
-  </url>
-  <url>
-    <loc>https://evertonresende.com/en/projects/fapam</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://evertonresende.com/projects/fapam"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://evertonresende.com/en/projects/fapam"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://evertonresende.com/projects/fapam"/>
-  </url>
 </urlset>

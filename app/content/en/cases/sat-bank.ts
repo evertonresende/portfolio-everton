@@ -46,10 +46,7 @@ export const satBank: CaseDetail = {
           items: [
             { text: "Personal and business onboarding flows, PIX and crypto" },
             { text: "The chatbot, and the switch to invisible help" },
-            {
-              text: "Design system shared across app, admin and website",
-              pending: "{{CONFIRMAR: o design system do SAT Bank é seu?}}",
-            },
+            { text: "Design system shared across app, admin and website" },
           ],
         },
         {
@@ -159,21 +156,6 @@ export const satBank: CaseDetail = {
           statusLabel: "Decision",
         },
       ],
-    },
-    {
-      id: "errado",
-      label: "08 / What went wrong",
-      title: "What went wrong.",
-      draft: "{{CONFIRMAR: revisar a seção O que deu errado}}",
-      items: [
-        { index: "8.1", text: "The chatbot. We designed an assistant that users rejected, and the lesson cost time." },
-        {
-          index: "8.2",
-          text: "The auth service spent a while on GCP and came back to Workers. The Express proxy stayed on Cloud Run.",
-        },
-        { index: "8.3", text: "The app had no automated test suite. The BFF had a manual test script with curl." },
-      ],
-      specs: [{ term: "What I would do differently", value: "{{CONFIRMAR: o que eu faria diferente}}" }],
     },
   ],
   next: { slug: "tazz", index: "01", title: "Tazz." },

@@ -1,5 +1,5 @@
 import type { HomeContent } from "../types";
-import { AGENDA_URL, CV_URL, CONTACT } from "../shared";
+import { CV_URL, CONTACT } from "../shared";
 
 export const home: HomeContent = {
   seo: {
@@ -12,7 +12,7 @@ export const home: HomeContent = {
     title: "AI Engineer.",
     lead: "Construo e coloco em produção produtos com LLMs e agentes, com 7+ anos de design de produto por trás.",
     sub: "Hoje entrego sistemas completos (SaaS para clínicas, fintech, mobilidade), do app ao backend, com um workflow agent-first.",
-    primary: { label: "Agendar conversa", href: AGENDA_URL, external: true },
+    primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Ver cases", href: "#cases" },
     cv: { label: "Baixar CV (PDF)", href: CV_URL },
     photoAlt: "Everton Resende",
@@ -25,7 +25,7 @@ export const home: HomeContent = {
       { term: "Status", value: "Disponível · PJ, CLT ou internacional", status: "production" },
     ],
     proofs: [
-      { term: "Produtos", value: "{{CONFIRMAR: 5, se a Davions contar}}", label: "produtos em produção" },
+      { term: "Produtos", value: "5", label: "produtos em produção" },
       {
         term: "Atendimento",
         value: "IA",
@@ -45,7 +45,7 @@ export const home: HomeContent = {
         index: "1.1",
         title: "Desenho.",
         text: "Produto, UX e design system. 7+ anos decidindo o que vale construir antes de construir.",
-        proof: "Softplan · FAPAM · SAT Bank{{CONFIRMAR: · design system da Tazz, se o design for seu}}",
+        proof: "Softplan · FAPAM · SAT Bank · design system da Tazz",
       },
       {
         index: "1.2",
@@ -200,8 +200,8 @@ export const home: HomeContent = {
         ai: [
           {
             status: "production",
-            label: "{{CONFIRMAR: em produção?}}",
-            text: "{{CONFIRMAR: funções de geração (blog, legendas, temas) estão no ar? Qual provedor de IA?}}",
+            label: "Em produção",
+            text: "Geração de posts de blog, legendas e temas com Claude, via Cloudflare AI Gateway.",
           },
         ],
         result: "Contrato entregue em out/2026 · escrow em dark launch · sigo no time como freelancer",
@@ -269,7 +269,6 @@ export const home: HomeContent = {
         role: "UI/UX Designer",
         text: "Portal acadêmico com 4.000+ alunos.",
         period: "nov 2018 – out 2021",
-        slug: "fapam",
       },
     ],
   },
@@ -307,7 +306,7 @@ export const home: HomeContent = {
     label: "06 / Contato",
     title: "Vamos conversar.",
     status: "Disponível · remoto · PJ, CLT ou contrato internacional",
-    primary: { label: "Agendar conversa", href: AGENDA_URL, external: true },
+    primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Baixar CV (PDF)", href: CV_URL },
     listTitle: "Contatos",
     items: [

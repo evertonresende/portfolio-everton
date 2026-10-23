@@ -10,9 +10,8 @@ function ColumnBlock({ column }: { column: Column }) {
       <h3 className="text-heading m-0">{column.title}</h3>
       <ul role="list" className="m-0 list-none border-t border-rule p-0">
         {column.items.map((item) => (
-          <li key={item.text} className="text-body flex flex-col gap-0.5 border-b border-rule py-2.5">
-            <span>{item.text}</span>
-            {item.pending ? <span className="text-mono-xs text-muted">{item.pending}</span> : null}
+          <li key={item.text} className="text-body border-b border-rule py-2.5">
+            {item.text}
           </li>
         ))}
       </ul>

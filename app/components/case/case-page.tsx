@@ -37,18 +37,7 @@ function Section({ section }: { section: CaseSection }) {
   const titleId = `${section.id}-title`;
   return (
     <section aria-labelledby={titleId} className="flex flex-col gap-block border-t border-grid py-section">
-      <SectionHeader
-        id={titleId}
-        label={section.label}
-        title={section.title}
-        badge={
-          section.draft ? (
-            <span className="text-mono-xs border border-dashed border-muted px-1.5 py-0.5 normal-case tracking-normal text-muted">
-              {section.draft}
-            </span>
-          ) : undefined
-        }
-      />
+      <SectionHeader id={titleId} label={section.label} title={section.title} />
       {stat || paragraphs ? (
         <Rail aside={stat ? <StatAside stat={stat} /> : undefined}>
           {paragraphs ? <Paragraphs paragraphs={paragraphs} /> : null}
@@ -100,12 +89,6 @@ function Columns({ columns }: { columns: readonly Column[] }) {
             {column.items.map((item) => (
               <li key={item.text} className="text-body border-t border-rule py-3">
                 {item.text}
-                {item.pending ? (
-                  <>
-                    {" "}
-                    <span className="text-mono-xs text-muted">{item.pending}</span>
-                  </>
-                ) : null}
               </li>
             ))}
           </ul>

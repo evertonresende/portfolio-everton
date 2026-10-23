@@ -161,24 +161,6 @@ export const dentalSmart: CaseDetail = {
         { term: "AI", value: "AI", label: "Appointment transcription and summary.", status: "production", statusLabel: "In production" },
       ],
     },
-    {
-      id: "errado",
-      label: "08 / What went wrong",
-      title: "What went wrong.",
-      draft: "{{CONFIRMAR: revisar a seção O que deu errado}}",
-      items: [
-        { index: "8.1", text: "Reconciliation with OFX import became a dead feature and was removed from the product in Apr 2026." },
-        {
-          index: "8.2",
-          text: "I tried to move the app from Vercel to Cloudflare Workers via OpenNext in Aug 2025, and started planning the migration again in Apr 2026. The app is still on Vercel.",
-        },
-        {
-          index: "8.3",
-          text: "Automated tests came late: the first Jest suite and the first SQL test are from Jul 2026.",
-        },
-      ],
-      specs: [{ term: "What I would do differently", value: "{{CONFIRMAR: o que eu faria diferente}}" }],
-    },
   ],
   next: { slug: "sat-bank", index: "04", title: "SAT Bank." },
   seo: {

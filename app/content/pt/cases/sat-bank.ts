@@ -46,10 +46,7 @@ export const satBank: CaseDetail = {
           items: [
             { text: "Fluxos de onboarding PF e PJ, PIX e cripto" },
             { text: "O chatbot e a troca por ajudas invisíveis" },
-            {
-              text: "Design system compartilhado entre app, admin e site",
-              pending: "{{CONFIRMAR: o design system do SAT Bank é seu?}}",
-            },
+            { text: "Design system compartilhado entre app, admin e site" },
           ],
         },
         {
@@ -159,21 +156,6 @@ export const satBank: CaseDetail = {
           statusLabel: "Decisão",
         },
       ],
-    },
-    {
-      id: "errado",
-      label: "08 / O que deu errado",
-      title: "O que deu errado.",
-      draft: "{{CONFIRMAR: revisar a seção O que deu errado}}",
-      items: [
-        { index: "8.1", text: "O chatbot. Desenhamos um assistente que os usuários rejeitaram, e o aprendizado custou tempo." },
-        {
-          index: "8.2",
-          text: "O serviço de auth passou um tempo no GCP e voltou para Workers. O proxy em Express ficou no Cloud Run.",
-        },
-        { index: "8.3", text: "O app ficou sem suíte de testes automatizados. O BFF tinha um roteiro de testes manuais com curl." },
-      ],
-      specs: [{ term: "O que eu faria diferente", value: "{{CONFIRMAR: o que eu faria diferente}}" }],
     },
   ],
   next: { slug: "tazz", index: "01", title: "Tazz." },

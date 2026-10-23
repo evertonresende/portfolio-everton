@@ -1,5 +1,5 @@
 import type { HomeContent } from "../types";
-import { AGENDA_URL, CV_URL, CONTACT } from "../shared";
+import { CV_URL, CONTACT } from "../shared";
 
 export const home: HomeContent = {
   seo: {
@@ -12,7 +12,7 @@ export const home: HomeContent = {
     title: "AI Engineer.",
     lead: "I build products with LLMs and agents and take them to production, backed by 7+ years of product design.",
     sub: "Today I deliver complete systems (SaaS for clinics, fintech, mobility), from the app to the backend, with an agent-first workflow.",
-    primary: { label: "Book a call", href: AGENDA_URL, external: true },
+    primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "View cases", href: "#cases" },
     cv: { label: "Download CV (PDF)", href: CV_URL },
     photoAlt: "Everton Resende",
@@ -25,7 +25,7 @@ export const home: HomeContent = {
       { term: "Status", value: "Available · contractor (PJ), CLT or international", status: "production" },
     ],
     proofs: [
-      { term: "Products", value: "{{CONFIRMAR: 5, se a Davions contar}}", label: "products in production" },
+      { term: "Products", value: "5", label: "products in production" },
       {
         term: "Support",
         value: "AI",
@@ -45,7 +45,7 @@ export const home: HomeContent = {
         index: "1.1",
         title: "I design.",
         text: "Product, UX and design systems. 7+ years deciding what is worth building before building it.",
-        proof: "Softplan · FAPAM · SAT Bank{{CONFIRMAR: · Tazz design system, if the design is yours}}",
+        proof: "Softplan · FAPAM · SAT Bank · Tazz design system",
       },
       {
         index: "1.2",
@@ -200,8 +200,8 @@ export const home: HomeContent = {
         ai: [
           {
             status: "production",
-            label: "{{CONFIRMAR: in production?}}",
-            text: "{{CONFIRMAR: are the generation features (blog, captions, themes) live? Which AI provider?}}",
+            label: "In production",
+            text: "Blog post, caption and theme generation with Claude, through Cloudflare AI Gateway.",
           },
         ],
         result: "Contract delivered in Oct 2026 · escrow in dark launch · I’m still on the team as a freelancer",
@@ -269,7 +269,6 @@ export const home: HomeContent = {
         role: "UI/UX Designer",
         text: "Academic portal with 4,000+ students.",
         period: "Nov 2018 – Oct 2021",
-        slug: "fapam",
       },
     ],
   },
@@ -307,7 +306,7 @@ export const home: HomeContent = {
     label: "06 / Contact",
     title: "Let’s talk.",
     status: "Available · remote · contractor (PJ), CLT or international contract",
-    primary: { label: "Book a call", href: AGENDA_URL, external: true },
+    primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Download CV (PDF)", href: CV_URL },
     listTitle: "Contact details",
     items: [

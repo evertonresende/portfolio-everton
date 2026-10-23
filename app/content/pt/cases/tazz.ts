@@ -43,11 +43,8 @@ export const tazz: CaseDetail = {
           index: "3.1",
           title: "Design.",
           items: [
-            { text: "Design system do app novo, com tokens e 2 temas", pending: "{{CONFIRMAR: o design system do app novo é seu?}}" },
-            {
-              text: "Telas do admin novo e do atendimento, com handoff para humano",
-              pending: "{{CONFIRMAR: as telas do admin e do atendimento são suas?}}",
-            },
+            { text: "Design system do app novo, com tokens e 2 temas" },
+            { text: "Telas do admin novo e do atendimento, com handoff para humano" },
           ],
         },
         {
@@ -143,21 +140,6 @@ export const tazz: CaseDetail = {
         { value: "set/2026", label: "PIX em produção" },
         { term: "IA", value: "IA", label: "Agente atendendo clientes reais.", status: "production", statusLabel: "Em produção" },
       ],
-    },
-    {
-      id: "errado",
-      label: "08 / O que deu errado",
-      title: "O que deu errado.",
-      draft: "{{CONFIRMAR: revisar a seção O que deu errado}}",
-      items: [
-        {
-          index: "8.1",
-          text: "Um segredo faltando no webhook do KYC gerou erro 401 e travou o KYC em produção logo depois do porte.",
-        },
-        { index: "8.2", text: "O GitHub Actions parou por falta de minutos de CI. O CI/CD dos Workers foi para o Workers Builds." },
-        { index: "8.3", text: "Aposentar as functions migradas e alguns testes E2E ficaram para depois do porte." },
-      ],
-      specs: [{ term: "O que eu faria diferente", value: "{{CONFIRMAR: o que eu faria diferente}}" }],
     },
   ],
   next: { slug: "dental-smart", index: "02", title: "Dental Smart." },

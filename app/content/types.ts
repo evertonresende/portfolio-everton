@@ -73,8 +73,6 @@ interface CaseSummaryBase {
 
 export interface ListItem {
   readonly text: string;
-  /** Afirmação que ainda depende de confirmação. */
-  readonly pending?: string;
 }
 
 export interface Column {
@@ -94,8 +92,6 @@ export interface CaseSection {
   readonly id: string;
   readonly label: string;
   readonly title: string;
-  /** Selo de rascunho ao lado do rótulo (ex.: "[rascunho · confirmar]"). */
-  readonly draft?: string;
   readonly stat?: Stat;
   readonly paragraphs?: readonly string[];
   readonly columns?: readonly Column[];
@@ -107,7 +103,7 @@ export interface CaseSection {
 
 /** Slugs com página própria: o tsc pega link para case que não existe e idioma sem o mesmo case. */
 export type CaseSlug = "tazz" | "dental-smart" | "sat-bank";
-export type BriefSlug = "softplan" | "fapam";
+export type BriefSlug = "softplan";
 
 export interface CaseDetail {
   readonly kicker: string;
@@ -121,7 +117,7 @@ export interface CaseDetail {
   readonly seo: { readonly title: string; readonly description: string };
 }
 
-/** Resumo curto (Softplan, FAPAM): sem template completo de case. */
+/** Resumo curto (Softplan): sem template completo de case. */
 export interface CaseBrief {
   readonly kicker: string;
   readonly title: string;
@@ -208,7 +204,7 @@ export interface SiteContent {
   readonly ui: {
     readonly viewCase: string;
     readonly breadcrumbCases: string;
-    /** Trilha das páginas resumo (Softplan, FAPAM), que moram em Fundamentos na home. */
+    /** Trilha das páginas resumo (Softplan), que moram em Fundamentos na home. */
     readonly breadcrumbFoundations: string;
     readonly summaryLabel: string;
     readonly nextCase: string;

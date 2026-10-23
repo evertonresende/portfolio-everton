@@ -2,9 +2,6 @@
 
 export const SITE_URL = "https://evertonresende.com";
 
-// O link de agenda ainda não existe; o build falha até ele entrar aqui.
-export const AGENDA_URL = "{{CONFIRMAR: link de agenda (Cal.com)}}";
-
 // {{CONFIRMAR: gerar public/cv-everton-resende.pdf na Fase 5}}
 export const CV_URL = "/cv-everton-resende.pdf";
 

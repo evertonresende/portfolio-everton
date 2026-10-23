@@ -3,7 +3,7 @@ import { homeAnchor } from "../../content";
 import { ButtonLink } from "../ui/button-link";
 import { CaseHero, Paragraphs, Rail } from "./case-parts";
 
-/** Resumo curto (Softplan, FAPAM): o mesmo topo do case, alguns parágrafos e a saída para cases e contato. */
+/** Resumo curto (Softplan): o mesmo topo do case, alguns parágrafos e a saída para cases e contato. */
 export function BriefPage({ site, brief }: { site: SiteContent; brief: CaseBrief }) {
   const { cta } = site.nav;
   const cases = site.home.hero.secondary;
