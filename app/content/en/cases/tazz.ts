@@ -1,0 +1,169 @@
+import type { CaseDetail } from "../../types";
+
+export const tazz: CaseDetail = {
+  kicker: "Case 01 · Mobility · Jul 2026 – present",
+  title: "Tazz.",
+  lead: "A ride-hailing app in Brazil. I joined to get the backend past a quota limit and stayed to build the support agent, the PIX ledger and the new app.",
+  factsTitle: "Fact sheet",
+  facts: [
+    { term: "Role", value: "AI Engineer (freelance)" },
+    { term: "Period", value: "Jul 2026 – present" },
+    { term: "Stack", value: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo", mono: true },
+    { term: "AI", value: "Serving real customers", status: "production", statusLabel: "In production" },
+  ],
+  stats: [
+    { term: "Migration", value: "~158 → 22", label: "from Cloud Functions to Cloudflare Workers" },
+    { term: "Duration", value: "~47.5 h", label: "for the full port" },
+    { term: "Payments", value: "Sep 2026", label: "PIX in production" },
+  ],
+  sections: [
+    {
+      id: "problema",
+      label: "01 / Problem",
+      title: "It hit the region’s ceiling.",
+      stat: { value: "20", label: "vCPU · fixed quota · São Paulo" },
+      paragraphs: [
+        "The backend ran on ~158 Cloud Functions on GCP and hit the fixed 20 vCPU quota in the São Paulo region, with the app live.",
+      ],
+    },
+    {
+      id: "contexto",
+      label: "02 / Context",
+      title: "Swapping the engine while the car is moving.",
+      paragraphs: [
+        "A ride-hailing app in Flutter, with Firestore and Realtime Database. What had to change was the compute. The data could stay where it was.",
+      ],
+    },
+    {
+      id: "papel",
+      label: "03 / My role",
+      title: "End-to-end engineering.",
+      columns: [
+        {
+          index: "3.1",
+          title: "Design.",
+          items: [
+            { text: "Design system for the new app, with tokens and 2 themes", pending: "{{CONFIRMAR: o design system do app novo é seu?}}" },
+            {
+              text: "Screens for the new admin and for support, with human handoff",
+              pending: "{{CONFIRMAR: as telas do admin e do atendimento são suas?}}",
+            },
+          ],
+        },
+        {
+          index: "3.2",
+          title: "Engineering.",
+          items: [
+            { text: "Strangler‑fig migration to Cloudflare Workers" },
+            { text: "Double-entry ledger and PIX with Asaas" },
+            { text: "Support agent with tools, guardrails and evals" },
+            { text: "Expo app to replace the Flutter one" },
+          ],
+        },
+      ],
+    },
+    {
+      id: "arquitetura",
+      label: "04 / Architecture",
+      title: "Strangler‑fig at the edge.",
+      figures: [
+        {
+          number: "Fig. 01",
+          caption: "Migration",
+          direction: "horizontal",
+          nodes: [
+            { title: "App", note: "Flutter" },
+            {
+              title: "Gateway",
+              note: "Worker",
+              branch: [{ title: "Routes not yet migrated", muted: true }, { title: "Legacy functions", note: "GCP", muted: true }],
+            },
+            { title: "Domain Workers" },
+            { title: "Firestore and Realtime Database", note: "GCP" },
+          ],
+        },
+        {
+          number: "Fig. 02",
+          caption: "Support",
+          direction: "horizontal",
+          nodes: [
+            { title: "Channels", note: "WhatsApp, Instagram, app, website, email" },
+            { title: "Support", note: "Queues + DO per conversation" },
+            { title: "Agent", note: "LLM via AI Gateway" },
+            { title: "Tools", note: "read-only, allowlist, audit" },
+            { title: "Human operator", note: "handoff" },
+          ],
+        },
+      ],
+    },
+    {
+      id: "ia",
+      label: "05 / Where AI comes in",
+      title: "In customer support.",
+      specs: [
+        { term: "Model", value: "OpenAI via AI Gateway, with fallback. Claude selectable in the admin panel." },
+        { term: "Tools", value: "5 read-only tools, with an allowlist and auditing. At most 3 rounds." },
+        { term: "Guardrails", value: "Layered checks, an LLM judge and redaction of personal data." },
+        { term: "Evals", value: "Offline evals with datasets, a gate and a comparison of 4 models. Shadow and canary rollout." },
+        { term: "Status", value: "Serving real customers, with human handoff.", status: "production", statusLabel: "In production" },
+      ],
+    },
+    {
+      id: "decisoes",
+      label: "06 / Decisions and trade-offs",
+      title: "What stayed out, on purpose.",
+      items: [
+        {
+          index: "6.1",
+          badge: "Not used",
+          title: "No RAG in the MVP.",
+          text: "The knowledge base has 58 curated entries, each with an owner, and keyword search.",
+        },
+        { index: "6.2", title: "Read-only tools.", text: "The tools only read, with an allowlist and auditing. The agent can hand off to a human." },
+        {
+          index: "6.3",
+          title: "Strangler‑fig, not big bang.",
+          text: "Migrated routes went through service bindings behind the gateway. Routes not yet migrated kept being served by the functions.",
+        },
+        { index: "6.4", title: "Only the compute moved.", text: "Firestore and RTDB stayed on GCP. The quota that blocked us was vCPU." },
+        {
+          index: "6.5",
+          title: "Money, isolated.",
+          text: "Payments kept isolated, a double-entry ledger with no public route, and HMAC-signed webhooks.",
+        },
+      ],
+    },
+    {
+      id: "resultado",
+      label: "07 / Result",
+      title: "Live.",
+      stats: [
+        { value: "~158 → 22", label: "from Cloud Functions to Cloudflare Workers" },
+        { value: "~47.5 h", label: "for the full port" },
+        { value: "Sep 2026", label: "PIX in production" },
+        { term: "AI", value: "AI", label: "Agent serving real customers.", status: "production", statusLabel: "In production" },
+      ],
+    },
+    {
+      id: "errado",
+      label: "08 / What went wrong",
+      title: "What went wrong.",
+      draft: "{{CONFIRMAR: revisar a seção O que deu errado}}",
+      items: [
+        {
+          index: "8.1",
+          text: "A missing secret in the KYC webhook caused a 401 error and blocked KYC in production right after the port.",
+        },
+        { index: "8.2", text: "GitHub Actions stopped when we ran out of CI minutes. The Workers CI/CD moved to Workers Builds." },
+        { index: "8.3", text: "Retiring the migrated functions and some E2E tests had to wait until after the port." },
+      ],
+      specs: [{ term: "What I would do differently", value: "{{CONFIRMAR: o que eu faria diferente}}" }],
+    },
+  ],
+  next: { slug: "dental-smart", index: "02", title: "Dental Smart." },
+  seo: {
+    title: "Tazz: migration to Cloudflare Workers and a support agent · Everton Resende",
+    description:
+      "How I ported ~158 Cloud Functions to 22 Cloudflare Workers in ~47.5 h and built a support agent with tool calling, guardrails and evals in production.",
+  },
+};
