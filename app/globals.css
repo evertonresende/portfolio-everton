@@ -4,7 +4,7 @@
 @font-face {
   font-family: "Inter";
   src: url("/fonts/inter-latin.woff2") format("woff2");
-  font-weight: 100 900;
+  font-weight: 400 800; /* subset só com os pesos usados: scripts/fonts/subset.mjs */
   font-style: normal;
   font-display: swap;
 }
@@ -12,7 +12,7 @@
 @font-face {
   font-family: "JetBrains Mono";
   src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
-  font-weight: 100 800;
+  font-weight: 400 500;
   font-style: normal;
   font-display: swap;
 }
