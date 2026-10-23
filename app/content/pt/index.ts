@@ -29,11 +29,20 @@ export const pt: SiteContent = {
   },
   ui: {
     viewCase: "Ver case",
-    figure: "Fig.",
     breadcrumbCases: "Cases",
+    breadcrumbFoundations: "Fundamentos",
+    summaryLabel: "01 / Resumo",
     nextCase: "Próximo case",
     skipToContent: "Pular para o conteúdo",
-    proofLabel: "Prova",
+    mainNav: "Principal",
+    notFound: {
+      title: "Página não encontrada.",
+      text: "O endereço não existe ou mudou. Os cases estão na home.",
+      back: "Voltar para a home",
+    },
+    proofs: "Provas",
+    numbers: "Números",
+    breadcrumb: "Trilha",
     specLabels: {
       problem: "Problema",
       whatIDid: "O que fiz",

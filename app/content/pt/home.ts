@@ -45,7 +45,7 @@ export const home: HomeContent = {
         index: "1.1",
         title: "Desenho.",
         text: "Produto, UX e design system. 7+ anos decidindo o que vale construir antes de construir.",
-        proof: "Softplan · FAPAM · SAT Bank · design system da Tazz",
+        proof: "Softplan · FAPAM · SAT Bank{{CONFIRMAR: · design system da Tazz, se o design for seu}}",
       },
       {
         index: "1.2",
@@ -161,7 +161,7 @@ export const home: HomeContent = {
           caption: "Decisão",
           direction: "vertical",
           nodes: [
-            { title: "Chatbot", note: "rejeitado pelos usuários", muted: true },
+            { title: "Chatbot", note: "rejeitado pelos usuários", muted: true, rejected: true },
             { title: "Regras invisíveis", note: "categorização · alertas de saldo" },
           ],
           footnote: "Sem LLM, de propósito",
@@ -193,18 +193,24 @@ export const home: HomeContent = {
           footnote: "Escrow BR no Asaas · livro-razão em SQL",
         },
         problem:
-          "Um SaaS de galerias para fotógrafos, nascido no Lovable, precisava sair do protótipo para uma arquitetura de produção.",
+          "Um SaaS de galerias para fotógrafos, nascido no Lovable, precisava ser re-hospedado e refatorado numa arquitetura própria.",
         whatIDid:
           "Re-hospedei e refatorei o app em 10 Cloudflare Workers com Supabase e RLS, e desenhei o escrow com o Asaas: livro-razão em SQL e saque por PIX.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
-        ai: [{ status: "dark-launch", label: "Dark launch", text: "Escrow em dark launch desde out/2026." }],
-        result: "Contrato entregue em out/2026 · sigo no time como freelancer",
+        ai: [
+          {
+            status: "production",
+            label: "{{CONFIRMAR: em produção?}}",
+            text: "{{CONFIRMAR: funções de geração (blog, legendas, temas) estão no ar? Qual provedor de IA?}}",
+          },
+        ],
+        result: "Contrato entregue em out/2026 · escrow em dark launch · sigo no time como freelancer",
       },
     ],
   },
   howIWork: {
     label: "03 / Como trabalho",
-    title: "Agentes escrevem o código. Eu respondo por ele.",
+    title: ["Agentes escrevem o código.", "Eu respondo por ele."],
     intro:
       "Trabalho como quem conduz um time. Defino o contexto, a arquitetura e os critérios de aceite. Os agentes escrevem a maior parte do código. Eu leio, depuro e decido o que vai para produção.",
     pipelineLabel: "Pipeline",
@@ -244,17 +250,12 @@ export const home: HomeContent = {
         term: "Na prática",
         value: "Na Tazz, portei ~158 Cloud Functions para 22 Workers em ~47,5 h, com um agente coordenador, executores e uma fila de tasks.",
       },
-      { term: "Este site", value: "Foi refeito assim. A spec e o plano estão em docs/ no GitHub." },
+      { term: "Este site", value: "Foi refeito assim. A spec e o plano estão em docs/ no GitHub.", link: { label: "Ver a spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],
-    repo: {
-      label: "Ver a spec e o plano",
-      href: "https://github.com/evertonresende/portfolio-everton/tree/main/docs/superpowers",
-      external: true,
-    },
   },
   foundations: {
     label: "04 / Fundamentos de design",
-    title: "Onde aprendi a decidir o que construir.",
+    title: ["Onde aprendi a decidir", "o que construir."],
     rows: [
       {
         company: "Softplan",

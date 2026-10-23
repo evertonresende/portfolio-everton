@@ -1,5 +1,5 @@
 // Formato do conteúdo do site. Componentes recebem estes tipos e não carregam texto próprio.
-// Fato ainda não confirmado entra como "{{CONFIRMAR: ...}}" e trava o build (scripts/check-content.mjs).
+// Fato ainda não confirmado entra como placeholder CONFIRMAR entre chaves duplas e trava o build (scripts/check-content.mjs).
 
 export type Locale = "pt" | "en";
 
@@ -19,13 +19,17 @@ export interface SpecRow {
   readonly status?: Status;
   /** Rótulo do marcador de status (ex.: "Em produção"); o value vem embaixo. */
   readonly statusLabel?: string;
+  /** Link logo abaixo do valor (ex.: a spec deste site). */
+  readonly link?: Link;
 }
 
 export interface FlowNode {
   readonly title: string;
   readonly note?: string;
-  /** Caminho rejeitado ou legado: desenhado esmaecido/tracejado. */
+  /** Caminho legado ou secundário: desenhado tracejado e esmaecido. */
   readonly muted?: boolean;
+  /** Caminho descartado (ex.: o chatbot que os usuários rejeitaram): também riscado. */
+  readonly rejected?: boolean;
   /** Ramo que sai deste nó (ex.: rotas não migradas → functions legadas). */
   readonly branch?: readonly FlowNode[];
 }
@@ -52,8 +56,10 @@ export interface Stat {
   readonly statusLabel?: string;
 }
 
-export interface CaseSummary {
-  readonly slug: string;
+/** Só cases com página própria mostram "Ver case"; esses precisam de um slug que existe. */
+export type CaseSummary = CaseSummaryBase & ({ readonly hasPage: true; readonly slug: CaseSlug } | { readonly hasPage: false; readonly slug: string });
+
+interface CaseSummaryBase {
   readonly index: string;
   readonly meta: string;
   readonly title: string;
@@ -63,8 +69,6 @@ export interface CaseSummary {
   readonly stack: string;
   readonly ai?: readonly AiItem[];
   readonly result: string;
-  /** Só cases com página própria mostram "Ver case". */
-  readonly hasPage: boolean;
 }
 
 export interface ListItem {
@@ -101,8 +105,11 @@ export interface CaseSection {
   readonly stats?: readonly Stat[];
 }
 
+/** Slugs com página própria: o tsc pega link para case que não existe e idioma sem o mesmo case. */
+export type CaseSlug = "tazz" | "dental-smart" | "sat-bank";
+export type BriefSlug = "softplan" | "fapam";
+
 export interface CaseDetail {
-  readonly slug: string;
   readonly kicker: string;
   readonly title: string;
   readonly lead: string;
@@ -110,16 +117,16 @@ export interface CaseDetail {
   readonly facts: readonly SpecRow[];
   readonly stats: readonly Stat[];
   readonly sections: readonly CaseSection[];
-  readonly next?: { readonly slug: string; readonly index: string; readonly title: string };
+  readonly next?: { readonly slug: CaseSlug; readonly index: string; readonly title: string };
   readonly seo: { readonly title: string; readonly description: string };
 }
 
 /** Resumo curto (Softplan, FAPAM): sem template completo de case. */
 export interface CaseBrief {
-  readonly slug: string;
   readonly kicker: string;
   readonly title: string;
   readonly lead: string;
+  readonly factsTitle: string;
   readonly facts: readonly SpecRow[];
   readonly paragraphs: readonly string[];
   readonly seo: { readonly title: string; readonly description: string };
@@ -153,19 +160,18 @@ export interface HomeContent {
   };
   readonly howIWork: {
     readonly label: string;
-    readonly title: string;
+    readonly title: string | readonly string[];
     readonly intro: string;
     readonly pipelineLabel: string;
     readonly steps: readonly NumberedItem[];
     readonly decide: Column;
     readonly delegate: Column;
     readonly specs: readonly SpecRow[];
-    readonly repo: Link;
   };
   readonly foundations: {
     readonly label: string;
-    readonly title: string;
-    readonly rows: readonly { readonly company: string; readonly role: string; readonly text: string; readonly period: string; readonly slug?: string }[];
+    readonly title: string | readonly string[];
+    readonly rows: readonly { readonly company: string; readonly role: string; readonly text: string; readonly period: string; readonly slug?: BriefSlug }[];
   };
   readonly timeline: {
     readonly label: string;
@@ -201,11 +207,18 @@ export interface SiteContent {
   readonly footer: { readonly copyright: string; readonly madeWith: string; readonly backToTop: string };
   readonly ui: {
     readonly viewCase: string;
-    readonly figure: string;
     readonly breadcrumbCases: string;
+    /** Trilha das páginas resumo (Softplan, FAPAM), que moram em Fundamentos na home. */
+    readonly breadcrumbFoundations: string;
+    readonly summaryLabel: string;
     readonly nextCase: string;
     readonly skipToContent: string;
-    readonly proofLabel: string;
+    readonly mainNav: string;
+    readonly notFound: { readonly title: string; readonly text: string; readonly back: string };
+    /** Rótulos acessíveis: faixa de provas, faixa de números do case, trilha. */
+    readonly proofs: string;
+    readonly numbers: string;
+    readonly breadcrumb: string;
     readonly specLabels: {
       readonly problem: string;
       readonly whatIDid: string;
@@ -215,6 +228,6 @@ export interface SiteContent {
     };
   };
   readonly home: HomeContent;
-  readonly cases: Readonly<Record<string, CaseDetail>>;
-  readonly briefs: Readonly<Record<string, CaseBrief>>;
+  readonly cases: Readonly<Record<CaseSlug, CaseDetail>>;
+  readonly briefs: Readonly<Record<BriefSlug, CaseBrief>>;
 }

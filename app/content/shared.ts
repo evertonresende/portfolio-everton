@@ -10,7 +10,7 @@ export const CV_URL = "/cv-everton-resende.pdf";
 
 export const CONTACT = {
   email: "everton.augustor@gmail.com",
-  linkedin: "https://www.linkedin.com/in/evertonresende",
+  linkedin: "https://linkedin.com/in/evertonresende",
   github: "https://github.com/evertonresende",
   whatsapp: "https://wa.me/5537999133556",
 } as const;
@@ -21,4 +21,7 @@ export const PERSON = {
   locality: "Pará de Minas",
   region: "MG",
   country: "BR",
+  image: "/images/everton-480.webp",
+  // Só skills marcadas "em produção" na ficha de fatos (§5). Nomes técnicos, iguais nos dois idiomas.
+  knowsAbout: ["LLM", "AI agents", "Tool calling", "Evals", "TypeScript", "React", "React Native", "Cloudflare Workers", "Postgres"],
 } as const;

@@ -1,7 +1,6 @@
 import type { CaseDetail } from "../../types";
 
 export const tazz: CaseDetail = {
-  slug: "tazz",
   kicker: "Case 01 · Mobilidade · jul 2026 – hoje",
   title: "Tazz.",
   lead: "App de corridas no Brasil. Entrei para tirar o backend de um limite de cota e fiquei para construir o agente de atendimento, o ledger do PIX e o novo app.",
@@ -55,7 +54,7 @@ export const tazz: CaseDetail = {
           index: "3.2",
           title: "Engenharia.",
           items: [
-            { text: "Migração strangler-fig para Cloudflare Workers" },
+            { text: "Migração strangler‑fig para Cloudflare Workers" },
             { text: "Ledger de partida dobrada e PIX com o Asaas" },
             { text: "Agente de atendimento com tools, guardrails e evals" },
             { text: "App em Expo para substituir o Flutter" },
@@ -66,7 +65,7 @@ export const tazz: CaseDetail = {
     {
       id: "arquitetura",
       label: "04 / Arquitetura",
-      title: "Strangler-fig na borda.",
+      title: "Strangler‑fig na borda.",
       figures: [
         {
           number: "Fig. 01",
@@ -118,12 +117,12 @@ export const tazz: CaseDetail = {
           index: "6.1",
           badge: "Não usado",
           title: "Sem RAG no MVP.",
-          text: "A base tem 58 entradas curadas, cada uma com dono, e busca por palavra-chave.",
+          text: "A base tem 58 entradas curadas, cada uma com dono, e busca por palavra‑chave.",
         },
         { index: "6.2", title: "Tools só de leitura.", text: "As tools só leem, com allowlist e auditoria. O agente tem handoff para humano." },
         {
           index: "6.3",
-          title: "Strangler-fig, não big bang.",
+          title: "Strangler‑fig, não big bang.",
           text: "Rotas migradas por service binding atrás do gateway. O que não migrou seguiu respondendo pelas functions.",
         },
         { index: "6.4", title: "Só o compute saiu.", text: "Firestore e RTDB ficaram no GCP. A cota que travou era de vCPU." },
