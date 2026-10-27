@@ -1,4 +1,5 @@
 import type { Stat } from "../../content/types";
+import { NoOrphan } from "./no-orphan";
 import { StatusMark } from "./status-mark";
 
 /** Faixa de números grandes em mono, cada célula com linha forte no topo. */
@@ -29,7 +30,9 @@ export function StatStrip({
             <span className={size === "lg" ? "text-numeral" : "text-numeral-sm"}>
               {stat.value}
             </span>
-            <span className="text-sub max-w-xs font-medium leading-snug">{stat.label}</span>
+            <span className="text-sub max-w-xs font-medium leading-snug">
+              <NoOrphan text={stat.label} />
+            </span>
           </p>
         </li>
       ))}

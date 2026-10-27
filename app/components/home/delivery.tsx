@@ -1,4 +1,5 @@
 import type { SiteContent } from "../../content/types";
+import { glueSeparators } from "../../../lib/utils";
 import { NoOrphan } from "../ui/no-orphan";
 import { SectionHeader } from "../ui/section-header";
 
@@ -21,7 +22,7 @@ export function Delivery({ site }: { site: SiteContent }) {
               <p className="text-body m-0 max-w-xs">{item.text}</p>
               <p className="text-mono-xs m-0 flex flex-col gap-1 border-t border-rule pt-3">
                 <span className="label-mono text-muted">{delivery.proofLabel}</span>
-                <span>{item.proof}</span>
+                <span className="text-pretty">{glueSeparators(item.proof)}</span>
               </p>
             </div>
           ))}
