@@ -2,7 +2,6 @@ import type { SiteContent } from "../types";
 import { home } from "./home";
 import { tazz } from "./cases/tazz";
 import { dentalSmart } from "./cases/dental-smart";
-import { satBank } from "./cases/sat-bank";
 import { briefs } from "./briefs";
 
 export const pt: SiteContent = {
@@ -52,6 +51,6 @@ export const pt: SiteContent = {
     },
   },
   home,
-  cases: { tazz, "dental-smart": dentalSmart, "sat-bank": satBank },
+  cases: { tazz, "dental-smart": dentalSmart },
   briefs,
 };

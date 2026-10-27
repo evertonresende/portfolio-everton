@@ -112,6 +112,7 @@ export const home: HomeContent = {
         ai: [
           { status: "production", label: "In production", text: "Appointment transcription and summary (Whisper + Llama)." },
           { status: "prototype", label: "Prototype", text: "X-ray analysis, in design only." },
+          { status: "decision", label: "Decision", text: "Bank reconciliation is rule-based, no\u00a0AI." },
         ],
         result: "~20 clinics · 0 churn",
       },
@@ -151,42 +152,13 @@ export const home: HomeContent = {
         result: "App in the stores with real account holders",
       },
       {
-        slug: "sat-bank",
-        index: "04",
-        meta: "Digital bank · 2025–2026",
-        title: "SAT Bank.",
-        hasPage: true,
-        figure: {
-          number: "Fig. 04",
-          caption: "Decision",
-          direction: "vertical",
-          nodes: [
-            { title: "Chatbot", note: "rejected by users", muted: true, rejected: true },
-            { title: "Invisible rules", note: "categorization · balance alerts" },
-          ],
-          footnote: "No LLM, on purpose",
-        },
-        problem: "Opening personal and business accounts in a digital bank without losing users across 8 onboarding steps.",
-        whatIDid:
-          "I designed and built the Expo app, the BFF on the Cronos API in Cloudflare Workers, the admin and the website. Also USDT buying and selling.",
-        stack: "TypeScript · Expo · Hono · Cloudflare Workers · D1 → Neon · Next.js",
-        ai: [
-          {
-            status: "decision",
-            label: "Decision",
-            text: "Users rejected the chatbot. The help features became invisible rules, with no LLM: categorization and balance alerts.",
-          },
-        ],
-        result: "App in the stores · USDT live since Feb 2026",
-      },
-      {
         slug: "davions",
-        index: "05",
+        index: "04",
         meta: "SaaS for photographers · 2026–present",
         title: "Davions.",
         hasPage: false,
         figure: {
-          number: "Fig. 05",
+          number: "Fig. 04",
           caption: "Architecture",
           direction: "vertical",
           nodes: [{ title: "App", note: "React" }, { title: "10 Workers" }, { title: "Supabase (RLS) · R2" }],
