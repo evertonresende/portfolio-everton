@@ -2,7 +2,7 @@
 
 export const SITE_URL = "https://evertonresende.com";
 
-// {{CONFIRMAR: gerar public/cv-everton-resende.pdf na Fase 5}}
+// Gerado de curriculo.html (instruções no topo daquele arquivo). Mudou fato no site, regenerar o PDF.
 export const CV_URL = "/cv-everton-resende.pdf";
 
 export const CONTACT = {
