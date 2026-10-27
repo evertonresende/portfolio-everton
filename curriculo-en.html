@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everton Resende · AI Engineer · CV</title>
+<!--
+  Fonte de public/cv-everton-resende-en.pdf, a versão em inglês de curriculo.html (mesmos fatos, texto de app/content/en). Estilo em curriculo.css.
+  Fatos de app/content, mais extras confirmados na ficha privada (bullets da Softplan e da FAPAM, AWS, Node.js, idiomas).
+  Apóstrofo em ASCII ('): o ’ sai no texto do PDF como U+02BC e quebra a busca por palavra do ATS ("GCPʼs").
+  Imprimir em A4 no Chromium (page.pdf com preferCSSPageSize, tagged e rodapé com nome e página).
+  Mudou fato no site, mude aqui e em curriculo.html e gere os dois PDFs de novo.
+-->
+<link rel="stylesheet" href="curriculo.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="header">
+      <h1 class="name">Everton Resende</h1>
+      <div class="role">AI Engineer</div>
+      <div class="contact">
+        <span><a href="mailto:everton.augustor@gmail.com">everton.augustor@gmail.com</a></span>
+        <span><a href="https://wa.me/5537999133556">+55 37 99913-3556</a></span>
+        <span><a href="https://linkedin.com/in/evertonresende">linkedin.com/in/evertonresende</a></span>
+        <span><a href="https://github.com/evertonresende">github.com/evertonresende</a></span>
+        <span><a href="https://evertonresende.com/en">evertonresende.com/en</a></span>
+      </div>
+      <div class="where">Pará de Minas, Minas Gerais, Brazil · remote (UTC-3)</div>
+      <div class="where">Open to international contracts, B2B contractor work, or full-time employment in Brazil (CLT)</div>
+    </header>
+
+    <p class="summary">
+      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development and 5 products in production</strong> (Tazz, Maximus, Dental Smart, Coppay and Davions), including an AI agent serving real customers and a clinical RAG chat. I use an <span class="nb">agent-first</span> workflow: I define the architecture, context and acceptance criteria, direct coding agents, and then review, debug and own what ships to production.
+    </p>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>AI Engineer <span class="org">— Coppay</span></h3>
+          <span class="date">Oct 2025 – Oct 2026</span>
+        </div>
+        <div class="meta">Digital account and credit fintech · Full-time (CLT) · remote</div>
+        <ul>
+          <li><strong>AI in production:</strong> email triage on Cloudflare Workers AI, used by the internal team, and LLM-assisted credit assessments (<span class="nb">gpt-oss-120b</span>), used by the credit analysts.</li>
+          <li><strong>WhatsApp agent in Python:</strong> Agno + FastAPI, with triage to specialists, read-only tools and human handoff. It served real customers through Sep 2026.</li>
+          <li><strong>App and BFF:</strong> Expo app published on the app stores, used by real account holders, and a Hono backend-for-frontend (BFF) on Cloudflare Workers integrating the providers Cronos, Asaas and HBI.</li>
+          <li><strong>Back office:</strong> Next.js back office with RBAC and an audit log.</li>
+          <li><strong>New Banking-as-a-Service (BaaS) provider:</strong> in Sep 2026, a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.</li>
+        </ul>
+        <div class="stack">TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI</div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Software Developer <span class="org">— Softplan</span></h3>
+          <span class="date">Nov 2022 – Oct 2025</span>
+        </div>
+        <div class="meta">Full-time (CLT) · remote</div>
+        <ul>
+          <li>Worked on software products for Brazil's Public Prosecutor's Offices (Ministério Público) and government attorney offices (Procuradorias).</li>
+          <li>Recognized 10 times in Softplan's Softplayer A+ recognition program.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Software Developer <span class="org">— FAPAM</span></h3>
+          <span class="date">Nov 2018 – Oct 2021</span>
+        </div>
+        <div class="meta">Full-time (CLT) · hybrid</div>
+        <ul>
+          <li>Academic portal serving 4,000+ students.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Tazz <span class="org">— ride-hailing app</span></h3>
+          <span class="date">2026 – present</span>
+        </div>
+        <ul>
+          <li><strong>Migration:</strong> the backend hit GCP's fixed 20 vCPU quota in the São Paulo region with the app live. I ported ~158 Cloud Functions to 22 Cloudflare Workers using the strangler-fig pattern, orchestrating AI coding agents; the full port took ~47.5 hours.</li>
+          <li><strong>Support agent:</strong> in production with real customers and human handoff, on an omnichannel architecture (WhatsApp, Instagram, app, website and email). 5 read-only tools with an allowlist and auditing, capped at 3 tool-call rounds, layered guardrails, <span class="nb">LLM-as-judge</span> and PII redaction.</li>
+          <li><strong>Models and evals:</strong> OpenAI models via Cloudflare AI Gateway, with fallback; Claude selectable in the admin panel. Offline evals with datasets, a gate and a comparison of 4 models; shadow and canary rollout.</li>
+          <li><strong>Decision:</strong> no RAG in the MVP; instead, a curated 58-entry knowledge base with keyword search, plus an objective, documented trigger for revisiting the choice.</li>
+          <li><strong>Payments:</strong> Pix (Brazil's instant payment system) via Asaas, in production since Sep 2026, on an isolated double-entry ledger with HMAC-signed webhooks.</li>
+          <li><strong>App:</strong> new Expo app in <span class="nb">pre-launch</span>.</li>
+        </ul>
+        <div class="stack">TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo</div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Maximus <span class="org">— app for anesthesiologists</span></h3>
+          <span class="date">2026</span>
+        </div>
+        <ul>
+          <li><strong>Product:</strong> Expo app and Hono API on Cloudflare Workers, with Supabase and RLS. Live, used by anesthesiologists.</li>
+          <li><strong>Clinical RAG chat:</strong> Responses API (gpt-5.4) with file_search over an OpenAI vector store, code interpreter for charts, streaming, and questions by text, image or voice (<span class="nb">gpt-4o-transcribe</span>).</li>
+          <li><strong>Board-exam questions:</strong> practice questions for Brazil's anesthesiology board exam (TSA), generated from the vector knowledge base with structured output and validation.</li>
+          <li><strong>Decision:</strong> I built manual RAG (a <span class="nb">gpt-5-nano</span> classifier + vector search), then switched to native file_search, because the classifier was blocking legitimate searches.</li>
+        </ul>
+        <div class="stack">TypeScript · Expo · Hono · Workers · Supabase · OpenAI Responses API</div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Dental Smart <span class="org">— SaaS for dental clinics</span></h3>
+          <span class="date">2025 – present</span>
+        </div>
+        <ul>
+          <li><strong>Multi-tenant:</strong> SaaS in Next.js and Supabase, with RLS isolation in Postgres (one tenant per clinic). ~20 active clinics, zero churn.</li>
+          <li><strong>AI in production:</strong> appointment transcription and summarization since Feb 2026, with Whisper <span class="nb">large-v3-turbo</span> and <span class="nb">Llama 3.3 70B</span> on Groq.</li>
+          <li><strong>Integrations:</strong> WhatsApp message queue with LLM-generated variations, Brazilian electronic service invoices (NFS-e) via Focus NFe, and contract signing over WhatsApp. CI on GitHub Actions and database backups to R2.</li>
+          <li><strong>Decision:</strong> rule-based bank reconciliation, no AI.</li>
+        </ul>
+        <div class="stack">Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq</div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Davions <span class="org">— gallery SaaS for photographers</span></h3>
+          <span class="date">2026 – present</span>
+        </div>
+        <ul>
+          <li><strong>Re-platforming:</strong> re-hosted and refactored the app (originally built in Lovable, an AI app builder) onto 10 Cloudflare Workers with Supabase and RLS. Delivered in Oct 2026.</li>
+          <li><strong>Payments:</strong> escrow on Asaas (a Brazilian payment provider), with an SQL ledger and Pix payouts, in dark launch.</li>
+          <li><strong>AI in production:</strong> blog post, caption and theme generation with Claude, through Cloudflare AI Gateway.</li>
+        </ul>
+        <div class="stack">TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect</div>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <p><b>AI:</b><span>LLMs (OpenAI, Anthropic/Claude, Groq, Workers AI), agents and tool calling, RAG (file_search, vector store), structured output, guardrails, <span class="nb">LLM-as-judge</span>, evals, speech-to-text</span></p>
+      <p><b>Programming languages:</b><span>TypeScript, Python, SQL</span></p>
+      <p><b>Cloudflare:</b><span>Workers, Durable Objects, Queues, R2, AI Gateway, Workers AI</span></p>
+      <p><b>AWS (earlier projects):</b><span>EC2, ELB, Lightsail, Lambda, SQS, S3, Aurora, Rekognition</span></p>
+      <p><b>Backend and data:</b><span>Hono, FastAPI, Node.js, Postgres, Supabase (RLS, Edge Functions), Docker, <span class="nb">CI (GitHub Actions)</span></span></p>
+      <p><b>Frontend and mobile:</b><span>React, Next.js, React Native / Expo</span></p>
+      <p><b>Payments:</b><span>Pix, Asaas, Stripe Connect, double-entry ledger</span></p>
+    </section>
+
+    <section class="plain">
+      <h2>Open source</h2>
+      <p>2 PRs merged into Cal.com: <a class="link" href="https://github.com/calcom/cal.com/pull/27636">#27636</a> and <a class="link" href="https://github.com/calcom/cal.com/pull/27637">#27637</a> (Feb 2026).</p>
+    </section>
+
+    <section class="plain">
+      <h2>Education</h2>
+      <p>Information Systems, undergraduate studies (incomplete) · FAPAM · Nov 2018 – Dec 2020</p>
+    </section>
+
+    <section class="plain">
+      <h2>Languages</h2>
+      <p>Portuguese (native) · English (comfortable in technical interviews)</p>
+    </section>
+
+  </div>
+</body>
+</html>

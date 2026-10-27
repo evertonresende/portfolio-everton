@@ -1,5 +1,5 @@
 import type { HomeContent } from "../types";
-import { CV_URL, CONTACT } from "../shared";
+import { CV_URL_EN, CONTACT } from "../shared";
 
 export const home: HomeContent = {
   seo: {
@@ -14,7 +14,7 @@ export const home: HomeContent = {
     sub: "I deliver complete systems (SaaS for clinics, fintech, mobility, AI clinical support), from the app to the backend, with an agent-first workflow.",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "View cases", href: "#cases" },
-    cv: { label: "Download CV (PDF)", href: CV_URL },
+    cv: { label: "Download CV (PDF)", href: CV_URL_EN },
     photoAlt: "Everton Resende",
     factsTitle: "Fact sheet",
     facts: [
@@ -300,7 +300,7 @@ export const home: HomeContent = {
     title: "Let’s talk.",
     status: "Available · remote · contractor, full-time (CLT) or international contract",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
-    secondary: { label: "Download CV (PDF)", href: CV_URL },
+    secondary: { label: "Download CV (PDF)", href: CV_URL_EN },
     listTitle: "Contact details",
     items: [
       { term: "Email", label: CONTACT.email, href: `mailto:${CONTACT.email}` },

@@ -4,6 +4,8 @@ export const SITE_URL = "https://evertonresende.com";
 
 // Gerado de curriculo.html (instruções no topo daquele arquivo). Mudou fato no site, regenerar o PDF.
 export const CV_URL = "/cv-everton-resende.pdf";
+// Versão em inglês: curriculo-en.html.
+export const CV_URL_EN = "/cv-everton-resende-en.pdf";
 
 export const CONTACT = {
   email: "everton.augustor@gmail.com",
