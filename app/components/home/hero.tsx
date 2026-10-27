@@ -42,15 +42,15 @@ export function Hero({ site }: { site: SiteContent }) {
 
         <div className="flex flex-wrap content-start">
           <div className="basis-full px-gutter pt-cell sm:min-w-40 sm:shrink-0 sm:grow-0 sm:basis-1/3 sm:pb-cell">
-            <picture className="block aspect-4/3 bg-grid sm:aspect-square">
+            <picture className="block aspect-5/4 bg-grid sm:aspect-square">
               <source
                 type="image/avif"
-                srcSet="/images/everton-240.avif 240w, /images/everton-480.avif 480w, /images/everton-587.avif 587w"
+                srcSet="/images/everton-240.avif 240w, /images/everton-480.avif 480w, /images/everton-587.avif 587w, /images/everton-828.avif 828w"
                 sizes="(min-width: 640px) 200px, 100vw"
               />
               <source
                 type="image/webp"
-                srcSet="/images/everton-240.webp 240w, /images/everton-480.webp 480w, /images/everton-587.webp 587w"
+                srcSet="/images/everton-240.webp 240w, /images/everton-480.webp 480w, /images/everton-587.webp 587w, /images/everton-828.webp 828w"
                 sizes="(min-width: 640px) 200px, 100vw"
               />
               <img
@@ -59,7 +59,7 @@ export function Hero({ site }: { site: SiteContent }) {
                 width={240}
                 height={240}
                 decoding="async"
-                className="block aspect-4/3 h-auto w-full object-cover object-top grayscale sm:aspect-square"
+                className="block aspect-5/4 h-auto w-full object-cover object-top grayscale sm:aspect-square"
               />
             </picture>
           </div>
