@@ -16,7 +16,8 @@ const variants: Record<Variant, string> = {
   primary:
     "h-12 px-7 bg-accent text-on-accent no-underline hover:text-on-accent hover:underline hover:brightness-90 active:brightness-75",
   secondary:
-    "h-12 px-4 bg-foreground text-background no-underline hover:text-background hover:underline hover:brightness-125 active:brightness-150",
+    // brightness sobre o quase-preto não aparece: o hover troca o fundo para o cinza do token (6:1 com o texto).
+    "h-12 px-4 bg-foreground text-background no-underline hover:bg-muted hover:text-background hover:underline active:bg-foreground",
   text: "min-h-11 -mx-1 px-1 underline",
 };
 

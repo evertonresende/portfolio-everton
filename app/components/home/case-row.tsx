@@ -31,7 +31,12 @@ export function CaseRow({ site, item }: { site: SiteContent; item: CaseSummary }
             {item.title}
           </h3>
           {item.hasPage ? (
-            <ButtonLink href={casePath(site.basePath, item.slug)} ariaLabel={`${site.ui.viewCase} ${item.title}`}>
+            <ButtonLink
+              href={casePath(site.basePath, item.slug)}
+              variant="secondary"
+              className="max-sm:w-full max-sm:justify-between"
+              ariaLabel={`${site.ui.viewCase} ${item.title}`}
+            >
               {site.ui.viewCase}
             </ButtonLink>
           ) : null}
