@@ -1,4 +1,6 @@
 import type { SiteContent } from "../content/types";
+import { homePath } from "../content";
+import { FooterMark } from "./footer-mark";
 import { ArrowUp } from "./ui/icons";
 
 export function Footer({ site }: { site: SiteContent }) {
@@ -6,7 +8,10 @@ export function Footer({ site }: { site: SiteContent }) {
   return (
     <footer className="relative z-10 border-t border-grid">
       <div className="label-mono flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-gutter py-6 text-muted">
-        <span>{footer.copyright}</span>
+        <span className="flex items-center gap-4">
+          <FooterMark href={homePath(site.basePath)} label={site.nav.brand} />
+          {footer.copyright}
+        </span>
         <span>{footer.madeWith}</span>
         <a href="#topo" className="inline-flex min-h-11 items-center gap-2 text-foreground">
           {footer.backToTop}
