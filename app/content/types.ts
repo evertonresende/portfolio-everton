@@ -103,7 +103,6 @@ export interface CaseSection {
 
 /** Slugs com página própria: o tsc pega link para case que não existe e idioma sem o mesmo case. */
 export type CaseSlug = "tazz" | "dental-smart";
-export type BriefSlug = "softplan";
 
 export interface CaseDetail {
   readonly kicker: string;
@@ -114,17 +113,6 @@ export interface CaseDetail {
   readonly stats: readonly Stat[];
   readonly sections: readonly CaseSection[];
   readonly next?: { readonly slug: CaseSlug; readonly index: string; readonly title: string };
-  readonly seo: { readonly title: string; readonly description: string };
-}
-
-/** Resumo curto (Softplan): sem template completo de case. */
-export interface CaseBrief {
-  readonly kicker: string;
-  readonly title: string;
-  readonly lead: string;
-  readonly factsTitle: string;
-  readonly facts: readonly SpecRow[];
-  readonly paragraphs: readonly string[];
   readonly seo: { readonly title: string; readonly description: string };
 }
 
@@ -164,11 +152,6 @@ export interface HomeContent {
     readonly delegate: Column;
     readonly specs: readonly SpecRow[];
   };
-  readonly foundations: {
-    readonly label: string;
-    readonly title: string | readonly string[];
-    readonly rows: readonly { readonly company: string; readonly role: string; readonly text: string; readonly period: string; readonly slug?: BriefSlug }[];
-  };
   readonly timeline: {
     readonly label: string;
     readonly title: string;
@@ -204,9 +187,6 @@ export interface SiteContent {
   readonly ui: {
     readonly viewCase: string;
     readonly breadcrumbCases: string;
-    /** Trilha das páginas resumo (Softplan), que moram em Fundamentos na home. */
-    readonly breadcrumbFoundations: string;
-    readonly summaryLabel: string;
     readonly nextCase: string;
     readonly skipToContent: string;
     readonly mainNav: string;
@@ -225,5 +205,4 @@ export interface SiteContent {
   };
   readonly home: HomeContent;
   readonly cases: Readonly<Record<CaseSlug, CaseDetail>>;
-  readonly briefs: Readonly<Record<BriefSlug, CaseBrief>>;
 }

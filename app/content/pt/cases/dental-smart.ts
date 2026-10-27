@@ -1,19 +1,19 @@
 import type { CaseDetail } from "../../types";
 
 export const dentalSmart: CaseDetail = {
-  kicker: "Case 02 · SaaS para clínicas · 2023 – hoje",
+  kicker: "Case 02 · SaaS para clínicas · 2025 – hoje",
   title: "Dental Smart.",
-  lead: "SaaS para clínicas odontológicas. Desenho o produto desde 2023 e, desde ago 2025, também construo: multi-tenant com RLS, NFS-e, WhatsApp e transcrição de consultas com IA em produção.",
+  lead: "SaaS para clínicas odontológicas. Sou o engenheiro do produto desde 2025: multi-tenant com RLS, NFS-e, WhatsApp e transcrição de consultas com IA em produção.",
   factsTitle: "Ficha técnica",
   facts: [
-    { term: "Papel", value: "Product Designer (2023 – jul 2025) · AI Engineer (freelance) desde ago 2025" },
-    { term: "Período", value: "2023 – hoje" },
+    { term: "Papel", value: "Arquitetura, backend e IA" },
+    { term: "Período", value: "2025 – hoje" },
     { term: "Stack", value: "Next.js 16 · React 19 · Supabase · Postgres RLS · Edge Functions · Groq", mono: true },
     { term: "IA", value: "Transcrição e resumo de consultas", status: "production", statusLabel: "Em produção" },
   ],
   stats: [
     { term: "Clínicas", value: "~20", label: "clínicas ativas" },
-    { term: "Churn", value: "0", label: "nenhuma clínica voltou atrás" },
+    { term: "Churn", value: "0", label: "nenhuma clínica cancelou" },
     { term: "IA", value: "fev/2026", label: "transcrição de consultas em produção" },
   ],
   sections: [
@@ -30,22 +30,23 @@ export const dentalSmart: CaseDetail = {
     {
       id: "contexto",
       label: "02 / Contexto",
-      title: "Primeiro o design, depois o código.",
+      title: "Do banco ao front.",
       paragraphs: [
-        "Comecei como Product Designer do Dental Smart em 2023, como freelance, em paralelo à Softplan. Em ago 2025 passei a construir o produto em código, e sigo construindo hoje.",
+        "Assumi a engenharia do Dental Smart em 2025 e levei o produto para multi-tenant, com isolamento por RLS no Postgres. Sigo construindo hoje.",
       ],
     },
     {
       id: "papel",
       label: "03 / Meu papel",
-      title: "Design e engenharia no mesmo produto.",
+      title: "Engenharia ponta a ponta.",
       columns: [
         {
           index: "3.1",
-          title: "Design.",
+          title: "Escopo.",
           items: [
-            { text: "Produto de ponta a ponta: agenda, financeiro e CRM" },
-            { text: "Protótipo da análise de radiografia, que não foi construída" },
+            { text: "Agenda, pacientes e planos de tratamento" },
+            { text: "Financeiro com DRE e CRM com funil no WhatsApp" },
+            { text: "Estoque, próteses e relatórios" },
           ],
         },
         {
@@ -109,9 +110,9 @@ export const dentalSmart: CaseDetail = {
         { term: "Mensagens", value: "Um LLM gera variações das mensagens de WhatsApp. O envio sai de uma fila agendada. Não é agente." },
         {
           term: "Radiografia",
-          value: "Ficou no protótipo de design e nunca foi construída.",
-          status: "prototype",
-          statusLabel: "Protótipo",
+          value: "Não foi construída. Priorizamos o financeiro.",
+          status: "decision",
+          statusLabel: "Decisão",
         },
         { term: "Conciliação", value: "Por regras, sem IA.", status: "decision", statusLabel: "Decisão" },
       ],
@@ -125,7 +126,7 @@ export const dentalSmart: CaseDetail = {
           index: "6.1",
           badge: "Não usado",
           title: "Conciliação sem IA.",
-          text: "Decidi não usar IA na conciliação bancária. Ela ficou em regras: autodetecção de colunas do CSV e dedupe. O import de OFX saiu em abr/2026, como feature morta.",
+          text: "Decidi não usar IA na conciliação bancária. Ela ficou em regras: autodetecção de colunas do CSV e dedupe. O import de OFX foi removido em abr/2026, por ser uma feature sem uso.",
         },
         {
           index: "6.2",
@@ -145,8 +146,8 @@ export const dentalSmart: CaseDetail = {
         {
           index: "6.5",
           badge: "Não construído",
-          title: "Radiografia no protótipo.",
-          text: "A análise de radiografia ficou no design. Priorizamos o financeiro, que tinha demanda mais urgente.",
+          title: "Radiografia fora do escopo.",
+          text: "A análise de radiografia não foi construída. Priorizamos o financeiro, que tinha demanda mais urgente.",
         },
       ],
     },
@@ -156,7 +157,7 @@ export const dentalSmart: CaseDetail = {
       title: "No ar.",
       stats: [
         { value: "~20", label: "clínicas ativas" },
-        { value: "0", label: "churn: nenhuma clínica voltou atrás" },
+        { value: "0", label: "churn: nenhuma clínica cancelou" },
         { value: "fev/2026", label: "transcrição de consultas em produção" },
         { term: "IA", value: "IA", label: "Transcrição e resumo de consultas.", status: "production", statusLabel: "Em produção" },
       ],

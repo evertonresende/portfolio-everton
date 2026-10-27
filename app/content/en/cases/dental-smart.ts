@@ -1,19 +1,19 @@
 import type { CaseDetail } from "../../types";
 
 export const dentalSmart: CaseDetail = {
-  kicker: "Case 02 · SaaS for clinics · 2023 – present",
+  kicker: "Case 02 · SaaS for clinics · 2025 – present",
   title: "Dental Smart.",
-  lead: "SaaS for dental clinics. I have been designing the product since 2023 and, since Aug 2025, building it too: multi-tenant with RLS, NFS-e invoices, WhatsApp and AI appointment transcription in production.",
+  lead: "SaaS for dental clinics. I have been the product’s engineer since 2025: multi-tenant with RLS, NFS-e invoices, WhatsApp and AI appointment transcription in production.",
   factsTitle: "Fact sheet",
   facts: [
-    { term: "Role", value: "Product Designer (2023 – Jul 2025) · AI Engineer (freelance) since Aug 2025" },
-    { term: "Period", value: "2023 – present" },
+    { term: "Role", value: "Architecture, back end and AI" },
+    { term: "Period", value: "2025 – present" },
     { term: "Stack", value: "Next.js 16 · React 19 · Supabase · Postgres RLS · Edge Functions · Groq", mono: true },
     { term: "AI", value: "Appointment transcription and summary", status: "production", statusLabel: "In production" },
   ],
   stats: [
     { term: "Clinics", value: "~20", label: "active clinics" },
-    { term: "Churn", value: "0", label: "no clinic has left" },
+    { term: "Churn", value: "0", label: "no clinic has cancelled" },
     { term: "AI", value: "Feb 2026", label: "appointment transcription in production" },
   ],
   sections: [
@@ -30,22 +30,23 @@ export const dentalSmart: CaseDetail = {
     {
       id: "contexto",
       label: "02 / Context",
-      title: "Design first, code later.",
+      title: "From the database to the front end.",
       paragraphs: [
-        "I started as Dental Smart’s Product Designer in 2023, as a freelancer, alongside my job at Softplan. In Aug 2025 I started building the product in code, and I am still building it today.",
+        "I took over Dental Smart’s engineering in 2025 and moved the product to multi-tenant, with RLS isolation in Postgres. I’m still building it.",
       ],
     },
     {
       id: "papel",
       label: "03 / My role",
-      title: "Design and engineering on the same product.",
+      title: "Engineering end to end.",
       columns: [
         {
           index: "3.1",
-          title: "Design.",
+          title: "Scope.",
           items: [
-            { text: "End-to-end product: scheduling, finance and CRM" },
-            { text: "Prototype of the X-ray analysis, which was never built" },
+            { text: "Scheduling, patients and treatment plans" },
+            { text: "Finance with P&L, and a CRM funnel tied to WhatsApp" },
+            { text: "Inventory, prosthetics and reports" },
           ],
         },
         {
@@ -98,7 +99,7 @@ export const dentalSmart: CaseDetail = {
     {
       id: "ia",
       label: "05 / Where AI comes in",
-      title: "In the appointment, not in the money.",
+      title: "In patient care, not in the finances.",
       specs: [
         {
           term: "Transcription",
@@ -109,9 +110,9 @@ export const dentalSmart: CaseDetail = {
         { term: "Messages", value: "An LLM writes variations of the WhatsApp messages. Sending runs from a scheduled queue. It is not an agent." },
         {
           term: "X-ray",
-          value: "It stayed in the design prototype and was never built.",
-          status: "prototype",
-          statusLabel: "Prototype",
+          value: "Not built. We prioritized finance.",
+          status: "decision",
+          statusLabel: "Decision",
         },
         { term: "Reconciliation", value: "Rule-based, no AI.", status: "decision", statusLabel: "Decision" },
       ],
@@ -125,7 +126,7 @@ export const dentalSmart: CaseDetail = {
           index: "6.1",
           badge: "Not used",
           title: "Reconciliation without AI.",
-          text: "I decided not to use AI in bank reconciliation. It stayed rule-based: CSV column auto-detection and dedupe. The OFX import was removed in Apr 2026, as a dead feature.",
+          text: "I decided not to use AI in bank reconciliation. It stayed rule-based: CSV column auto-detection and dedupe. The OFX import was removed in Apr 2026 as an unused feature.",
         },
         {
           index: "6.2",
@@ -145,8 +146,8 @@ export const dentalSmart: CaseDetail = {
         {
           index: "6.5",
           badge: "Not built",
-          title: "X-ray stayed a prototype.",
-          text: "The X-ray analysis stayed in design. We prioritized finance, which had more urgent demand.",
+          title: "X-ray out of scope.",
+          text: "The X-ray analysis was not built. We prioritized finance, which had more urgent demand.",
         },
       ],
     },
@@ -156,7 +157,7 @@ export const dentalSmart: CaseDetail = {
       title: "Live.",
       stats: [
         { value: "~20", label: "active clinics" },
-        { value: "0", label: "churn: no clinic has left" },
+        { value: "0", label: "churn: no clinic has cancelled" },
         { value: "Feb 2026", label: "appointment transcription in production" },
         { term: "AI", value: "AI", label: "Appointment transcription and summary.", status: "production", statusLabel: "In production" },
       ],

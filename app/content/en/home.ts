@@ -5,59 +5,65 @@ export const home: HomeContent = {
   seo: {
     title: "Everton Resende · AI Engineer",
     description:
-      "AI Engineer with 7+ years of product design. I build products with LLMs and agents and take them to production, with TypeScript and Cloudflare Workers.",
+      "AI Engineer with 7+ years in software development. I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS.",
   },
   hero: {
-    status: "Available · remote · contractor (PJ), CLT or international contract",
+    status: "Available · remote · contractor, full-time (CLT) or international contract",
     title: "AI Engineer.",
-    lead: "I build products with LLMs and agents and take them to production, backed by 7+ years of product design.",
-    sub: "Today I deliver complete systems (SaaS for clinics, fintech, mobility), from the app to the backend, with an agent-first workflow.",
+    lead: "I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure.",
+    sub: "I deliver complete systems (SaaS for clinics, fintech, mobility, AI clinical support), from the app to the backend, with an agent-first workflow.",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "View cases", href: "#cases" },
     cv: { label: "Download CV (PDF)", href: CV_URL },
     photoAlt: "Everton Resende",
     factsTitle: "Fact sheet",
     facts: [
-      { term: "Focus", value: "LLMs and agents in production" },
-      { term: "Background", value: "7+ years of product design" },
-      { term: "Stack", value: "TypeScript · Workers · Postgres" },
+      { term: "Focus", value: "LLMs, agents and RAG in production" },
+      { term: "Career", value: "7+ years in software development" },
+      { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
       { term: "Location", value: "Pará de Minas, MG · remote (UTC−3)" },
-      { term: "Status", value: "Available · contractor (PJ), CLT or international", status: "production" },
+      { term: "Status", value: "Available · contractor, full-time (CLT) or international", status: "production" },
     ],
     proofs: [
       { term: "Products", value: "5", label: "products in production" },
       {
-        term: "Support",
+        term: "Tazz",
         value: "AI",
-        label: "AI agent serving real customers at Tazz",
+        label: "AI agent serving real customers",
         status: "production",
         statusLabel: "In production",
       },
-      { term: "Cal.com", value: "2", label: "PRs merged into Cal.com" },
+      {
+        term: "Maximus",
+        value: "RAG",
+        label: "Clinical RAG chat used by anesthesiologists",
+        status: "production",
+        statusLabel: "In production",
+      },
     ],
   },
   delivery: {
     label: "01 / What I deliver",
-    title: "From design to production.",
+    title: "From model to production.",
     proofLabel: "Proof",
     items: [
       {
         index: "1.1",
-        title: "I design.",
-        text: "Product, UX and design systems. 7+ years deciding what is worth building before building it.",
-        proof: "Softplan · FAPAM · SAT Bank · Tazz design system",
+        title: "I architect agents.",
+        text: "Tool calling, layered guardrails, LLM‑as‑judge, evals and model fallback, in TypeScript. In Python, agent teams with triage and handoff (Agno).",
+        proof: "Tazz agent · Python agents (Agno) at Coppay",
       },
       {
         index: "1.2",
-        title: "I build.",
-        text: "Front end, back end and infra in TypeScript: React, React Native/Expo, Cloudflare Workers and Postgres.",
-        proof: "Tazz · Coppay · Dental Smart",
+        title: "I put RAG into production.",
+        text: "Vector search in production, manual RAG with an intent classifier, and the call between the two. And I know when RAG is not worth it.",
+        proof: "Maximus · the no-RAG decision at\u00a0Tazz",
       },
       {
         index: "1.3",
-        title: "I put AI into production.",
-        text: "Agents with tool calling, guardrails and evals. And I know where not to use AI.",
-        proof: "Tazz agent · Dental Smart transcription",
+        title: "I build and run the infra.",
+        text: "Cloudflare (Workers, Durable Objects, Queues), Postgres with RLS, Docker and CI. On AWS: EC2, ELB, Lambda, SQS, S3, Aurora and Rekognition.",
+        proof: "Tazz migration · Coppay · Dental\u00a0Smart · AWS in earlier projects",
       },
     ],
   },
@@ -68,7 +74,7 @@ export const home: HomeContent = {
       {
         slug: "tazz",
         index: "01",
-        meta: "Mobility · 2026",
+        meta: "Mobility · 2026–present",
         title: "Tazz.",
         hasPage: true,
         figure: {
@@ -86,7 +92,7 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "In production",
-            text: "Support agent with tool calling, guardrails, an LLM judge and evals, serving real customers.",
+            text: "Support agent with tool calling, guardrails, LLM‑as‑judge and evals, serving real customers.",
           },
         ],
         result: "PIX in production since Sep 2026 · agent serving real customers",
@@ -94,7 +100,7 @@ export const home: HomeContent = {
       {
         slug: "dental-smart",
         index: "02",
-        meta: "SaaS for clinics · 2023–present",
+        meta: "SaaS for clinics · 2025–present",
         title: "Dental Smart.",
         hasPage: true,
         figure: {
@@ -107,23 +113,63 @@ export const home: HomeContent = {
         problem:
           "Dental clinics needed finance, NFS-e invoices and WhatsApp messages in one system, with each clinic’s data isolated.",
         whatIDid:
-          "I have been designing the product since 2023 and building it since 2025: a multi-tenant SaaS with RLS isolation, scheduled WhatsApp messages, finance and NFS-e.",
+          "I build the multi-tenant SaaS: RLS isolation, scheduled WhatsApp messages, finance, NFS-e invoices and AI appointment transcription.",
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           { status: "production", label: "In production", text: "Appointment transcription and summary (Whisper + Llama)." },
-          { status: "prototype", label: "Prototype", text: "X-ray analysis, in design only." },
           { status: "decision", label: "Decision", text: "Bank reconciliation is rule-based, no\u00a0AI." },
         ],
         result: "~20 clinics · 0 churn",
       },
       {
-        slug: "coppay",
+        slug: "maximus",
         index: "03",
-        meta: "Fintech · 2026–present",
-        title: "Coppay.",
+        meta: "Healthcare · 2026",
+        title: "Maximus.",
         hasPage: false,
         figure: {
           number: "Fig. 03",
+          caption: "RAG",
+          direction: "vertical",
+          nodes: [
+            { title: "Question", note: "text, image or voice" },
+            { title: "Responses API", note: "gpt-5.4 · streaming" },
+            { title: "file_search", note: "OpenAI vector store" },
+          ],
+          footnote: "Before: classifier + manual search. Now: native file_search",
+        },
+        problem:
+          "Anesthesiologists needed fast clinical answers (doses, drugs, protocols) backed by a reference knowledge base, plus practice questions for Brazil’s anesthesiology board exam (TSA).",
+        whatIDid:
+          "I built the app in Expo and the API in Hono on Cloudflare Workers, with Supabase and RLS. The chat uses the Responses API with file_search over the reference knowledge base and code interpreter for charts, with streamed answers.",
+        stack: "TypeScript · Expo · Hono · Workers · Supabase · OpenAI Responses API",
+        ai: [
+          {
+            status: "production",
+            label: "In production",
+            text: "Clinical chat with RAG over the reference knowledge base, with questions by text, image or voice (gpt-4o-transcribe).",
+          },
+          {
+            status: "production",
+            label: "In production",
+            text: "Board-exam-style (TSA) questions generated with structured output and validation, from the vector knowledge base.",
+          },
+          {
+            status: "decision",
+            label: "Decision",
+            text: "I built manual RAG (a gpt-5-nano classifier + vector search), then switched to native file_search: the classifier was blocking legitimate searches.",
+          },
+        ],
+        result: "Live, used by anesthesiologists",
+      },
+      {
+        slug: "coppay",
+        index: "04",
+        meta: "Fintech · 2025–2026",
+        title: "Coppay.",
+        hasPage: false,
+        figure: {
+          number: "Fig. 04",
           caption: "Architecture",
           direction: "vertical",
           nodes: [
@@ -136,7 +182,7 @@ export const home: HomeContent = {
         problem: "A fintech needed a digital account, credit and customer support running on a BaaS, from the app to the back office.",
         whatIDid:
           "I built the Expo app, the Hono BFF on Cloudflare Workers (Cronos, Asaas and HBI) and the Next.js back office with RBAC and an audit log. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
-        stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python",
+        stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
             status: "production",
@@ -146,19 +192,19 @@ export const home: HomeContent = {
           {
             status: "offline",
             label: "Offline today",
-            text: "WhatsApp agent in Python (Agno) with human handoff. It served customers; it has been offline since the server went down in Sep 2026.",
+            text: "WhatsApp agent in Python (Agno + FastAPI) with triage to specialists, read-only tools and human handoff. It served real customers until Sep 2026.",
           },
         ],
         result: "App in the stores with real account holders",
       },
       {
         slug: "davions",
-        index: "04",
+        index: "05",
         meta: "SaaS for photographers · 2026–present",
         title: "Davions.",
         hasPage: false,
         figure: {
-          number: "Fig. 04",
+          number: "Fig. 05",
           caption: "Architecture",
           direction: "vertical",
           nodes: [{ title: "App", note: "React" }, { title: "10 Workers" }, { title: "Supabase (RLS) · R2" }],
@@ -167,7 +213,7 @@ export const home: HomeContent = {
         problem:
           "A gallery SaaS for photographers, first built in Lovable, needed to be re-hosted and refactored onto its own architecture.",
         whatIDid:
-          "I re-hosted and refactored the app on 10 Cloudflare Workers with Supabase and RLS, and designed the escrow with Asaas: an SQL ledger and PIX payouts.",
+          "I re-hosted and refactored the app on 10 Cloudflare Workers with Supabase and RLS, and architected the escrow with Asaas: an SQL ledger and PIX payouts.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
         ai: [
           {
@@ -176,7 +222,7 @@ export const home: HomeContent = {
             text: "Blog post, caption and theme generation with Claude, through Cloudflare AI Gateway.",
           },
         ],
-        result: "Contract delivered in Oct 2026 · escrow in dark launch · I’m still on the team as a freelancer",
+        result: "Delivered in Oct 2026 · escrow in dark launch",
       },
     ],
   },
@@ -225,46 +271,21 @@ export const home: HomeContent = {
       { term: "This site", value: "It was rebuilt this way. The spec and the plan are in docs/ on GitHub.", link: { label: "See the spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],
   },
-  foundations: {
-    label: "04 / Design foundations",
-    title: ["Where I learned to decide", "what to build."],
-    rows: [
-      {
-        company: "Softplan",
-        role: "Product Designer",
-        text: "Products for the Public Prosecutor’s Office and public attorney offices. Recognized 10x in Softplayer A+.",
-        period: "Nov 2022 – Oct 2025",
-        slug: "softplan",
-      },
-      {
-        company: "FAPAM",
-        role: "UI/UX Designer",
-        text: "Academic portal with 4,000+ students.",
-        period: "Nov 2018 – Oct 2021",
-      },
-    ],
-  },
   timeline: {
-    label: "05 / Experience",
+    label: "04 / Experience",
     title: "Experience.",
     rows: [
-      { period: "Jun 2025 – present", role: "AI Engineer", company: "Freelance · SAT Bank, Dental Smart, Coppay, Tazz, Davions", mode: "Remote" },
-      { period: "Oct 2025 – Mar 2026", role: "AI Product Designer", company: "SAT Bank", mode: "CLT · remote" },
-      { period: "Nov 2022 – Oct 2025", role: "Product Designer", company: "Softplan", mode: "CLT · remote" },
-      { period: "2023 – Jul 2025", role: "Product Designer", company: "Dental Smart (freelance)", mode: "Remote" },
-      { period: "Nov 2021 – Oct 2022", role: "Product Designer", company: "Freelancer", mode: "Remote" },
-      { period: "Nov 2018 – Oct 2021", role: "UI/UX Designer", company: "FAPAM", mode: "CLT · hybrid" },
+      { period: "Oct 2025 – Oct 2026", role: "AI Engineer", company: "Coppay", mode: "Full-time (CLT) · remote" },
+      { period: "Nov 2022 – Oct 2025", role: "Software Developer", company: "Softplan", mode: "Full-time (CLT) · remote" },
+      { period: "Nov 2018 – Oct 2021", role: "Software Developer", company: "FAPAM", mode: "Full-time (CLT) · hybrid" },
     ],
     education: {
-      index: "5.1",
+      index: "4.1",
       title: "Education",
-      items: [
-        { title: "UX Design", detail: "Design Circuit · Oct 2021 – Oct 2022" },
-        { title: "Information Systems (not completed)", detail: "FAPAM · Nov 2018 – Dec 2020" },
-      ],
+      items: [{ title: "Information Systems", detail: "FAPAM · Nov 2018 – Dec 2020 · not completed" }],
     },
     openSource: {
-      index: "5.2",
+      index: "4.2",
       title: "Open source",
       text: "2 PRs merged into Cal.com",
       date: "Feb 2026",
@@ -275,9 +296,9 @@ export const home: HomeContent = {
     },
   },
   contact: {
-    label: "06 / Contact",
+    label: "05 / Contact",
     title: "Let’s talk.",
-    status: "Available · remote · contractor (PJ), CLT or international contract",
+    status: "Available · remote · contractor, full-time (CLT) or international contract",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Download CV (PDF)", href: CV_URL },
     listTitle: "Contact details",

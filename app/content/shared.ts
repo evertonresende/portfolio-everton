@@ -19,6 +19,6 @@ export const PERSON = {
   region: "MG",
   country: "BR",
   image: "/images/everton-480.webp",
-  // Só skills marcadas "em produção" na ficha de fatos (§5). Nomes técnicos, iguais nos dois idiomas.
-  knowsAbout: ["LLM", "AI agents", "Tool calling", "Evals", "TypeScript", "React", "React Native", "Cloudflare Workers", "Postgres"],
+  // Skills com prova na ficha de fatos (§5) ou confirmadas pelo Éverton (AWS, 2026-10-27). Nomes técnicos, iguais nos dois idiomas.
+  knowsAbout: ["LLM", "AI agents", "Tool calling", "RAG", "Embeddings", "Evals", "TypeScript", "Python", "React", "React Native", "Cloudflare Workers", "AWS", "Postgres"],
 } as const;

@@ -2,7 +2,6 @@ import type { SiteContent } from "../types";
 import { home } from "./home";
 import { tazz } from "./cases/tazz";
 import { dentalSmart } from "./cases/dental-smart";
-import { briefs } from "./briefs";
 
 export const pt: SiteContent = {
   locale: "pt",
@@ -29,8 +28,6 @@ export const pt: SiteContent = {
   ui: {
     viewCase: "Ver case",
     breadcrumbCases: "Cases",
-    breadcrumbFoundations: "Fundamentos",
-    summaryLabel: "01 / Resumo",
     nextCase: "Próximo case",
     skipToContent: "Pular para o conteúdo",
     mainNav: "Principal",
@@ -52,5 +49,4 @@ export const pt: SiteContent = {
   },
   home,
   cases: { tazz, "dental-smart": dentalSmart },
-  briefs,
 };

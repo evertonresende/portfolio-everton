@@ -1,13 +1,13 @@
 import type { CaseDetail } from "../../types";
 
 export const tazz: CaseDetail = {
-  kicker: "Case 01 · Mobility · Jul 2026 – present",
+  kicker: "Case 01 · Mobility · 2026 – present",
   title: "Tazz.",
   lead: "A ride-hailing app in Brazil. I joined to get the backend past a quota limit and stayed to build the support agent, the PIX ledger and the new app.",
   factsTitle: "Fact sheet",
   facts: [
-    { term: "Role", value: "AI Engineer (freelance)" },
-    { term: "Period", value: "Jul 2026 – present" },
+    { term: "Role", value: "Architecture, back end, AI and app" },
+    { term: "Period", value: "2026 – present" },
     { term: "Stack", value: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo", mono: true },
     { term: "AI", value: "Serving real customers", status: "production", statusLabel: "In production" },
   ],
@@ -41,10 +41,10 @@ export const tazz: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "Design.",
+          title: "Apps and panels.",
           items: [
-            { text: "Design system for the new app, with tokens and 2 themes" },
-            { text: "Screens for the new admin and for support, with human handoff" },
+            { text: "Component library for the new app, with tokens and 2 themes" },
+            { text: "New admin app and support console, with human handoff" },
           ],
         },
         {
@@ -100,7 +100,7 @@ export const tazz: CaseDetail = {
       specs: [
         { term: "Model", value: "OpenAI via AI Gateway, with fallback. Claude selectable in the admin panel." },
         { term: "Tools", value: "5 read-only tools, with an allowlist and auditing. At most 3 rounds." },
-        { term: "Guardrails", value: "Layered checks, an LLM judge and redaction of personal data." },
+        { term: "Guardrails", value: "Layered checks, LLM‑as‑judge and redaction of personal data." },
         { term: "Evals", value: "Offline evals with datasets, a gate and a comparison of 4 models. Shadow and canary rollout." },
         { term: "Status", value: "Serving real customers, with human handoff.", status: "production", statusLabel: "In production" },
       ],
@@ -114,7 +114,7 @@ export const tazz: CaseDetail = {
           index: "6.1",
           badge: "Not used",
           title: "No RAG in the MVP.",
-          text: "The knowledge base has 58 curated entries, each with an owner, and keyword search.",
+          text: "The knowledge base has 58 curated entries, each with an owner, and keyword search. The decision defines when to revisit it: only if the corpus passes 200 KB of useful text, \"I don’t know\" answers from missing context pass 10% for two weeks in a row, and someone owns the curation.",
         },
         { index: "6.2", title: "Read-only tools.", text: "The tools only read, with an allowlist and auditing. The agent can hand off to a human." },
         {
@@ -126,7 +126,7 @@ export const tazz: CaseDetail = {
         {
           index: "6.5",
           title: "Money, isolated.",
-          text: "Payments kept isolated, a double-entry ledger with no public route, and HMAC-signed webhooks.",
+          text: "An isolated payments service, a double-entry ledger with no public route, and HMAC-signed webhooks.",
         },
       ],
     },

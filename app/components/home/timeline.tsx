@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 import type { SiteContent } from "../../content/types";
 import { SectionHeader } from "../ui/section-header";
 import { ArrowUpRight } from "../ui/icons";
+import { glueSeparators } from "../../../lib/utils";
 
-/** Cabeçalho dos blocos 5.1 / 5.2: índice mono, h3 e lista com linha fina no topo. */
+/** Cabeçalho dos blocos 4.1 / 4.2: índice mono, h3 e lista com linha fina no topo. */
 function Block({ index, title, children }: { index: string; title: string; children: ReactNode }) {
   return (
     <div className="flex flex-col gap-3.5 border-t border-foreground px-gutter pt-5">
@@ -38,7 +39,7 @@ export function Timeline({ site }: { site: SiteContent }) {
                 {row.role}
               </span>
               <span className="text-body min-w-50 grow basis-4/9 px-gutter pt-1">{row.company}</span>
-              <span className="text-mono-sm min-w-35 grow basis-2/9 px-gutter pt-1">{row.mode}</span>
+              <span className="text-mono-sm min-w-35 grow basis-2/9 px-gutter pt-1">{glueSeparators(row.mode)}</span>
             </dd>
           </div>
         ))}

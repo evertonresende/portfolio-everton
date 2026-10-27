@@ -1,13 +1,13 @@
 import type { CaseDetail } from "../../types";
 
 export const tazz: CaseDetail = {
-  kicker: "Case 01 · Mobilidade · jul 2026 – hoje",
+  kicker: "Case 01 · Mobilidade · 2026 – hoje",
   title: "Tazz.",
   lead: "App de corridas no Brasil. Entrei para tirar o backend de um limite de cota e fiquei para construir o agente de atendimento, o ledger do PIX e o novo app.",
   factsTitle: "Ficha técnica",
   facts: [
-    { term: "Papel", value: "AI Engineer (freelance)" },
-    { term: "Período", value: "jul 2026 – hoje" },
+    { term: "Papel", value: "Arquitetura, backend, IA e app" },
+    { term: "Período", value: "2026 – hoje" },
     { term: "Stack", value: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo", mono: true },
     { term: "IA", value: "Atendendo clientes reais", status: "production", statusLabel: "Em produção" },
   ],
@@ -41,10 +41,10 @@ export const tazz: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "Design.",
+          title: "App e painéis.",
           items: [
-            { text: "Design system do app novo, com tokens e 2 temas" },
-            { text: "Telas do admin novo e do atendimento, com handoff para humano" },
+            { text: "Biblioteca de componentes do app novo, com tokens e 2 temas" },
+            { text: "Admin novo e painel de atendimento, com handoff para humano" },
           ],
         },
         {
@@ -100,7 +100,7 @@ export const tazz: CaseDetail = {
       specs: [
         { term: "Modelo", value: "OpenAI via AI Gateway, com fallback. Claude selecionável no painel." },
         { term: "Tools", value: "5 tools só de leitura, com allowlist e auditoria. No máximo 3 rodadas." },
-        { term: "Guardrails", value: "Checagem em camadas, LLM-juiz e redação de dados pessoais." },
+        { term: "Guardrails", value: "Checagem em camadas, LLM-juiz e mascaramento de dados pessoais." },
         { term: "Evals", value: "Evals offline com datasets, gate e comparação de 4 modelos. Rollout em shadow e canary." },
         { term: "Status", value: "Atendendo clientes reais, com handoff para humano.", status: "production", statusLabel: "Em produção" },
       ],
@@ -114,7 +114,7 @@ export const tazz: CaseDetail = {
           index: "6.1",
           badge: "Não usado",
           title: "Sem RAG no MVP.",
-          text: "A base tem 58 entradas curadas, cada uma com dono, e busca por palavra‑chave.",
+          text: "A base tem 58 entradas curadas, cada uma com dono, e busca por palavra‑chave. A decisão define quando reavaliar: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
         },
         { index: "6.2", title: "Tools só de leitura.", text: "As tools só leem, com allowlist e auditoria. O agente tem handoff para humano." },
         {
@@ -126,7 +126,7 @@ export const tazz: CaseDetail = {
         {
           index: "6.5",
           title: "Dinheiro isolado.",
-          text: "Payments isolado, ledger de partida dobrada sem rota pública e webhooks com HMAC.",
+          text: "Serviço de pagamentos isolado, ledger de partida dobrada sem rota pública e webhooks com HMAC.",
         },
       ],
     },

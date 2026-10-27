@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { Link, SiteContent, SpecRow } from "../../content/types";
+import type { SiteContent, SpecRow } from "../../content/types";
 import { homeAnchor } from "../../content";
 import { cn } from "../../../lib/utils";
 import { NowrapTail } from "../ui/nowrap-tail";
@@ -12,15 +12,13 @@ interface HeroProps {
   readonly lead: string;
   readonly facts: readonly SpecRow[];
   readonly factsTitle: string;
-  /** Primeiro nível da trilha: Cases (padrão) ou Fundamentos. */
-  readonly crumb?: Link;
-  /** Blocos que ainda pertencem ao topo (faixa de números, parágrafos do resumo). */
+  /** Blocos que ainda pertencem ao topo (faixa de números). */
   readonly children?: ReactNode;
 }
 
-/** Topo comum de case e resumo: trilha, kicker, H1, lead e ficha técnica. */
-export function CaseHero({ site, kicker, title, lead, facts, factsTitle, crumb, children }: HeroProps) {
-  const parent = crumb ?? { label: site.ui.breadcrumbCases, href: homeAnchor(site.basePath, "#cases") };
+/** Topo do case: trilha, kicker, H1, lead e ficha técnica. */
+export function CaseHero({ site, kicker, title, lead, facts, factsTitle, children }: HeroProps) {
+  const parent = { label: site.ui.breadcrumbCases, href: homeAnchor(site.basePath, "#cases") };
   return (
     <>
       <nav aria-label={site.ui.breadcrumb} className="border-b border-grid px-gutter">
