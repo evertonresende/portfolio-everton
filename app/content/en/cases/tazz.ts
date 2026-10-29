@@ -3,27 +3,29 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobility · 2026 – present",
   title: "Tazz.",
-  lead: "A ride-hailing app in Brazil. I joined to get the backend past a quota limit and stayed to build the support agent, the PIX ledger and the new app.",
+  lead: "A ride-hailing app in Brazil. I architected and built the new Expo app and its new Workers from scratch, with AI agents writing the code in parallel. I also moved the backend’s compute to Cloudflare and shipped the support agent and PIX.",
   factsTitle: "Fact sheet",
   facts: [
-    { term: "Role", value: "Architecture, back end, AI and app" },
+    { term: "Role", value: "Architecture, app, backend and AI" },
     { term: "Period", value: "2026 – present" },
-    { term: "Stack", value: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo", mono: true },
-    { term: "AI", value: "Serving real customers", status: "production", statusLabel: "In production" },
+    { term: "Stack", value: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres", mono: true },
+    { term: "AI", value: "Agent under human review", status: "production", statusLabel: "In production" },
+    { term: "New app", value: "Expo, to replace the Flutter app in the stores", status: "prototype", statusLabel: "Pre-launch" },
   ],
   stats: [
-    { term: "Migration", value: "~158 → 22", label: "from Cloud Functions to Cloudflare Workers" },
-    { term: "Duration", value: "~47.5 h", label: "for the full port" },
+    { term: "New app", value: "Expo", label: "from scratch, with its own auth, hub and API" },
+    { term: "Migration", value: "100+ → 8", label: "Cloud Functions → Cloudflare Workers in ~47.5 h" },
     { term: "Payments", value: "Sep 2026", label: "PIX in production" },
   ],
   sections: [
     {
       id: "problema",
       label: "01 / Problem",
-      title: "It hit the region’s ceiling.",
+      title: "A quota ceiling and an app tied to Firebase.",
       stat: { value: "20", label: "vCPU · fixed quota · São Paulo" },
       paragraphs: [
         "The backend ran on ~158 Cloud Functions on GCP and hit the fixed 20 vCPU quota in the São Paulo region, with the app live.",
+        "Moving the backend was not enough to leave GCP. The Flutter app talked straight to Firestore, Realtime Database, Storage and Firebase Auth through the SDK, even in native code.",
       ],
     },
     {
@@ -31,7 +33,7 @@ export const tazz: CaseDetail = {
       label: "02 / Context",
       title: "Swapping the engine mid-flight.",
       paragraphs: [
-        "A ride-hailing app in Flutter, with Firestore and Realtime Database. What had to change was the compute. The data could stay where it was.",
+        "First I swapped the HTTP compute: it moved to Cloudflare Workers, and the data stayed on GCP. In Sep 2026, I started a new Expo app from scratch, as a proof of concept, that never talks to Firestore, Realtime Database or Firebase Auth directly. On Sep 8, it became the planned replacement for the Flutter app in the stores. In the meantime, the Flutter app stays in production.",
       ],
     },
     {
@@ -41,18 +43,20 @@ export const tazz: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "AI and back end.",
+          title: "AI and backend.",
           items: [
             { text: "Support agent with tools, guardrails, LLM‑as‑judge and evals" },
+            { text: "Orchestrating the coding agents that built the new app and Workers" },
             { text: "Strangler‑fig migration to Cloudflare Workers" },
-            { text: "Double-entry ledger and PIX with Asaas" },
+            { text: "PIX with Asaas, on the double-entry ledger" },
           ],
         },
         {
           index: "3.2",
-          title: "Apps and panels.",
+          title: "New app.",
           items: [
-            { text: "Expo app to replace the Flutter one" },
+            { text: "Expo app from scratch, for riders and drivers" },
+            { text: "In-house auth, a realtime hub and an API on Workers over Postgres" },
             { text: "Component library for the new app, with tokens and 2 themes" },
             { text: "New admin app and support console, with human handoff" },
           ],
@@ -62,10 +66,25 @@ export const tazz: CaseDetail = {
     {
       id: "arquitetura",
       label: "04 / Architecture",
-      title: "Strangler‑fig at the edge.",
+      title: "Two apps on the same edge.",
       figures: [
         {
           number: "Fig. 01",
+          caption: "New app",
+          direction: "horizontal",
+          nodes: [
+            { title: "App", note: "Expo · riders and drivers" },
+            {
+              title: "In-house Workers",
+              note: "auth · API · rides /v1",
+              branch: [{ title: "Realtime hub", note: "Durable Object per city · WebSocket" }],
+            },
+            { title: "Postgres", note: "PlanetScale · Hyperdrive" },
+          ],
+          footnote: "Built for OTA from the first build · Firebase Auth only checks the password on the first login",
+        },
+        {
+          number: "Fig. 02",
           caption: "Migration",
           direction: "horizontal",
           nodes: [
@@ -73,22 +92,23 @@ export const tazz: CaseDetail = {
             {
               title: "Gateway",
               note: "Worker",
-              branch: [{ title: "Routes not yet migrated", muted: true }, { title: "Legacy functions", note: "GCP", muted: true }],
+              branch: [{ title: "Routes not migrated", muted: true }, { title: "Legacy functions", note: "GCP", muted: true }],
             },
             { title: "Domain Workers" },
             { title: "Firestore and Realtime Database", note: "GCP" },
           ],
+          footnote: "During the port",
         },
         {
-          number: "Fig. 02",
+          number: "Fig. 03",
           caption: "Support",
           direction: "horizontal",
           nodes: [
             { title: "Channels", note: "WhatsApp, Instagram, app, website, email" },
             { title: "Support", note: "Queues + DO per conversation" },
-            { title: "Agent", note: "LLM via AI Gateway" },
-            { title: "Tools", note: "read-only, allowlist, audit" },
-            { title: "Human operator", note: "handoff" },
+            { title: "Agent", note: "LLM via AI Gateway · WhatsApp and app" },
+            { title: "Tools", note: "lookups, notes and handoff · allowlist" },
+            { title: "Human operator", note: "reviews and sends · handoff" },
           ],
         },
       ],
@@ -98,56 +118,99 @@ export const tazz: CaseDetail = {
       label: "05 / Where AI comes in",
       title: "In customer support.",
       specs: [
-        { term: "Model", value: "OpenAI via AI Gateway, with fallback. Claude selectable in the admin panel." },
-        { term: "Tools", value: "5 read-only tools, with an allowlist and auditing. At most 3 rounds." },
+        { term: "Model", value: "OpenAI via AI Gateway, with fallback." },
+        { term: "Tools", value: "Data and knowledge base lookups, internal notes and handoff, with an allowlist and auditing. There is no tool for money, sign-up or cancellation. At most 3 tool-call rounds." },
         { term: "Guardrails", value: "Layered checks, LLM‑as‑judge and redaction of personal data." },
         { term: "Evals", value: "Offline evals with datasets, a gate and a comparison of 4 models. Shadow and canary rollout." },
-        { term: "Status", value: "Serving real customers, with human handoff.", status: "production", statusLabel: "In production" },
+        { term: "Status", value: "Under human review: the AI writes a draft, and a person on the team sends, edits or discards it.", status: "production", statusLabel: "In production" },
+      ],
+    },
+    {
+      id: "construcao",
+      label: "06 / How it was built",
+      title: "A team of agents, with human gates.",
+      paragraphs: [
+        "I started the app from scratch on Sep 4, 2026. A discovery run with 12 agents read the Flutter app and the Expo SDK 57 docs, and wrote specs with facts cited by file and line.",
+        "Then coordinator agents, one after another, ran a backlog of ~200 workstreams in parallel sessions, each in its own worktree, and merged the results. The first integration reached main on Sep 8, 2026.",
+      ],
+      figures: [
+        {
+          number: "Fig. 04",
+          caption: "Building with agents",
+          direction: "horizontal",
+          nodes: [
+            { title: "Discovery", note: "reads the Flutter app" },
+            { title: "Backlog", note: "workstreams in waves" },
+            { title: "Coordinator", note: "agent · merges" },
+            { title: "Workstreams", note: "parallel · 1 worktree each" },
+            { title: "Review", note: "another provider per workstream" },
+            { title: "Human gates", note: "database, main and stores" },
+          ],
+        },
+      ],
+      specs: [
+        { term: "Architecture", value: "I set the architecture in the app spec: in-house auth, accounts in Postgres, a realtime hub and OTA support from the first build." },
+        { term: "Evidence", value: "Each workstream ends with one proof per acceptance criterion. The coordinator runs the checks again before merging." },
+        { term: "Review", value: "Each workstream is reviewed by a model from another provider. On top of that, 4 consolidated rounds gave GO or NO-GO, and the first one caught 2 critical regressions before main." },
+        { term: "Model by risk", value: "A stronger model for money, auth, native code and architecture. A lighter one for 1:1 ports and simple screens." },
+        { term: "Gates", value: "Database migrations, merges to main, redeploys of production workers and store builds were out of reach for agents alone: they prepared them, and a human approved, sometimes for a whole wave." },
       ],
     },
     {
       id: "decisoes",
-      label: "06 / Decisions and trade-offs",
+      label: "07 / Decisions and trade-offs",
       title: "What stayed out, on purpose.",
       items: [
         {
-          index: "6.1",
+          index: "7.1",
           badge: "Not used",
           title: "No RAG in the MVP.",
-          text: "The knowledge base has 58 curated entries, each with an owner, and keyword search. The decision defines when to revisit it: only if the corpus exceeds 200 KB of useful text, \"I don’t know\" answers due to missing context exceed 10% for two weeks in a row, and someone owns the curation.",
+          text: "The knowledge base has 58 curated entries, each approved before it goes live, and keyword search. The decision defines when to revisit it: only if the corpus exceeds 200 KB of useful text, \"I don’t know\" answers due to missing context exceed 10% for two weeks in a row, and someone owns the curation.",
         },
         {
-          index: "6.2",
-          title: "Read-only tools.",
-          text: "All 5 tools only read data, with an allowlist and auditing, and the agent can hand the conversation off to a human.",
+          index: "7.2",
+          title: "No tool touches money.",
+          text: "The tools look up data, write internal notes and hand the conversation off to a human, with an allowlist and auditing. A tool for money, sign-up or cancellation does not exist.",
         },
         {
-          index: "6.3",
+          index: "7.3",
+          title: "A new app, not a patch on Flutter.",
+          text: "The GCP exit discovery showed that the biggest coupling was in the client: the Flutter app talked to Firebase straight through the SDK. For its data, the new app talks only to in-house Workers, and the Flutter app stays in the stores until the swap.",
+        },
+        {
+          index: "7.4",
+          title: "Accounts in Postgres, Firebase Auth only on the first login.",
+          text: "In the new app, an account is the row in Postgres. On the first login, the auth Worker checks the password with Firebase once and saves its own hash. After that, it never asks Firebase again for that account, and it never writes to Firebase.",
+        },
+        {
+          index: "7.5",
           title: "Strangler‑fig, not big bang.",
-          text: "Migrated routes went through service bindings behind the gateway. Routes not yet migrated kept being served by the functions.",
+          text: "Migrated routes went through service bindings behind the gateway, and routes not migrated kept running on the functions. Only the compute moved: Firestore and Realtime Database stayed on GCP, because the limit was the vCPU quota.",
         },
-        { index: "6.4", title: "Only the compute moved.", text: "Firestore and RTDB stayed on GCP. The limit was the vCPU quota." },
         {
-          index: "6.5",
+          index: "7.6",
           title: "Money, isolated.",
-          text: "An isolated payments service, a double-entry ledger with no public route, and HMAC-signed webhooks.",
+          text: "An isolated payments service, a double-entry ledger with no public route, and webhooks whose authenticity is checked (HMAC when the provider signs).",
         },
       ],
     },
     {
       id: "resultado",
-      label: "07 / Result",
-      title: "PIX and the agent are live.",
-      paragraphs: ["I ported ~158 Cloud Functions to 22 Workers in ~47.5 h. Then PIX went into production in Sep 2026."],
+      label: "08 / Result",
+      title: "Agent live. New app on the way.",
+      paragraphs: [
+        "The new app’s first production builds came out in Oct 2026, and it is set up to replace the Flutter app as an update in the stores. The new admin app already runs on the web, on production data.",
+      ],
       stats: [
-        { term: "AI", value: "AI", label: "Agent serving real customers, with human handoff.", status: "production", statusLabel: "In production" },
+        { term: "AI", value: "AI", label: "Agent in real conversations, with a person reviewing every reply.", status: "production", statusLabel: "In production" },
+        { term: "App", value: "App", label: "Expo app built with coding agents.", status: "prototype", statusLabel: "Pre-launch" },
       ],
     },
   ],
   next: { slug: "dental-smart", index: "02", title: "Dental Smart." },
   seo: {
-    title: "Tazz: migration to Cloudflare Workers and a support agent · Everton Resende",
+    title: "Tazz: an Expo app built from scratch with AI agents · Everton Resende",
     description:
-      "How I ported ~158 Cloud Functions to 22 Cloudflare Workers in ~47.5 h and built a support agent with tool calling, guardrails and evals in production.",
+      "How I architected a ride-hailing app in Expo and its new Workers, built by coding agents in parallel. I also ported 100+ Cloud Functions to Cloudflare Workers in ~48 h and put a support agent in production.",
   },
 };

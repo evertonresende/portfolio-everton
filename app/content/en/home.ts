@@ -29,7 +29,7 @@ export const home: HomeContent = {
       {
         term: "Tazz",
         value: "AI",
-        label: "AI agent serving real customers",
+        label: "AI agent in customer support, under human review",
         status: "production",
         statusLabel: "In production",
       },
@@ -81,18 +81,18 @@ export const home: HomeContent = {
           number: "Fig. 01",
           caption: "Architecture",
           direction: "vertical",
-          nodes: [{ title: "App" }, { title: "22 Workers" }, { title: "Postgres" }],
-          footnote: "~158 Cloud Functions → 22 Workers · ~47.5 h",
+          nodes: [{ title: "Expo app" }, { title: "Workers" }, { title: "Postgres" }],
+          footnote: "New app from scratch · coding agents in parallel",
         },
-        problem: "The ride-hailing app’s backend hit GCP’s fixed 20 vCPU quota in São Paulo, with the app live.",
+        problem: "The ride-hailing app’s backend hit GCP’s fixed 20 vCPU quota in São Paulo, and the Flutter app talked straight to Firebase.",
         whatIDid:
-          "I ported ~158 Cloud Functions to 22 Cloudflare Workers in ~47.5 h, orchestrating coding agents. Then I built the support agent and the PIX ledger, and now I’m building the new Expo app (pre-launch).",
-        stack: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo",
+          "I architected and built the new Expo app and its new Workers from scratch, with coding agents working in parallel (pre-launch). Before that, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. I also built the support agent and took PIX with Asaas to production.",
+        stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
             status: "production",
             label: "In production",
-            text: "Support agent with tool calling, guardrails, LLM‑as‑judge and evals, serving real customers.",
+            text: "Support agent with tool calling, guardrails, LLM‑as‑judge and evals, with a person reviewing every reply.",
           },
         ],
         result: "PIX in production since Sep 2026",
@@ -266,7 +266,7 @@ export const home: HomeContent = {
       { term: "Quality", value: "CLAUDE.md per repository · acceptance criteria · review · tests as a commit gate" },
       {
         term: "In practice",
-        value: "At Tazz, I ported ~158 Cloud Functions to 22 Workers in ~47.5 h, with a coordinator agent, executors and a task queue.",
+        value: "At Tazz, coordinator agents ran a backlog of ~200 workstreams for the new app in parallel sessions, one worktree each, reviewed by another model.",
       },
       { term: "This site", value: "It was rebuilt this way. The spec and the plan are in docs/ on GitHub.", link: { label: "See the spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],

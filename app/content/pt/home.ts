@@ -29,7 +29,7 @@ export const home: HomeContent = {
       {
         term: "Tazz",
         value: "IA",
-        label: "Agente de IA atendendo clientes reais",
+        label: "Agente de IA no atendimento, com supervisão humana",
         status: "production",
         statusLabel: "Em produção",
       },
@@ -81,18 +81,18 @@ export const home: HomeContent = {
           number: "Fig. 01",
           caption: "Arquitetura",
           direction: "vertical",
-          nodes: [{ title: "App" }, { title: "22 Workers" }, { title: "Postgres" }],
-          footnote: "~158 Cloud Functions → 22 Workers · ~47,5 h",
+          nodes: [{ title: "App Expo" }, { title: "Workers" }, { title: "Postgres" }],
+          footnote: "App novo do zero · agentes de código em paralelo",
         },
-        problem: "O backend do app de corridas bateu na cota fixa de 20 vCPU do GCP em São Paulo, com o app em operação.",
+        problem: "O backend do app de corridas bateu na cota fixa de 20 vCPU do GCP em São Paulo, e o app em Flutter falava direto com o Firebase.",
         whatIDid:
-          "Portei ~158 Cloud Functions para 22 Cloudflare Workers em ~47,5 h, orquestrando agentes de código. Depois construí o agente de atendimento e o ledger do PIX, e estou construindo o novo app em Expo (pré-lançamento).",
-        stack: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo",
+          "Arquitetei e construí do zero o app novo em Expo e os Workers novos dele, com agentes de código em paralelo (pré-lançamento). Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e levei o PIX do Asaas à produção.",
+        stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
             status: "production",
             label: "Em produção",
-            text: "Agente de atendimento com tool calling, guardrails, LLM-juiz e evals, atendendo clientes reais.",
+            text: "Agente de atendimento com tool calling, guardrails, LLM-juiz e evals, com um atendente revisando cada resposta.",
           },
         ],
         result: "PIX em produção desde set/2026",
@@ -266,7 +266,7 @@ export const home: HomeContent = {
       { term: "Qualidade", value: "CLAUDE.md por repositório · critérios de aceite · revisão · testes como gate de commit" },
       {
         term: "Na prática",
-        value: "Na Tazz, portei ~158 Cloud Functions para 22 Workers em ~47,5 h, com um agente coordenador, executores e uma fila de tasks.",
+        value: "Na Tazz, agentes coordenadores tocaram um backlog de ~200 frentes do app novo em sessões paralelas, uma worktree cada, com revisão de outro modelo.",
       },
       { term: "Este site", value: "Foi refeito assim. A spec e o plano estão em docs/ no GitHub.", link: { label: "Ver a spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],
