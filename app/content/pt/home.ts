@@ -11,7 +11,7 @@ export const home: HomeContent = {
     status: "Disponível · remoto · PJ, CLT ou contrato internacional",
     title: "AI Engineer.",
     lead: "Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra.",
-    sub: "Entrego sistemas completos (SaaS para clínicas, fintech, mobilidade, apoio clínico com IA), do app ao backend, com um workflow agent-first.",
+    sub: "Entrego sistemas completos com IA integrada (SaaS para clínicas, fintech, mobilidade, apoio clínico), do app ao backend, com um workflow agent-first.",
     primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Ver cases", href: "#cases" },
     cv: { label: "Baixar CV (PDF)", href: CV_URL },
@@ -44,7 +44,7 @@ export const home: HomeContent = {
   },
   delivery: {
     label: "01 / O que eu entrego",
-    title: "Do modelo à produção.",
+    title: "Da arquitetura à produção.",
     proofLabel: "Prova",
     items: [
       {
@@ -56,7 +56,7 @@ export const home: HomeContent = {
       {
         index: "1.2",
         title: "Coloco RAG em produção.",
-        text: "Busca vetorial em produção, RAG manual com classificador de intenção e a escolha entre os dois. E sei quando RAG não vale a pena.",
+        text: "Busca vetorial nativa em produção, que substituiu o RAG manual com classificador de intenção que construí antes. E sei quando RAG não vale a pena.",
         proof: "Maximus · decisão de não usar RAG na\u00a0Tazz",
       },
       {
@@ -86,7 +86,7 @@ export const home: HomeContent = {
         },
         problem: "O backend do app de corridas bateu na cota fixa de 20 vCPU do GCP em São Paulo, com o app em operação.",
         whatIDid:
-          "Portei ~158 Cloud Functions para 22 Cloudflare Workers em ~47,5 h, orquestrando agentes. Depois construí o agente de atendimento e o ledger do PIX, e estou construindo o novo app em Expo (pré-lançamento).",
+          "Portei ~158 Cloud Functions para 22 Cloudflare Workers em ~47,5 h, orquestrando agentes de código. Depois construí o agente de atendimento e o ledger do PIX, e estou construindo o novo app em Expo (pré-lançamento).",
         stack: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo",
         ai: [
           {
@@ -95,7 +95,7 @@ export const home: HomeContent = {
             text: "Agente de atendimento com tool calling, guardrails, LLM-juiz e evals, atendendo clientes reais.",
           },
         ],
-        result: "PIX em produção desde set/2026 · agente atendendo clientes reais",
+        result: "PIX em produção desde set/2026",
       },
       {
         slug: "dental-smart",
@@ -113,7 +113,7 @@ export const home: HomeContent = {
         problem:
           "Clínicas odontológicas precisavam de financeiro, NFS-e e mensagens de WhatsApp num só sistema, com os dados de cada clínica isolados.",
         whatIDid:
-          "Construo o SaaS multi-tenant: isolamento por RLS, mensagens de WhatsApp agendadas, financeiro, NFS-e e transcrição de consultas com IA.",
+          "Construo o SaaS multi-tenant: transcrição de consultas com IA, isolamento por RLS, mensagens de WhatsApp agendadas, financeiro e NFS-e.",
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           { status: "production", label: "Em produção", text: "Transcrição e resumo de consultas (Whisper + Llama)." },
@@ -181,7 +181,7 @@ export const home: HomeContent = {
         },
         problem: "Uma fintech precisava de conta digital, crédito e atendimento rodando sobre um BaaS, do app ao back-office.",
         whatIDid:
-          "Construí o app em Expo, o BFF em Hono sobre Cloudflare Workers (Cronos, Asaas e HBI) e o back-office em Next.js com RBAC e audit log. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
+          "Construí o app em Expo, o BFF em Hono sobre Cloudflare Workers (Cronos, Asaas e HBI), o back-office em Next.js com RBAC e audit log, e os recursos de IA: triagem de e-mail, parecer de crédito assistido por LLM e o agente de WhatsApp. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
@@ -213,7 +213,7 @@ export const home: HomeContent = {
         problem:
           "Um SaaS de galerias para fotógrafos, nascido no Lovable, precisava ser re-hospedado e refatorado numa arquitetura própria.",
         whatIDid:
-          "Re-hospedei e refatorei o app em 10 Cloudflare Workers com Supabase e RLS, e arquitetei o escrow com o Asaas: livro-razão em SQL e saque por PIX.",
+          "Migrei e refatorei o app para 10 Cloudflare Workers com Supabase e RLS, e arquitetei o escrow com o Asaas: livro-razão em SQL e saque por PIX.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
         ai: [
           {
@@ -230,7 +230,7 @@ export const home: HomeContent = {
     label: "03 / Como trabalho",
     title: ["Agentes escrevem o código.", "Eu respondo por ele."],
     intro:
-      "Trabalho como quem conduz um time. Defino o contexto, a arquitetura e os critérios de aceite. Os agentes escrevem a maior parte do código. Eu leio, depuro e decido o que vai para produção.",
+      "Trabalho com agentes como quem conduz um time. Defino o contexto, a arquitetura e os critérios de aceite. Os agentes escrevem a maior parte do código. Eu leio, depuro, exijo a suite verde antes de todo commit e decido o que vai para produção.",
     pipelineLabel: "Pipeline",
     steps: [
       { index: "01", title: "Spec", text: "O que é pronto, em critérios verificáveis." },
@@ -254,7 +254,7 @@ export const home: HomeContent = {
     },
     delegate: {
       index: "3.2",
-      title: "Eu delego",
+      title: "Eu delego aos agentes",
       items: [
         { text: "A escrita do código" },
         { text: "Varreduras e migrações em massa" },

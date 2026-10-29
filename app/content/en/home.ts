@@ -8,10 +8,10 @@ export const home: HomeContent = {
       "AI Engineer with 7+ years in software development. I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS.",
   },
   hero: {
-    status: "Available · remote · contractor, full-time (CLT) or international contract",
+    status: "Available · remote · B2B contractor, international contract or full-time (CLT, Brazil)",
     title: "AI Engineer.",
     lead: "I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure.",
-    sub: "I deliver complete systems (SaaS for clinics, fintech, mobility, AI clinical support), from the app to the backend, with an agent-first workflow.",
+    sub: "I deliver complete systems with AI built in (SaaS for clinics, fintech, mobility, clinical support), from the app to the backend, with an agent-first workflow.",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "View cases", href: "#cases" },
     cv: { label: "Download CV (PDF)", href: CV_URL_EN },
@@ -22,7 +22,7 @@ export const home: HomeContent = {
       { term: "Career", value: "7+ years in software development" },
       { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
       { term: "Location", value: "Pará de Minas, MG · remote (UTC−3)" },
-      { term: "Status", value: "Available · contractor, full-time (CLT) or international", status: "production" },
+      { term: "Status", value: "Available · B2B contractor, international contract or full-time (CLT, Brazil)", status: "production" },
     ],
     proofs: [
       { term: "Products", value: "5", label: "products in production" },
@@ -44,7 +44,7 @@ export const home: HomeContent = {
   },
   delivery: {
     label: "01 / What I deliver",
-    title: "From model to production.",
+    title: "From architecture to production.",
     proofLabel: "Proof",
     items: [
       {
@@ -56,7 +56,7 @@ export const home: HomeContent = {
       {
         index: "1.2",
         title: "I put RAG into production.",
-        text: "Vector search in production, manual RAG with an intent classifier, and the call between the two. And I know when RAG is not worth it.",
+        text: "Native vector search in production, replacing the classifier-based manual RAG I built first. And I know when RAG is not worth it.",
         proof: "Maximus · the no-RAG decision at\u00a0Tazz",
       },
       {
@@ -86,7 +86,7 @@ export const home: HomeContent = {
         },
         problem: "The ride-hailing app’s backend hit GCP’s fixed 20 vCPU quota in São Paulo, with the app live.",
         whatIDid:
-          "I ported ~158 Cloud Functions to 22 Cloudflare Workers in ~47.5 h, orchestrating agents. Then I built the support agent and the PIX ledger, and now I’m building the new Expo app (pre-launch).",
+          "I ported ~158 Cloud Functions to 22 Cloudflare Workers in ~47.5 h, orchestrating coding agents. Then I built the support agent and the PIX ledger, and now I’m building the new Expo app (pre-launch).",
         stack: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo",
         ai: [
           {
@@ -95,7 +95,7 @@ export const home: HomeContent = {
             text: "Support agent with tool calling, guardrails, LLM‑as‑judge and evals, serving real customers.",
           },
         ],
-        result: "PIX in production since Sep 2026 · agent serving real customers",
+        result: "PIX in production since Sep 2026",
       },
       {
         slug: "dental-smart",
@@ -113,7 +113,7 @@ export const home: HomeContent = {
         problem:
           "Dental clinics needed finance, NFS-e invoices and WhatsApp messages in one system, with each clinic’s data isolated.",
         whatIDid:
-          "I build the multi-tenant SaaS: RLS isolation, scheduled WhatsApp messages, finance, NFS-e invoices and AI appointment transcription.",
+          "I’ve been building the multi-tenant SaaS: AI appointment transcription, RLS isolation, scheduled WhatsApp messages, finance and NFS-e invoices.",
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           { status: "production", label: "In production", text: "Appointment transcription and summary (Whisper + Llama)." },
@@ -181,7 +181,7 @@ export const home: HomeContent = {
         },
         problem: "A fintech needed a digital account, credit and customer support running on a BaaS, from the app to the back office.",
         whatIDid:
-          "I built the Expo app, the Hono BFF on Cloudflare Workers (Cronos, Asaas and HBI) and the Next.js back office with RBAC and an audit log. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
+          "I built the Expo app, the Hono BFF on Cloudflare Workers (Cronos, Asaas and HBI), the Next.js back office with RBAC and an audit log, and the AI features: email triage, LLM-assisted credit reviews and the WhatsApp agent. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
@@ -213,7 +213,7 @@ export const home: HomeContent = {
         problem:
           "A gallery SaaS for photographers, first built in Lovable, needed to be re-hosted and refactored onto its own architecture.",
         whatIDid:
-          "I re-hosted and refactored the app on 10 Cloudflare Workers with Supabase and RLS, and architected the escrow with Asaas: an SQL ledger and PIX payouts.",
+          "I migrated and refactored the app onto 10 Cloudflare Workers with Supabase and RLS, and architected the escrow with Asaas: an SQL ledger and PIX payouts.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
         ai: [
           {
@@ -230,15 +230,15 @@ export const home: HomeContent = {
     label: "03 / How I work",
     title: ["Agents write the code.", "I own it."],
     intro:
-      "I work like someone leading a team. I set the context, the architecture and the acceptance criteria. The agents write most of the code. I read it, debug it and decide what goes to production.",
+      "I work with agents the way I’d lead a team. I set the context, the architecture and the acceptance criteria. The agents write most of the code. I read it, debug it, require a green test suite before every commit and decide what goes to production.",
     pipelineLabel: "Pipeline",
     steps: [
-      { index: "01", title: "Spec", text: "What done means, in verifiable criteria." },
+      { index: "01", title: "Spec", text: "Definition of done, as verifiable criteria." },
       { index: "02", title: "Plan", text: "Small tasks, files and order." },
       { index: "03", title: "Parallel subagents", text: "One workstream per worktree." },
       { index: "04", title: "Review", text: "Code review and a second opinion from another model." },
       { index: "05", title: "Tests", text: "Green suite before every commit." },
-      { index: "06", title: "Preview", text: "A preview version before the deploy." },
+      { index: "06", title: "Preview", text: "A preview version before deploying." },
       { index: "07", title: "Production", text: "Deploy with a documented rollback." },
     ],
     decide: {
@@ -254,7 +254,7 @@ export const home: HomeContent = {
     },
     delegate: {
       index: "3.2",
-      title: "I delegate",
+      title: "I delegate to agents",
       items: [
         { text: "Writing the code" },
         { text: "Bulk sweeps and migrations" },
@@ -298,7 +298,7 @@ export const home: HomeContent = {
   contact: {
     label: "05 / Contact",
     title: "Let’s talk.",
-    status: "Available · remote · contractor, full-time (CLT) or international contract",
+    status: "Available · remote · B2B contractor, international contract or full-time (CLT, Brazil)",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Download CV (PDF)", href: CV_URL_EN },
     listTitle: "Contact details",

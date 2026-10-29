@@ -41,20 +41,20 @@ export const tazz: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "App e painéis.",
+          title: "IA e backend.",
           items: [
-            { text: "Biblioteca de componentes do app novo, com tokens e 2 temas" },
-            { text: "Admin novo e painel de atendimento, com handoff para humano" },
+            { text: "Agente de atendimento com tools, guardrails, LLM-juiz e evals" },
+            { text: "Migração strangler‑fig para Cloudflare Workers" },
+            { text: "Ledger de partida dobrada e PIX com o Asaas" },
           ],
         },
         {
           index: "3.2",
-          title: "Engenharia.",
+          title: "App e painéis.",
           items: [
-            { text: "Migração strangler‑fig para Cloudflare Workers" },
-            { text: "Ledger de partida dobrada e PIX com o Asaas" },
-            { text: "Agente de atendimento com tools, guardrails e evals" },
             { text: "App em Expo para substituir o Flutter" },
+            { text: "Biblioteca de componentes do app novo, com tokens e 2 temas" },
+            { text: "Admin novo e painel de atendimento, com handoff para humano" },
           ],
         },
       ],
@@ -116,7 +116,11 @@ export const tazz: CaseDetail = {
           title: "Sem RAG no MVP.",
           text: "A base tem 58 entradas curadas, cada uma com dono, e busca por palavra‑chave. A decisão define quando reavaliar: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
         },
-        { index: "6.2", title: "Tools só de leitura.", text: "As tools só leem, com allowlist e auditoria. O agente tem handoff para humano." },
+        {
+          index: "6.2",
+          title: "Tools só de leitura.",
+          text: "As 5 tools só consultam dados, com allowlist e auditoria, e o agente pode passar a conversa para um humano.",
+        },
         {
           index: "6.3",
           title: "Strangler‑fig, não big bang.",
@@ -133,12 +137,10 @@ export const tazz: CaseDetail = {
     {
       id: "resultado",
       label: "07 / Resultado",
-      title: "No ar.",
+      title: "PIX e agente no ar.",
+      paragraphs: ["Portei ~158 Cloud Functions para 22 Workers em ~47,5 h. Depois, o PIX entrou em produção em set/2026."],
       stats: [
-        { value: "~158 → 22", label: "de Cloud Functions para Cloudflare Workers" },
-        { value: "~47,5 h", label: "até o porte completo" },
-        { value: "set/2026", label: "PIX em produção" },
-        { term: "IA", value: "IA", label: "Agente atendendo clientes reais.", status: "production", statusLabel: "Em produção" },
+        { term: "IA", value: "IA", label: "Agente atendendo clientes reais, com handoff para humano.", status: "production", statusLabel: "Em produção" },
       ],
     },
   ],

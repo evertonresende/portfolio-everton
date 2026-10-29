@@ -29,7 +29,7 @@ export const tazz: CaseDetail = {
     {
       id: "contexto",
       label: "02 / Context",
-      title: "Swapping the engine while the car is moving.",
+      title: "Swapping the engine mid-flight.",
       paragraphs: [
         "A ride-hailing app in Flutter, with Firestore and Realtime Database. What had to change was the compute. The data could stay where it was.",
       ],
@@ -41,20 +41,20 @@ export const tazz: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "Apps and panels.",
+          title: "AI and back end.",
           items: [
-            { text: "Component library for the new app, with tokens and 2 themes" },
-            { text: "New admin app and support console, with human handoff" },
+            { text: "Support agent with tools, guardrails, LLM‑as‑judge and evals" },
+            { text: "Strangler‑fig migration to Cloudflare Workers" },
+            { text: "Double-entry ledger and PIX with Asaas" },
           ],
         },
         {
           index: "3.2",
-          title: "Engineering.",
+          title: "Apps and panels.",
           items: [
-            { text: "Strangler‑fig migration to Cloudflare Workers" },
-            { text: "Double-entry ledger and PIX with Asaas" },
-            { text: "Support agent with tools, guardrails and evals" },
             { text: "Expo app to replace the Flutter one" },
+            { text: "Component library for the new app, with tokens and 2 themes" },
+            { text: "New admin app and support console, with human handoff" },
           ],
         },
       ],
@@ -114,15 +114,19 @@ export const tazz: CaseDetail = {
           index: "6.1",
           badge: "Not used",
           title: "No RAG in the MVP.",
-          text: "The knowledge base has 58 curated entries, each with an owner, and keyword search. The decision defines when to revisit it: only if the corpus passes 200 KB of useful text, \"I don’t know\" answers from missing context pass 10% for two weeks in a row, and someone owns the curation.",
+          text: "The knowledge base has 58 curated entries, each with an owner, and keyword search. The decision defines when to revisit it: only if the corpus exceeds 200 KB of useful text, \"I don’t know\" answers due to missing context exceed 10% for two weeks in a row, and someone owns the curation.",
         },
-        { index: "6.2", title: "Read-only tools.", text: "The tools only read, with an allowlist and auditing. The agent can hand off to a human." },
+        {
+          index: "6.2",
+          title: "Read-only tools.",
+          text: "All 5 tools only read data, with an allowlist and auditing, and the agent can hand the conversation off to a human.",
+        },
         {
           index: "6.3",
           title: "Strangler‑fig, not big bang.",
           text: "Migrated routes went through service bindings behind the gateway. Routes not yet migrated kept being served by the functions.",
         },
-        { index: "6.4", title: "Only the compute moved.", text: "Firestore and RTDB stayed on GCP. The quota that blocked us was vCPU." },
+        { index: "6.4", title: "Only the compute moved.", text: "Firestore and RTDB stayed on GCP. The limit was the vCPU quota." },
         {
           index: "6.5",
           title: "Money, isolated.",
@@ -133,12 +137,10 @@ export const tazz: CaseDetail = {
     {
       id: "resultado",
       label: "07 / Result",
-      title: "Live.",
+      title: "PIX and the agent are live.",
+      paragraphs: ["I ported ~158 Cloud Functions to 22 Workers in ~47.5 h. Then PIX went into production in Sep 2026."],
       stats: [
-        { value: "~158 → 22", label: "from Cloud Functions to Cloudflare Workers" },
-        { value: "~47.5 h", label: "for the full port" },
-        { value: "Sep 2026", label: "PIX in production" },
-        { term: "AI", value: "AI", label: "Agent serving real customers.", status: "production", statusLabel: "In production" },
+        { term: "AI", value: "AI", label: "Agent serving real customers, with human handoff.", status: "production", statusLabel: "In production" },
       ],
     },
   ],

@@ -32,7 +32,7 @@ export const dentalSmart: CaseDetail = {
       label: "02 / Contexto",
       title: "Do banco ao front.",
       paragraphs: [
-        "Assumi a engenharia do Dental Smart em 2025 e levei o produto para multi-tenant, com isolamento por RLS no Postgres. Sigo construindo hoje.",
+        "O produto já existia quando assumi a engenharia. Tornei o produto multi-tenant, com um tenant por clínica, e sigo construindo hoje.",
       ],
     },
     {
@@ -42,15 +42,6 @@ export const dentalSmart: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "Escopo.",
-          items: [
-            { text: "Agenda, pacientes e planos de tratamento" },
-            { text: "Financeiro com DRE e CRM com funil no WhatsApp" },
-            { text: "Estoque, próteses e relatórios" },
-          ],
-        },
-        {
-          index: "3.2",
           title: "Engenharia.",
           items: [
             { text: "SaaS multi-tenant em Next.js e Supabase, com isolamento por RLS" },
@@ -59,6 +50,15 @@ export const dentalSmart: CaseDetail = {
             { text: "NFS-e via Focus NFe e assinatura de contrato por WhatsApp" },
             { text: "Admin do SaaS para provisionar clínicas" },
             { text: "CI no GitHub Actions e backup do banco no R2" },
+          ],
+        },
+        {
+          index: "3.2",
+          title: "Escopo.",
+          items: [
+            { text: "Agenda, pacientes e planos de tratamento" },
+            { text: "Financeiro com DRE e CRM com funil no WhatsApp" },
+            { text: "Estoque, próteses e relatórios" },
           ],
         },
       ],
@@ -108,12 +108,6 @@ export const dentalSmart: CaseDetail = {
           statusLabel: "Em produção",
         },
         { term: "Mensagens", value: "Um LLM gera variações das mensagens de WhatsApp. O envio sai de uma fila agendada. Não é agente." },
-        {
-          term: "Radiografia",
-          value: "Não foi construída. Priorizamos o financeiro.",
-          status: "decision",
-          statusLabel: "Decisão",
-        },
         { term: "Conciliação", value: "Por regras, sem IA.", status: "decision", statusLabel: "Decisão" },
       ],
     },
@@ -154,12 +148,10 @@ export const dentalSmart: CaseDetail = {
     {
       id: "resultado",
       label: "07 / Resultado",
-      title: "No ar.",
+      title: "Nenhuma clínica cancelou.",
+      paragraphs: ["~20 clínicas ativas, cada uma num tenant isolado por RLS."],
       stats: [
-        { value: "~20", label: "clínicas ativas" },
-        { value: "0", label: "churn: nenhuma clínica cancelou" },
-        { value: "fev/2026", label: "transcrição de consultas em produção" },
-        { term: "IA", value: "IA", label: "Transcrição e resumo de consultas.", status: "production", statusLabel: "Em produção" },
+        { term: "IA", value: "IA", label: "Transcrição e resumo de consultas na Groq, desde fev/2026.", status: "production", statusLabel: "Em produção" },
       ],
     },
   ],

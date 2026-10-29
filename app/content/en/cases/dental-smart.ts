@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 02 · SaaS for clinics · 2025 – present",
   title: "Dental Smart.",
-  lead: "SaaS for dental clinics. I have been the product’s engineer since 2025: multi-tenant with RLS, NFS-e invoices, WhatsApp and AI appointment transcription in production.",
+  lead: "SaaS for dental clinics. I’ve owned its engineering since 2025: multi-tenant with RLS, NFS-e invoices, WhatsApp and AI appointment transcription in production.",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, back end and AI" },
@@ -32,7 +32,7 @@ export const dentalSmart: CaseDetail = {
       label: "02 / Context",
       title: "From the database to the front end.",
       paragraphs: [
-        "I took over Dental Smart’s engineering in 2025 and moved the product to multi-tenant, with RLS isolation in Postgres. I’m still building it.",
+        "The product already existed when I took over its engineering. I made it multi-tenant, with one tenant per clinic, and I’m still building it.",
       ],
     },
     {
@@ -42,15 +42,6 @@ export const dentalSmart: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "Scope.",
-          items: [
-            { text: "Scheduling, patients and treatment plans" },
-            { text: "Finance with P&L, and a CRM funnel tied to WhatsApp" },
-            { text: "Inventory, prosthetics and reports" },
-          ],
-        },
-        {
-          index: "3.2",
           title: "Engineering.",
           items: [
             { text: "Multi-tenant SaaS in Next.js and Supabase, with RLS isolation" },
@@ -59,6 +50,15 @@ export const dentalSmart: CaseDetail = {
             { text: "NFS-e via Focus NFe and contract signing over WhatsApp" },
             { text: "SaaS admin to provision clinics" },
             { text: "CI on GitHub Actions and database backups to R2" },
+          ],
+        },
+        {
+          index: "3.2",
+          title: "Scope.",
+          items: [
+            { text: "Scheduling, patients and treatment plans" },
+            { text: "Finance with P&L, and a CRM funnel tied to WhatsApp" },
+            { text: "Inventory, prosthetics and reports" },
           ],
         },
       ],
@@ -99,7 +99,7 @@ export const dentalSmart: CaseDetail = {
     {
       id: "ia",
       label: "05 / Where AI comes in",
-      title: "In patient care, not in the finances.",
+      title: "In the appointment, not the finances.",
       specs: [
         {
           term: "Transcription",
@@ -108,12 +108,6 @@ export const dentalSmart: CaseDetail = {
           statusLabel: "In production",
         },
         { term: "Messages", value: "An LLM writes variations of the WhatsApp messages. Sending runs from a scheduled queue. It is not an agent." },
-        {
-          term: "X-ray",
-          value: "Not built. We prioritized finance.",
-          status: "decision",
-          statusLabel: "Decision",
-        },
         { term: "Reconciliation", value: "Rule-based, no AI.", status: "decision", statusLabel: "Decision" },
       ],
     },
@@ -130,12 +124,12 @@ export const dentalSmart: CaseDetail = {
         },
         {
           index: "6.2",
-          title: "Isolation in RLS.",
+          title: "Tenant isolation via RLS.",
           text: "Each clinic is a tenant. The browser talks to Supabase with the user’s JWT, and RLS by tenant_id isolates the data in Postgres.",
         },
         {
           index: "6.3",
-          title: "Privileges only on the server.",
+          title: "Server-only privileges.",
           text: "User management, contract signing, NFS-e and PDFs go through Next API routes, with the admin client on the server.",
         },
         {
@@ -154,12 +148,10 @@ export const dentalSmart: CaseDetail = {
     {
       id: "resultado",
       label: "07 / Result",
-      title: "Live.",
+      title: "No clinic has walked away.",
+      paragraphs: ["~20 active clinics, each in its own tenant isolated by RLS."],
       stats: [
-        { value: "~20", label: "active clinics" },
-        { value: "0", label: "churn: no clinic has cancelled" },
-        { value: "Feb 2026", label: "appointment transcription in production" },
-        { term: "AI", value: "AI", label: "Appointment transcription and summary.", status: "production", statusLabel: "In production" },
+        { term: "AI", value: "AI", label: "Appointment transcription and summary on Groq, since Feb 2026.", status: "production", statusLabel: "In production" },
       ],
     },
   ],
