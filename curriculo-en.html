@@ -31,7 +31,7 @@
     </header>
 
     <p class="summary">
-      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development and 5 products in production</strong> (Tazz, Maximus, Dental Smart, Coppay and Davions), including an AI agent serving real customers and a clinical RAG chat. I use an <span class="nb">agent-first</span> workflow: I define the architecture, context and acceptance criteria, direct coding agents, and then review, debug and own what ships to production.
+      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development and 5 products in production</strong> (Tazz, Maximus, <span class="nb">Dental Smart</span>, Coppay and Davions), including an AI agent in customer support, under human review, and a clinical RAG chat. I use an <span class="nb">agent-first</span> workflow: I define the architecture, context and acceptance criteria, direct coding agents, and then review, debug and own what ships to production.
     </p>
 
     <section>
@@ -86,14 +86,15 @@
           <span class="date">2026 – present</span>
         </div>
         <ul>
-          <li><strong>Migration:</strong> the backend hit GCP's fixed 20 vCPU quota in the São Paulo region with the app live. I ported ~158 Cloud Functions to 22 Cloudflare Workers using the strangler-fig pattern, orchestrating AI coding agents; the full port took ~47.5 hours.</li>
-          <li><strong>Support agent:</strong> in production with real customers and human handoff, on an omnichannel architecture (WhatsApp, Instagram, app, website and email). 5 read-only tools with an allowlist and auditing, capped at 3 tool-call rounds, layered guardrails, <span class="nb">LLM-as-judge</span> and PII redaction.</li>
-          <li><strong>Models and evals:</strong> OpenAI models via Cloudflare AI Gateway, with fallback; Claude selectable in the admin panel. Offline evals with datasets, a gate and a comparison of 4 models; shadow and canary rollout.</li>
-          <li><strong>Decision:</strong> no RAG in the MVP; instead, a curated 58-entry knowledge base with keyword search, plus an objective, documented trigger for revisiting the choice.</li>
-          <li><strong>Payments:</strong> Pix (Brazil's instant payment system) via Asaas, in production since Sep 2026, on an isolated double-entry ledger with HMAC-signed webhooks.</li>
-          <li><strong>App:</strong> new Expo app in <span class="nb">pre-launch</span>.</li>
+          <li><strong>New Expo app:</strong> I architected and built from scratch the rider and driver app and its new Workers: in-house auth, a realtime hub on Durable Objects and an API over Postgres; the app never talks to Firestore or Firebase Auth directly. First production builds in Oct 2026; in <span class="nb">pre-launch</span> to replace the live Flutter app.</li>
+          <li><strong>Built with agents:</strong> I orchestrated coding agents on a ~200-workstream backlog in parallel, each with a proof per acceptance criterion and a cross-provider model review; human gates on database, main and stores.</li>
+          <li><strong>Migration:</strong> the backend ran on ~158 Cloud Functions and hit GCP's fixed <span class="nb">20 vCPU</span> quota in São Paulo with the app live. <span class="nb">I ported</span> 100+ of them to 8 Cloudflare Workers in <span class="nb">~47.5 hours</span>, strangler-fig style, with coding agents.</li>
+          <li><strong>Support agent:</strong> on WhatsApp and in the app, in production under human review: the AI writes a draft, and a person on the team sends, edits or discards it. Lookup, internal-note and handoff tools with an allowlist and auditing, and no tool that touches money; capped at 3 tool-call rounds, layered guardrails, <span class="nb">LLM-as-judge</span> and PII redaction.</li>
+          <li><strong>Models and evals:</strong> OpenAI models via Cloudflare AI Gateway, with fallback. Offline evals with datasets, a gate and a comparison of <span class="nb">4 models</span>; shadow and canary rollout.</li>
+          <li><strong>Decision:</strong> no RAG in the MVP; a curated 58-entry knowledge base with keyword search and an objective trigger to revisit.</li>
+          <li><strong>Payments:</strong> Pix (Brazil's instant payments) via Asaas, live since Sep 2026, on an isolated double-entry ledger.</li>
         </ul>
-        <div class="stack">TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo</div>
+        <div class="stack">TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres</div>
       </div>
 
       <div class="item">

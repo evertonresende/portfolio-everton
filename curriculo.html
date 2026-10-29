@@ -30,7 +30,7 @@
     </header>
 
     <p class="summary">
-      Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra, em TypeScript, Python, Cloudflare e AWS. <strong>7+ anos desenvolvendo software e 5 produtos em produção</strong> (Tazz, Maximus, Dental Smart, Coppay e Davions), entre eles um agente de IA atendendo clientes reais e um chat clínico com RAG. Trabalho com um workflow <span class="nb">agent-first</span>: defino arquitetura, contexto e critérios de aceite, oriento agentes de código, reviso, depuro e respondo pelo que vai para produção.
+      Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra, em TypeScript, Python, Cloudflare e AWS. <strong>7+ anos desenvolvendo software e 5 produtos em produção</strong> (Tazz, Maximus, Dental Smart, Coppay e Davions), entre eles um agente de IA no atendimento, com supervisão humana, e um chat clínico com RAG. Trabalho com um workflow <span class="nb">agent-first</span>: defino arquitetura, contexto e critérios de aceite, oriento agentes de código, reviso, depuro e respondo pelo que vai para produção.
     </p>
 
     <section>
@@ -85,13 +85,15 @@
           <span class="date">2026 – atual</span>
         </div>
         <ul>
-          <li><strong>Migração:</strong> o backend bateu na cota fixa de 20 vCPU do GCP em São Paulo com o app em operação. Portei ~158 Cloud Functions para 22 Cloudflare Workers, em strangler-fig e orquestrando agentes: ~47,5 h até o porte completo.</li>
-          <li><strong>Agente de atendimento:</strong> em produção com clientes reais e handoff para humano, numa arquitetura omnichannel (WhatsApp, Instagram, app, site e e-mail). 5 tools só de leitura com allowlist e auditoria, no máximo 3 rodadas, guardrails em camadas, <span class="nb">LLM-juiz</span> e mascaramento de dados pessoais.</li>
-          <li><strong>Modelos e evals:</strong> LLM da OpenAI via AI Gateway, com fallback; Claude selecionável no painel. Evals offline com datasets, gate e comparação de 4 modelos; rollout em shadow e canary.</li>
-          <li><strong>Decisão:</strong> sem RAG no MVP. Base curada de 58 entradas com busca por palavra-chave, com gatilho objetivo e documentado para reavaliar.</li>
-          <li><strong>Pagamentos:</strong> PIX (Asaas) em produção desde 09/2026, sobre ledger de partida dobrada isolado e webhooks com HMAC. Novo app em Expo em <span class="nb">pré-lançamento</span>.</li>
+          <li><strong>App novo em Expo:</strong> arquitetei e construí do zero o app de passageiro e motorista e os Workers novos dele: auth próprio, hub em tempo real com Durable Objects e API sobre Postgres; o app não fala direto com Firestore nem Firebase Auth. Primeiras builds de produção em 10/2026, em <span class="nb">pré-lançamento</span> para substituir o app Flutter em produção.</li>
+          <li><strong>Construído com agentes:</strong> orquestrei agentes num backlog de ~200 frentes em paralelo, cada uma com prova por critério de aceite e revisão por um modelo de outro provedor; portões humanos em banco, main e lojas.</li>
+          <li><strong>Migração:</strong> o backend rodava em ~158 Cloud Functions e bateu na cota fixa de <span class="nb">20 vCPU</span> do GCP em São Paulo com o app em operação. Portei 100+ delas para 8 Cloudflare Workers em <span class="nb">~47,5 h</span>, em strangler-fig e com agentes de código.</li>
+          <li><strong>Agente de atendimento:</strong> no WhatsApp e no app, em produção com supervisão humana: a IA escreve o rascunho, e o atendente envia, edita ou descarta. Tools de consulta, nota interna e handoff, com allowlist e auditoria, sem tool de dinheiro; no máximo 3 rodadas, guardrails em camadas, <span class="nb">LLM-juiz</span> e mascaramento de dados pessoais.</li>
+          <li><strong>Modelos e evals:</strong> LLM da OpenAI via AI Gateway, com fallback. Evals offline com datasets, gate e comparação de <span class="nb">4 modelos</span>; rollout em shadow e canary.</li>
+          <li><strong>Decisão:</strong> sem RAG no MVP. Base curada de 58 entradas, busca por palavra-chave e gatilho objetivo para reavaliar.</li>
+          <li><strong>Pagamentos:</strong> PIX (Asaas) em produção desde 09/2026, sobre ledger de partida dobrada isolado.</li>
         </ul>
-        <div class="stack">TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo</div>
+        <div class="stack">TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres</div>
       </div>
 
       <div class="item">
