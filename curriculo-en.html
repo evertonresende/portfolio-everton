@@ -31,7 +31,7 @@
     </header>
 
     <p class="summary">
-      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development and 5 products in production</strong> (Tazz, Maximus, <span class="nb">Dental Smart</span>, Coppay and Davions), including an AI agent in customer support, under human review, and a clinical RAG chat. I use an <span class="nb">agent-first</span> workflow: I define the architecture, context and acceptance criteria, direct coding agents, and then review, debug and own what ships to production.
+      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development</strong>, with AI in production in products such as Tazz, Maximus, <span class="nb">Dental Smart</span>, Coppay and Davions: a support agent with evals, guardrails and human review, and a clinical RAG chat. I use an <span class="nb">agent-first</span> workflow: I define the architecture, context and acceptance criteria, direct coding agents, and then review, debug and own what ships to production. That is how I built the new Tazz app from scratch.
     </p>
 
     <section>
@@ -45,7 +45,7 @@
         <div class="meta">Digital account and credit fintech · Full-time (CLT) · remote</div>
         <ul>
           <li><strong>AI in production:</strong> email triage on Cloudflare Workers AI, used by the internal team, and LLM-assisted credit assessments (<span class="nb">gpt-oss-120b</span>), used by the credit analysts.</li>
-          <li><strong>WhatsApp agent in Python:</strong> Agno + FastAPI, with triage to specialists, read-only tools and human handoff. It served real customers through Sep 2026.</li>
+          <li><strong>WhatsApp agent in Python:</strong> I built an agent team with Agno + FastAPI, with triage to specialists, read-only tools and human handoff. It served real customers.</li>
           <li><strong>App and BFF:</strong> Expo app published on the app stores, used by real account holders, and a Hono backend-for-frontend (BFF) on Cloudflare Workers integrating the providers Cronos, Asaas and HBI.</li>
           <li><strong>Back office:</strong> Next.js back office with RBAC and an audit log.</li>
           <li><strong>New Banking-as-a-Service (BaaS) provider:</strong> in Sep 2026, a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.</li>
@@ -86,12 +86,12 @@
           <span class="date">2026 – present</span>
         </div>
         <ul>
-          <li><strong>New Expo app:</strong> I architected and built from scratch the rider and driver app and its new Workers: in-house auth, a realtime hub on Durable Objects and an API over Postgres; the app never talks to Firestore or Firebase Auth directly. First production builds in Oct 2026; in <span class="nb">pre-launch</span> to replace the live Flutter app.</li>
+          <li><strong>New Expo app:</strong> I architected and built from scratch the rider and driver app and its new Workers: in-house auth, a realtime hub on Durable Objects and an API over Postgres. First production builds in Oct 2026, prepared to replace the Flutter app in the stores.</li>
           <li><strong>Built with agents:</strong> I orchestrated coding agents on a ~200-workstream backlog in parallel, each with a proof per acceptance criterion and a cross-provider model review; human gates on database, main and stores.</li>
           <li><strong>Migration:</strong> the backend ran on ~158 Cloud Functions and hit GCP's fixed <span class="nb">20 vCPU</span> quota in São Paulo with the app live. <span class="nb">I ported</span> 100+ of them to 8 Cloudflare Workers in <span class="nb">~47.5 hours</span>, strangler-fig style, with coding agents.</li>
-          <li><strong>Support agent:</strong> on WhatsApp and in the app, in production under human review: the AI writes a draft, and a person on the team sends, edits or discards it. Lookup, internal-note and handoff tools with an allowlist and auditing, and no tool that touches money; capped at 3 tool-call rounds, layered guardrails, <span class="nb">LLM-as-judge</span> and PII redaction.</li>
+          <li><strong>Support agent:</strong> on WhatsApp and in the app, in production under human review: the AI writes a draft, and a person on the team sends, edits or discards it. Lookup, internal-note and handoff tools with an allowlist and auditing; capped at 3 tool-call rounds, layered guardrails, <span class="nb">LLM-as-judge</span> and PII redaction.</li>
           <li><strong>Models and evals:</strong> OpenAI models via Cloudflare AI Gateway, with fallback. Offline evals with datasets, a gate and a comparison of <span class="nb">4 models</span>; shadow and canary rollout.</li>
-          <li><strong>Decision:</strong> no RAG in the MVP; a curated 58-entry knowledge base with keyword search and an objective trigger to revisit.</li>
+          <li><strong>Knowledge base:</strong> 58 curated entries with keyword search and an objective trigger to revisit RAG.</li>
           <li><strong>Payments:</strong> Pix (Brazil's instant payments) via Asaas, live since Sep 2026, on an isolated double-entry ledger.</li>
         </ul>
         <div class="stack">TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres</div>
@@ -119,8 +119,7 @@
         <ul>
           <li><strong>Multi-tenant:</strong> SaaS in Next.js and Supabase, with RLS isolation in Postgres (one tenant per clinic). ~20 active clinics, zero churn.</li>
           <li><strong>AI in production:</strong> appointment transcription and summarization since Feb 2026, with Whisper <span class="nb">large-v3-turbo</span> and <span class="nb">Llama 3.3 70B</span> on Groq.</li>
-          <li><strong>Integrations:</strong> WhatsApp message queue with LLM-generated variations, Brazilian electronic service invoices (NFS-e) via Focus NFe, and contract signing over WhatsApp. CI on GitHub Actions and database backups to R2.</li>
-          <li><strong>Decision:</strong> rule-based bank reconciliation, no AI.</li>
+          <li><strong>Integrations:</strong> WhatsApp message queue with LLM-generated variations, Brazilian electronic service invoices (NFS-e) via Focus NFe, rule-based bank reconciliation and contract signing over WhatsApp. CI on GitHub Actions and database backups to R2.</li>
         </ul>
         <div class="stack">Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq</div>
       </div>
@@ -132,7 +131,7 @@
         </div>
         <ul>
           <li><strong>Re-platforming:</strong> re-hosted and refactored the app (originally built in Lovable, an AI app builder) onto 10 Cloudflare Workers with Supabase and RLS. Delivered in Oct 2026.</li>
-          <li><strong>Payments:</strong> escrow on Asaas (a Brazilian payment provider), with an SQL ledger and Pix payouts, in dark launch.</li>
+          <li><strong>Payments:</strong> I architected escrow on Asaas (a Brazilian payment provider), with an SQL ledger and Pix payouts.</li>
           <li><strong>AI in production:</strong> blog post, caption and theme generation with Claude, through Cloudflare AI Gateway.</li>
         </ul>
         <div class="stack">TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect</div>
@@ -148,11 +147,6 @@
       <p><b>Backend and data:</b><span>Hono, FastAPI, Node.js, Postgres, Supabase (RLS, Edge Functions), Docker, <span class="nb">CI (GitHub Actions)</span></span></p>
       <p><b>Frontend and mobile:</b><span>React, Next.js, React Native / Expo</span></p>
       <p><b>Payments:</b><span>Pix, Asaas, Stripe Connect, double-entry ledger</span></p>
-    </section>
-
-    <section class="plain">
-      <h2>Open source</h2>
-      <p>2 PRs merged into Cal.com: <a class="link" href="https://github.com/calcom/cal.com/pull/27636">#27636</a> and <a class="link" href="https://github.com/calcom/cal.com/pull/27637">#27637</a> (Feb 2026).</p>
     </section>
 
     <section class="plain">
