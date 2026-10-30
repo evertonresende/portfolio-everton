@@ -30,7 +30,7 @@
     </header>
 
     <p class="summary">
-      Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra, em TypeScript, Python, Cloudflare e AWS. <strong>7+ anos desenvolvendo software</strong>, com IA em produção em produtos como Tazz, Maximus, <span class="nb">Dental Smart</span>, Coppay e Davions: um agente de atendimento com evals, guardrails e supervisão humana e um chat clínico com RAG. Trabalho com um workflow <span class="nb">agent-first</span>: defino arquitetura, contexto e critérios de aceite, oriento agentes de código, reviso, depuro e respondo pelo que vai para produção. Foi assim que construí do zero o app novo da Tazz.
+      Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra, em TypeScript, Python, Cloudflare e AWS. <strong>7+ anos desenvolvendo software</strong>, com IA em produção em produtos como Tazz, <span class="nb">Rota Protegida</span>, Maximus, <span class="nb">Dental Smart</span>, Coppay e Davions: um agente de atendimento com evals, guardrails e supervisão humana, reconhecimento facial em cascata e um chat clínico com RAG. Trabalho com um workflow <span class="nb">agent-first</span>: defino arquitetura, contexto e critérios de aceite, oriento agentes de código, reviso, depuro e respondo pelo que vai para produção. Foi assim que construí do zero o app novo da Tazz.
     </p>
 
     <section>
@@ -98,6 +98,20 @@
 
       <div class="item">
         <div class="item-top">
+          <h3>Rota Protegida <span class="org">— reconhecimento facial escolar para prefeitura</span></h3>
+          <span class="date">2026</span>
+        </div>
+        <ul>
+          <li><strong>Produto:</strong> câmeras IP na entrada das escolas identificam alunos e funcionários, registram a presença e avisam os responsáveis por WhatsApp e e-mail. Em produção desde 07/2026; entregue à prefeitura em 09/2026.</li>
+          <li><strong>Reconhecimento em cascata:</strong> uma VPS em Python detecta o rosto e extrai o embedding <span class="nb">512-D</span> (AuraFace); a API em Hono sobre Cloudflare Workers busca no Vectorize; na zona cinza, o AWS Rekognition desempata, e o que segue em dúvida vai para revisão humana.</li>
+          <li><strong>Decisão:</strong> testei um 2º modelo (AdaFace) em ensemble e medi 862 eventos contra o veredito do AWS: nenhum match salvo e 45 rejeições erradas reforçadas. Desliguei.</li>
+          <li><strong>LGPD:</strong> biometria de crianças com consentimento obrigatório, retenção automática por tipo de dado, log de quem vê fotos e isolamento por escola no índice vetorial.</li>
+        </ul>
+        <div class="stack">TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition</div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
           <h3>Maximus <span class="org">— app para anestesistas</span></h3>
           <span class="date">2026</span>
         </div>
@@ -139,9 +153,9 @@
 
     <section class="skills">
       <h2>Habilidades</h2>
-      <p><b>IA:</b><span>LLMs (OpenAI, Anthropic/Claude, Groq, Workers AI), agentes e tool calling, RAG (file_search, vector store), structured output, guardrails, <span class="nb">LLM-juiz</span>, evals, speech-to-text</span></p>
+      <p><b>IA:</b><span>LLMs (OpenAI, Anthropic/Claude, Groq, Workers AI), agentes e tool calling, RAG (file_search, vector store), structured output, guardrails, <span class="nb">LLM-juiz</span>, evals, speech-to-text, reconhecimento facial (AuraFace, AWS Rekognition)</span></p>
       <p><b>Linguagens:</b><span>TypeScript, Python, SQL</span></p>
-      <p><b>Cloudflare:</b><span>Workers, Durable Objects, Queues, R2, AI Gateway, Workers AI</span></p>
+      <p><b>Cloudflare:</b><span>Workers, Durable Objects, Queues, D1, R2, Vectorize, AI Gateway, Workers AI</span></p>
       <p><b>AWS (projetos anteriores):</b><span>EC2, ELB, Lightsail, Lambda, SQS, S3, Aurora, Rekognition</span></p>
       <p><b>Backend e dados:</b><span>Hono, FastAPI, Node.js, Postgres, Supabase (RLS, Edge Functions), Docker, <span class="nb">CI (GitHub Actions)</span></span></p>
       <p><b>Front e mobile:</b><span>React, Next.js, React Native / Expo</span></p>
