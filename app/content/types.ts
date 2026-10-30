@@ -157,7 +157,6 @@ export interface HomeContent {
     readonly title: string;
     readonly rows: readonly { readonly period: string; readonly role: string; readonly company: string; readonly mode: string }[];
     readonly education: { readonly index: string; readonly title: string; readonly items: readonly { readonly title: string; readonly detail: string }[] };
-    readonly openSource: { readonly index: string; readonly title: string; readonly text: string; readonly date: string; readonly links: readonly Link[] };
   };
   readonly contact: {
     readonly label: string;

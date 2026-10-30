@@ -10,7 +10,7 @@ export const tazz: CaseDetail = {
     { term: "Período", value: "2026 – hoje" },
     { term: "Stack", value: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres", mono: true },
     { term: "IA", value: "Agente com supervisão humana", status: "production", statusLabel: "Em produção" },
-    { term: "App novo", value: "Expo, para substituir o app Flutter nas lojas", status: "prototype", statusLabel: "Pré-lançamento" },
+    { term: "App novo", value: "Expo, para substituir o app Flutter nas lojas", status: "prototype", statusLabel: "Construído" },
   ],
   stats: [
     { term: "App novo", value: "Expo", label: "do zero, com auth, hub e API próprios" },
@@ -119,7 +119,7 @@ export const tazz: CaseDetail = {
       title: "No atendimento.",
       specs: [
         { term: "Modelo", value: "OpenAI via AI Gateway, com fallback." },
-        { term: "Tools", value: "Consulta de dados e da base, nota interna e handoff, com allowlist e auditoria. Não existe tool de dinheiro, cadastro ou cancelamento. No máximo 3 rodadas de tools." },
+        { term: "Tools", value: "Consulta de dados e da base, nota interna e handoff, com allowlist e auditoria. No máximo 3 rodadas de tools." },
         { term: "Guardrails", value: "Checagem em camadas, LLM-juiz e mascaramento de dados pessoais." },
         { term: "Evals", value: "Evals offline com datasets, gate e comparação de 4 modelos. Rollout em shadow e canary." },
         { term: "Status", value: "Com supervisão humana: a IA escreve o rascunho, e o atendente envia, edita ou descarta.", status: "production", statusLabel: "Em produção" },
@@ -159,18 +159,17 @@ export const tazz: CaseDetail = {
     {
       id: "decisoes",
       label: "07 / Decisões e trade-offs",
-      title: "O que ficou de fora, de propósito.",
+      title: "O que escolhi, e por quê.",
       items: [
         {
           index: "7.1",
-          badge: "Não usado",
-          title: "Sem RAG no MVP.",
-          text: "A base tem 58 entradas curadas, cada uma aprovada antes de ir ao ar, e busca por palavra‑chave. A decisão define quando reavaliar: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
+          title: "Base curada com busca por palavra‑chave.",
+          text: "A base tem 58 entradas curadas, cada uma aprovada antes de ir ao ar, e busca por palavra‑chave. A decisão define quando reavaliar o uso de RAG: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
         },
         {
           index: "7.2",
-          title: "Nenhuma tool mexe em dinheiro.",
-          text: "As tools consultam dados, criam nota interna e passam a conversa para um humano, com allowlist e auditoria. Tool de dinheiro, cadastro ou cancelamento não existe.",
+          title: "Tools com escopo mínimo.",
+          text: "As tools consultam dados, criam nota interna e passam a conversa para um humano, com allowlist e auditoria.",
         },
         {
           index: "7.3",
@@ -203,7 +202,7 @@ export const tazz: CaseDetail = {
       ],
       stats: [
         { term: "IA", value: "IA", label: "Agente nas conversas reais, com um atendente revisando cada resposta.", status: "production", statusLabel: "Em produção" },
-        { term: "App", value: "App", label: "App em Expo construído com agentes de código.", status: "prototype", statusLabel: "Pré-lançamento" },
+        { term: "App", value: "App", label: "App em Expo construído com agentes de código.", status: "prototype", statusLabel: "Construído" },
       ],
     },
   ],

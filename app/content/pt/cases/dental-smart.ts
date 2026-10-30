@@ -99,7 +99,7 @@ export const dentalSmart: CaseDetail = {
     {
       id: "ia",
       label: "05 / Onde a IA entra",
-      title: "Na consulta, não no dinheiro.",
+      title: "Na consulta e nas mensagens.",
       specs: [
         {
           term: "Transcrição",
@@ -107,20 +107,18 @@ export const dentalSmart: CaseDetail = {
           status: "production",
           statusLabel: "Em produção",
         },
-        { term: "Mensagens", value: "Um LLM gera variações das mensagens de WhatsApp. O envio sai de uma fila agendada. Não é agente." },
-        { term: "Conciliação", value: "Por regras, sem IA.", status: "decision", statusLabel: "Decisão" },
+        { term: "Mensagens", value: "Um LLM gera variações das mensagens de WhatsApp. O envio sai de uma fila agendada." },
       ],
     },
     {
       id: "decisoes",
       label: "06 / Decisões e trade-offs",
-      title: "Onde a IA não entrou.",
+      title: "O que escolhi, e por quê.",
       items: [
         {
           index: "6.1",
-          badge: "Não usado",
-          title: "Conciliação sem IA.",
-          text: "Decidi não usar IA na conciliação bancária. Ela ficou em regras: autodetecção de colunas do CSV e dedupe. O import de OFX foi removido em abr/2026, por ser uma feature sem uso.",
+          title: "Conciliação por regras.",
+          text: "A conciliação bancária roda por regras: autodetecção de colunas do CSV e dedupe.",
         },
         {
           index: "6.2",

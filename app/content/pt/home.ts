@@ -25,13 +25,19 @@ export const home: HomeContent = {
       { term: "Status", value: "Disponível · PJ, CLT ou internacional", status: "production" },
     ],
     proofs: [
-      { term: "Produtos", value: "5", label: "produtos em produção" },
       {
         term: "Tazz",
         value: "IA",
-        label: "Agente de IA no atendimento, com supervisão humana",
+        label: "Agente de IA no atendimento, com evals, guardrails e supervisão humana",
         status: "production",
         statusLabel: "Em produção",
+      },
+      {
+        term: "Tazz",
+        value: "App",
+        label: "App em Expo arquitetado e construído do zero com agentes de código",
+        status: "prototype",
+        statusLabel: "Construído",
       },
       {
         term: "Maximus",
@@ -56,8 +62,8 @@ export const home: HomeContent = {
       {
         index: "1.2",
         title: "Coloco RAG em produção.",
-        text: "Busca vetorial nativa em produção, que substituiu o RAG manual com classificador de intenção que construí antes. E sei quando RAG não vale a pena.",
-        proof: "Maximus · decisão de não usar RAG na\u00a0Tazz",
+        text: "Busca vetorial nativa em produção, que substituiu o RAG manual com classificador de intenção que construí antes.",
+        proof: "Maximus · chat clínico em produção",
       },
       {
         index: "1.3",
@@ -86,7 +92,7 @@ export const home: HomeContent = {
         },
         problem: "O backend do app de corridas bateu na cota fixa de 20 vCPU do GCP em São Paulo, e o app em Flutter falava direto com o Firebase.",
         whatIDid:
-          "Arquitetei e construí do zero o app novo em Expo e os Workers novos dele, com agentes de código em paralelo (pré-lançamento). Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e levei o PIX do Asaas à produção.",
+          "Arquitetei e construí do zero o app novo em Expo e os Workers novos dele, com agentes de código em paralelo. Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e levei o PIX do Asaas à produção.",
         stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
@@ -117,7 +123,6 @@ export const home: HomeContent = {
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           { status: "production", label: "Em produção", text: "Transcrição e resumo de consultas (Whisper + Llama)." },
-          { status: "decision", label: "Decisão", text: "Conciliação bancária por regras, sem\u00a0IA." },
         ],
         result: "~20 clínicas · 0 churn",
       },
@@ -191,8 +196,8 @@ export const home: HomeContent = {
           },
           {
             status: "offline",
-            label: "Fora do ar hoje",
-            text: "Agente de WhatsApp em Python (Agno + FastAPI) com triagem para especialistas, tools de leitura e handoff para humano. Atendeu clientes reais até set/2026.",
+            label: "Construído",
+            text: "Agente de WhatsApp em Python (Agno + FastAPI) com triagem para especialistas, tools de leitura e handoff para humano. Atendeu clientes reais.",
           },
         ],
         result: "App nas lojas com correntistas reais",
@@ -222,7 +227,7 @@ export const home: HomeContent = {
             text: "Geração de posts de blog, legendas e temas com Claude, via Cloudflare AI Gateway.",
           },
         ],
-        result: "Entregue em out/2026 · escrow em dark launch",
+        result: "Entregue em out/2026",
       },
     ],
   },
@@ -248,7 +253,7 @@ export const home: HomeContent = {
         { text: "Arquitetura e trade-offs" },
         { text: "O que entra e o que fica de fora" },
         { text: "Critérios de aceite" },
-        { text: "Onde não usar IA" },
+        { text: "Onde usar IA" },
         { text: "O que vai para produção" },
       ],
     },
@@ -283,16 +288,6 @@ export const home: HomeContent = {
       index: "4.1",
       title: "Formação",
       items: [{ title: "Sistemas de Informação", detail: "FAPAM · nov 2018 – dez 2020 · incompleto" }],
-    },
-    openSource: {
-      index: "4.2",
-      title: "Open source",
-      text: "2 PRs merged no Cal.com",
-      date: "fev 2026",
-      links: [
-        { label: "#27636", href: "https://github.com/calcom/cal.com/pull/27636", external: true },
-        { label: "#27637", href: "https://github.com/calcom/cal.com/pull/27637", external: true },
-      ],
     },
   },
   contact: {

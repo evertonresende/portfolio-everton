@@ -99,7 +99,7 @@ export const dentalSmart: CaseDetail = {
     {
       id: "ia",
       label: "05 / Where AI comes in",
-      title: "In the appointment, not the finances.",
+      title: "In the appointment and the messages.",
       specs: [
         {
           term: "Transcription",
@@ -107,20 +107,18 @@ export const dentalSmart: CaseDetail = {
           status: "production",
           statusLabel: "In production",
         },
-        { term: "Messages", value: "An LLM writes variations of the WhatsApp messages. Sending runs from a scheduled queue. It is not an agent." },
-        { term: "Reconciliation", value: "Rule-based, no AI.", status: "decision", statusLabel: "Decision" },
+        { term: "Messages", value: "An LLM writes variations of the WhatsApp messages. Sending runs from a scheduled queue." },
       ],
     },
     {
       id: "decisoes",
       label: "06 / Decisions and trade-offs",
-      title: "Where AI stayed out.",
+      title: "What I chose, and why.",
       items: [
         {
           index: "6.1",
-          badge: "Not used",
-          title: "Reconciliation without AI.",
-          text: "I decided not to use AI in bank reconciliation. It stayed rule-based: CSV column auto-detection and dedupe. The OFX import was removed in Apr 2026 as an unused feature.",
+          title: "Rule-based reconciliation.",
+          text: "Bank reconciliation runs on rules: CSV column auto-detection and dedupe.",
         },
         {
           index: "6.2",

@@ -25,13 +25,19 @@ export const home: HomeContent = {
       { term: "Status", value: "Available · B2B contractor, international contract or full-time (CLT, Brazil)", status: "production" },
     ],
     proofs: [
-      { term: "Products", value: "5", label: "products in production" },
       {
         term: "Tazz",
         value: "AI",
-        label: "AI agent in customer support, under human review",
+        label: "AI agent in customer support, with evals, guardrails and human review",
         status: "production",
         statusLabel: "In production",
+      },
+      {
+        term: "Tazz",
+        value: "App",
+        label: "Expo app architected and built from scratch with coding agents",
+        status: "prototype",
+        statusLabel: "Built",
       },
       {
         term: "Maximus",
@@ -56,8 +62,8 @@ export const home: HomeContent = {
       {
         index: "1.2",
         title: "I put RAG into production.",
-        text: "Native vector search in production, replacing the classifier-based manual RAG I built first. And I know when RAG is not worth it.",
-        proof: "Maximus · the no-RAG decision at\u00a0Tazz",
+        text: "Native vector search in production, replacing the classifier-based manual RAG I built first.",
+        proof: "Maximus · clinical chat in production",
       },
       {
         index: "1.3",
@@ -86,7 +92,7 @@ export const home: HomeContent = {
         },
         problem: "The ride-hailing app’s backend hit GCP’s fixed 20 vCPU quota in São Paulo, and the Flutter app talked straight to Firebase.",
         whatIDid:
-          "I architected and built the new Expo app and its new Workers from scratch, with coding agents working in parallel (pre-launch). Before that, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. I also built the support agent and took PIX with Asaas to production.",
+          "I architected and built the new Expo app and its new Workers from scratch, with coding agents working in parallel. Before that, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. I also built the support agent and took PIX with Asaas to production.",
         stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
@@ -117,7 +123,6 @@ export const home: HomeContent = {
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           { status: "production", label: "In production", text: "Appointment transcription and summary (Whisper + Llama)." },
-          { status: "decision", label: "Decision", text: "Bank reconciliation is rule-based, no\u00a0AI." },
         ],
         result: "~20 clinics · 0 churn",
       },
@@ -191,8 +196,8 @@ export const home: HomeContent = {
           },
           {
             status: "offline",
-            label: "Offline today",
-            text: "WhatsApp agent in Python (Agno + FastAPI) with triage to specialists, read-only tools and human handoff. It served real customers until Sep 2026.",
+            label: "Built",
+            text: "WhatsApp agent in Python (Agno + FastAPI) with triage to specialists, read-only tools and human handoff. It served real customers.",
           },
         ],
         result: "App in the stores with real account holders",
@@ -222,7 +227,7 @@ export const home: HomeContent = {
             text: "Blog post, caption and theme generation with Claude, through Cloudflare AI Gateway.",
           },
         ],
-        result: "Delivered in Oct 2026 · escrow in dark launch",
+        result: "Delivered in Oct 2026",
       },
     ],
   },
@@ -248,7 +253,7 @@ export const home: HomeContent = {
         { text: "Architecture and trade-offs" },
         { text: "What goes in and what stays out" },
         { text: "Acceptance criteria" },
-        { text: "Where not to use AI" },
+        { text: "Where to use AI" },
         { text: "What goes to production" },
       ],
     },
@@ -283,16 +288,6 @@ export const home: HomeContent = {
       index: "4.1",
       title: "Education",
       items: [{ title: "Information Systems", detail: "FAPAM · Nov 2018 – Dec 2020 · not completed" }],
-    },
-    openSource: {
-      index: "4.2",
-      title: "Open source",
-      text: "2 PRs merged into Cal.com",
-      date: "Feb 2026",
-      links: [
-        { label: "#27636", href: "https://github.com/calcom/cal.com/pull/27636", external: true },
-        { label: "#27637", href: "https://github.com/calcom/cal.com/pull/27637", external: true },
-      ],
     },
   },
   contact: {

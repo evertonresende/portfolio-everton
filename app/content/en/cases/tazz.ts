@@ -10,7 +10,7 @@ export const tazz: CaseDetail = {
     { term: "Period", value: "2026 – present" },
     { term: "Stack", value: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres", mono: true },
     { term: "AI", value: "Agent under human review", status: "production", statusLabel: "In production" },
-    { term: "New app", value: "Expo, to replace the Flutter app in the stores", status: "prototype", statusLabel: "Pre-launch" },
+    { term: "New app", value: "Expo, to replace the Flutter app in the stores", status: "prototype", statusLabel: "Built" },
   ],
   stats: [
     { term: "New app", value: "Expo", label: "from scratch, with its own auth, hub and API" },
@@ -119,7 +119,7 @@ export const tazz: CaseDetail = {
       title: "In customer support.",
       specs: [
         { term: "Model", value: "OpenAI via AI Gateway, with fallback." },
-        { term: "Tools", value: "Data and knowledge base lookups, internal notes and handoff, with an allowlist and auditing. There is no tool for money, sign-up or cancellation. At most 3 tool-call rounds." },
+        { term: "Tools", value: "Data and knowledge base lookups, internal notes and handoff, with an allowlist and auditing. At most 3 tool-call rounds." },
         { term: "Guardrails", value: "Layered checks, LLM‑as‑judge and redaction of personal data." },
         { term: "Evals", value: "Offline evals with datasets, a gate and a comparison of 4 models. Shadow and canary rollout." },
         { term: "Status", value: "Under human review: the AI writes a draft, and a person on the team sends, edits or discards it.", status: "production", statusLabel: "In production" },
@@ -159,18 +159,17 @@ export const tazz: CaseDetail = {
     {
       id: "decisoes",
       label: "07 / Decisions and trade-offs",
-      title: "What stayed out, on purpose.",
+      title: "What I chose, and why.",
       items: [
         {
           index: "7.1",
-          badge: "Not used",
-          title: "No RAG in the MVP.",
-          text: "The knowledge base has 58 curated entries, each approved before it goes live, and keyword search. The decision defines when to revisit it: only if the corpus exceeds 200 KB of useful text, \"I don’t know\" answers due to missing context exceed 10% for two weeks in a row, and someone owns the curation.",
+          title: "A curated knowledge base with keyword search.",
+          text: "The knowledge base has 58 curated entries, each approved before it goes live, and keyword search. The decision defines when to revisit RAG: only if the corpus exceeds 200 KB of useful text, \"I don’t know\" answers due to missing context exceed 10% for two weeks in a row, and someone owns the curation.",
         },
         {
           index: "7.2",
-          title: "No tool touches money.",
-          text: "The tools look up data, write internal notes and hand the conversation off to a human, with an allowlist and auditing. A tool for money, sign-up or cancellation does not exist.",
+          title: "Tools with minimal scope.",
+          text: "The tools look up data, write internal notes and hand the conversation off to a human, with an allowlist and auditing.",
         },
         {
           index: "7.3",
@@ -203,7 +202,7 @@ export const tazz: CaseDetail = {
       ],
       stats: [
         { term: "AI", value: "AI", label: "Agent in real conversations, with a person reviewing every reply.", status: "production", statusLabel: "In production" },
-        { term: "App", value: "App", label: "Expo app built with coding agents.", status: "prototype", statusLabel: "Pre-launch" },
+        { term: "App", value: "App", label: "Expo app built with coding agents.", status: "prototype", statusLabel: "Built" },
       ],
     },
   ],
