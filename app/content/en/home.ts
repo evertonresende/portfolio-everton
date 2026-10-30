@@ -11,7 +11,7 @@ export const home: HomeContent = {
     status: "Available · remote · B2B contractor, international contract or full-time (CLT, Brazil)",
     title: "AI Engineer.",
     lead: "I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure.",
-    sub: "I deliver complete systems with AI built in (SaaS for clinics, fintech, mobility, clinical support), from the app to the backend, with an agent-first workflow.",
+    sub: "I deliver complete systems with AI built in (SaaS for clinics, fintech, mobility, clinical support, public education), from the app to the backend, with an agent-first workflow.",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "View cases", href: "#cases" },
     cv: { label: "Download CV (PDF)", href: CV_URL_EN },
@@ -104,13 +104,49 @@ export const home: HomeContent = {
         result: "PIX in production since Sep 2026",
       },
       {
-        slug: "dental-smart",
+        slug: "rota-protegida",
         index: "02",
+        meta: "Public education · 2026",
+        title: "Rota Protegida.",
+        hasPage: false,
+        figure: {
+          number: "Fig. 02",
+          caption: "Recognition",
+          direction: "vertical",
+          nodes: [
+            { title: "IP camera", note: "photo over SFTP" },
+            { title: "AuraFace", note: "512-D embedding" },
+            { title: "Vectorize", note: "similarity search" },
+          ],
+          footnote: "Gray zone: AWS Rekognition breaks the tie · then human review",
+        },
+        problem:
+          "A city government needed to record when students enter and leave school and alert families right away, with children's biometrics handled under Brazil's data protection law (LGPD).",
+        whatIDid:
+          "I architected and built the whole system. IP cameras send photos over SFTP to a Python service on a VPS, which detects the face and extracts the embedding (AuraFace). The Hono API on Cloudflare Workers searches Vectorize, records attendance and alerts guardians over WhatsApp and email. The web dashboard serves the city, the schools and human review.",
+        stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
+        ai: [
+          {
+            status: "production",
+            label: "In production",
+            text: "Face recognition as a cascade: AuraFace and vector search on Vectorize; in the gray zone, AWS Rekognition breaks the tie through a queue, and anything still uncertain goes to human review.",
+          },
+          {
+            status: "decision",
+            label: "Decision",
+            text: "I tested a second model (AdaFace) as an ensemble and measured 862 events against the AWS verdict: no matches saved and 45 wrong rejections reinforced. I turned it off and kept AuraFace + AWS in the gray zone.",
+          },
+        ],
+        result: "In production since Jul 2026 · handed over to the city in Sep 2026",
+      },
+      {
+        slug: "dental-smart",
+        index: "03",
         meta: "SaaS for clinics · 2025–present",
         title: "Dental Smart.",
         hasPage: true,
         figure: {
-          number: "Fig. 02",
+          number: "Fig. 03",
           caption: "Transcription and summary",
           direction: "vertical",
           nodes: [{ title: "Appointment" }, { title: "Whisper", note: "transcription" }, { title: "Llama", note: "summary" }],
@@ -128,12 +164,12 @@ export const home: HomeContent = {
       },
       {
         slug: "maximus",
-        index: "03",
+        index: "04",
         meta: "Healthcare · 2026",
         title: "Maximus.",
         hasPage: false,
         figure: {
-          number: "Fig. 03",
+          number: "Fig. 04",
           caption: "RAG",
           direction: "vertical",
           nodes: [
@@ -169,12 +205,12 @@ export const home: HomeContent = {
       },
       {
         slug: "coppay",
-        index: "04",
+        index: "05",
         meta: "Fintech · 2025–2026",
         title: "Coppay.",
         hasPage: false,
         figure: {
-          number: "Fig. 04",
+          number: "Fig. 05",
           caption: "Architecture",
           direction: "vertical",
           nodes: [
@@ -204,12 +240,12 @@ export const home: HomeContent = {
       },
       {
         slug: "davions",
-        index: "05",
+        index: "06",
         meta: "SaaS for photographers · 2026–present",
         title: "Davions.",
         hasPage: false,
         figure: {
-          number: "Fig. 05",
+          number: "Fig. 06",
           caption: "Architecture",
           direction: "vertical",
           nodes: [{ title: "App", note: "React" }, { title: "10 Workers" }, { title: "Supabase (RLS) · R2" }],
