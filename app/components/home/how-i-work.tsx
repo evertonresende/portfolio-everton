@@ -1,6 +1,7 @@
 import type { Column, SiteContent } from "../../content/types";
 import { SectionHeader } from "../ui/section-header";
 import { SpecList } from "../ui/spec-list";
+import { Pipeline } from "./pipeline";
 
 /** Bloco "Eu decido" / "Eu delego": índice, h3 e lista com linhas finas. */
 function ColumnBlock({ column }: { column: Column }) {
@@ -36,30 +37,11 @@ export function HowIWork({ site }: { site: SiteContent }) {
         </div>
       </div>
 
-      <div data-reveal className="flex flex-col gap-3 px-gutter">
-        <p id="pipeline-title" className="label-mono m-0">
+      <div data-reveal className="flex flex-col gap-3">
+        <p id="pipeline-title" className="label-mono m-0 px-gutter">
           {pipelineLabel}
         </p>
-        <ol role="list" aria-labelledby="pipeline-title" className="m-0 flex list-none flex-col p-0 xl:flex-row">
-          {steps.map((step, i) => {
-            const last = i === steps.length - 1;
-            return (
-              <li key={step.index} className={`flex min-w-0 flex-col xl:shrink xl:grow xl:flex-row ${last ? "xl:basis-34" : "xl:basis-40"}`}>
-                <div className="flex min-w-0 flex-1 flex-col gap-2.5 border border-foreground bg-background p-3">
-                  <span className="label-mono text-muted">{step.index}</span>
-                  <span className="text-sub font-extrabold leading-tight">{step.title}</span>
-                  <span className="text-sm">{step.text}</span>
-                </div>
-                {last ? null : (
-                  <span aria-hidden="true" className="py-1.5 pl-3 text-base leading-5 text-muted xl:flex xl:w-6 xl:shrink-0 xl:items-center xl:justify-center xl:p-0">
-                    <span className="xl:hidden">↓</span>
-                    <span className="hidden xl:inline">→</span>
-                  </span>
-                )}
-              </li>
-            );
-          })}
-        </ol>
+        <Pipeline steps={steps} labelledBy="pipeline-title" />
       </div>
 
       <div data-reveal className="flex flex-wrap">
