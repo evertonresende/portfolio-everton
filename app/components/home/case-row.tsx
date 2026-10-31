@@ -27,7 +27,7 @@ export function CaseRow({ site, item }: { site: SiteContent; item: CaseSummary }
           </span>
         </div>
         <div className="rail-main flex flex-wrap items-end justify-between gap-x-6 gap-y-3 px-gutter">
-          <h3 id={titleId} className="text-display-3 m-0">
+          <h3 id={titleId} data-reveal="clip" className="text-display-3 m-0">
             {item.title}
           </h3>
           {item.hasPage ? (

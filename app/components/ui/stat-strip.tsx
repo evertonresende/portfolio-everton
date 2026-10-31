@@ -18,6 +18,7 @@ export function StatStrip({
       {stats.map((stat) => (
         <li
           key={stat.value + stat.label}
+          data-reveal
           className="flex flex-col gap-5 border-t border-foreground px-gutter pt-5 pb-cell"
         >
           {stat.term || stat.status ? (

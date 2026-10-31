@@ -21,9 +21,7 @@ export function CasePage({ site, detail }: { site: SiteContent; detail: CaseDeta
         facts={detail.facts}
         factsTitle={detail.factsTitle}
       >
-        <div data-reveal>
-          <StatStrip stats={detail.stats} size="md" label={site.ui.numbers} />
-        </div>
+        <StatStrip stats={detail.stats} size="md" label={site.ui.numbers} />
       </CaseHero>
       {detail.sections.map((section) => (
         <Section key={section.id} section={section} />

@@ -3,14 +3,19 @@ import { ButtonLink } from "../ui/button-link";
 import { SpecItem, SpecList } from "../ui/spec-list";
 import { Dot } from "../ui/status-mark";
 
-/** Fechamento da home: h2 gigante, status, CTAs e a ficha de contatos (cada valor é um link). */
+/** Fechamento da home, no tema escuro: h2 gigante, status, CTAs e a ficha de contatos (cada valor é um link). */
 export function Contact({ site }: { site: SiteContent }) {
   const { label, title, status, primary, secondary, listTitle, items } = site.home.contact;
   return (
-    <section id="contato" aria-labelledby="contato-title" className="flex flex-col border-t border-grid pt-section">
+    <section
+      id="contato"
+      aria-labelledby="contato-title"
+      data-theme="ink"
+      className="grid-lines flex flex-col bg-background pt-section text-foreground"
+    >
       <div className="flex flex-col gap-6 px-gutter pb-8">
         <p className="label-mono m-0">{label}</p>
-        <h2 id="contato-title" className="text-display-closing m-0 break-words">
+        <h2 id="contato-title" data-reveal="clip" className="text-display-closing m-0 break-words">
           {title}
         </h2>
       </div>

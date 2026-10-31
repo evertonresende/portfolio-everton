@@ -72,9 +72,7 @@ export function Hero({ site }: { site: SiteContent }) {
         </div>
       </div>
 
-      <div data-reveal>
-        <StatStrip stats={hero.proofs} label={site.ui.proofs} />
-      </div>
+      <StatStrip stats={hero.proofs} label={site.ui.proofs} />
     </section>
   );
 }
