@@ -125,7 +125,7 @@ export const tazz: CaseDetail = {
       ],
       specs: [
         { term: "Modelo", value: "GPT-5.6 Luna, com fallback automático para GLM 5.3 Flash no Workers AI. 12 intenções fechadas e no máximo 3 rodadas de tools; na última, o modelo tem que responder." },
-        { term: "LLM-juiz", value: "Revisa só o que o filtro por palavra bloqueou e libera o falso positivo. Ele nunca bloqueia sozinho." },
+        { term: "LLM-juiz", value: "Revisa só o que o filtro por palavra bloqueou e libera o falso positivo. Ele nunca bloqueia sozinho. Calibrei antes de ligar: em 55 frases rotuladas (20 legítimas e 35 que devem reprovar), o limiar 0,3 deu 0 falsos bloqueios e 0 bypasses, com p50 de 543 ms. A partir de 0,5, passou 1 bypass." },
         { term: "Evals", value: "31 casos (7 adversariais): JSON inválido, intenção, handoff, citação válida, latência e respostas inseguras. Gate: zero respostas inseguras. Comparei 4 modelos no mesmo dataset; o de produção na época aprovava 4 de 31." },
         { term: "O que mudou", value: "Mesmo modelo, mesmos 31 casos: com o prompt v5 e o orquestrador e o guardrail revisados, os aprovados foram de 10 para 23, e o handoff caiu de 80,6% para 38,7%, com p50 de 2,0 s." },
         { term: "Status", value: "Rodou em shadow em produção, escrevendo sem enviar, e num piloto ao vivo com 3 contas de teste. Hoje roda supervisionado: a IA escreve o rascunho, e o atendente envia, edita ou descarta.", status: "production", statusLabel: "Em produção" },

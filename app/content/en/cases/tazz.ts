@@ -125,7 +125,7 @@ export const tazz: CaseDetail = {
       ],
       specs: [
         { term: "Model", value: "GPT-5.6 Luna, with automatic fallback to GLM 5.3 Flash on Workers AI. 12 fixed intents and at most 3 tool-call rounds; in the last one, the model has to answer." },
-        { term: "LLM‑as‑judge", value: "It reviews only what the word filter blocked and releases false positives. It never blocks on its own." },
+        { term: "LLM‑as‑judge", value: "It reviews only what the word filter blocked and releases false positives. It never blocks on its own. I calibrated it before switching it on: on 55 labeled sentences (20 legitimate, 35 that must fail), a 0.3 threshold gave 0 false blocks and 0 bypasses, at a 543 ms p50. From 0.5 up, 1 bypass got through." },
         { term: "Evals", value: "31 cases (7 adversarial): invalid JSON, intent, handoff, valid citation, latency and unsafe replies. Gate: zero unsafe replies. I compared 4 models on the same dataset; the production model at the time passed 4 out of 31." },
         { term: "What moved", value: "Same model, same 31 cases: with prompt v5 and a revised orchestrator and guardrail, passing cases went from 10 to 23, and handoffs fell from 80.6% to 38.7%, at a 2.0 s p50." },
         { term: "Status", value: "It ran in shadow mode in production, writing without sending, and in a live pilot with 3 test accounts. Today it runs under supervision: the AI writes a draft, and a person on the team sends, edits or discards it.", status: "production", statusLabel: "In production" },

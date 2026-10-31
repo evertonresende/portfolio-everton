@@ -56,7 +56,7 @@ export const home: HomeContent = {
       {
         index: "1.1",
         title: "I architect agents.",
-        text: "Tools with minimal scope, a guardrail that checks sources and numbers, LLM‑as‑judge, evals with a gate and model fallback, in TypeScript. In Python, agent teams with triage and handoff (Agno).",
+        text: "Tools with minimal scope, a guardrail that checks sources and numbers, a calibrated LLM‑as‑judge, evals with a gate and model fallback, in TypeScript. In Python, agent teams with triage and handoff (Agno).",
         proof: "Tazz agent · Python agents (Agno) at Coppay",
       },
       {
@@ -236,7 +236,7 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "In production",
-            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Presumed income alone never rejects: it becomes an approval conditional on proof of income. The analyst decides.",
+            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Presumed income alone never rejects: it becomes an approval conditional on proof of income. The analyst decides. It costs ~R$0.01 per review, with results reused for 30 days and a cap of 100 lookups per operator per day.",
           },
           {
             status: "production",

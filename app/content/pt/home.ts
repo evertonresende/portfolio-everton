@@ -56,7 +56,7 @@ export const home: HomeContent = {
       {
         index: "1.1",
         title: "Arquiteto agentes.",
-        text: "Tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz, evals com gate e fallback entre modelos, em TypeScript. Em Python, times de agentes com triagem e handoff (Agno).",
+        text: "Tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz calibrado, evals com gate e fallback entre modelos, em TypeScript. Em Python, times de agentes com triagem e handoff (Agno).",
         proof: "Agente da Tazz · agentes em Python (Agno) na Coppay",
       },
       {
@@ -236,7 +236,7 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "Em produção",
-            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante. O analista decide.",
+            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante. O analista decide. Custa ~R$ 0,01 por parecer, com reuso por 30 dias e teto de 100 consultas por operador ao dia.",
           },
           {
             status: "production",
