@@ -30,6 +30,8 @@
   --color-accent-deep: #1830b8;
   /* Hover de link no tema escuro: o azul puro fica em 3,1:1 sobre #141414; este fica em 7,6:1. */
   --color-accent-light: #8fa0ff;
+  /* Linhas das órbitas de fundo: mais escuras que o grid, bem abaixo do texto. */
+  --color-orbit: #b3b3b3;
   /* Cores fixas, que não trocam com o tema (a marca do rodapé). */
   --color-ink: #141414;
   --color-paper: #fafafa;
@@ -225,6 +227,7 @@
     --color-muted: #a3a3a3;
     --color-rule: #3a3a3a;
     --color-grid: #262626;
+    --color-orbit: #5a5a5a;
   }
 
   [data-theme="ink"] a:hover {

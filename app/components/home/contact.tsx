@@ -1,5 +1,6 @@
 import type { SiteContent } from "../../content/types";
 import { ButtonLink } from "../ui/button-link";
+import { Orbits } from "../ui/orbits";
 import { SpecItem, SpecList } from "../ui/spec-list";
 import { Dot } from "../ui/status-mark";
 
@@ -11,8 +12,9 @@ export function Contact({ site }: { site: SiteContent }) {
       id="contato"
       aria-labelledby="contato-title"
       data-theme="ink"
-      className="grid-lines flex flex-col bg-background pt-section text-foreground"
+      className="grid-lines relative isolate flex flex-col bg-background pt-section text-foreground"
     >
+      <Orbits scene="close" />
       <div className="flex flex-col gap-6 px-gutter pb-8">
         <p className="label-mono m-0">{label}</p>
         <h2 id="contato-title" data-reveal="clip" className="text-display-closing m-0 break-words">

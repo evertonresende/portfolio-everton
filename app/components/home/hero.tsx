@@ -1,6 +1,7 @@
 import type { SiteContent } from "../../content/types";
 import { homeAnchor } from "../../content";
 import { ButtonLink } from "../ui/button-link";
+import { Orbits } from "../ui/orbits";
 import { SpecList } from "../ui/spec-list";
 import { StatStrip } from "../ui/stat-strip";
 import { Dot } from "../ui/status-mark";
@@ -9,7 +10,8 @@ import { Dot } from "../ui/status-mark";
 export function Hero({ site }: { site: SiteContent }) {
   const { hero } = site.home;
   return (
-    <section aria-labelledby="hero-title">
+    <section aria-labelledby="hero-title" className="relative isolate">
+      <Orbits scene="hero" />
       <div className="flex flex-col gap-6 px-gutter pt-section pb-cell md:gap-8">
         <p className="label-mono m-0 flex items-start gap-2.5">
           <span className="flex h-4 items-center">
