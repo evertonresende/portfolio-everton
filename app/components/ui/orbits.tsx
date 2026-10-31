@@ -19,29 +19,31 @@ interface Scene {
   readonly mode: "exit" | "entry";
   /** Pose sem JS e com prefers-reduced-motion: 0 = from, 1 = to. */
   readonly rest: 0 | 1;
-  readonly entrance: boolean;
+  /** Deslocamento do par por breakpoint (classe de translate num <g>). */
+  readonly offset?: string;
   readonly orbits: readonly [Orbit, Orbit];
 }
 
-// Duas órbitas grandes que cruzam o hero e se fecham ao sair; no fechamento escuro, chegam abertas e
-// assentam num par cruzado atrás do título.
+// Hero: no descanso, a órbita larga fica centrada no retrato e encosta nas linhas das colunas 3 e 11
+// do grid (raio = 4 colunas); a alta cruza inclinada. Ao sair, giram e se fecham. No fechamento escuro,
+// chegam abertas e assentam num par cruzado: centrado no celular, à direita do título a partir de sm.
+const COLUMN = 1000 / 12;
 const SCENES: Record<"hero" | "close", Scene> = {
   hero: {
     mode: "exit",
     rest: 0,
-    entrance: true,
     orbits: [
-      { cx: 560, cy: 470, rx: 520, ry: 380, from: [-16, 1, 1, 0, 0], to: [28, 0.62, 1.12, -40, -140] },
-      { cx: 470, cy: 540, rx: 430, ry: 540, from: [24, 1, 1, 0, 0], to: [-18, 1.18, 0.72, 60, -80] },
+      { cx: 7 * COLUMN, cy: 424, rx: 4 * COLUMN, ry: 230, from: [0, 1, 1, 0, 0], to: [24, 0.6, 1.1, -40, -140] },
+      { cx: 7 * COLUMN, cy: 424, rx: 2 * COLUMN, ry: 420, from: [30, 1, 1, 0, 0], to: [-20, 1.2, 0.7, 60, -80] },
     ],
   },
   close: {
     mode: "entry",
     rest: 1,
-    entrance: false,
+    offset: "sm:translate-x-[200px]",
     orbits: [
-      { cx: 700, cy: 400, rx: 360, ry: 140, from: [-48, 1.7, 1.7, -60, 220], to: [-14, 1, 1, 0, 0] },
-      { cx: 700, cy: 400, rx: 300, ry: 170, from: [64, 1.5, 1.5, 80, 260], to: [18, 1, 1, 0, 0] },
+      { cx: 500, cy: 400, rx: 360, ry: 140, from: [-48, 1.7, 1.7, -60, 220], to: [-14, 1, 1, 0, 0] },
+      { cx: 500, cy: 400, rx: 300, ry: 170, from: [64, 1.5, 1.5, 80, 260], to: [18, 1, 1, 0, 0] },
     ],
   },
 };
@@ -63,7 +65,8 @@ function progress(section: Element, mode: Scene["mode"]) {
  * Linhas finas de fundo (elipses em SVG) que mudam de forma com a rolagem, como melhoria progressiva:
  * - sem JS ou com prefers-reduced-motion, fica parada na pose de descanso;
  * - só escuta rolagem e mouse enquanto a seção está na tela;
- * - no mouse (hover + ponteiro fino), as linhas seguem o cursor com atraso, por transição de CSS.
+ * - no mouse (hover + ponteiro fino), as linhas seguem o cursor com atraso, por transição de CSS;
+ * - a entrada do hero é CSS (globals.css), então roda no primeiro paint, antes do JS.
  * Vai dentro de uma seção com `relative isolate`.
  */
 export function Orbits({ scene: name }: { scene: keyof typeof SCENES }) {
@@ -72,10 +75,10 @@ export function Orbits({ scene: name }: { scene: keyof typeof SCENES }) {
 
   useEffect(() => {
     const svg = svgRef.current;
-    const section = svg?.parentElement;
+    const section = svg?.parentElement; // o div do tamanho da seção
     if (!svg || !section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ellipses = Array.from(svg.querySelectorAll("ellipse"));
-    const group = svg.querySelector("g")!;
+    const group = svg.querySelector<SVGGElement>("[data-parallax]")!;
     const pointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     let frame = 0;
 
@@ -88,7 +91,7 @@ export function Orbits({ scene: name }: { scene: keyof typeof SCENES }) {
       frame ||= requestAnimationFrame(draw);
     };
     const onPointer = (e: PointerEvent) => {
-      group.style.transform = `translate(${(e.clientX / window.innerWidth - 0.5) * 28}px, ${(e.clientY / window.innerHeight - 0.5) * 28}px)`;
+      group.style.transform = `translate(${(e.clientX / window.innerWidth - 0.5) * 72}px, ${(e.clientY / window.innerHeight - 0.5) * 72}px)`;
     };
 
     const observer = new IntersectionObserver(([entry]) => {
@@ -104,13 +107,6 @@ export function Orbits({ scene: name }: { scene: keyof typeof SCENES }) {
     observer.observe(section);
     draw(); // pose certa já no carregamento (recarregar no meio da página), antes de a seção entrar
 
-    if (scene.entrance) {
-      svg.animate([{ opacity: 0, transform: "scale(0.88)" }, { opacity: 1, transform: "none" }], {
-        duration: 1400,
-        easing: "cubic-bezier(0.215, 0.61, 0.355, 1)",
-      });
-    }
-
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
@@ -119,32 +115,35 @@ export function Orbits({ scene: name }: { scene: keyof typeof SCENES }) {
     };
   }, [scene]);
 
+  // O div corta as linhas na borda da seção; o SVG pode passar do próprio quadro (overflow visível),
+  // então no celular, onde ele é um quadrado no topo da seção, as elipses não terminam num corte reto.
   return (
-    <svg
-      ref={svgRef}
-      aria-hidden="true"
-      viewBox="0 0 1000 1000"
-      preserveAspectRatio="xMidYMid slice"
-      data-orbits={name}
-      // No celular a seção é alta e estreita: a área fica quadrada no topo dela, senão o recorte do
-      // slice mostra só um pedaço reto das elipses.
-      className="pointer-events-none absolute inset-0 -z-10 size-full max-h-[100vw] forced-colors:hidden"
-    >
-      <g className="transition-transform duration-1000 ease-out">
-        {scene.orbits.map((orbit) => (
-          <ellipse
-            key={`${orbit.cx}-${orbit.rx}`}
-            cx={orbit.cx}
-            cy={orbit.cy}
-            rx={orbit.rx}
-            ry={orbit.ry}
-            fill="none"
-            vectorEffect="non-scaling-stroke"
-            className="stroke-orbit [transform-box:fill-box] [transform-origin:center]"
-            style={{ transform: transform(orbit, scene.rest) }}
-          />
-        ))}
-      </g>
-    </svg>
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden forced-colors:hidden">
+      <svg
+        ref={svgRef}
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="xMidYMid slice"
+        data-orbits={name}
+        className="absolute inset-x-0 top-0 h-full max-h-[100vw] w-full overflow-visible"
+      >
+        <g className={scene.offset}>
+          <g data-parallax className="transition-transform duration-1000 ease-out">
+            {scene.orbits.map((orbit) => (
+              <ellipse
+                key={`${orbit.cx}-${orbit.rx}`}
+                cx={orbit.cx}
+                cy={orbit.cy}
+                rx={orbit.rx}
+                ry={orbit.ry}
+                fill="none"
+                vectorEffect="non-scaling-stroke"
+                className="stroke-orbit [transform-box:fill-box] [transform-origin:center]"
+                style={{ transform: transform(orbit, scene.rest) }}
+              />
+            ))}
+          </g>
+        </g>
+      </svg>
+    </div>
   );
 }

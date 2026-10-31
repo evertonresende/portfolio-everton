@@ -30,8 +30,8 @@
   --color-accent-deep: #1830b8;
   /* Hover de link no tema escuro: o azul puro fica em 3,1:1 sobre #141414; este fica em 7,6:1. */
   --color-accent-light: #8fa0ff;
-  /* Linhas das órbitas de fundo: mais escuras que o grid, bem abaixo do texto. */
-  --color-orbit: #b3b3b3;
+  /* Linhas das órbitas de fundo: 1,5:1, entre o grid e as linhas das fichas, bem abaixo do texto. */
+  --color-orbit: #cccccc;
   /* Cores fixas, que não trocam com o tema (a marca do rodapé). */
   --color-ink: #141414;
   --color-paper: #fafafa;
@@ -227,11 +227,25 @@
     --color-muted: #a3a3a3;
     --color-rule: #3a3a3a;
     --color-grid: #262626;
-    --color-orbit: #5a5a5a;
+    --color-orbit: #404040;
   }
 
   [data-theme="ink"] a:hover {
     color: var(--color-accent-light);
+  }
+
+  /* Entrada das órbitas do hero: em CSS para rodar no primeiro paint (por JS, elas piscavam na hidratação). */
+  @keyframes orbits-in {
+    from {
+      opacity: 0;
+      transform: scale(0.88);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    [data-orbits="hero"] {
+      animation: orbits-in 1.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
   }
 
   /* O estado escondido do reveal é estilo inline: na impressão, tudo aparece. */
