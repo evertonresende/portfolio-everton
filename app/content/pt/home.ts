@@ -27,8 +27,8 @@ export const home: HomeContent = {
     proofs: [
       {
         term: "Tazz",
-        value: "IA",
-        label: "Agente de IA no atendimento, com evals, guardrails e supervisão humana",
+        value: "23/31",
+        label: "Casos aprovados nos evals do agente de atendimento (eram 10), que roda com supervisão humana",
         status: "production",
         statusLabel: "Em produção",
       },
@@ -56,7 +56,7 @@ export const home: HomeContent = {
       {
         index: "1.1",
         title: "Arquiteto agentes.",
-        text: "Tool calling, guardrails em camadas, LLM-juiz, evals e fallback entre modelos, em TypeScript. Em Python, times de agentes com triagem e handoff (Agno).",
+        text: "Tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz, evals com gate e fallback entre modelos, em TypeScript. Em Python, times de agentes com triagem e handoff (Agno).",
         proof: "Agente da Tazz · agentes em Python (Agno) na Coppay",
       },
       {
@@ -98,7 +98,7 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "Em produção",
-            text: "Agente de atendimento com tool calling, guardrails, LLM-juiz e evals, com um atendente revisando cada resposta.",
+            text: "Agente de atendimento para passageiros e motoristas. Consulta conta e corridas por tools, só afirma o que tem fonte, e um atendente revisa cada rascunho. Nos evals, prompt e guardrail novos levaram os aprovados de 10 para 23 em 31 casos.",
           },
         ],
         result: "PIX em produção desde set/2026",
@@ -147,18 +147,26 @@ export const home: HomeContent = {
         hasPage: true,
         figure: {
           number: "Fig. 03",
-          caption: "Transcrição e resumo",
+          caption: "Da consulta ao prontuário",
           direction: "vertical",
-          nodes: [{ title: "Consulta" }, { title: "Whisper", note: "transcrição" }, { title: "Llama", note: "resumo" }],
-          footnote: "Multi-tenant · isolamento por RLS",
+          nodes: [
+            { title: "Consulta gravada", note: "navegador" },
+            { title: "Whisper", note: "transcrição em português" },
+            { title: "Llama 3.3 70B", note: "nota clínica em 4 blocos" },
+          ],
+          footnote: "Cai no prontuário em tempo real · o dentista revisa",
         },
         problem:
-          "Clínicas odontológicas precisavam de financeiro, NFS-e e mensagens de WhatsApp num só sistema, com os dados de cada clínica isolados.",
+          "Clínicas odontológicas precisavam de agenda, financeiro, NFS-e e WhatsApp num só sistema, com os dados de saúde de cada clínica isolados. E o registro de cada consulta era digitado à mão.",
         whatIDid:
-          "Construo o SaaS multi-tenant: transcrição de consultas com IA, isolamento por RLS, mensagens de WhatsApp agendadas, financeiro e NFS-e.",
+          "Construo o SaaS multi-tenant com a IA dentro da consulta. O paciente responde a anamnese por um link no WhatsApp antes de chegar. O dentista grava o atendimento, e a nota clínica aparece pronta no prontuário do paciente. Também: RLS por clínica, financeiro, NFS-e e mensagens agendadas.",
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
-          { status: "production", label: "Em produção", text: "Transcrição e resumo de consultas (Whisper + Llama)." },
+          {
+            status: "production",
+            label: "Em produção",
+            text: "O dentista grava a consulta no navegador. O Whisper transcreve, e o Llama 3.3 70B escreve a nota em 4 blocos (queixas, observações clínicas, procedimentos e próximos passos) direto no prontuário, com o selo \u201cGerado por IA\u201d para o dentista revisar.",
+          },
         ],
         result: "~20 clínicas · 0 churn",
       },
@@ -228,12 +236,17 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "Em produção",
-            text: "Triagem de e-mail (Workers AI), usada pelo time, e parecer de crédito assistido por LLM (gpt-oss-120b), usado pelos analistas.",
+            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante. O analista decide.",
+          },
+          {
+            status: "production",
+            label: "Em produção",
+            text: "Caixa de e-mail do time: cada e-mail passa por triagem (categoria, prioridade e resumo) num Durable Object por caixa, e um botão sugere a resposta pela thread. Tirei o spam da IA: numa fintech, falso positivo custa mais, e quem decide é SPF, DKIM e DMARC.",
           },
           {
             status: "offline",
             label: "Construído",
-            text: "Agente de WhatsApp em Python (Agno + FastAPI) com triagem para especialistas, tools de leitura e handoff para humano. Atendeu clientes reais.",
+            text: "Agente de WhatsApp em Python (Agno + FastAPI): um líder faz a triagem para 3 especialistas (empréstimo, conta e suporte), com tools de leitura e handoff. As tools ignoram os argumentos do modelo e usam o contexto confiável da conversa, o que bloqueia IDOR. Passou numa bateria ao vivo de 6 cenários, incluindo injeção.",
           },
         ],
         result: "App nas lojas com correntistas reais",
@@ -254,15 +267,8 @@ export const home: HomeContent = {
         problem:
           "Um SaaS de galerias para fotógrafos, nascido no Lovable, precisava ser re-hospedado e refatorado numa arquitetura própria.",
         whatIDid:
-          "Migrei e refatorei o app para 10 Cloudflare Workers com Supabase e RLS, e arquitetei o escrow com o Asaas: livro-razão em SQL e saque por PIX.",
+          "Migrei e refatorei o app para 10 Cloudflare Workers com Supabase e RLS, e arquitetei o escrow com o Asaas: livro-razão em SQL e saque por PIX. Também levei as 10 funções de IA do app para os Workers, via Cloudflare AI Gateway.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
-        ai: [
-          {
-            status: "production",
-            label: "Em produção",
-            text: "Geração de posts de blog, legendas e temas com Claude, via Cloudflare AI Gateway.",
-          },
-        ],
         result: "Entregue em out/2026",
       },
     ],

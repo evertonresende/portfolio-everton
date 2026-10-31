@@ -27,8 +27,8 @@ export const home: HomeContent = {
     proofs: [
       {
         term: "Tazz",
-        value: "AI",
-        label: "AI agent in customer support, with evals, guardrails and human review",
+        value: "23/31",
+        label: "Cases passed in the support agent’s evals (up from 10); the agent runs under human review",
         status: "production",
         statusLabel: "In production",
       },
@@ -56,7 +56,7 @@ export const home: HomeContent = {
       {
         index: "1.1",
         title: "I architect agents.",
-        text: "Tool calling, layered guardrails, LLM‑as‑judge, evals and model fallback, in TypeScript. In Python, agent teams with triage and handoff (Agno).",
+        text: "Tools with minimal scope, a guardrail that checks sources and numbers, LLM‑as‑judge, evals with a gate and model fallback, in TypeScript. In Python, agent teams with triage and handoff (Agno).",
         proof: "Tazz agent · Python agents (Agno) at Coppay",
       },
       {
@@ -98,7 +98,7 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "In production",
-            text: "Support agent with tool calling, guardrails, LLM‑as‑judge and evals, with a person reviewing every reply.",
+            text: "Support agent for riders and drivers. It looks up accounts and rides through tools, only states what has a source, and a person reviews every draft. In evals, a new prompt and guardrail took passing cases from 10 to 23 out of 31.",
           },
         ],
         result: "PIX in production since Sep 2026",
@@ -147,18 +147,26 @@ export const home: HomeContent = {
         hasPage: true,
         figure: {
           number: "Fig. 03",
-          caption: "Transcription and summary",
+          caption: "From appointment to record",
           direction: "vertical",
-          nodes: [{ title: "Appointment" }, { title: "Whisper", note: "transcription" }, { title: "Llama", note: "summary" }],
-          footnote: "Multi-tenant · RLS isolation",
+          nodes: [
+            { title: "Recorded appointment", note: "browser" },
+            { title: "Whisper", note: "Portuguese transcription" },
+            { title: "Llama 3.3 70B", note: "clinical note in 4 sections" },
+          ],
+          footnote: "Lands in the patient record in real time · the dentist reviews it",
         },
         problem:
-          "Dental clinics needed finance, NFS-e invoices and WhatsApp messages in one system, with each clinic’s data isolated.",
+          "Dental clinics needed scheduling, finance, NFS-e invoices and WhatsApp in one system, with each clinic’s health data isolated. And the record of each appointment was typed by hand.",
         whatIDid:
-          "I’ve been building the multi-tenant SaaS: AI appointment transcription, RLS isolation, scheduled WhatsApp messages, finance and NFS-e invoices.",
+          "I’ve been building the multi-tenant SaaS with AI inside the appointment. The patient fills in the medical history through a WhatsApp link before arriving. The dentist records the visit, and the clinical note shows up in the patient’s record. Also: RLS per clinic, finance, NFS-e invoices and scheduled messages.",
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
-          { status: "production", label: "In production", text: "Appointment transcription and summary (Whisper + Llama)." },
+          {
+            status: "production",
+            label: "In production",
+            text: "The dentist records the appointment in the browser. Whisper transcribes it, and Llama 3.3 70B writes a note in 4 sections (complaints, clinical findings, procedures and next steps) straight into the patient record, with an \u201cAI-generated\u201d badge for the dentist to review.",
+          },
         ],
         result: "~20 clinics · 0 churn",
       },
@@ -228,12 +236,17 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "In production",
-            text: "Email triage (Workers AI), used by the team, and LLM-assisted credit reviews (gpt-oss-120b), used by the analysts.",
+            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Presumed income alone never rejects: it becomes an approval conditional on proof of income. The analyst decides.",
+          },
+          {
+            status: "production",
+            label: "In production",
+            text: "Team inbox: every email is triaged (category, priority and summary) in a Durable Object per mailbox, and a button suggests a reply from the thread. I took spam away from the AI: in a fintech a false positive costs more, so SPF, DKIM and DMARC decide.",
           },
           {
             status: "offline",
             label: "Built",
-            text: "WhatsApp agent in Python (Agno + FastAPI) with triage to specialists, read-only tools and human handoff. It served real customers.",
+            text: "WhatsApp agent in Python (Agno + FastAPI): a lead agent routes to 3 specialists (loans, account and support), with read-only tools and handoff. The tools ignore the model’s arguments and use the conversation’s trusted context, which blocks IDOR. It passed a live battery of 6 scenarios, including prompt injection.",
           },
         ],
         result: "App in the stores with real account holders",
@@ -254,15 +267,8 @@ export const home: HomeContent = {
         problem:
           "A gallery SaaS for photographers, first built in Lovable, needed to be re-hosted and refactored onto its own architecture.",
         whatIDid:
-          "I migrated and refactored the app onto 10 Cloudflare Workers with Supabase and RLS, and architected the escrow with Asaas: an SQL ledger and PIX payouts.",
+          "I migrated and refactored the app onto 10 Cloudflare Workers with Supabase and RLS, and architected the escrow with Asaas: an SQL ledger and PIX payouts. I also moved the app’s 10 AI functions onto Workers, through Cloudflare AI Gateway.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
-        ai: [
-          {
-            status: "production",
-            label: "In production",
-            text: "Blog post, caption and theme generation with Claude, through Cloudflare AI Gateway.",
-          },
-        ],
         result: "Delivered in Oct 2026",
       },
     ],
