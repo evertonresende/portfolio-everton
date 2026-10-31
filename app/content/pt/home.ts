@@ -321,6 +321,7 @@ export const home: HomeContent = {
         term: "Na prática",
         value: "Na Tazz, agentes coordenadores tocaram um backlog de ~200 frentes do app novo em sessões paralelas, uma worktree cada, com revisão de outro modelo.",
       },
+      { term: "Evals", value: "Demo pública de como testo um agente antes de uma mudança ir para produção, com dados sintéticos: 40 casos, um juiz conferido contra 26 rótulos manuais e um gate de CI que falha em qualquer resposta insegura.", link: { label: "Ver o repo", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
       { term: "Este site", value: "Foi refeito assim. A spec e o plano estão em docs/ no GitHub.", link: { label: "Ver a spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],
   },

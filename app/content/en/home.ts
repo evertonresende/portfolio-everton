@@ -321,6 +321,7 @@ export const home: HomeContent = {
         term: "In practice",
         value: "At Tazz, coordinator agents ran a backlog of ~200 workstreams for the new app in parallel sessions, one worktree each, reviewed by another model.",
       },
+      { term: "Evals", value: "A public demo of how I test an agent before a change ships, with synthetic data: 40 cases, a judge checked against 26 hand labels, and a CI gate that fails on any unsafe reply.", link: { label: "See the repo", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
       { term: "This site", value: "It was rebuilt this way. The spec and the plan are in docs/ on GitHub.", link: { label: "See the spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],
   },
