@@ -31,7 +31,7 @@
     </header>
 
     <p class="summary">
-      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development</strong>, with AI in production in products such as Tazz, <span class="nb">Rota Protegida</span>, Maximus, <span class="nb">Dental Smart</span> and Coppay: a support agent with evals, guardrails and human review, face recognition and a clinical RAG chat. I use an <span class="nb">agent-first</span> workflow: I define the architecture, context and acceptance criteria, direct coding agents, and then review, debug and own what ships to production. That is how I built the new Tazz app from scratch.
+      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development</strong>. AI in production: a support agent with evals, guardrails and human review (eval cases passing from 10 to 23 of 31, same model), LLM credit assessments at ~R$0.01 each, face recognition for a city’s schools, AI clinical notes in a SaaS used by ~20 clinics and a clinical RAG chat. <span class="nb">Agent-first</span> workflow: I set the architecture and acceptance criteria, direct coding agents, then review, debug and own what ships.
     </p>
 
     <section>
@@ -44,11 +44,10 @@
         </div>
         <div class="meta">Digital account and credit fintech · Full-time (CLT) · remote</div>
         <ul>
-          <li><strong>LLM credit assessments, in production:</strong> <span class="nb">gpt-oss-120b</span> cross-checks the credit bureau, the Central Bank registry and loan simulations, and returns risk, amount and conditions in a fixed schema, at ~R$0.01 per assessment; the analyst decides.</li>
-          <li><strong>WhatsApp agent in Python:</strong> I built with Agno + FastAPI a lead agent that routes to 3 specialists, with read-only tools bound to the conversation’s context (no IDOR) and human handoff.</li>
-          <li><strong>App and BFF:</strong> Expo app published on the app stores, used by real account holders, and a Hono backend-for-frontend (BFF) on Cloudflare Workers integrating the providers Cronos, Asaas and HBI.</li>
-          <li><strong>Back office:</strong> Next.js back office with RBAC and an audit log.</li>
+          <li><strong>LLM credit assessments, in production:</strong> <span class="nb">gpt-oss-120b</span> cross-checks the credit bureau, the Central Bank registry and loan simulations, and returns risk, amount and conditions in a fixed schema, at ~R$0.01 per assessment. Estimated income alone never leads to a rejection: it becomes an approval conditional on proof of income. The analyst decides.</li>
+          <li><strong>App, BFF and back office:</strong> Expo app on the app stores, used by real account holders; a Hono backend-for-frontend (BFF) on Cloudflare Workers integrating the providers Cronos, Asaas and HBI; a Next.js back office with RBAC and an audit log.</li>
           <li><strong>New Banking-as-a-Service (BaaS) provider:</strong> in Sep 2026, a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.</li>
+          <li><strong>WhatsApp agent in Python:</strong> I built with Agno + FastAPI a lead agent that routes to 3 specialists, with read-only tools bound to the conversation’s context (no IDOR) and human handoff.</li>
         </ul>
         <div class="stack">TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI</div>
       </div>
