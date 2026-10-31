@@ -124,11 +124,11 @@ export const tazz: CaseDetail = {
         "Depois do modelo, o guardrail confere a resposta: toda fonte citada tem que existir, todo número tem que estar numa fonte ou na mensagem do cliente, e afirmação de status precisa de fonte. O que passa vira rascunho para o atendente. O que não passa vai para a fila humana.",
       ],
       specs: [
-        { term: "Modelo", value: "GPT-5.6 Luna, com fallback automático para GLM 5.3 Flash no Workers AI. 12 intenções fechadas e no máximo 3 rodadas de tools; na última, o modelo tem que responder." },
+        { term: "Modelo", value: "GPT-5.6 Luna, ~2,7× mais rápido que o GLM 5.3 Flash na mesma rodada de eval. O GLM saiu de primário: 3 rodadas de tools a ~5 s por chamada estouravam o teto de 30 s do turno. Ficou como fallback automático de um turno, que também cobre o limite de taxa da plataforma (429 depois de ~150 chamadas em 20 min). 12 intenções fechadas e no máximo 3 rodadas de tools; na última, o modelo tem que responder." },
         { term: "LLM-juiz", value: "Revisa só o que o filtro por palavra bloqueou e libera o falso positivo. Ele nunca bloqueia sozinho. Calibrei antes de ligar: em 55 frases rotuladas (20 legítimas e 35 que devem reprovar), o limiar 0,3 deu 0 falsos bloqueios e 0 bypasses, com p50 de 543 ms. A partir de 0,5, passou 1 bypass." },
-        { term: "Evals", value: "31 casos (7 adversariais): JSON inválido, intenção, handoff, citação válida, latência e respostas inseguras. Gate: zero respostas inseguras. Comparei 4 modelos no mesmo dataset; o de produção na época aprovava 4 de 31." },
-        { term: "O que mudou", value: "Mesmo modelo, mesmos 31 casos: com o prompt v5 e o orquestrador e o guardrail revisados, os aprovados foram de 10 para 23, e o handoff caiu de 80,6% para 38,7%, com p50 de 2,0 s." },
-        { term: "Status", value: "Rodou em shadow em produção, escrevendo sem enviar, e num piloto ao vivo com 3 contas de teste. Hoje roda supervisionado: a IA escreve o rascunho, e o atendente envia, edita ou descarta.", status: "production", statusLabel: "Em produção" },
+        { term: "Evals", value: "31 casos (7 adversariais): JSON inválido, intenção, handoff, citação válida, latência e respostas inseguras. Gate: zero respostas inseguras. Comparei 4 modelos no mesmo dataset, de US$ 0,008 a US$ 0,028 por rodada; o de produção na época (Llama 3.1 8B) aprovava 4 de 31." },
+        { term: "O que mudou", value: "Mesmo modelo (GPT-5.6 Luna), mesmos 31 casos: com o prompt v5 e o orquestrador e o guardrail revisados, os aprovados foram de 10 para 23, e o handoff caiu de 80,6% para 38,7%, com p50 de 2,0 s. Nessa rodada, os 5 bloqueios do guardrail foram todos acertos: sem artigo na base sobre o tema, o modelo tinha inventado menus e regras do app." },
+        { term: "Status", value: "Hoje roda supervisionado: a IA escreve o rascunho, e o atendente envia, edita ou descarta. Antes, rodou em shadow em produção, escrevendo sem enviar, e num piloto ao vivo com 3 contas de teste.", status: "production", statusLabel: "Em produção" },
       ],
     },
     {
@@ -179,8 +179,8 @@ export const tazz: CaseDetail = {
         },
         {
           index: "7.3",
-          title: "Intenções fechadas, rodadas contadas.",
-          text: "O modelo inventava nomes de intenção, e cada nome novo virava handoff: a lista fechou em 12. O estouro de rodadas de tools era a maior fonte de handoff: o limite ficou em 3, e a última rodada vem sem tools, para o modelo responder.",
+          title: "Intenções fechadas, rodadas limitadas.",
+          text: "O modelo inventava nomes de intenção, e cada nome novo virava handoff: a lista fechou em 12. O loop de tools era a maior fonte de handoff: os traces mostravam o modelo buscando na base de novo com a pergunta reescrita, mesmo com o artigo na mão e uma regra no prompt mandando responder. Por isso a correção foi no orquestrador, não no prompt: chamada repetida não roda, e a última das 3 rodadas vem sem tools, para o modelo responder. Nos mesmos 31 casos, as falhas por loop caíram de 5 para 1.",
         },
         {
           index: "7.4",

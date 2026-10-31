@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobility · 2026 – present",
   title: "Tazz.",
-  lead: "A ride-hailing app in Brazil. I architected and built the new Expo app and its new Workers from scratch, with AI agents writing the code in parallel. I also moved the backend’s compute to Cloudflare and shipped the support agent and PIX.",
+  lead: "A ride-hailing app in Brazil. I architected and built the new Expo app and its new Workers from scratch, with AI agents writing the code in parallel. I also moved the backend’s compute to Cloudflare and shipped the support agent and Pix (Brazil’s instant payments).",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, app, backend and AI" },
@@ -15,7 +15,7 @@ export const tazz: CaseDetail = {
   stats: [
     { term: "Agent", value: "23/31", label: "cases passed in evals (up from 10), with a new prompt and guardrail" },
     { term: "Migration", value: "100+ → 8", label: "Cloud Functions → Cloudflare Workers in ~47.5 h" },
-    { term: "Payments", value: "Sep 2026", label: "PIX in production" },
+    { term: "Payments", value: "Sep 2026", label: "Pix payments in production" },
   ],
   sections: [
     {
@@ -48,7 +48,7 @@ export const tazz: CaseDetail = {
             { text: "Support agent with tools, guardrails, LLM‑as‑judge and evals" },
             { text: "Orchestrating the coding agents that built the new app and Workers" },
             { text: "Strangler‑fig migration to Cloudflare Workers" },
-            { text: "PIX with Asaas, on the double-entry ledger" },
+            { text: "Pix payments via Asaas, on the double-entry ledger" },
           ],
         },
         {
@@ -124,11 +124,11 @@ export const tazz: CaseDetail = {
         "After the model, the guardrail checks the reply: every cited source must exist, every number must appear in a source or in the customer’s own message, and any status claim needs a source. What passes becomes a draft for the operator. What fails goes to the human queue.",
       ],
       specs: [
-        { term: "Model", value: "GPT-5.6 Luna, with automatic fallback to GLM 5.3 Flash on Workers AI. 12 fixed intents and at most 3 tool-call rounds; in the last one, the model has to answer." },
+        { term: "Model", value: "GPT-5.6 Luna, ~2.7× faster than GLM 5.3 Flash in the same eval run. GLM stopped being the primary: 3 tool rounds at ~5 s a call broke the 30 s turn limit. It stays as an automatic one-turn fallback, which also covers the platform’s rate limit (429s after ~150 calls in 20 min). 12 fixed intents and at most 3 tool-call rounds; in the last one, the model has to answer." },
         { term: "LLM‑as‑judge", value: "It reviews only what the word filter blocked and releases false positives. It never blocks on its own. I calibrated it before switching it on: on 55 labeled sentences (20 legitimate, 35 that must fail), a 0.3 threshold gave 0 false blocks and 0 bypasses, at a 543 ms p50. From 0.5 up, 1 bypass got through." },
-        { term: "Evals", value: "31 cases (7 adversarial): invalid JSON, intent, handoff, valid citation, latency and unsafe replies. Gate: zero unsafe replies. I compared 4 models on the same dataset; the production model at the time passed 4 out of 31." },
-        { term: "What moved", value: "Same model, same 31 cases: with prompt v5 and a revised orchestrator and guardrail, passing cases went from 10 to 23, and handoffs fell from 80.6% to 38.7%, at a 2.0 s p50." },
-        { term: "Status", value: "It ran in shadow mode in production, writing without sending, and in a live pilot with 3 test accounts. Today it runs under supervision: the AI writes a draft, and a person on the team sends, edits or discards it.", status: "production", statusLabel: "In production" },
+        { term: "Evals", value: "31 cases (7 adversarial): invalid JSON, intent, handoff, valid citation, latency and unsafe replies. Gate: zero unsafe replies. I compared 4 models on the same dataset, at US$0.008 to US$0.028 per run; the production model at the time (Llama 3.1 8B) passed 4 out of 31." },
+        { term: "What moved", value: "Same model (GPT-5.6 Luna), same 31 cases: with prompt v5 and a revised orchestrator and guardrail, passing cases went from 10 to 23, and handoffs fell from 80.6% to 38.7%, at a 2.0 s p50. In that run, all 5 guardrail blocks were real catches: with no knowledge-base article on the topic, the model had made up app menus and rules." },
+        { term: "Status", value: "Today it runs under supervision: the AI writes a draft, and a person on the team sends, edits or discards it. Before that, it ran in shadow mode in production, writing without sending, and in a live pilot with 3 test accounts.", status: "production", statusLabel: "In production" },
       ],
     },
     {
@@ -179,8 +179,8 @@ export const tazz: CaseDetail = {
         },
         {
           index: "7.3",
-          title: "Fixed intents, counted rounds.",
-          text: "The model kept inventing intent names, and each new name became a handoff, so the list was fixed at 12. Tool-loop overflow was the biggest source of handoffs, so the limit is 3 rounds, and the last one comes without tools so the model has to answer.",
+          title: "Fixed intents, capped tool rounds.",
+          text: "The model kept inventing intent names, and each new name became a handoff, so the list was fixed at 12. Tool loops were the biggest source of handoffs: traces showed the model searching the knowledge base again with the question reworded, even with the article in hand and a prompt rule telling it to answer. So the fix went into the orchestrator, not the prompt: a repeated call doesn’t run, and the last of 3 rounds comes without tools, so the model has to answer. On the same 31 cases, tool-loop failures fell from 5 to 1.",
         },
         {
           index: "7.4",

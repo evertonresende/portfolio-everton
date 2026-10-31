@@ -94,7 +94,7 @@ export const dentalSmart: CaseDetail = {
             { title: "Llama 3.3 70B", note: "Groq · nota em 4 blocos" },
             { title: "Prontuário", note: "tempo real · selo “Gerado por IA”" },
           ],
-          footnote: "Em produção desde fev/2026 · o dentista revisa cada nota",
+          footnote: "Em produção desde fev/2026 · cada nota é um rascunho para o dentista revisar",
         },
       ],
     },
@@ -104,7 +104,7 @@ export const dentalSmart: CaseDetail = {
       title: "Da cadeira ao prontuário.",
       paragraphs: [
         "Antes da consulta, o paciente recebe pelo WhatsApp o link da anamnese e responde o histórico de saúde num formulário protegido por token. Na cadeira, o dentista grava o atendimento no navegador.",
-        "Quando a gravação termina, o áudio sobe para a pasta privada do paciente, e uma Edge Function assume em segundo plano: o Whisper transcreve em português, e o Llama 3.3 70B escreve a nota clínica. A nota aparece sozinha nas anotações do paciente, com o selo “Gerado por IA”, e o dentista revisa antes de qualquer decisão clínica.",
+        "Quando a gravação termina, o áudio sobe para a pasta privada do paciente, e uma Edge Function assume em segundo plano: o Whisper transcreve em português, e o Llama 3.3 70B escreve a nota clínica. A nota aparece sozinha nas anotações do paciente, como rascunho com o selo “Gerado por IA”, para o dentista revisar.",
       ],
       specs: [
         {
@@ -115,7 +115,7 @@ export const dentalSmart: CaseDetail = {
         },
         { term: "Transcrição", value: "Whisper large-v3-turbo na Groq, em português e com temperatura 0." },
         { term: "Revisão", value: "Toda nota sai marcada como gerada por IA, com o aviso para revisar antes de decidir. O dentista mantém ou exclui." },
-        { term: "Mensagens", value: "O LLM reescreve cada mensagem em até 20 variações, com as variáveis do paciente intactas e sem informação nova. Se falhar, sai a mensagem original. O envio sai de uma fila agendada." },
+        { term: "Mensagens", value: "O LLM é instruído a reescrever cada mensagem em até 20 variações, mantendo as variáveis do paciente intactas e sem informação nova. Se a geração falhar, sai a mensagem original. O envio sai de uma fila agendada." },
       ],
     },
     {

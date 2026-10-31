@@ -8,7 +8,7 @@ export const home: HomeContent = {
       "AI Engineer with 7+ years in software development. I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS.",
   },
   hero: {
-    status: "Available · remote · B2B contractor, international contract or full-time (CLT, Brazil)",
+    status: "Available · remote · B2B contractor, international contract or full-time in Brazil (CLT)",
     title: "AI Engineer.",
     lead: "I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure.",
     sub: "I deliver complete systems with AI built in (SaaS for clinics, fintech, mobility, clinical support, public education), from the app to the backend, with an agent-first workflow.",
@@ -21,23 +21,24 @@ export const home: HomeContent = {
       { term: "Focus", value: "LLMs, agents and RAG in production" },
       { term: "Career", value: "7+ years in software development" },
       { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
-      { term: "Location", value: "Pará de Minas, MG · remote (UTC−3)" },
-      { term: "Status", value: "Available · B2B contractor, international contract or full-time (CLT, Brazil)", status: "production" },
+      { term: "Location", value: "Pará de Minas, Brazil · remote (UTC−3)" },
+      { term: "Languages", value: "Portuguese (native) · English (technical interviews)" },
+      { term: "Status", value: "Available · remote", status: "production" },
     ],
     proofs: [
       {
         term: "Tazz",
-        value: "23/31",
-        label: "Cases passed in the support agent’s evals (up from 10); the agent runs under human review",
+        value: "10→23",
+        label: "Eval cases passed by the support agent, out of 31: same model, new prompt and guardrail. A person reviews every draft.",
         status: "production",
         statusLabel: "In production",
       },
       {
-        term: "Tazz",
-        value: "App",
-        label: "Expo app architected and built from scratch with coding agents",
-        status: "prototype",
-        statusLabel: "Built",
+        term: "Dental\u00a0Smart",
+        value: "~20",
+        label: "Clinics on the dental SaaS I build, with AI notes from recorded visits · 0 churn",
+        status: "production",
+        statusLabel: "In production",
       },
       {
         term: "Maximus",
@@ -62,8 +63,8 @@ export const home: HomeContent = {
       {
         index: "1.2",
         title: "I put RAG into production.",
-        text: "Native vector search in production, replacing the classifier-based manual RAG I built first.",
-        proof: "Maximus · clinical chat in production",
+        text: "OpenAI file_search in production at Maximus, replacing the classifier-based RAG I built first. At Tazz, I decided against RAG for a small curated knowledge base, with written criteria for when to revisit it.",
+        proof: "Maximus clinical chat · Tazz knowledge-base decision",
       },
       {
         index: "1.3",
@@ -92,16 +93,21 @@ export const home: HomeContent = {
         },
         problem: "The ride-hailing app’s backend hit GCP’s fixed 20 vCPU quota in São Paulo, and the Flutter app talked straight to Firebase.",
         whatIDid:
-          "I architected and built the new Expo app and its new Workers from scratch, with coding agents working in parallel. Before that, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. I also built the support agent and took PIX with Asaas to production.",
+          "I architected and built the new Expo app and its new Workers from scratch, with coding agents working in parallel. Before that, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. I also built the support agent and shipped Pix (Brazil’s instant payments) via Asaas.",
         stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
             status: "production",
             label: "In production",
-            text: "Support agent for riders and drivers. It looks up accounts and rides through tools, only states what has a source, and a person reviews every draft. In evals, a new prompt and guardrail took passing cases from 10 to 23 out of 31.",
+            text: "Support agent for riders and drivers. It looks up accounts and rides through tools, a guardrail checks the sources and numbers in each reply, and a person reviews every draft. Same model, same 31 eval cases: a new prompt, orchestrator and guardrail took passing cases from 10 to 23 and handoffs from 80.6% to 38.7%.",
+          },
+          {
+            status: "decision",
+            label: "Decision",
+            text: "The model kept searching the knowledge base again instead of answering: 5 of the 9 failed cases, despite a prompt rule against it. I fixed it in the orchestrator, not the prompt: a repeated call doesn’t run, and the last of 3 tool rounds comes without tools, so the model has to answer. Tool-loop failures fell from 5 to 1.",
           },
         ],
-        result: "PIX in production since Sep 2026",
+        result: "Pix payments in production since Sep 2026",
       },
       {
         slug: "rota-protegida",
@@ -123,7 +129,7 @@ export const home: HomeContent = {
         problem:
           "A city government needed to record when students enter and leave school and alert families right away, with children's biometrics handled under Brazil's data protection law (LGPD).",
         whatIDid:
-          "I architected and built the whole system. IP cameras send photos over SFTP to a Python service on a VPS, which detects the face and extracts the embedding (AuraFace). The Hono API on Cloudflare Workers searches Vectorize, records attendance and alerts guardians over WhatsApp and email. The web dashboard serves the city, the schools and human review.",
+          "I architected and built the whole system. IP cameras send photos over SFTP to a Python service on a VPS, which detects the face and extracts the embedding (AuraFace). The Hono API on Cloudflare Workers searches Vectorize, records attendance and alerts guardians over WhatsApp and email. The web dashboard serves the city, the schools and human review. For LGPD: mandatory consent, automatic retention per data type, a log of who views photos, and per-school isolation in the vector index.",
         stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
         ai: [
           {
@@ -157,9 +163,9 @@ export const home: HomeContent = {
           footnote: "Lands in the patient record in real time · the dentist reviews it",
         },
         problem:
-          "Dental clinics needed scheduling, finance, NFS-e invoices and WhatsApp in one system, with each clinic’s health data isolated. And the record of each appointment was typed by hand.",
+          "Dental clinics needed scheduling, finance, e-invoicing (Brazil’s NFS-e) and WhatsApp in one system, with each clinic’s health data isolated. And the record of each appointment was typed by hand.",
         whatIDid:
-          "I’ve been building the multi-tenant SaaS with AI inside the appointment. The patient fills in the medical history through a WhatsApp link before arriving. The dentist records the visit, and the clinical note shows up in the patient’s record. Also: RLS per clinic, finance, NFS-e invoices and scheduled messages.",
+          "I’ve been building the multi-tenant SaaS with AI built into the appointment. The patient fills in the medical history through a WhatsApp link before arriving. The dentist records the visit, and the clinical note shows up in the patient’s record. Also: RLS per clinic, finance, NFS-e invoices and scheduled messages.",
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           {
@@ -228,7 +234,7 @@ export const home: HomeContent = {
           ],
           footnote: "Back office in Next.js · RBAC · audit log",
         },
-        problem: "A fintech needed a digital account, credit and customer support running on a BaaS, from the app to the back office.",
+        problem: "A fintech needed a digital account, credit and customer support running on a Banking-as-a-Service (BaaS) provider, from the app to the back office.",
         whatIDid:
           "I built the Expo app, the Hono BFF on Cloudflare Workers (Cronos, Asaas and HBI), the Next.js back office with RBAC and an audit log, and the AI features: email triage, LLM-assisted credit reviews and the WhatsApp agent. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
@@ -236,12 +242,12 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "In production",
-            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Presumed income alone never rejects: it becomes an approval conditional on proof of income. The analyst decides. It costs ~R$0.01 per review, with results reused for 30 days and a cap of 100 lookups per operator per day.",
+            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Estimated income alone never leads to a rejection: it becomes an approval conditional on proof of income. The analyst decides. It costs ~R$0.01 per review, with results reused for 30 days and a cap of 100 lookups per operator per day.",
           },
           {
             status: "production",
             label: "In production",
-            text: "Team inbox: every email is triaged (category, priority and summary) in a Durable Object per mailbox, and a button suggests a reply from the thread. I took spam away from the AI: in a fintech a false positive costs more, so SPF, DKIM and DMARC decide.",
+            text: "Team inbox: every email is triaged (category, priority and summary) in a Durable Object per mailbox, and a button suggests a reply from the thread. I kept spam detection out of the AI: in a fintech a false positive costs more, so SPF, DKIM and DMARC decide.",
           },
           {
             status: "offline",
@@ -267,7 +273,7 @@ export const home: HomeContent = {
         problem:
           "A gallery SaaS for photographers, first built in Lovable, needed to be re-hosted and refactored onto its own architecture.",
         whatIDid:
-          "I migrated and refactored the app onto 10 Cloudflare Workers with Supabase and RLS, and architected the escrow with Asaas: an SQL ledger and PIX payouts. I also moved the app’s 10 AI functions onto Workers, through Cloudflare AI Gateway.",
+          "I migrated and refactored the app onto 10 Cloudflare Workers with Supabase and RLS, and architected the escrow with Asaas: an SQL ledger and Pix payouts. I also moved the app’s 10 AI functions onto Workers, through Cloudflare AI Gateway.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
         result: "Delivered in Oct 2026",
       },
@@ -335,7 +341,7 @@ export const home: HomeContent = {
   contact: {
     label: "05 / Contact",
     title: "Let’s talk.",
-    status: "Available · remote · B2B contractor, international contract or full-time (CLT, Brazil)",
+    status: "Available · remote · B2B contractor, international contract or full-time in Brazil (CLT)",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Download CV (PDF)", href: CV_URL_EN },
     listTitle: "Contact details",

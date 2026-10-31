@@ -22,22 +22,23 @@ export const home: HomeContent = {
       { term: "Carreira", value: "7+ anos desenvolvendo software" },
       { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
       { term: "Local", value: "Pará de Minas, MG · remoto (UTC−3)" },
-      { term: "Status", value: "Disponível · PJ, CLT ou internacional", status: "production" },
+      { term: "Idiomas", value: "Português nativo · inglês em entrevista técnica" },
+      { term: "Status", value: "Disponível · remoto", status: "production" },
     ],
     proofs: [
       {
         term: "Tazz",
-        value: "23/31",
-        label: "Casos aprovados nos evals do agente de atendimento (eram 10), que roda com supervisão humana",
+        value: "10→23",
+        label: "Casos aprovados em 31 nos evals do agente de atendimento: mesmo modelo, prompt e guardrail novos. Uma pessoa revisa cada rascunho.",
         status: "production",
         statusLabel: "Em produção",
       },
       {
-        term: "Tazz",
-        value: "App",
-        label: "App em Expo arquitetado e construído do zero com agentes de código",
-        status: "prototype",
-        statusLabel: "Construído",
+        term: "Dental\u00a0Smart",
+        value: "~20",
+        label: "Clínicas no SaaS odontológico que eu construo, com notas por IA da consulta gravada · 0 churn",
+        status: "production",
+        statusLabel: "Em produção",
       },
       {
         term: "Maximus",
@@ -62,8 +63,8 @@ export const home: HomeContent = {
       {
         index: "1.2",
         title: "Coloco RAG em produção.",
-        text: "Busca vetorial nativa em produção, que substituiu o RAG manual com classificador de intenção que construí antes.",
-        proof: "Maximus · chat clínico em produção",
+        text: "file_search da OpenAI em produção no Maximus, no lugar do RAG com classificador que construí antes. No Tazz, decidi não usar RAG numa base curada pequena, com critérios escritos de quando revisitar.",
+        proof: "Chat clínico do Maximus · decisão da base do Tazz",
       },
       {
         index: "1.3",
@@ -98,7 +99,12 @@ export const home: HomeContent = {
           {
             status: "production",
             label: "Em produção",
-            text: "Agente de atendimento para passageiros e motoristas. Consulta conta e corridas por tools, só afirma o que tem fonte, e um atendente revisa cada rascunho. Nos evals, prompt e guardrail novos levaram os aprovados de 10 para 23 em 31 casos.",
+            text: "Agente de atendimento para passageiros e motoristas. Consulta conta e corridas por tools, um guardrail confere as fontes e os números de cada resposta, e um atendente revisa cada rascunho. Mesmo modelo, mesmos 31 casos de eval: prompt, orquestrador e guardrail novos levaram os aprovados de 10 para 23 e os handoffs de 80,6% para 38,7%.",
+          },
+          {
+            status: "decision",
+            label: "Decisão",
+            text: "O modelo voltava a buscar na base em vez de responder: 5 dos 9 casos que falhavam, mesmo com uma regra no prompt contra isso. Corrigi no orquestrador, não no prompt: chamada repetida não roda, e a última das 3 rodadas vem sem tools, então o modelo tem de responder. As falhas por loop de tools caíram de 5 para 1.",
           },
         ],
         result: "PIX em produção desde set/2026",
@@ -123,7 +129,7 @@ export const home: HomeContent = {
         problem:
           "Uma prefeitura precisava registrar a entrada e a saída dos alunos nas escolas e avisar as famílias na hora, com a biometria das crianças tratada dentro da LGPD.",
         whatIDid:
-          "Arquitetei e construí o sistema inteiro. Câmeras IP mandam fotos por SFTP para uma VPS em Python, que detecta o rosto e extrai o embedding (AuraFace). A API em Hono sobre Cloudflare Workers busca no Vectorize, registra a presença e avisa os responsáveis por WhatsApp e e-mail. O painel web atende a prefeitura, as escolas e a revisão humana.",
+          "Arquitetei e construí o sistema inteiro. Câmeras IP mandam fotos por SFTP para uma VPS em Python, que detecta o rosto e extrai o embedding (AuraFace). A API em Hono sobre Cloudflare Workers busca no Vectorize, registra a presença e avisa os responsáveis por WhatsApp e e-mail. O painel web atende a prefeitura, as escolas e a revisão humana. Para a LGPD: consentimento obrigatório, retenção automática por tipo de dado, log de quem vê as fotos e isolamento por escola no índice vetorial.",
         stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
         ai: [
           {

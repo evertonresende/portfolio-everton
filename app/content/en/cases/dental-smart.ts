@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS for clinics · 2025 – present",
   title: "Dental Smart.",
-  lead: "SaaS for dental clinics. I’ve owned its engineering since 2025. The AI works inside the appointment: the dentist records the visit, and the clinical note shows up in the patient’s record, ready for the dentist to review.",
+  lead: "SaaS for dental clinics. I’ve owned its engineering since 2025. The AI is built into the appointment: the dentist records the visit, and the clinical note shows up in the patient’s record, ready for the dentist to review.",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, back end and AI" },
@@ -23,7 +23,7 @@ export const dentalSmart: CaseDetail = {
       title: "The whole clinic in one system.",
       stat: { value: "RLS", label: "one tenant per clinic · isolated in the database" },
       paragraphs: [
-        "Dental clinics needed scheduling, finance, NFS-e invoices and WhatsApp in one system. And each clinic can only see its own data, because this is patient health data.",
+        "Dental clinics needed scheduling, finance, e-invoicing (Brazil’s NFS-e) and WhatsApp in one system. And each clinic can only see its own data, because this is patient health data.",
         "In the office, the record of each appointment depended on someone typing the patient’s notes after the visit.",
         "I talked to dentists, receptionists and dental assistants.",
       ],
@@ -49,7 +49,7 @@ export const dentalSmart: CaseDetail = {
             { text: "AI clinical notes: appointment recording, Whisper and Llama 3.3 70B" },
             { text: "Digital medical history form, with a scheduled WhatsApp link and a token-protected form" },
             { text: "WhatsApp message queue with LLM-generated variations" },
-            { text: "NFS-e via Focus NFe and contract signing over WhatsApp" },
+            { text: "NFS-e e-invoices via Focus NFe and contract signing over WhatsApp" },
             { text: "SaaS admin to provision clinics" },
             { text: "CI on GitHub Actions and database backups to R2" },
           ],
@@ -94,7 +94,7 @@ export const dentalSmart: CaseDetail = {
             { title: "Llama 3.3 70B", note: "Groq · note in 4 sections" },
             { title: "Patient record", note: "real time · “AI-generated” badge" },
           ],
-          footnote: "In production since Feb 2026 · the dentist reviews every note",
+          footnote: "In production since Feb 2026 · each note is a draft for the dentist to review",
         },
       ],
     },
@@ -104,7 +104,7 @@ export const dentalSmart: CaseDetail = {
       title: "From the chair to the patient record.",
       paragraphs: [
         "Before the appointment, the patient gets the medical history link on WhatsApp and answers it in a token-protected form. In the chair, the dentist records the visit in the browser.",
-        "When the recording ends, the audio goes to the patient’s private folder, and an Edge Function takes over in the background: Whisper transcribes it in Portuguese, and Llama 3.3 70B writes the clinical note. The note appears on its own in the patient’s notes, with an “AI-generated” badge, and the dentist reviews it before any clinical decision.",
+        "When the recording ends, the audio goes to the patient’s private folder, and an Edge Function takes over in the background: Whisper transcribes it in Portuguese, and Llama 3.3 70B writes the clinical note. The note appears on its own in the patient’s notes, as a draft marked “AI-generated” for the dentist to review.",
       ],
       specs: [
         {
@@ -115,7 +115,7 @@ export const dentalSmart: CaseDetail = {
         },
         { term: "Transcription", value: "Whisper large-v3-turbo on Groq, in Portuguese, at temperature 0." },
         { term: "Review", value: "Every note is marked as AI-generated, with a warning to review it before deciding. The dentist keeps it or deletes it." },
-        { term: "Messages", value: "The LLM rewrites each message into up to 20 variations, keeping the patient variables intact and adding no new information. If it fails, the original message goes out. Sending runs from a scheduled queue." },
+        { term: "Messages", value: "The LLM is asked to rewrite each message into up to 20 variations, keeping the patient variables intact and adding no new information. If generation fails, the original message goes out. Sending runs from a scheduled queue." },
       ],
     },
     {
