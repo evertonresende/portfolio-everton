@@ -55,16 +55,25 @@ function transform(orbit: Orbit, t: number) {
   return `translate(${x}px, ${y}px) rotate(${r}deg) scale(${sx}, ${sy})`;
 }
 
-function progress(section: Element, mode: Scene["mode"]) {
+const clamp = (p: number) => Math.min(1, Math.max(0, p));
+
+/**
+ * exit: 0 com a seção no topo, 1 quando as linhas saem da tela (altura do SVG: no celular, só o
+ * quadrado do topo da seção). entry: 0 com o topo da seção no pé da tela, 1 quando ele chega ao topo,
+ * ou ao ponto mais alto que a rolagem alcança (em tela alta, a página acaba antes).
+ */
+function progress(section: Element, svg: SVGSVGElement, mode: Scene["mode"]) {
   const box = section.getBoundingClientRect();
-  const p = mode === "exit" ? -box.top / box.height : 1 - box.top / window.innerHeight;
-  return Math.min(1, Math.max(0, p));
+  if (mode === "exit") return clamp(-box.top / Math.max(1, svg.clientHeight));
+  const remaining = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
+  const end = Math.max(0, box.top - remaining);
+  return clamp((window.innerHeight - box.top) / Math.max(1, window.innerHeight - end));
 }
 
 /**
  * Linhas finas de fundo (elipses em SVG) que mudam de forma com a rolagem, como melhoria progressiva:
  * - sem JS ou com prefers-reduced-motion, fica parada na pose de descanso;
- * - só escuta rolagem e mouse enquanto a seção está na tela;
+ * - só escuta rolagem e mouse enquanto as linhas estão na tela;
  * - no mouse (hover + ponteiro fino), as linhas seguem o cursor com atraso, por transição de CSS;
  * - a entrada do hero é CSS (globals.css), então roda no primeiro paint, antes do JS.
  * Vai dentro de uma seção com `relative isolate`.
@@ -84,7 +93,7 @@ export function Orbits({ scene: name }: { scene: keyof typeof SCENES }) {
 
     const draw = () => {
       frame = 0;
-      const t = smooth(progress(section, scene.mode));
+      const t = smooth(progress(section, svg, scene.mode));
       scene.orbits.forEach((orbit, i) => (ellipses[i]!.style.transform = transform(orbit, t)));
     };
     const onScroll = () => {
@@ -94,17 +103,19 @@ export function Orbits({ scene: name }: { scene: keyof typeof SCENES }) {
       group.style.transform = `translate(${(e.clientX / window.innerWidth - 0.5) * 72}px, ${(e.clientY / window.innerHeight - 0.5) * 72}px)`;
     };
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry?.isIntersecting) {
+    // Observa o SVG, não a seção: no celular ele é só o topo dela, e os listeners saem junto com as linhas.
+    // A última entrada do lote é o estado atual; desenhar na saída também acerta a pose depois de um pulo.
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[entries.length - 1]?.isIntersecting) {
         window.addEventListener("scroll", onScroll, { passive: true });
         if (pointer) window.addEventListener("pointermove", onPointer, { passive: true });
-        draw();
       } else {
         window.removeEventListener("scroll", onScroll);
         window.removeEventListener("pointermove", onPointer);
       }
+      draw();
     });
-    observer.observe(section);
+    observer.observe(svg);
     draw(); // pose certa já no carregamento (recarregar no meio da página), antes de a seção entrar
 
     return () => {

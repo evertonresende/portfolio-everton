@@ -8,7 +8,8 @@ function ColumnBlock({ column }: { column: Column }) {
   return (
     <div className="flex flex-col gap-3.5 border-t border-foreground px-gutter pt-5">
       <span className="label-mono text-muted">{column.index}</span>
-      <h3 className="text-heading m-0">{column.title}</h3>
+      {/* Do tamanho dos títulos do pipeline logo acima: "Eu decido" não pode ler como secundário. */}
+      <h3 className="text-heading-lg m-0">{column.title}</h3>
       <ul role="list" className="m-0 list-none border-t border-rule p-0">
         {column.items.map((item) => (
           <li key={item.text} className="text-body border-b border-rule py-2.5">

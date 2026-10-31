@@ -60,8 +60,19 @@ export function Reveal() {
     );
     below.forEach((el) => observer.observe(el));
 
+    // Tab para dentro de um bloco ainda escondido: mostra na hora, sem esperar a animação.
+    const onFocus = (e: FocusEvent) => {
+      for (const el of below) {
+        if (!el.contains(e.target as Node)) continue;
+        observer.unobserve(el);
+        reset(el);
+      }
+    };
+    document.addEventListener("focusin", onFocus);
+
     return () => {
       observer.disconnect();
+      document.removeEventListener("focusin", onFocus);
       below.forEach(reset);
     };
   }, []);
