@@ -31,7 +31,7 @@ export const dentalSmart: CaseDetail = {
     {
       id: "contexto",
       label: "02 / Contexto",
-      title: "Do banco ao front.",
+      title: "Assumi um produto que já existia.",
       paragraphs: [
         "O produto já existia quando assumi a engenharia. Tornei o produto multi-tenant, com um tenant por clínica, e sigo construindo hoje.",
       ],
