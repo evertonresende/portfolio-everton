@@ -22,7 +22,7 @@ export const pt: SiteContent = {
   },
   footer: {
     copyright: "© 2026 Everton Resende",
-    madeWith: "Feito com React, Vite e Cloudflare Workers, com agentes.",
+    madeWith: "Feito com React, Vite, Cloudflare Workers e agentes.",
     backToTop: "Voltar ao topo",
   },
   ui: {

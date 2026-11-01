@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS para clínicas · 2025 – hoje",
   title: "Dental Smart.",
-  lead: "SaaS para clínicas odontológicas. Sou o engenheiro do produto desde 2025. A IA trabalha dentro da consulta: o dentista grava o atendimento, e a nota clínica aparece pronta no prontuário do paciente, para ele revisar.",
+  lead: "SaaS para clínicas odontológicas. Sou o engenheiro do produto desde 2025. Na consulta, o dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, backend e IA" },
@@ -104,7 +104,7 @@ export const dentalSmart: CaseDetail = {
       title: "Da cadeira ao prontuário.",
       paragraphs: [
         "Antes da consulta, o paciente recebe pelo WhatsApp o link da anamnese e responde o histórico de saúde num formulário protegido por token. Na cadeira, o dentista grava o atendimento no navegador.",
-        "Quando a gravação termina, o áudio sobe para a pasta privada do paciente, e uma Edge Function assume em segundo plano: o Whisper transcreve em português, e o Llama 3.3 70B escreve a nota clínica. A nota aparece sozinha nas anotações do paciente, como rascunho com o selo “Gerado por IA”, para o dentista revisar.",
+        "Quando a gravação termina, o áudio sobe para a pasta privada do paciente, e uma Edge Function assume em segundo plano: o Whisper transcreve em português, e o Llama 3.3 70B escreve a nota clínica. A nota entra sozinha nas anotações do paciente, como rascunho.",
       ],
       specs: [
         {
@@ -114,8 +114,8 @@ export const dentalSmart: CaseDetail = {
           statusLabel: "Em produção",
         },
         { term: "Transcrição", value: "Whisper large-v3-turbo na Groq, em português e com temperatura 0." },
-        { term: "Revisão", value: "Toda nota sai marcada como gerada por IA, com o aviso para revisar antes de decidir. O dentista mantém ou exclui." },
-        { term: "Mensagens", value: "O LLM é instruído a reescrever cada mensagem em até 20 variações, mantendo as variáveis do paciente intactas e sem informação nova. Se a geração falhar, sai a mensagem original. O envio sai de uma fila agendada." },
+        { term: "Revisão", value: "Toda nota sai com o selo “Gerado por IA” e o aviso para revisar. O dentista mantém ou exclui." },
+        { term: "Mensagens", value: "Nas mensagens de WhatsApp que saem da fila agendada, o LLM é instruído a reescrever cada uma em até 20 variações, mantendo as variáveis do paciente intactas e sem informação nova. Se a geração falhar, vai a mensagem original." },
       ],
     },
     {
@@ -131,7 +131,7 @@ export const dentalSmart: CaseDetail = {
         {
           index: "6.2",
           title: "Resposta na hora, IA em segundo plano.",
-          text: "A Edge Function responde assim que recebe o pedido e processa depois. O status da gravação passa por processando, concluído ou falhou, e o dentista segue o atendimento sem esperar.",
+          text: "A Edge Function responde assim que recebe o pedido e processa depois. O status da gravação vai de processando para concluído ou falhou, e o dentista segue o atendimento sem esperar.",
         },
         {
           index: "6.3",

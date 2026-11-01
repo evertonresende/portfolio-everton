@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobilidade · 2026 – hoje",
   title: "Tazz.",
-  lead: "App de corridas no Brasil. Arquitetei e construí do zero o app novo em Expo e os Workers novos dele, com agentes de IA escrevendo o código em paralelo. Também levei o compute do backend para Cloudflare e coloquei no ar o agente de atendimento e o PIX.",
+  lead: "App de corridas no Brasil. Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de IA escrevendo o código em paralelo. Também levei o compute do backend para Cloudflare e coloquei no ar o agente de atendimento e o PIX.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, app, backend e IA" },
@@ -33,7 +33,7 @@ export const tazz: CaseDetail = {
       label: "02 / Contexto",
       title: "Trocar o motor com o carro andando.",
       paragraphs: [
-        "Primeiro troquei o compute HTTP: ele foi para Cloudflare Workers, e os dados ficaram no GCP. Em set/2026, comecei do zero, como prova de conceito, um app novo em Expo que não fala direto com Firestore, Realtime Database nem Firebase Auth. Em 8/set, ele virou o substituto planejado do app Flutter nas lojas. Enquanto isso, o app Flutter segue em produção.",
+        "Primeiro levei o compute HTTP para Cloudflare Workers, e os dados ficaram no GCP. Em set/2026, comecei do zero, como prova de conceito, um app novo em Expo que não fala direto com Firestore, Realtime Database nem Firebase Auth. Em 8/set, ele virou o substituto planejado do app Flutter nas lojas. Enquanto isso, o app Flutter segue em produção.",
       ],
     },
     {
@@ -117,15 +117,15 @@ export const tazz: CaseDetail = {
     {
       id: "ia",
       label: "05 / Onde a IA entra",
-      title: "Um agente que só afirma o que tem fonte.",
+      title: "Um agente com fontes conferidas e revisão humana.",
       paragraphs: [
-        "Em jul/2026, o atendimento recebia ~335 mensagens por dia, de passageiros e motoristas, em 5 canais. Só o cadastro de motorista travado somou 1.237 conversas em 90 dias, 66% do WhatsApp.",
+        "Em jul/2026, o atendimento recebia ~335 mensagens por dia, de passageiros e motoristas, em 5 canais. Só o cadastro de motorista travado somou 1.237 conversas em 90 dias, 66% das conversas classificadas do WhatsApp.",
         "Antes do modelo, cada mensagem passa por um portão: palavra de risco vai para a fila prioritária humana, pedido de atendente vai direto para uma pessoa, e tentativa de injeção é detectada e auditada. CPF, cartão, e-mail, telefone e localização são mascarados antes de sair para o provedor. O modelo consulta conta, corridas, pagamento e a base por 9 tools, e o ID do cliente vem do servidor, nunca do modelo.",
         "Depois do modelo, o guardrail confere a resposta: toda fonte citada tem que existir, todo número tem que estar numa fonte ou na mensagem do cliente, e afirmação de status precisa de fonte. O que passa vira rascunho para o atendente. O que não passa vai para a fila humana.",
       ],
       specs: [
-        { term: "Modelo", value: "GPT-5.6 Luna, ~2,7× mais rápido que o GLM 5.3 Flash na mesma rodada de eval. O GLM saiu da disputa de primário: 3 rodadas de tools a ~5 s por chamada estouravam o teto de 30 s do turno. Ficou como fallback automático de um turno, que também cobre o limite de taxa da plataforma (429 depois de ~150 chamadas em 20 min). 12 intenções fechadas e no máximo 3 rodadas de tools; na última, o modelo tem que responder." },
-        { term: "LLM-juiz", value: "Revisa só o que o filtro por palavra bloqueou e libera o falso positivo. Ele nunca bloqueia sozinho. Calibrei antes de ligar: em 55 frases rotuladas (20 legítimas e 35 que devem reprovar), o limiar 0,3 deu 0 falsos bloqueios e 0 bypasses, com p50 de 543 ms. A partir de 0,5, passou 1 bypass." },
+        { term: "Modelo", value: "GPT-5.6 Luna, ~2,7× mais rápido que o GLM 5.3 Flash na mesma rodada de eval. O GLM deixou de concorrer a modelo principal: 3 rodadas de tools a ~5 s por chamada estouravam o teto de 30 s do turno. Ficou como fallback automático, rodando um turno só, o que também cobre o limite de taxa da plataforma (429 depois de ~150 chamadas em 20 min)." },
+        { term: "LLM-juiz", value: "Quando o filtro por palavra bloqueia uma afirmação, o juiz revisa o bloqueio e libera o falso positivo. Ele nunca bloqueia sozinho. Calibrei antes de ligar: em 55 frases rotuladas (20 legítimas e 35 que devem reprovar), o limiar 0,3 deu 0 falsos bloqueios e 0 bypasses, com p50 de 543 ms. A partir de 0,5, passou 1 bypass." },
         { term: "Evals", value: "31 casos (7 adversariais): JSON inválido, intenção, handoff, citação válida, latência e respostas inseguras. Gate: zero respostas inseguras. Comparei 4 modelos no mesmo dataset, de US$ 0,008 a US$ 0,028 por rodada; o de produção na época (Llama 3.1 8B) aprovava 4 de 31.", link: { label: "Demo pública do método (dados sintéticos)", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
         { term: "O que mudou", value: "Mesmo modelo (GPT-5.6 Luna), mesmos 31 casos: com o prompt v5 e o orquestrador e o guardrail revisados, os aprovados foram de 10 para 23, e o handoff caiu de 80,6% para 38,7%, com p50 de 2,0 s. Nessa rodada, os 5 bloqueios do guardrail foram todos acertos: sem artigo na base sobre o tema, o modelo tinha inventado menus e regras do app." },
         { term: "Status", value: "Hoje roda supervisionado: a IA escreve o rascunho, e o atendente envia, edita ou descarta. Antes, rodou em shadow em produção, escrevendo sem enviar, e num piloto ao vivo com 3 contas de teste.", status: "production", statusLabel: "Em produção" },
@@ -137,7 +137,7 @@ export const tazz: CaseDetail = {
       title: "Um time de agentes, com portões humanos.",
       paragraphs: [
         "Comecei o app do zero em 4/set/2026. Uma discovery com 12 agentes leu o app Flutter e a documentação do Expo SDK 57 e escreveu specs com fatos citados por arquivo e linha.",
-        "Depois, agentes coordenadores, um depois do outro, tocaram um backlog de ~200 frentes em sessões paralelas, cada uma na sua worktree, e integraram o resultado. A primeira integração entrou na main em 8/set/2026.",
+        "Depois, agentes coordenadores, um de cada vez, tocaram um backlog de ~200 frentes. As frentes rodavam em sessões paralelas, cada uma na sua worktree, e o coordenador integrava o resultado. A primeira integração entrou na main em 8/set/2026.",
       ],
       figures: [
         {
@@ -159,7 +159,7 @@ export const tazz: CaseDetail = {
         { term: "Evidência", value: "Cada frente fecha com uma prova por critério de aceite. O coordenador roda os checks de novo antes de integrar." },
         { term: "Revisão", value: "Cada frente passa por revisão de um modelo de outro provedor. Por cima disso, 4 rodadas consolidadas deram GO ou NO-GO, e a primeira pegou 2 regressões críticas antes da main." },
         { term: "Modelo por risco", value: "Modelo mais forte em dinheiro, auth, código nativo e arquitetura. Mais leve em portes 1:1 e telas simples." },
-        { term: "Portões", value: "Migração de banco, merge na main, redeploy de worker em produção e build de loja ficaram fora do alcance dos agentes sozinhos: eles preparavam, e um humano autorizava, às vezes para uma leva inteira." },
+        { term: "Portões", value: "Migração de banco, merge na main, redeploy de worker em produção e build de loja precisavam de uma pessoa: os agentes preparavam, e um humano autorizava, às vezes uma leva inteira de uma vez." },
       ],
     },
     {
@@ -170,7 +170,7 @@ export const tazz: CaseDetail = {
         {
           index: "7.1",
           title: "Base curada com busca por palavra‑chave.",
-          text: "A base tem 58 entradas curadas, cada uma aprovada antes de ir ao ar, e busca por palavra‑chave. O corpus tinha ~71 KB, com ~5 KB de conteúdo útil de suporte. A decisão define quando reavaliar o uso de RAG: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
+          text: "A base tem 58 entradas curadas, cada uma aprovada antes de ir ao ar, e busca por palavra‑chave. O conteúdo candidato a entrar na base somava ~71 KB, e só ~5 KB eram de suporte de fato. A decisão define quando reavaliar o uso de RAG: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
         },
         {
           index: "7.2",
@@ -185,7 +185,7 @@ export const tazz: CaseDetail = {
         {
           index: "7.4",
           title: "Um juiz que só libera.",
-          text: "O filtro por palavra bloqueia afirmação sem fonte. O LLM-juiz entra só nesses bloqueios e libera o falso positivo. Contra as 39 frases legítimas da suíte, a regra revisada deu 0 falso positivo.",
+          text: "O filtro por palavra bloqueia afirmação sem fonte. O LLM-juiz entra só nesses bloqueios e libera o falso positivo. Numa revisão adversarial do guardrail, a regra revisada deu 0 falso positivo em 39 frases legítimas.",
         },
         {
           index: "7.5",
@@ -195,7 +195,7 @@ export const tazz: CaseDetail = {
         {
           index: "7.6",
           title: "Conta no Postgres, Firebase Auth só no 1º login.",
-          text: "No app novo, a conta é a linha no Postgres. No primeiro login, o Worker de auth confere a senha no Firebase uma vez e grava um hash próprio. Depois disso, ele não chama mais o Firebase para aquela conta e nunca escreve nele.",
+          text: "No app novo, a conta é um registro no Postgres. No primeiro login, o Worker de auth confere a senha no Firebase uma vez e grava um hash próprio. Depois disso, ele não chama mais o Firebase para aquela conta e nunca escreve nele.",
         },
         {
           index: "7.7",
@@ -226,6 +226,6 @@ export const tazz: CaseDetail = {
   seo: {
     title: "Tazz: app em Expo construído do zero com agentes de IA · Everton Resende",
     description:
-      "Como arquitetei um app de corridas em Expo e os Workers novos dele, construídos por agentes de código em paralelo. Também portei 100+ Cloud Functions para Cloudflare Workers em ~48 h e coloquei um agente de atendimento em produção.",
+      "Como arquitetei um app de corridas em Expo e os Workers dele, construídos por agentes de código em paralelo. Também portei 100+ Cloud Functions para Cloudflare Workers em ~48 h e coloquei um agente de atendimento em produção.",
   },
 };

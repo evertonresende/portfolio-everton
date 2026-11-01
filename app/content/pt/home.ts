@@ -11,7 +11,7 @@ export const home: HomeContent = {
     status: "Disponível · remoto · PJ, CLT ou contrato internacional",
     title: "AI Engineer.",
     lead: "Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra.",
-    sub: "Entrego sistemas completos com IA integrada (SaaS para clínicas, fintech, mobilidade, apoio clínico, educação pública), do app ao backend, com um workflow agent-first.",
+    sub: "Entrego produtos inteiros, do app ao backend, em SaaS para clínicas, fintech, mobilidade, apoio clínico e educação pública. Trabalho com agentes de código e respondo pelo que vai ao ar.",
     primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Ver cases", href: "#cases" },
     cv: { label: "Baixar CV (PDF)", href: CV_URL },
@@ -22,14 +22,14 @@ export const home: HomeContent = {
       { term: "Carreira", value: "7+ anos desenvolvendo software" },
       { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
       { term: "Local", value: "Pará de Minas, MG · remoto (UTC−3)" },
-      { term: "Idiomas", value: "Português nativo · inglês em entrevista técnica" },
+      { term: "Idiomas", value: "Português nativo · inglês para entrevistas técnicas" },
       { term: "Status", value: "Disponível · remoto", status: "production" },
     ],
     proofs: [
       {
         term: "Tazz",
         value: "10→23",
-        label: "Casos aprovados em 31 nos evals do agente de atendimento: mesmo modelo, prompt e guardrail novos. Uma pessoa revisa cada rascunho.",
+        label: "Casos aprovados, de 31, nos evals do agente de atendimento: mesmo modelo, com prompt e guardrail novos. O agente escreve rascunhos, e uma pessoa revisa cada um.",
         status: "production",
         statusLabel: "Em produção",
       },
@@ -57,14 +57,14 @@ export const home: HomeContent = {
       {
         index: "1.1",
         title: "Arquiteto agentes.",
-        text: "Tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz calibrado, evals com gate e fallback entre modelos, em TypeScript. Em Python, times de agentes com triagem e handoff (Agno).",
+        text: "Em TypeScript: tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz calibrado, evals com gate e fallback entre modelos. Em Python: times de agentes com triagem e handoff, em Agno.",
         proof: "Agente da Tazz · agentes em Python (Agno) na Coppay",
       },
       {
         index: "1.2",
         title: "Coloco RAG em produção.",
-        text: "file_search da OpenAI em produção no Maximus, no lugar do RAG com classificador que construí antes. No Tazz, decidi não usar RAG numa base curada pequena, com critérios escritos de quando revisitar.",
-        proof: "Chat clínico do Maximus · decisão da base do Tazz",
+        text: "Coloquei o file_search da OpenAI em produção no Maximus, no lugar do RAG com classificador que eu tinha construído. Na Tazz, decidi não usar RAG numa base curada pequena e deixei por escrito quando reavaliar.",
+        proof: "Chat clínico do Maximus · decisão da base da Tazz",
       },
       {
         index: "1.3",
@@ -76,7 +76,7 @@ export const home: HomeContent = {
   },
   cases: {
     label: "02 / Cases",
-    title: ["Produtos no ar.", "Não demos."],
+    title: ["Produtos no ar."],
     items: [
       {
         slug: "tazz",
@@ -93,7 +93,7 @@ export const home: HomeContent = {
         },
         problem: "O backend do app de corridas bateu na cota fixa de 20 vCPU do GCP em São Paulo, e o app em Flutter falava direto com o Firebase.",
         whatIDid:
-          "Arquitetei e construí do zero o app novo em Expo e os Workers novos dele, com agentes de código em paralelo. Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e levei o PIX do Asaas à produção.",
+          "Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de código em paralelo. Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e levei o PIX do Asaas à produção.",
         stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
@@ -104,10 +104,10 @@ export const home: HomeContent = {
           {
             status: "decision",
             label: "Decisão",
-            text: "O modelo voltava a buscar na base em vez de responder: 5 dos 9 casos que falhavam, mesmo com uma regra no prompt contra isso. Corrigi no orquestrador, não no prompt: chamada repetida não roda, e a última das 3 rodadas vem sem tools, então o modelo tem de responder. As falhas por loop de tools caíram de 5 para 1.",
+            text: "Com o prompt novo, ainda falhavam 9 dos 31 casos, e em 5 deles o modelo buscava na base de novo em vez de responder, mesmo com uma regra no prompt contra isso. Corrigi no orquestrador: chamada repetida não roda, e a última das 3 rodadas vem sem tools, então o modelo tem de responder. As falhas por loop de tools caíram de 5 para 1.",
           },
         ],
-        result: "PIX em produção desde set/2026",
+        result: "Agente em produção · PIX desde set/2026 · app novo a caminho das lojas",
       },
       {
         slug: "rota-protegida",
@@ -129,7 +129,7 @@ export const home: HomeContent = {
         problem:
           "Uma prefeitura precisava registrar a entrada e a saída dos alunos nas escolas e avisar as famílias na hora, com a biometria das crianças tratada dentro da LGPD.",
         whatIDid:
-          "Arquitetei e construí o sistema inteiro. Câmeras IP mandam fotos por SFTP para uma VPS em Python, que detecta o rosto e extrai o embedding (AuraFace). A API em Hono sobre Cloudflare Workers busca no Vectorize, registra a presença e avisa os responsáveis por WhatsApp e e-mail. O painel web atende a prefeitura, as escolas e a revisão humana. Para a LGPD: consentimento obrigatório, retenção automática por tipo de dado, log de quem vê as fotos e isolamento por escola no índice vetorial.",
+          "Arquitetei e construí o sistema inteiro. Câmeras IP mandam fotos por SFTP para um serviço em Python numa VPS, que detecta o rosto e extrai o embedding (AuraFace). A API em Hono sobre Cloudflare Workers busca no Vectorize, registra a presença e avisa os responsáveis por WhatsApp e e-mail. O painel web atende a prefeitura, as escolas e a revisão humana. Para a LGPD: consentimento obrigatório, retenção automática por tipo de dado, log de quem vê as fotos e isolamento por escola no índice vetorial.",
         stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
         ai: [
           {
@@ -140,7 +140,7 @@ export const home: HomeContent = {
           {
             status: "decision",
             label: "Decisão",
-            text: "Testei um 2º modelo (AdaFace) em ensemble e medi 862 eventos contra o veredito do AWS: nenhum match salvo e 45 rejeições erradas reforçadas. Desliguei e fiquei com AuraFace + AWS na zona cinza.",
+            text: "Testei um 2º modelo (AdaFace) junto com o AuraFace e comparei 862 eventos com o veredito do AWS: ele não recuperou nenhum match que o AuraFace tinha perdido e reforçou 45 rejeições erradas. Desliguei e fiquei com AuraFace + AWS na zona cinza.",
           },
         ],
         result: "Em produção desde jul/2026 · entregue à prefeitura em set/2026",
@@ -165,7 +165,7 @@ export const home: HomeContent = {
         problem:
           "Clínicas odontológicas precisavam de agenda, financeiro, NFS-e e WhatsApp num só sistema, com os dados de saúde de cada clínica isolados. E o registro de cada consulta era digitado à mão.",
         whatIDid:
-          "Construo o SaaS multi-tenant com a IA dentro da consulta. O paciente responde a anamnese por um link no WhatsApp antes de chegar. O dentista grava o atendimento, e a nota clínica aparece pronta no prontuário do paciente. Também: RLS por clínica, financeiro, NFS-e e mensagens agendadas.",
+          "Construo o SaaS multi-tenant. O paciente responde a anamnese por um link no WhatsApp antes de chegar. O dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente. Também: RLS por clínica, financeiro, NFS-e e mensagens agendadas.",
         stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           {
@@ -236,18 +236,18 @@ export const home: HomeContent = {
         },
         problem: "Uma fintech precisava de conta digital, crédito e atendimento rodando sobre um BaaS, do app ao back-office.",
         whatIDid:
-          "Construí o app em Expo, o BFF em Hono sobre Cloudflare Workers (Cronos, Asaas e HBI), o back-office em Next.js com RBAC e audit log, e os recursos de IA: triagem de e-mail, parecer de crédito assistido por LLM e o agente de WhatsApp. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
+          "Construí o app em Expo e o BFF em Hono sobre Cloudflare Workers, integrado a Cronos, Asaas e HBI. Também construí o back-office em Next.js, com RBAC e audit log, e os recursos de IA: triagem de e-mail, parecer de crédito assistido por LLM e o agente de WhatsApp. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
             status: "production",
             label: "Em produção",
-            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante. O analista decide. Custa ~R$ 0,01 por parecer, com reuso por 30 dias e teto de 100 consultas por operador ao dia.",
+            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante, e a decisão final é do analista. Custa ~R$ 0,01 por parecer, com reuso por 30 dias e teto de 100 consultas por operador ao dia.",
           },
           {
             status: "production",
             label: "Em produção",
-            text: "Caixa de e-mail do time: cada e-mail passa por triagem (categoria, prioridade e resumo) num Durable Object por caixa, e um botão sugere a resposta pela thread. Tirei o spam da IA: numa fintech, falso positivo custa mais, e quem decide é SPF, DKIM e DMARC.",
+            text: "Caixa de e-mail do time: cada e-mail passa por triagem (categoria, prioridade e resumo) num Durable Object por caixa, e um botão sugere a resposta pela thread. Deixei a detecção de spam fora da IA: numa fintech, um falso positivo custa mais caro, então quem decide é SPF, DKIM e DMARC.",
           },
           {
             status: "offline",
@@ -268,12 +268,12 @@ export const home: HomeContent = {
           caption: "Arquitetura",
           direction: "vertical",
           nodes: [{ title: "App", note: "React" }, { title: "10 Workers" }, { title: "Supabase (RLS) · R2" }],
-          footnote: "Escrow BR no Asaas · livro-razão em SQL",
+          footnote: "Escrow BR no Asaas · ledger em SQL",
         },
         problem:
           "Um SaaS de galerias para fotógrafos, nascido no Lovable, precisava ser re-hospedado e refatorado numa arquitetura própria.",
         whatIDid:
-          "Migrei e refatorei o app para 10 Cloudflare Workers com Supabase e RLS, e arquitetei o escrow com o Asaas: livro-razão em SQL e saque por PIX. Também levei as 10 funções de IA do app para os Workers, via Cloudflare AI Gateway.",
+          "Migrei e refatorei o app para 10 Cloudflare Workers com Supabase e RLS, e arquitetei o escrow com o Asaas: ledger em SQL e saque por PIX. Também levei as 10 funções de IA do app para os Workers, via Cloudflare AI Gateway.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
         result: "Entregue em out/2026",
       },
@@ -283,10 +283,10 @@ export const home: HomeContent = {
     label: "03 / Como trabalho",
     title: ["Agentes escrevem o código.", "Eu respondo por ele."],
     intro:
-      "Trabalho com agentes como quem conduz um time. Defino o contexto, a arquitetura e os critérios de aceite. Os agentes escrevem a maior parte do código. Eu leio, depuro, exijo a suite verde antes de todo commit e decido o que vai para produção.",
+      "Conduzo os agentes como um time: defino o contexto, a arquitetura e os critérios de aceite, e eles escrevem a maior parte do código. Eu leio, depuro, exijo a suite verde antes de todo commit e decido o que vai para produção.",
     pipelineLabel: "Pipeline",
     steps: [
-      { index: "01", title: "Spec", text: "O que é pronto, em critérios verificáveis." },
+      { index: "01", title: "Spec", text: "O que conta como pronto, em critérios verificáveis." },
       { index: "02", title: "Plano", text: "Tarefas pequenas, arquivos e ordem." },
       { index: "03", title: "Subagentes em paralelo", text: "Uma frente por worktree." },
       { index: "04", title: "Revisão", text: "Code review e segunda opinião de outro modelo." },
@@ -321,8 +321,8 @@ export const home: HomeContent = {
         term: "Na prática",
         value: "Na Tazz, agentes coordenadores tocaram um backlog de ~200 frentes do app novo em sessões paralelas, uma worktree cada, com revisão de outro modelo.",
       },
-      { term: "Evals", value: "Demo pública de como testo um agente antes de uma mudança ir para produção, com dados sintéticos: 40 casos, um juiz conferido contra 26 rótulos manuais e um gate de CI que falha em qualquer resposta insegura.", link: { label: "Ver o repo", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
-      { term: "Este site", value: "Foi refeito assim. A spec e o plano estão em docs/ no GitHub.", link: { label: "Ver a spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
+      { term: "Evals", value: "Demo pública de como testo um agente antes de uma mudança ir para produção. Usa dados sintéticos: 40 casos, um juiz conferido com 26 rótulos manuais e um gate de CI que falha em qualquer resposta insegura.", link: { label: "Ver o repo", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
+      { term: "Este site", value: "Foi refeito com esse mesmo processo. A spec e o plano estão em docs/ no GitHub.", link: { label: "Ver a spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],
   },
   timeline: {

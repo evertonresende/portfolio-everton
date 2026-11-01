@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS for clinics · 2025 – present",
   title: "Dental Smart.",
-  lead: "SaaS for dental clinics. I’ve owned its engineering since 2025. The AI is built into the appointment: the dentist records the visit, and the clinical note shows up in the patient’s record, ready for the dentist to review.",
+  lead: "SaaS for dental clinics. I’ve owned its engineering since 2025. During the appointment, the dentist records the visit, and the AI writes the clinical note into the patient’s record as a draft for the dentist to review.",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, back end and AI" },
@@ -24,7 +24,7 @@ export const dentalSmart: CaseDetail = {
       stat: { value: "RLS", label: "one tenant per clinic · isolated in the database" },
       paragraphs: [
         "Dental clinics needed scheduling, finance, e-invoicing (Brazil’s NFS-e) and WhatsApp in one system. And each clinic can only see its own data, because this is patient health data.",
-        "In the office, the record of each appointment depended on someone typing the patient’s notes after the visit.",
+        "At the practice, someone had to type up the patient’s notes after each visit.",
         "I talked to dentists, receptionists and dental assistants.",
       ],
     },
@@ -87,7 +87,7 @@ export const dentalSmart: CaseDetail = {
           caption: "From appointment to record",
           direction: "horizontal",
           nodes: [
-            { title: "Recording", note: "browser · upload with 3 retries" },
+            { title: "Recording", note: "browser · upload with 3 attempts" },
             { title: "Patient folder", note: "private · per clinic" },
             { title: "Edge Function", note: "checks the JWT and the clinic" },
             { title: "Whisper", note: "Groq · Portuguese transcription" },
@@ -103,8 +103,8 @@ export const dentalSmart: CaseDetail = {
       label: "05 / Where AI comes in",
       title: "From the chair to the patient record.",
       paragraphs: [
-        "Before the appointment, the patient gets the medical history link on WhatsApp and answers it in a token-protected form. In the chair, the dentist records the visit in the browser.",
-        "When the recording ends, the audio goes to the patient’s private folder, and an Edge Function takes over in the background: Whisper transcribes it in Portuguese, and Llama 3.3 70B writes the clinical note. The note appears on its own in the patient’s notes, as a draft marked “AI-generated” for the dentist to review.",
+        "Before the appointment, the patient gets a WhatsApp link to a token-protected medical history form and fills it in. During the visit, the dentist records it in the browser.",
+        "When the recording ends, the audio goes to the patient’s private folder, and an Edge Function takes over in the background: Whisper transcribes it in Portuguese, and Llama 3.3 70B writes the clinical note. The note appears on its own in the patient’s notes, as a draft.",
       ],
       specs: [
         {
@@ -114,8 +114,8 @@ export const dentalSmart: CaseDetail = {
           statusLabel: "In production",
         },
         { term: "Transcription", value: "Whisper large-v3-turbo on Groq, in Portuguese, at temperature 0." },
-        { term: "Review", value: "Every note is marked as AI-generated, with a warning to review it before deciding. The dentist keeps it or deletes it." },
-        { term: "Messages", value: "The LLM is asked to rewrite each message into up to 20 variations, keeping the patient variables intact and adding no new information. If generation fails, the original message goes out. Sending runs from a scheduled queue." },
+        { term: "Review", value: "Every note carries an “AI-generated” badge and a warning to review it. The dentist keeps it or deletes it." },
+        { term: "Messages", value: "For WhatsApp messages sent from the scheduled queue, the LLM is asked to rewrite each one into up to 20 variations, keeping the patient variables intact and adding no new information. If generation fails, the original message goes out." },
       ],
     },
     {
@@ -131,7 +131,7 @@ export const dentalSmart: CaseDetail = {
         {
           index: "6.2",
           title: "Instant response, AI in the background.",
-          text: "The Edge Function answers as soon as it gets the request and does the work afterwards. The recording’s status moves through processing, completed or failed, and the dentist carries on without waiting.",
+          text: "The Edge Function answers as soon as it gets the request and does the work afterwards. The recording’s status goes from processing to completed or failed, and the dentist carries on without waiting.",
         },
         {
           index: "6.3",
@@ -158,7 +158,7 @@ export const dentalSmart: CaseDetail = {
     {
       id: "resultado",
       label: "07 / Result",
-      title: "No clinic has walked away.",
+      title: "No clinic has cancelled.",
       paragraphs: ["~20 active clinics, each in its own tenant isolated by RLS."],
       stats: [
         { term: "AI", value: "AI", label: "Clinical note written from the recorded appointment, in the patient’s record, since Feb 2026.", status: "production", statusLabel: "In production" },

@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobility · 2026 – present",
   title: "Tazz.",
-  lead: "A ride-hailing app in Brazil. I architected and built the new Expo app and its new Workers from scratch, with AI agents writing the code in parallel. I also moved the backend’s compute to Cloudflare and shipped the support agent and Pix (Brazil’s instant payments).",
+  lead: "A ride-hailing app in Brazil. I architected and built the new Expo app and its Workers from scratch, with AI agents writing the code in parallel. I also moved the backend’s compute to Cloudflare and shipped the support agent and Pix (Brazil’s instant payments).",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, app, backend and AI" },
@@ -33,7 +33,7 @@ export const tazz: CaseDetail = {
       label: "02 / Context",
       title: "Swapping the engine mid-flight.",
       paragraphs: [
-        "First I swapped the HTTP compute: it moved to Cloudflare Workers, and the data stayed on GCP. In Sep 2026, I started a new Expo app from scratch, as a proof of concept, that never talks to Firestore, Realtime Database or Firebase Auth directly. On Sep 8, it became the planned replacement for the Flutter app in the stores. In the meantime, the Flutter app stays in production.",
+        "First I moved the HTTP compute to Cloudflare Workers, and the data stayed on GCP. In Sep 2026, I started a new Expo app from scratch, as a proof of concept, that never talks to Firestore, Realtime Database or Firebase Auth directly. On Sep 8, it became the planned replacement for the Flutter app in the stores. In the meantime, the Flutter app stays in production.",
       ],
     },
     {
@@ -92,7 +92,7 @@ export const tazz: CaseDetail = {
             {
               title: "Gateway",
               note: "Worker",
-              branch: [{ title: "Routes not migrated", muted: true }, { title: "Legacy functions", note: "GCP", muted: true }],
+              branch: [{ title: "Unmigrated routes", muted: true }, { title: "Legacy functions", note: "GCP", muted: true }],
             },
             { title: "Domain Workers" },
             { title: "Firestore and Realtime Database", note: "GCP" },
@@ -117,17 +117,17 @@ export const tazz: CaseDetail = {
     {
       id: "ia",
       label: "05 / Where AI comes in",
-      title: "An agent that only states what has a source.",
+      title: "An agent with checked sources and human review.",
       paragraphs: [
-        "In Jul 2026, support got ~335 messages a day from riders and drivers, across 5 channels. Drivers stuck in sign-up alone added up to 1,237 conversations in 90 days, 66% of WhatsApp.",
+        "In Jul 2026, support got ~335 messages a day from riders and drivers, across 5 channels. Stalled driver sign-ups alone made up 1,237 conversations in 90 days, 66% of the classified WhatsApp conversations.",
         "Before the model, every message goes through a gate: risk words go to a priority human queue, a request for a person goes straight to one, and prompt injection is detected and audited. Tax IDs, cards, emails, phone numbers and locations are masked before anything goes to the provider. The model looks up the account, rides, payments and the knowledge base through 9 tools, and the customer ID comes from the server, never from the model.",
         "After the model, the guardrail checks the reply: every cited source must exist, every number must appear in a source or in the customer’s own message, and any status claim needs a source. What passes becomes a draft for the operator. What fails goes to the human queue.",
       ],
       specs: [
-        { term: "Model", value: "GPT-5.6 Luna, ~2.7× faster than GLM 5.3 Flash in the same eval run. GLM was dropped as the primary candidate: 3 tool rounds at ~5 s a call broke the 30 s turn limit. It stays as an automatic one-turn fallback, which also covers the platform’s rate limit (429s after ~150 calls in 20 min). 12 fixed intents and at most 3 tool-call rounds; in the last one, the model has to answer." },
-        { term: "LLM‑as‑judge", value: "It reviews only what the word filter blocked and releases false positives. It never blocks on its own. I calibrated it before switching it on: on 55 labeled sentences (20 legitimate, 35 that must fail), a 0.3 threshold gave 0 false blocks and 0 bypasses, at a 543 ms p50. From 0.5 up, 1 bypass got through." },
+        { term: "Model", value: "GPT-5.6 Luna, ~2.7× faster than GLM 5.3 Flash in the same eval run. GLM was dropped as a candidate for the primary model: 3 tool rounds at ~5 s a call broke the 30 s turn limit. It stays as an automatic fallback that runs a single turn, which also covers the platform’s rate limit (429s after ~150 calls in 20 min)." },
+        { term: "LLM‑as‑judge", value: "When the word filter blocks a claim, the judge reviews that block and clears false positives. It never blocks on its own. I calibrated it before switching it on: on 55 labeled sentences (20 legitimate, 35 that must fail), a 0.3 threshold gave 0 false blocks and 0 bypasses, at a 543 ms p50. From 0.5 up, 1 bypass got through." },
         { term: "Evals", value: "31 cases (7 adversarial): invalid JSON, intent, handoff, valid citation, latency and unsafe replies. Gate: zero unsafe replies. I compared 4 models on the same dataset, at US$0.008 to US$0.028 per run; the production model at the time (Llama 3.1 8B) passed 4 out of 31.", link: { label: "Public demo of the method (synthetic data)", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
-        { term: "What moved", value: "Same model (GPT-5.6 Luna), same 31 cases: with prompt v5 and a revised orchestrator and guardrail, passing cases went from 10 to 23, and handoffs fell from 80.6% to 38.7%, at a 2.0 s p50. In that run, all 5 guardrail blocks were real catches: with no knowledge-base article on the topic, the model had made up app menus and rules." },
+        { term: "What changed", value: "Same model (GPT-5.6 Luna), same 31 cases: with prompt v5 and a revised orchestrator and guardrail, passing cases went from 10 to 23, and handoffs fell from 80.6% to 38.7%, at a 2.0 s p50. In that run, all 5 guardrail blocks were real catches: with no knowledge-base article on the topic, the model had made up app menus and rules." },
         { term: "Status", value: "Today it runs under supervision: the AI writes a draft, and a person on the team sends, edits or discards it. Before that, it ran in shadow mode in production, writing without sending, and in a live pilot with 3 test accounts.", status: "production", statusLabel: "In production" },
       ],
     },
@@ -137,7 +137,7 @@ export const tazz: CaseDetail = {
       title: "A team of agents, with human gates.",
       paragraphs: [
         "I started the app from scratch on Sep 4, 2026. A discovery run with 12 agents read the Flutter app and the Expo SDK 57 docs, and wrote specs with facts cited by file and line.",
-        "Then coordinator agents, one after another, ran a backlog of ~200 workstreams in parallel sessions, each in its own worktree, and merged the results. The first integration reached main on Sep 8, 2026.",
+        "Then coordinator agents, one at a time, ran a backlog of ~200 workstreams. The workstreams ran in parallel sessions, each in its own worktree, and the coordinator merged the results. The first integration reached main on Sep 8, 2026.",
       ],
       figures: [
         {
@@ -159,7 +159,7 @@ export const tazz: CaseDetail = {
         { term: "Evidence", value: "Each workstream ends with one proof per acceptance criterion. The coordinator runs the checks again before merging." },
         { term: "Review", value: "Each workstream is reviewed by a model from another provider. On top of that, 4 consolidated rounds gave GO or NO-GO, and the first one caught 2 critical regressions before main." },
         { term: "Model by risk", value: "A stronger model for money, auth, native code and architecture. A lighter one for 1:1 ports and simple screens." },
-        { term: "Gates", value: "Database migrations, merges to main, redeploys of production workers and store builds were out of reach for agents alone: they prepared them, and a human approved, sometimes for a whole wave." },
+        { term: "Gates", value: "Agents prepared database migrations, merges to main, production worker redeploys and store builds, but a person had to approve them, sometimes a whole wave at once." },
       ],
     },
     {
@@ -170,7 +170,7 @@ export const tazz: CaseDetail = {
         {
           index: "7.1",
           title: "A curated knowledge base with keyword search.",
-          text: "The knowledge base has 58 curated entries, each approved before it goes live, and keyword search. The corpus was ~71 KB, with ~5 KB of useful support content. The decision defines when to revisit RAG: only if the corpus exceeds 200 KB of useful text, \"I don’t know\" answers due to missing context exceed 10% for two weeks in a row, and someone owns the curation.",
+          text: "The knowledge base has 58 curated entries, each approved before it goes live, and keyword search. The candidate content totaled ~71 KB, and only ~5 KB of it was real support content. The decision defines when to revisit RAG: only if the corpus exceeds 200 KB of useful text, \"I don’t know\" answers due to missing context exceed 10% for two weeks in a row, and someone owns the curation.",
         },
         {
           index: "7.2",
@@ -184,8 +184,8 @@ export const tazz: CaseDetail = {
         },
         {
           index: "7.4",
-          title: "A judge that only releases.",
-          text: "The word filter blocks claims without a source. The LLM judge steps in only on those blocks and releases false positives. Against the suite’s 39 legitimate sentences, the revised rule gave 0 false positives.",
+          title: "A judge that can only unblock.",
+          text: "The word filter blocks claims without a source. The LLM judge steps in only on those blocks and clears false positives. In an adversarial review of the guardrail, the revised rule gave 0 false positives on 39 legitimate sentences.",
         },
         {
           index: "7.5",
@@ -195,12 +195,12 @@ export const tazz: CaseDetail = {
         {
           index: "7.6",
           title: "Accounts in Postgres, Firebase Auth only on the first login.",
-          text: "In the new app, an account is the row in Postgres. On the first login, the auth Worker checks the password with Firebase once and saves its own hash. After that, it never asks Firebase again for that account, and it never writes to Firebase.",
+          text: "In the new app, an account is a row in Postgres. On the first login, the auth Worker checks the password with Firebase once and saves its own hash. After that, it never asks Firebase again for that account, and it never writes to Firebase.",
         },
         {
           index: "7.7",
           title: "Strangler‑fig, not big bang.",
-          text: "Migrated routes went through service bindings behind the gateway, and routes not migrated kept running on the functions. Only the compute moved: Firestore and Realtime Database stayed on GCP, because the limit was the vCPU quota.",
+          text: "Migrated routes went through service bindings behind the gateway, and unmigrated routes kept running on the functions. Only the compute moved: Firestore and Realtime Database stayed on GCP, because the limit was the vCPU quota.",
         },
         {
           index: "7.8",
@@ -226,6 +226,6 @@ export const tazz: CaseDetail = {
   seo: {
     title: "Tazz: an Expo app built from scratch with AI agents · Everton Resende",
     description:
-      "How I architected a ride-hailing app in Expo and its new Workers, built by coding agents in parallel. I also ported 100+ Cloud Functions to Cloudflare Workers in ~48 h and put a support agent in production.",
+      "How I architected a ride-hailing app in Expo and its Workers, built by coding agents in parallel. I also ported 100+ Cloud Functions to Cloudflare Workers in ~48 h and put a support agent in production.",
   },
 };
