@@ -8,7 +8,7 @@ export const CV_URL = "/cv-everton-resende.pdf";
 export const CV_URL_EN = "/cv-everton-resende-en.pdf";
 
 export const CONTACT = {
-  email: "everton.augustor@gmail.com",
+  email: "contato@evertonresende.com",
   linkedin: "https://linkedin.com/in/evertonresende",
   github: "https://github.com/evertonresende",
   whatsapp: "https://wa.me/5537999133556",
