@@ -37,7 +37,8 @@ Single-page portfolio site built with **React 19 Server Components** via Vite RS
 | `app/components/scroll-reveal.tsx` | GSAP ScrollTrigger wrappers (ScrollReveal, LetterReveal) |
 | `worker/index.ts` | Cloudflare Worker entry point (vinext handler) |
 | `lib/utils.ts` | `cn()` utility (clsx + tailwind-merge) |
-| `lib/markdown.ts` | Markdown version of every page + `/llms.txt`, generated from `app/content` (for AI agents) |
+| `lib/markdown.ts` | Markdown version of every page + `/llms.txt` + `/llms-full.txt` (all pages, EN then PT), generated from `app/content` (for AI agents) |
+| `lib/redirects.ts` | 301s: removed case pages → home section; `/llm.txt`, `/llm.md`, `/llms.md`, `/llm-full.txt` → standard llms names |
 | `wrangler.jsonc` | Workers config: routes, custom domains, observability |
 
 ### How It Works
@@ -48,7 +49,7 @@ Single-page portfolio site built with **React 19 Server Components** via Vite RS
 4. **Animations**: GSAP ScrollTrigger with `once: true` — elements animate in on first scroll into view
 5. **Data**: Project data, timeline, expertise lists are JS constants inside `page.tsx`
 6. **Path alias**: `@/*` maps to `./app/*` (configured in `tsconfig.json`)
-7. **Markdown for agents**: page URLs answer Markdown when `Accept` asks for `text/markdown`; also `/md`, `/index.md`, `/projects/<slug>.md` (and `/en/...`) and `/llms.txt`. No User-Agent sniffing or redirect: link previews and Googlebot must keep the HTML. New content fields must also be rendered in `lib/markdown.ts`. Imports inside `app/content` keep the `.ts` extension so `node --test` can load the real content.
+7. **Markdown for agents**: page URLs answer Markdown (same URL, no redirect) when `Accept` asks for `text/markdown`, or when the User-Agent names an AI agent from an exact list (training bots `GPTBot`, `ClaudeBot`, `meta-externalagent`; assistants fetching for a person `ChatGPT-User`, `Claude-User`, `Perplexity-User`, `MistralAI-User`). Not by Cloudflare's `verifiedBotCategory`: its AI categories also hold search engines (Applebot, Bravebot, PetalBot) and real browsers driven by people. Search engines (Googlebot, OAI-SearchBot, PerplexityBot) and link previews (LinkedIn, WhatsApp) must keep the HTML. Also `/md`, `/index.md`, `/projects/<slug>.md` (and `/en/...`), `/llms.txt` and `/llms-full.txt`. New content fields must also be rendered in `lib/markdown.ts`. Imports inside `app/content` keep the `.ts` extension so `node --test` can load the real content.
 
 ### Deployment
 

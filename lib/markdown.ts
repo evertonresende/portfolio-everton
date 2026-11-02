@@ -1,16 +1,19 @@
 // Versão em Markdown do site para agentes de IA, gerada do mesmo conteúdo das páginas (app/content).
-// Chega por URL própria (/index.md, /md, /projects/tazz.md, /llms.txt) ou por Accept: text/markdown na URL da página.
-// Sem detecção de robô por User-Agent: o preview do LinkedIn/WhatsApp e o Googlebot continuam recebendo o HTML.
+// Chega por URL própria (/index.md, /md, /projects/tazz.md, /llms.txt, /llms-full.txt) ou na URL da página, quando o
+// Accept pede text/markdown ou quando quem pede é agente de IA pelo nome (isAiAgent). Buscadores e prévia de link
+// (LinkedIn, WhatsApp) continuam recebendo o HTML.
 import type { CaseDetail, CaseSlug, Figure, FlowNode, Locale, SiteContent, SpecRow, Stat } from "../app/content/types.ts";
 import { casePath, getContent, homePath, markdownPath } from "../app/content/index.ts";
 import { CONTACT, CV_URL, CV_URL_EN, PERSON, SITE_URL } from "../app/content/shared.ts";
 
 export type MarkdownRoute =
   | { readonly kind: "llms" }
+  | { readonly kind: "llms-full" }
   | { readonly kind: "home"; readonly locale: Locale }
   | { readonly kind: "case"; readonly locale: Locale; readonly slug: CaseSlug };
 
 const LLMS = "/llms.txt";
+const LLMS_FULL = "/llms-full.txt";
 // "/", "/en", "/projects/tazz", "/en/projects/tazz/"
 const PAGE = /^(\/en)?(?:\/projects\/([a-z0-9-]+))?\/?$/;
 // "/index.md", "/md", "/en/index.md", "/projects/tazz.md", "/en/projects/tazz.md"
@@ -28,6 +31,18 @@ function acceptWeight(accept: string, type: string): number {
   return 0;
 }
 
+/**
+ * Agentes de IA pelo nome no User-Agent: robôs de treino (GPTBot, ClaudeBot, Meta) e assistentes que abrem a página a
+ * pedido de alguém. Lista exata, de propósito: as categorias verificadas da Cloudflare (request.cf.verifiedBotCategory)
+ * misturam buscadores (Applebot, Bravebot, PetalBot) e navegadores de verdade guiados por pessoas. Buscador (Googlebot,
+ * OAI-SearchBot, PerplexityBot, Claude-SearchBot) e prévia de link ficam no HTML. Fingir o nome só rende Markdown.
+ */
+const AI_AGENT_UA = /\b(?:GPTBot|ClaudeBot|meta-externalagent|ChatGPT-User|Claude-User|Perplexity-User|MistralAI-User)\b/i;
+
+export function isAiAgent(userAgent: string | null): boolean {
+  return AI_AGENT_UA.test(userAgent ?? "");
+}
+
 /** O cliente pediu Markdown e não prefere HTML (navegador nunca manda text/markdown). */
 export function wantsMarkdown(accept: string | null): boolean {
   const md = acceptWeight(accept ?? "", "text/markdown");
@@ -39,19 +54,20 @@ function pageRoute(locale: Locale, slug: string | undefined): MarkdownRoute | nu
   return Object.hasOwn(getContent(locale).cases, slug) ? { kind: "case", locale, slug: slug as CaseSlug } : null;
 }
 
-/** URL de página HTML que também responde Markdown por Accept (o HTML dela leva Vary: Accept). */
+/** URL de página HTML que também responde Markdown (o HTML dela leva Vary: Accept, User-Agent). */
 export function isPagePath(pathname: string): boolean {
   const match = PAGE.exec(pathname);
   return match !== null && pageRoute(match[1] ? "en" : "pt", match[2]) !== null;
 }
 
-/** Qual Markdown servir para esta URL e este Accept. null = segue para o app. */
-export function markdownRoute(pathname: string, accept: string | null): MarkdownRoute | null {
+/** Qual Markdown servir para esta URL, este Accept e este cliente. null = segue para o app. */
+export function markdownRoute(pathname: string, accept: string | null, aiAgent = false): MarkdownRoute | null {
   if (pathname === LLMS) return { kind: "llms" };
+  if (pathname === LLMS_FULL) return { kind: "llms-full" };
   const file = FILE.exec(pathname);
   if (file) return pageRoute(file[1] ? "en" : "pt", file[2]);
   const page = PAGE.exec(pathname);
-  if (page && wantsMarkdown(accept)) return pageRoute(page[1] ? "en" : "pt", page[2]);
+  if (page && (aiAgent || wantsMarkdown(accept))) return pageRoute(page[1] ? "en" : "pt", page[2]);
   return null;
 }
 
@@ -229,6 +245,7 @@ export function llmsTxt(): string {
       `> ${en.home.seo.description}`,
       pt.home.seo.description,
       `Email: ${CONTACT.email} · LinkedIn: ${CONTACT.linkedin} · GitHub: ${CONTACT.github} · CV (PDF): ${abs(CV_URL_EN)} (English), ${abs(CV_URL)} (Português)`,
+      `Every page in one file: ${abs(LLMS_FULL)}`,
       "## English",
       pages(en, "English").join("\n"),
       "## Português",
@@ -237,8 +254,18 @@ export function llmsTxt(): string {
   );
 }
 
+/** /llms-full.txt: todas as páginas em Markdown num arquivo só (inglês primeiro), para agente que lê uma URL só. */
+export function llmsFullTxt(): string {
+  const docs = (["en", "pt"] as Locale[]).flatMap((locale) => {
+    const site = getContent(locale);
+    return [homeMarkdown(site), ...(Object.keys(site.cases) as CaseSlug[]).map((slug) => caseMarkdown(site, slug))];
+  });
+  return docs.join("\n---\n\n");
+}
+
 export function renderMarkdown(route: MarkdownRoute): string {
   if (route.kind === "llms") return llmsTxt();
+  if (route.kind === "llms-full") return llmsFullTxt();
   const site = getContent(route.locale);
   return route.kind === "home" ? homeMarkdown(site) : caseMarkdown(site, route.slug);
 }
@@ -247,16 +274,18 @@ export function renderMarkdown(route: MarkdownRoute): string {
 export const LLMS_LINK = `<${LLMS}>; rel="describedby"`;
 
 /** Resposta pronta para o Worker, ou null para seguir ao app. O canonical aponta para o HTML. */
-export function markdownResponse(method: string, pathname: string, accept: string | null): Response | null {
+export function markdownResponse(method: string, pathname: string, accept: string | null, aiAgent = false): Response | null {
   if (method !== "GET" && method !== "HEAD") return null;
-  const route = markdownRoute(pathname, accept);
+  const route = markdownRoute(pathname, accept, aiAgent);
   if (!route) return null;
   const headers = new Headers({
-    "Content-Type": route.kind === "llms" ? "text/plain; charset=utf-8" : "text/markdown; charset=utf-8",
+    "Content-Type": route.kind === "llms" || route.kind === "llms-full" ? "text/plain; charset=utf-8" : "text/markdown; charset=utf-8",
     "Cache-Control": "no-store, must-revalidate",
-    Vary: "Accept",
+    Vary: "Accept, User-Agent",
   });
-  if (route.kind !== "llms") {
+  // llms.txt e llms-full.txt são para agentes; no Google seriam uma cópia em texto cru do site.
+  if (route.kind === "llms" || route.kind === "llms-full") headers.set("X-Robots-Tag", "noindex");
+  if (route.kind === "home" || route.kind === "case") {
     const site = getContent(route.locale);
     headers.set("Link", `<${htmlUrl(site, route.kind === "case" ? route.slug : undefined)}>; rel="canonical", ${LLMS_LINK}`);
   }
