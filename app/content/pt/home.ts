@@ -1,5 +1,5 @@
 import type { HomeContent } from "../types";
-import { CV_URL, CONTACT } from "../shared";
+import { CV_URL, CONTACT } from "../shared.ts";
 
 export const home: HomeContent = {
   seo: {

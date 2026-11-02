@@ -1,7 +1,7 @@
 import type { SiteContent } from "../types";
-import { home } from "./home";
-import { tazz } from "./cases/tazz";
-import { dentalSmart } from "./cases/dental-smart";
+import { home } from "./home.ts";
+import { tazz } from "./cases/tazz.ts";
+import { dentalSmart } from "./cases/dental-smart.ts";
 
 export const pt: SiteContent = {
   locale: "pt",

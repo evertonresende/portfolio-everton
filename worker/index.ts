@@ -1,5 +1,6 @@
 import handler from "vinext/server/app-router-entry";
 import { legacyRedirect } from "../lib/redirects";
+import { LLMS_LINK, isPagePath, markdownResponse } from "../lib/markdown";
 
 export default {
   async fetch(request: Request): Promise<Response> {
@@ -10,6 +11,14 @@ export default {
       dest.search = url.search; // mantém utm de link antigo
       return Response.redirect(dest.href, 301);
     }
-    return handler.fetch(request);
+    const markdown = markdownResponse(request.method, url.pathname, request.headers.get("Accept"));
+    if (markdown) return markdown;
+    const response = await handler.fetch(request);
+    if (!isPagePath(url.pathname)) return response;
+    // A mesma URL responde Markdown com Accept: text/markdown; o cache não pode misturar as duas.
+    const page = new Response(response.body, response);
+    page.headers.append("Vary", "Accept");
+    page.headers.append("Link", LLMS_LINK);
+    return page;
   },
 };

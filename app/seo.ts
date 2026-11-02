@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Locale, SiteContent } from "./content/types";
-import { getContent, homePath } from "./content";
+import { getContent, homePath, markdownPath } from "./content";
 import { PERSON, SITE_URL } from "./content/shared";
 
 const OG_LOCALE: Record<Locale, string> = { pt: "pt_BR", en: "en_US" };
@@ -25,6 +25,8 @@ export function pageMetadata(site: SiteContent, path: string, seo: { title: stri
         en: absoluteUrl("en", path),
         "x-default": absoluteUrl("pt", path),
       },
+      // Versão em Markdown para agentes de IA (lib/markdown.ts).
+      types: { "text/markdown": SITE_URL + markdownPath(site.basePath, path === "/" ? undefined : path.replace("/projects/", "")) },
     },
     openGraph: {
       type: "website",
