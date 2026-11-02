@@ -20,7 +20,7 @@ export const PERSON = {
   locality: "Pará de Minas",
   region: "MG",
   country: "BR",
-  image: "/images/everton-480.webp",
+  image: "/images/everton-v2-480.webp",
   // Skills com prova na ficha de fatos (§5) ou confirmadas pelo Éverton (AWS, 2026-10-27). Nomes técnicos, iguais nos dois idiomas.
   knowsAbout: ["LLM", "AI agents", "Tool calling", "RAG", "Embeddings", "Evals", "TypeScript", "Python", "React", "React Native", "Cloudflare Workers", "AWS", "Postgres"],
 } as const;
