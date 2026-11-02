@@ -24,7 +24,7 @@ export const tazz: CaseDetail = {
       title: "Um teto de cota e um app preso ao Firebase.",
       stat: { value: "20", label: "vCPU · cota fixa · São Paulo" },
       paragraphs: [
-        "O backend rodava em ~158 Cloud Functions no GCP e bateu na cota fixa de 20 vCPU da região de São Paulo, com o app em operação.",
+        "O backend rodava em Cloud Functions no GCP e bateu na cota fixa de 20 vCPU da região de São Paulo, com o app em operação.",
         "Mover o backend não bastava para sair do GCP. O app em Flutter falava direto com Firestore, Realtime Database, Storage e Firebase Auth pelo SDK, até no código nativo.",
       ],
     },

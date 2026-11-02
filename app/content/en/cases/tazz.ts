@@ -24,7 +24,7 @@ export const tazz: CaseDetail = {
       title: "A quota ceiling and an app tied to Firebase.",
       stat: { value: "20", label: "vCPU · fixed quota · São Paulo" },
       paragraphs: [
-        "The backend ran on ~158 Cloud Functions on GCP and hit the fixed 20 vCPU quota in the São Paulo region, with the app live.",
+        "The backend ran on Cloud Functions on GCP and hit the fixed 20 vCPU quota in the São Paulo region, with the app live.",
         "Moving the backend was not enough to leave GCP. The Flutter app talked straight to Firestore, Realtime Database, Storage and Firebase Auth through the SDK, even in native code.",
       ],
     },
