@@ -6,9 +6,11 @@
 <title>Everton Resende · AI Engineer · Currículo</title>
 <!--
   Fonte de public/cv-everton-resende.pdf (versão em inglês: curriculo-en.html → cv-everton-resende-en.pdf). Estilo em curriculo.css.
-  Imprimir em A4 no Chromium (page.pdf com preferCSSPageSize, tagged e rodapé com nome e página).
+  Gerar: node scripts/cv/pdf.cjs curriculo.html public/cv-everton-resende.pdf evertonresende.com (A4, tagged, rodapé com nome, site e página).
   Fatos de app/content, mais extras confirmados na ficha privada (bullets da Softplan e da FAPAM, AWS, Node.js, idiomas).
-  Mudou fato no site, mude aqui e gere o PDF de novo.
+  A linha .result de cada item só traz fatos que já estão nos bullets ou em app/content (status e datas podem morar só nela); a seta "→" não existe na fonte do PDF, escreva "para".
+  Cabe em 2 páginas por pouco: node scripts/cv/measure.cjs curriculo.html mostra a folga antes de gerar.
+  Mudou fato no site, mude aqui e em curriculo-en.html e gere os dois PDFs de novo.
 -->
 <link rel="stylesheet" href="curriculo.css">
 </head>
@@ -31,7 +33,7 @@
     </header>
 
     <p class="summary">
-      Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra, em TypeScript, Python, Cloudflare e AWS. <strong>7+ anos desenvolvendo software</strong>. IA em produção: agente de atendimento com evals, guardrails e supervisão humana (casos aprovados de 10 para 23 em 31, mesmo modelo), parecer de crédito com LLM a ~R$ 0,01 cada, reconhecimento facial para as escolas de uma prefeitura, notas clínicas por IA num SaaS usado por ~20 clínicas e um chat clínico com RAG. Workflow <span class="nb">agent-first</span>: defino arquitetura e critérios de aceite, oriento agentes de código, reviso, depuro e respondo pelo que vai para produção.
+      Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra, em TypeScript, Python, Cloudflare e AWS. <strong>7+ anos desenvolvendo software</strong>. IA em produção: agente de atendimento com evals, guardrails e supervisão humana (casos aprovados de 10 para 23 em 31, mesmo modelo), parecer de crédito com LLM a ~R$&nbsp;0,01 cada, reconhecimento facial para as escolas de uma prefeitura, notas clínicas por IA num SaaS usado por ~20 clínicas e um chat clínico com RAG. Workflow <span class="nb">agent-first</span>: defino arquitetura e critérios de aceite, oriento agentes de código, reviso, depuro e respondo pelo que vai para produção.
     </p>
 
     <section>
@@ -43,8 +45,9 @@
           <span class="date">10/2025 – 10/2026</span>
         </div>
         <div class="meta">Fintech de conta digital e crédito · CLT · remoto</div>
+        <div class="result">Parecer de crédito com LLM a ~R$&nbsp;0,01 · app da conta nas lojas · BFF novo no BaaS do Asaas desde 09/2026</div>
         <ul>
-          <li><strong>Parecer de crédito com LLM, em produção:</strong> o <span class="nb">gpt-oss-120b</span> cruza bureau, SCR do Banco Central e simulações e devolve risco, valor, parcela e condições num schema fixo, a ~R$ 0,01 por parecer. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante. O analista decide.</li>
+          <li><strong>Parecer de crédito com LLM, em produção:</strong> o <span class="nb">gpt-oss-120b</span> cruza bureau, SCR do Banco Central e simulações e devolve risco, valor, parcela e condições num schema fixo, a ~R$&nbsp;0,01 por parecer. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante. O analista decide.</li>
           <li><strong>App, BFF e back-office:</strong> app em Expo nas lojas, com correntistas reais; BFF em Hono sobre Cloudflare Workers integrando Cronos, Asaas e HBI; back-office em Next.js com RBAC e audit log.</li>
           <li><strong>Novo BaaS:</strong> em 09/2026, BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.</li>
           <li><strong>Agente de WhatsApp em Python:</strong> construí com Agno + FastAPI um líder que faz a triagem para 3 especialistas, com tools de leitura presas ao contexto da conversa (sem IDOR) e handoff para humano.</li>
@@ -77,19 +80,20 @@
     </section>
 
     <section>
-      <h2>Projetos</h2>
+      <h2>Projetos em produção</h2>
 
       <div class="item">
         <div class="item-top">
-          <h3>Tazz <span class="org">— app de corridas</span></h3>
+          <div class="title"><h3>Tazz <span class="org">— app de corridas</span></h3><a class="case" href="https://evertonresende.com/projects/tazz">evertonresende.com/projects/tazz</a></div>
           <span class="date">2026 – atual</span>
         </div>
+        <div class="result">Agente em produção · evals de 10 para 23 em 31 · 100+ Cloud Functions para 8 Workers · PIX desde 09/2026</div>
         <ul>
           <li><strong>App novo em Expo:</strong> arquitetei e construí do zero o app de passageiro e motorista e os Workers novos dele: auth próprio, hub em tempo real com Durable Objects e API sobre Postgres. Primeiras builds de produção em 10/2026, preparadas para substituir o app Flutter nas lojas.</li>
           <li><strong>Construído com agentes:</strong> orquestrei agentes num backlog de ~200 frentes em paralelo, cada uma com prova por critério de aceite e revisão por um modelo de outro provedor; portões humanos em banco, main e lojas.</li>
           <li><strong>Migração:</strong> o backend rodava em Cloud Functions e bateu na cota fixa de <span class="nb">20 vCPU</span> do GCP em São Paulo com o app em operação. Portei 100+ delas para 8 Cloudflare Workers em <span class="nb">~47,5 h</span>, em strangler-fig e com agentes de código.</li>
           <li><strong>Agente de atendimento:</strong> em produção, com o atendente revisando cada rascunho. Portão de risco, dados pessoais mascarados, 9 tools com o ID do cliente vindo do servidor, guardrail que exige fonte para número e status, e <span class="nb">LLM-juiz</span> que só libera falso positivo, calibrado com 0 falsos bloqueios e 0 bypasses em 55 frases.</li>
-          <li><strong>Evals:</strong> 31 casos (7 adversariais), gate de zero respostas inseguras e <span class="nb">4 modelos</span> comparados. Mesmo modelo, prompt e guardrail novos: aprovados de 10 para 23 e handoff de 80,6% para 38,7%. Demo pública do método: <a href="https://github.com/evertonresende/agent-evals-demo">github.com/evertonresende/agent-evals-demo</a>.</li>
+          <li><strong>Evals:</strong> 31 casos (7 adversariais), gate de zero respostas inseguras e <span class="nb">4 modelos</span> comparados. Mesmo modelo, prompt e guardrail novos: aprovados de 10 para 23 e handoff de 80,6% para 38,7%. Demo pública do método: <a class="nb" href="https://github.com/evertonresende/agent-evals-demo">github.com/evertonresende/agent-evals-demo</a>.</li>
           <li><strong>Base de conhecimento:</strong> 58 entradas curadas, busca por palavra-chave e gatilho objetivo para reavaliar RAG.</li>
           <li><strong>Pagamentos:</strong> PIX (Asaas) em produção desde 09/2026, sobre ledger de partida dobrada isolado.</li>
         </ul>
@@ -101,8 +105,9 @@
           <h3>Rota Protegida <span class="org">— reconhecimento facial escolar para prefeitura</span></h3>
           <span class="date">2026</span>
         </div>
+        <div class="result">Em produção desde 07/2026 · entregue à prefeitura em 09/2026 · biometria de crianças sob a LGPD</div>
         <ul>
-          <li><strong>Produto:</strong> câmeras IP na entrada das escolas identificam alunos e funcionários, registram a presença e avisam os responsáveis por WhatsApp e e-mail. Em produção desde 07/2026; entregue à prefeitura em 09/2026.</li>
+          <li><strong>Produto:</strong> câmeras IP na entrada das escolas identificam alunos e funcionários, registram a presença e avisam os responsáveis por WhatsApp e e-mail.</li>
           <li><strong>Reconhecimento em cascata:</strong> um serviço em Python numa VPS detecta o rosto e extrai o embedding <span class="nb">512-D</span> (AuraFace); a API em Hono sobre Cloudflare Workers busca no Vectorize; na zona cinza, o AWS Rekognition desempata, e o que segue em dúvida vai para revisão humana.</li>
           <li><strong>Decisão:</strong> testei um 2º modelo (AdaFace) junto com o AuraFace e comparei 862 eventos com o veredito do AWS: ele não recuperou nenhum match que o AuraFace tinha perdido e reforçou 45 rejeições erradas. Desliguei.</li>
           <li><strong>LGPD:</strong> biometria de crianças com consentimento obrigatório, retenção automática por tipo de dado, log de quem vê fotos e isolamento por escola no índice vetorial.</li>
@@ -115,8 +120,9 @@
           <h3>Maximus <span class="org">— app para anestesistas</span></h3>
           <span class="date">2026</span>
         </div>
+        <div class="result">No ar, em uso por anestesistas · chat clínico com RAG por texto, imagem ou voz · questões do TSA</div>
         <ul>
-          <li><strong>Produto:</strong> app em Expo e API em Hono sobre Cloudflare Workers, com Supabase e RLS. No ar, em uso por anestesistas.</li>
+          <li><strong>Produto:</strong> app em Expo e API em Hono sobre Cloudflare Workers, com Supabase e RLS.</li>
           <li><strong>Chat clínico com RAG:</strong> Responses API (gpt-5.4) com file_search sobre vector store da OpenAI, code interpreter para gráficos, streaming e pergunta por texto, imagem ou voz (<span class="nb">gpt-4o-transcribe</span>).</li>
           <li><strong>Questões do TSA:</strong> geradas com structured output e validação, a partir da base vetorial.</li>
           <li><strong>Decisão:</strong> construí RAG manual (classificador <span class="nb">gpt-5-nano</span> + busca vetorial) e troquei pelo file_search nativo, porque o classificador barrava buscas legítimas.</li>
@@ -126,13 +132,14 @@
 
       <div class="item">
         <div class="item-top">
-          <h3>Dental Smart <span class="org">— SaaS para clínicas odontológicas</span></h3>
+          <div class="title"><h3>Dental Smart <span class="org">— SaaS para clínicas odontológicas</span></h3><a class="case" href="https://evertonresende.com/projects/dental-smart">evertonresende.com/projects/dental-smart</a></div>
           <span class="date">2025 – atual</span>
         </div>
+        <div class="result">~20 clínicas ativas · 0 churn · nota clínica com IA em produção desde 02/2026</div>
         <ul>
-          <li><strong>Multi-tenant:</strong> SaaS em Next.js e Supabase, com isolamento por RLS no Postgres (um tenant por clínica). ~20 clínicas ativas, 0 churn.</li>
-          <li><strong>Nota clínica com IA, em produção desde 02/2026:</strong> o dentista grava a consulta, o Whisper transcreve e o <span class="nb">Llama 3.3 70B</span> escreve a nota em 4 blocos direto no prontuário, para o dentista revisar.</li>
-          <li><strong>Integrações:</strong> fila de mensagens de WhatsApp com variações geradas por LLM, NFS-e via Focus NFe, conciliação bancária por regras e assinatura de contrato por WhatsApp. CI no GitHub Actions e backup do banco no R2.</li>
+          <li><strong>Multi-tenant:</strong> SaaS em Next.js e Supabase, com isolamento por RLS no Postgres (um tenant por clínica).</li>
+          <li><strong>Nota clínica com IA:</strong> o dentista grava a consulta, o Whisper transcreve e o <span class="nb">Llama 3.3 70B</span> escreve a nota em 4 blocos direto no prontuário, para o dentista revisar.</li>
+          <li><strong>Integrações:</strong> fila de mensagens de WhatsApp com variações geradas por LLM, NFS-e via Focus NFe e assinatura de contrato por WhatsApp. CI no GitHub Actions e backup do banco no R2.</li>
         </ul>
         <div class="stack">Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq</div>
       </div>
@@ -142,8 +149,9 @@
           <h3>Davions <span class="org">— SaaS de galerias para fotógrafos</span></h3>
           <span class="date">2026 – atual</span>
         </div>
+        <div class="result">Entregue em 10/2026 · 10 Cloudflare Workers · 10 funções de IA via AI Gateway · escrow com saque por PIX</div>
         <ul>
-          <li><strong>Re-hospedagem:</strong> refatorei o app, nascido no Lovable, em 10 Cloudflare Workers com Supabase e RLS. Entregue em 10/2026.</li>
+          <li><strong>Re-hospedagem:</strong> refatorei o app, nascido no Lovable, em 10 Cloudflare Workers com Supabase e RLS.</li>
           <li><strong>Pagamentos:</strong> arquitetei o escrow com o Asaas, com ledger em SQL e saque por PIX.</li>
           <li><strong>IA:</strong> levei as 10 funções de IA do app para os Workers, via Cloudflare AI Gateway.</li>
         </ul>
@@ -153,11 +161,14 @@
 
     <section class="skills">
       <h2>Habilidades</h2>
-      <p><b>IA:</b><span>LLMs (OpenAI, Anthropic/Claude, Groq, Workers AI), agentes e tool calling, RAG (file_search, vector store), structured output, guardrails, <span class="nb">LLM-juiz</span>, evals, speech-to-text, reconhecimento facial (AuraFace, AWS Rekognition)</span></p>
       <p><b>Linguagens:</b><span>TypeScript, Python, SQL</span></p>
+      <p><b>Agentes e LLMs:</b><span>OpenAI (Responses API), Groq, Workers AI; agentes e tool calling, structured output, streaming, speech-to-text (Whisper, <span class="nb">gpt-4o-transcribe</span>); agentes de código (Claude Code)</span></p>
+      <p><b>RAG e busca:</b><span>file_search e vector stores da OpenAI, Vectorize, embeddings, busca por palavra-chave</span></p>
+      <p><b>Evals e guardrails:</b><span>evals adversariais, <span class="nb">LLM-juiz</span>, guardrails, mascaramento de PII, revisão humana e handoff</span></p>
+      <p><b>Visão:</b><span>reconhecimento facial (AuraFace, AWS Rekognition)</span></p>
       <p><b>Cloudflare:</b><span>Workers, Durable Objects, Queues, D1, R2, Vectorize, AI Gateway, Workers AI</span></p>
       <p><b>AWS (projetos anteriores):</b><span>EC2, ELB, Lightsail, Lambda, SQS, S3, Aurora, Rekognition</span></p>
-      <p><b>Backend e dados:</b><span>Hono, FastAPI, Node.js, Postgres, Supabase (RLS, Edge Functions), Docker, <span class="nb">CI (GitHub Actions)</span></span></p>
+      <p><b>Backend e dados:</b><span>Hono, FastAPI, Node.js, Postgres, Supabase (RLS, Edge Functions), Docker, <span class="nb">GitHub Actions CI</span></span></p>
       <p><b>Front e mobile:</b><span>React, Next.js, React Native / Expo</span></p>
       <p><b>Pagamentos:</b><span>PIX, Asaas, Stripe Connect, ledger de partida dobrada</span></p>
     </section>

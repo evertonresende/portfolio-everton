@@ -8,7 +8,8 @@
 @font-face { font-family: "JetBrains Mono"; font-weight: 400; font-display: block; src: url("scripts/fonts/cv/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "JetBrains Mono"; font-weight: 500; font-display: block; src: url("scripts/fonts/cv/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
 
-@page { size: A4; margin: 14mm 18mm 16mm; }
+/* Margem inferior guarda o rodapé (nome · site · página) que scripts/cv/pdf.cjs desenha nela. */
+@page { size: A4; margin: 12mm 16mm 14mm; }
 @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -25,7 +26,7 @@ body {
   color: var(--fg);
   background: #fff;
   font-size: 11px;
-  line-height: 1.5;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -61,21 +62,27 @@ h2 {
   color: var(--fg);
   padding-bottom: 4px;
   border-bottom: 1px solid var(--rule);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-.item { margin-bottom: 12px; break-inside: avoid; }
+.item { margin-bottom: 9px; break-inside: avoid; }
 .item:last-child { margin-bottom: 0; }
 .item-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 h3 { font-size: 12.4px; font-weight: 700; letter-spacing: -0.01em; }
 h3 .org { font-weight: 400; color: var(--muted); }
+/* Link do case no site, na linha do título (não custa altura). Fora do h3 para não entrar no bookmark do PDF. */
+.title { display: flex; align-items: baseline; gap: 8px; }
+.case { font-family: "JetBrains Mono", monospace; font-size: 9.6px; color: var(--muted); white-space: nowrap; }
 .date { font-family: "JetBrains Mono", monospace; font-size: 9.6px; color: var(--muted); white-space: nowrap; }
 .meta { font-size: 10px; color: var(--muted); margin-bottom: 4px; }
 .item-top + ul { margin-top: 4px; }
+/* Resultado em uma linha, antes dos bullets: o que saiu do item, para quem só passa o olho (os bullets repetem com contexto). Só fatos que já estão nos bullets. */
+.result { margin: 2px 0 4px; font-family: "JetBrains Mono", monospace; font-size: 9.6px; font-weight: 500; color: var(--fg); }
+.meta + .result { margin-top: -2px; }
 
 ul { list-style: none; }
 /* Sem position no li: elemento posicionado é pintado por último e o texto sai fora de ordem no PDF. */
-li { padding-left: 12px; margin-bottom: 2px; color: var(--body); text-wrap: pretty; }
+li { padding-left: 12px; margin-bottom: 1px; color: var(--body); text-wrap: pretty; }
 li::before { content: "–"; display: inline-block; width: 12px; margin-left: -12px; color: var(--muted); }
 li strong { color: var(--fg); font-weight: 600; }
 
@@ -83,7 +90,7 @@ li strong { color: var(--fg); font-weight: 600; }
 
 /* Habilidades: uma linha por grupo, com dois-pontos no texto para o parser separar rótulo e valor */
 .skills p { display: flex; gap: 8px; margin-bottom: 4px; color: var(--body); }
-.skills b { flex: 0 0 160px; font-weight: 600; color: var(--fg); }
+.skills b { flex: 0 0 150px; font-weight: 600; color: var(--fg); }
 
 .plain p { color: var(--body); }
 .plain p + p { margin-top: 4px; }
