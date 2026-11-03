@@ -60,7 +60,7 @@ Single-page portfolio site built with **React 19 Server Components** via Vite RS
 
 ### Standalone Documents
 
-`curriculo.html` and `carta.html` are self-contained HTML documents (resume/cover letter) with inline Swiss-styled CSS — not part of the React app.
+`curriculo.html` / `curriculo-en.html` (resume, PT/EN, styled by `curriculo.css`) and `carta.html` (cover letter) are standalone HTML documents, not part of the React app. The resume PDFs in `public/` come from `node scripts/cv/pdf.cjs <html> <pdf> <site>` (Playwright Chromium via `PLAYWRIGHT_DIR`; A4, tagged, footer with page numbers). It aborts unless the output is exactly 2 pages and JetBrains Mono is installed for the user (the footer template cannot load `@font-face`; install steps in the script). `node scripts/cv/measure.cjs <html>` prints each block's height and the page-2 slack before generating. Each job/project opens with a one-line `.result` strip whose facts must already exist in that CV's bullets or in `app/content`; the PDF font subsets have no "→", write "to"/"para".
 
 ## Design System
 
