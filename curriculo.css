@@ -45,9 +45,8 @@ a { color: inherit; text-decoration: none; }
 /* Quebra proposital 3 + 2, sem "·" sobrando no fim da linha */
 .contact span:nth-child(3)::after { content: "\A"; white-space: pre; margin: 0; }
 .where { font-size: 10px; color: var(--muted); line-height: 1.6; }
-.header { display: flow-root; padding-bottom: 10px; border-bottom: 1px solid var(--fg); }
-/* Foto do site, quadrada e em cinza (o JPEG já sai em cinza; filtro CSS faria o Chromium rasterizar no PDF). 34mm = altura do texto do cabeçalho, do nome à última linha. */
-.photo { float: right; width: 34mm; height: 34mm; margin-left: 6mm; }
+/* Sem foto (decisão de 2026-11-03: vaga internacional costuma preferir sem). */
+.header { padding-bottom: 10px; border-bottom: 1px solid var(--fg); }
 
 .summary { margin-top: 12px; font-size: 11.4px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
 .summary strong { color: var(--fg); font-weight: 600; }
