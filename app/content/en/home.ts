@@ -22,7 +22,7 @@ export const home: HomeContent = {
       { term: "Career", value: "7+ years in software development" },
       { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
       { term: "Location", value: "Pará de Minas, Brazil · remote (UTC−3)" },
-      { term: "Languages", value: "Portuguese (native) · English for technical interviews" },
+      { term: "Languages", value: "Portuguese (native) · English: good reading and listening, speaking still developing" },
       { term: "Status", value: "Available · remote", status: "production" },
     ],
     proofs: [

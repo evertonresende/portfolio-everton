@@ -22,7 +22,7 @@ export const home: HomeContent = {
       { term: "Carreira", value: "7+ anos desenvolvendo software" },
       { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
       { term: "Local", value: "Pará de Minas, MG · remoto (UTC−3)" },
-      { term: "Idiomas", value: "Português nativo · inglês para entrevistas técnicas" },
+      { term: "Idiomas", value: "Português nativo · inglês: leio e entendo bem, conversação em evolução" },
       { term: "Status", value: "Disponível · remoto", status: "production" },
     ],
     proofs: [
