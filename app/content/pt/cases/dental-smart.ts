@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS para clínicas · 2025 – hoje",
   title: "Dental Smart.",
-  lead: "SaaS para clínicas odontológicas. Sou o engenheiro do produto desde 2025. Na consulta, o dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
+  lead: "SaaS para clínicas odontológicas. Construí o produto do zero em 2025 e sigo como engenheiro dele. Na consulta, o dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, backend e IA" },
@@ -31,9 +31,9 @@ export const dentalSmart: CaseDetail = {
     {
       id: "contexto",
       label: "02 / Contexto",
-      title: "Assumi um produto que já existia.",
+      title: "Construí do zero.",
       paragraphs: [
-        "O produto já existia quando assumi a engenharia. Tornei o produto multi-tenant, com um tenant por clínica, e sigo construindo hoje.",
+        "Construí o produto do zero, em 2025. Ele é multi-tenant, com um tenant por clínica, e sigo construindo hoje.",
       ],
     },
     {
