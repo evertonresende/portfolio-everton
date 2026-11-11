@@ -3,7 +3,7 @@ import { glueSeparators } from "../../../lib/utils";
 import { NoOrphan } from "../ui/no-orphan";
 import { SectionHeader } from "../ui/section-header";
 
-/** 01 / O que eu entrego: uma coluna por item, cada uma com a sua prova alinhada embaixo (subgrid). */
+/** 01 / O que eu entrego: quatro itens em 2×2 no desktop, cada um com a sua prova alinhada embaixo (subgrid). */
 export function Delivery({ site }: { site: SiteContent }) {
   const { delivery } = site.home;
   return (
@@ -11,7 +11,7 @@ export function Delivery({ site }: { site: SiteContent }) {
       <SectionHeader id="entrego-title" label={delivery.label} title={delivery.title} />
       <div className="flex flex-wrap">
         <div className="rail-aside" />
-        <div data-reveal className="rail-main auto-grid-sm">
+        <div data-reveal className="rail-main auto-grid-sm lg:grid-cols-2">
           {delivery.items.map((item) => (
             <div
               key={item.index}
