@@ -48,7 +48,7 @@ export const tazz: CaseDetail = {
             { text: "Support agent with tools, guardrails, LLM‑as‑judge and evals" },
             { text: "Orchestrating the coding agents that built the new app and Workers" },
             { text: "Strangler‑fig migration to Cloudflare Workers" },
-            { text: "Pix payments via Asaas, on the double-entry ledger" },
+            { text: "Money flows on the double-entry ledger: ride payment, reversals, Pix payouts and chargeback holds" },
           ],
         },
         {
@@ -205,7 +205,7 @@ export const tazz: CaseDetail = {
         {
           index: "7.8",
           title: "Money, isolated.",
-          text: "An isolated payments service, a double-entry ledger with no public route, and webhooks whose authenticity is checked (HMAC when the provider signs).",
+          text: "An isolated payments service, a double-entry ledger with no public route, and webhooks whose authenticity is checked (HMAC when the provider signs). Each movement writes both legs in one transaction, and each external event has a unique idempotency key in the database.",
         },
       ],
     },

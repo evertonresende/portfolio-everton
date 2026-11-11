@@ -48,7 +48,7 @@ export const tazz: CaseDetail = {
             { text: "Agente de atendimento com tools, guardrails, LLM-juiz e evals" },
             { text: "Orquestração dos agentes de código que construíram o app e os Workers novos" },
             { text: "Migração strangler‑fig para Cloudflare Workers" },
-            { text: "PIX com o Asaas, sobre o ledger de partida dobrada" },
+            { text: "Fluxos de dinheiro no ledger de partida dobrada: pagamento da corrida, estorno, PIX de saída e retenção de chargeback" },
           ],
         },
         {
@@ -205,7 +205,7 @@ export const tazz: CaseDetail = {
         {
           index: "7.8",
           title: "Dinheiro isolado.",
-          text: "Serviço de pagamentos isolado, ledger de partida dobrada sem rota pública e webhooks com autenticidade verificada (HMAC quando o provedor assina).",
+          text: "Serviço de pagamentos isolado, ledger de partida dobrada sem rota pública e webhooks com autenticidade verificada (HMAC quando o provedor assina). Cada movimento grava as duas pernas na mesma transação, e cada evento externo tem chave de idempotência única no banco.",
         },
       ],
     },

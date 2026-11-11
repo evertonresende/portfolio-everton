@@ -72,6 +72,12 @@ export const home: HomeContent = {
         text: "Cloudflare (Workers, Durable Objects, Queues), Postgres com RLS, Docker e CI. Na AWS: EC2, ELB, Lambda, SQS, S3, Aurora e Rekognition.",
         proof: "Migração da Tazz · Coppay · Dental\u00a0Smart · AWS em projetos anteriores",
       },
+      {
+        index: "1.4",
+        title: "Construo o caminho do dinheiro.",
+        text: "No ledger de partida dobrada da Tazz, construí o pagamento da corrida, o estorno que espelha as pernas, o PIX de saída e a retenção de chargeback. Cada evento externo vira uma chave de idempotência única no banco, então webhook repetido não lança duas vezes.",
+        proof: "Ledger da Tazz · escrow da Davions · conta digital da Coppay",
+      },
     ],
   },
   cases: {
@@ -93,7 +99,7 @@ export const home: HomeContent = {
         },
         problem: "O backend do app de corridas bateu na cota fixa de 20 vCPU do GCP em São Paulo, e o app em Flutter falava direto com o Firebase.",
         whatIDid:
-          "Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de código em paralelo. Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e levei o PIX do Asaas à produção.",
+          "Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de código em paralelo. Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e os fluxos de dinheiro do ledger, e levei o PIX do Asaas à produção.",
         stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
@@ -321,6 +327,7 @@ export const home: HomeContent = {
         term: "Na prática",
         value: "Na Tazz, agentes coordenadores tocaram um backlog de ~200 frentes do app novo em sessões paralelas, uma worktree cada, com revisão de outro modelo.",
       },
+      { term: "MCP", value: "Ligo os agentes aos sistemas por MCP: servidores locais (stdio) e remotos (HTTP), com token, OAuth ou sem auth, um por projeto e com produção separada de staging. No dia a dia: Supabase, Stripe, Sentry, Neon e Playwright." },
       { term: "Evals", value: "Demo pública de como testo um agente antes de uma mudança ir para produção. Usa dados sintéticos: 40 casos, um juiz conferido com 26 rótulos manuais e um gate de CI que falha em qualquer resposta insegura.", link: { label: "Ver o repo", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
       { term: "Este site", value: "Foi refeito com esse mesmo processo. A spec e o plano estão em docs/ no GitHub.", link: { label: "Ver a spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],

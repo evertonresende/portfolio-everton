@@ -3,7 +3,7 @@ import { glueSeparators } from "../../../lib/utils";
 import { NoOrphan } from "../ui/no-orphan";
 import { SectionHeader } from "../ui/section-header";
 
-/** 01 / O que eu entrego: três colunas, cada uma com a sua prova alinhada embaixo (subgrid). */
+/** 01 / O que eu entrego: uma coluna por item, cada uma com a sua prova alinhada embaixo (subgrid). */
 export function Delivery({ site }: { site: SiteContent }) {
   const { delivery } = site.home;
   return (
