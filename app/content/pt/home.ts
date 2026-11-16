@@ -277,6 +277,7 @@ export const home: HomeContent = {
     rows: [
       { period: "out 2025 – out 2026", role: "AI Engineer", company: "Coppay", mode: "CLT · remoto" },
       { period: "nov 2022 – out 2025", role: "Desenvolvedor de Software", company: "Softplan", mode: "CLT · remoto" },
+      { period: "nov 2021 – out 2022", role: "Desenvolvedor Freelancer", company: "", mode: "" },
       { period: "nov 2018 – out 2021", role: "Desenvolvedor de Software", company: "FAPAM", mode: "CLT · híbrido" },
     ],
     education: {
