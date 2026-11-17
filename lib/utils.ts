@@ -38,7 +38,8 @@ export function glueSeparators(text: string): string {
 
 /** Divide um título em [começo, duas últimas palavras]; null com menos de 3 palavras (ver NoOrphan). */
 export function splitLastPair(text: string): readonly [string, string] | null {
-  const words = text.trim().split(/\s+/);
+  // Só espaço comum separa: o \s também casa o NBSP e desfaria o par colado no conteúdo.
+  const words = text.trim().split(/ +/);
   if (words.length < 3) return null;
   return [`${words.slice(0, -2).join(" ")} `, words.slice(-2).join(" ")];
 }

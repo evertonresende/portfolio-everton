@@ -11,6 +11,15 @@ test("legacyRedirect manda as páginas que saíram para a seção da home que as
   assert.equal(legacyRedirect("/en/projects/softplan"), "/en#trajetoria");
 });
 
+test("apelidos do llms.txt (singular, .md) vão para o endereço padrão", () => {
+  assert.equal(legacyRedirect("/llm.txt"), "/llms.txt");
+  assert.equal(legacyRedirect("/llm.md"), "/llms.txt");
+  assert.equal(legacyRedirect("/llms.md"), "/llms.txt");
+  assert.equal(legacyRedirect("/llm-full.txt"), "/llms-full.txt");
+  assert.equal(legacyRedirect("/llms.txt"), null);
+  assert.equal(legacyRedirect("/llms-full.txt"), null);
+});
+
 test("legacyRedirect não mexe em case que existe nem em outra rota", () => {
   for (const path of ["/", "/en", "/projects/tazz", "/en/projects/dental-smart", "/projects/sat-bank/extra", "/xx/projects/fapam", "/projects/constructor"]) {
     assert.equal(legacyRedirect(path), null, path);

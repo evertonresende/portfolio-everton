@@ -1,10 +1,9 @@
 import type { ReactNode } from "react";
 import type { SiteContent } from "../../content/types";
 import { SectionHeader } from "../ui/section-header";
-import { ArrowUpRight } from "../ui/icons";
 import { glueSeparators } from "../../../lib/utils";
 
-/** Cabeçalho dos blocos 4.1 / 4.2: índice mono, h3 e lista com linha fina no topo. */
+/** Cabeçalho do bloco 4.1: índice mono, h3 e lista com linha fina no topo. */
 function Block({ index, title, children }: { index: string; title: string; children: ReactNode }) {
   return (
     <div className="flex flex-col gap-3.5 border-t border-foreground px-gutter pt-5">
@@ -18,7 +17,7 @@ function Block({ index, title, children }: { index: string; title: string; child
 }
 
 export function Timeline({ site }: { site: SiteContent }) {
-  const { label, title, rows, education, openSource } = site.home.timeline;
+  const { label, title, rows, education } = site.home.timeline;
   return (
     <section
       id="trajetoria"
@@ -55,25 +54,6 @@ export function Timeline({ site }: { site: SiteContent }) {
                 <span className="text-mono-sm text-muted">{item.detail}</span>
               </li>
             ))}
-          </Block>
-          <Block index={openSource.index} title={openSource.title}>
-            <li className="flex flex-col gap-0.5 border-b border-rule pt-3 pb-1">
-              <span className="text-body font-medium">{openSource.text}</span>
-              <span className="text-mono-sm text-muted">{openSource.date}</span>
-              <span className="flex flex-wrap gap-x-6">
-                {openSource.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="text-mono-sm inline-flex min-h-11 items-center gap-2 font-medium underline"
-                  >
-                    {link.label}
-                    {link.external ? <ArrowUpRight /> : null}
-                  </a>
-                ))}
-              </span>
-            </li>
           </Block>
         </div>
       </div>

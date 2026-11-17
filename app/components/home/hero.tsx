@@ -1,6 +1,7 @@
 import type { SiteContent } from "../../content/types";
 import { homeAnchor } from "../../content";
 import { ButtonLink } from "../ui/button-link";
+import { Orbits } from "../ui/orbits";
 import { SpecList } from "../ui/spec-list";
 import { StatStrip } from "../ui/stat-strip";
 import { Dot } from "../ui/status-mark";
@@ -9,7 +10,8 @@ import { Dot } from "../ui/status-mark";
 export function Hero({ site }: { site: SiteContent }) {
   const { hero } = site.home;
   return (
-    <section aria-labelledby="hero-title">
+    <section aria-labelledby="hero-title" className="relative isolate">
+      <Orbits scene="hero" />
       <div className="flex flex-col gap-6 px-gutter pt-section pb-cell md:gap-8">
         <p className="label-mono m-0 flex items-start gap-2.5">
           <span className="flex h-4 items-center">
@@ -42,24 +44,24 @@ export function Hero({ site }: { site: SiteContent }) {
 
         <div className="flex flex-wrap content-start">
           <div className="basis-full px-gutter pt-cell sm:min-w-40 sm:shrink-0 sm:grow-0 sm:basis-1/3 sm:pb-cell">
-            <picture className="block aspect-5/4 bg-grid sm:aspect-square">
+            <picture className="block aspect-square bg-grid">
               <source
                 type="image/avif"
-                srcSet="/images/everton-240.avif 240w, /images/everton-480.avif 480w, /images/everton-587.avif 587w, /images/everton-828.avif 828w"
+                srcSet="/images/everton-v2-240.avif 240w, /images/everton-v2-480.avif 480w, /images/everton-v2-587.avif 587w, /images/everton-v2-828.avif 828w"
                 sizes="(min-width: 640px) 200px, 100vw"
               />
               <source
                 type="image/webp"
-                srcSet="/images/everton-240.webp 240w, /images/everton-480.webp 480w, /images/everton-587.webp 587w, /images/everton-828.webp 828w"
+                srcSet="/images/everton-v2-240.webp 240w, /images/everton-v2-480.webp 480w, /images/everton-v2-587.webp 587w, /images/everton-v2-828.webp 828w"
                 sizes="(min-width: 640px) 200px, 100vw"
               />
               <img
-                src="/images/everton-480.webp"
+                src="/images/everton-v2-480.webp"
                 alt={hero.photoAlt}
                 width={240}
                 height={240}
                 decoding="async"
-                className="block aspect-5/4 h-auto w-full object-cover object-top grayscale sm:aspect-square"
+                className="block aspect-square h-auto w-full object-cover object-top grayscale"
               />
             </picture>
           </div>
@@ -72,9 +74,7 @@ export function Hero({ site }: { site: SiteContent }) {
         </div>
       </div>
 
-      <div data-reveal>
-        <StatStrip stats={hero.proofs} label={site.ui.proofs} />
-      </div>
+      <StatStrip stats={hero.proofs} label={site.ui.proofs} />
     </section>
   );
 }

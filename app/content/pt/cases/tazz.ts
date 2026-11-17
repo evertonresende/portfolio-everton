@@ -3,27 +3,29 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobilidade · 2026 – hoje",
   title: "Tazz.",
-  lead: "App de corridas no Brasil. Entrei para tirar o backend de um limite de cota e fiquei para construir o agente de atendimento, o ledger do PIX e o novo app.",
+  lead: "App de corridas no Brasil. Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de IA escrevendo o código em paralelo. Também levei o compute do backend para Cloudflare e coloquei no ar o agente de atendimento e o PIX.",
   factsTitle: "Ficha técnica",
   facts: [
-    { term: "Papel", value: "Arquitetura, backend, IA e app" },
+    { term: "Papel", value: "Arquitetura, app, backend e IA" },
     { term: "Período", value: "2026 – hoje" },
-    { term: "Stack", value: "TypeScript · Cloudflare Workers · Durable Objects · Queues · Postgres · Expo", mono: true },
-    { term: "IA", value: "Atendendo clientes reais", status: "production", statusLabel: "Em produção" },
+    { term: "Stack", value: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres", mono: true },
+    { term: "IA", value: "Agente com supervisão humana", status: "production", statusLabel: "Em produção" },
+    { term: "App novo", value: "Expo, para substituir o app Flutter nas lojas", status: "prototype", statusLabel: "Construído" },
   ],
   stats: [
-    { term: "Migração", value: "~158 → 22", label: "de Cloud Functions para Cloudflare Workers" },
-    { term: "Duração", value: "~47,5 h", label: "até o porte completo" },
+    { term: "Agente", value: "23/31", label: "casos aprovados nos evals (eram 10), com prompt e guardrail novos" },
+    { term: "Migração", value: "100+ → 8", label: "Cloud Functions → Cloudflare Workers em ~47,5 h" },
     { term: "Pagamentos", value: "set/2026", label: "PIX em produção" },
   ],
   sections: [
     {
       id: "problema",
       label: "01 / Problema",
-      title: "Bateu no teto da região.",
+      title: "Um teto de cota e um app preso ao Firebase.",
       stat: { value: "20", label: "vCPU · cota fixa · São Paulo" },
       paragraphs: [
-        "O backend rodava em ~158 Cloud Functions no GCP e bateu na cota fixa de 20 vCPU da região de São Paulo, com o app em operação.",
+        "O backend rodava em Cloud Functions no GCP e bateu na cota fixa de 20 vCPU da região de São Paulo, com o app em operação.",
+        "Mover o backend não bastava para sair do GCP. O app em Flutter falava direto com Firestore, Realtime Database, Storage e Firebase Auth pelo SDK, até no código nativo.",
       ],
     },
     {
@@ -31,7 +33,7 @@ export const tazz: CaseDetail = {
       label: "02 / Contexto",
       title: "Trocar o motor com o carro andando.",
       paragraphs: [
-        "App de corridas em Flutter, com Firestore e Realtime Database. O que precisava mudar era o compute. Os dados podiam ficar onde estavam.",
+        "Primeiro levei o compute HTTP para Cloudflare Workers, e os dados ficaram no GCP. Em set/2026, comecei do zero, como prova de conceito, um app novo em Expo que não fala direto com Firestore, Realtime Database nem Firebase Auth. Em 8/set, ele virou o substituto planejado do app Flutter nas lojas. Enquanto isso, o app Flutter segue em produção.",
       ],
     },
     {
@@ -41,20 +43,22 @@ export const tazz: CaseDetail = {
       columns: [
         {
           index: "3.1",
-          title: "App e painéis.",
+          title: "IA e backend.",
           items: [
-            { text: "Biblioteca de componentes do app novo, com tokens e 2 temas" },
-            { text: "Admin novo e painel de atendimento, com handoff para humano" },
+            { text: "Agente de atendimento com tools, guardrails, LLM-juiz e evals" },
+            { text: "Orquestração dos agentes de código que construíram o app e os Workers novos" },
+            { text: "Migração strangler‑fig para Cloudflare Workers" },
+            { text: "Fluxos de dinheiro no ledger de partida dobrada: pagamento da corrida, estorno, PIX de saída e retenção de chargeback" },
           ],
         },
         {
           index: "3.2",
-          title: "Engenharia.",
+          title: "App novo.",
           items: [
-            { text: "Migração strangler‑fig para Cloudflare Workers" },
-            { text: "Ledger de partida dobrada e PIX com o Asaas" },
-            { text: "Agente de atendimento com tools, guardrails e evals" },
-            { text: "App em Expo para substituir o Flutter" },
+            { text: "App em Expo do zero, para passageiro e motorista" },
+            { text: "Auth próprio, hub em tempo real e API em Workers sobre Postgres" },
+            { text: "Biblioteca de componentes do app novo, com tokens e 2 temas" },
+            { text: "Admin novo e painel de atendimento, com handoff para humano" },
           ],
         },
       ],
@@ -62,10 +66,25 @@ export const tazz: CaseDetail = {
     {
       id: "arquitetura",
       label: "04 / Arquitetura",
-      title: "Strangler‑fig na borda.",
+      title: "Dois apps na mesma borda.",
       figures: [
         {
           number: "Fig. 01",
+          caption: "App novo",
+          direction: "horizontal",
+          nodes: [
+            { title: "App", note: "Expo · passageiro e motorista" },
+            {
+              title: "Workers próprios",
+              note: "auth · API · corridas /v1",
+              branch: [{ title: "Hub em tempo real", note: "Durable Object por cidade · WebSocket" }],
+            },
+            { title: "Postgres", note: "PlanetScale · Hyperdrive" },
+          ],
+          footnote: "Feito para OTA desde a primeira build · Firebase Auth só confere a senha no 1º login",
+        },
+        {
+          number: "Fig. 02",
           caption: "Migração",
           direction: "horizontal",
           nodes: [
@@ -78,17 +97,19 @@ export const tazz: CaseDetail = {
             { title: "Workers de domínio" },
             { title: "Firestore e Realtime Database", note: "GCP" },
           ],
+          footnote: "Durante o porte",
         },
         {
-          number: "Fig. 02",
+          number: "Fig. 03",
           caption: "Atendimento",
           direction: "horizontal",
           nodes: [
             { title: "Canais", note: "WhatsApp, Instagram, app, site, e-mail" },
-            { title: "Atendimento", note: "Queues + DO por conversa" },
-            { title: "Agente", note: "LLM via AI Gateway" },
-            { title: "Tools", note: "só leitura, allowlist, auditoria" },
-            { title: "Operador humano", note: "handoff" },
+            { title: "Portão", note: "DO por conversa · risco e pedido de humano" },
+            { title: "Agente", note: "GPT-5.6 Luna · fallback GLM no Workers AI" },
+            { title: "Tools", note: "9 · ID do cliente vem do servidor" },
+            { title: "Guardrail", note: "fonte, número e status conferidos" },
+            { title: "Operador humano", note: "envia, edita ou descarta" },
           ],
         },
       ],
@@ -96,56 +117,115 @@ export const tazz: CaseDetail = {
     {
       id: "ia",
       label: "05 / Onde a IA entra",
-      title: "No atendimento.",
+      title: "Um agente com fontes conferidas e revisão humana.",
+      paragraphs: [
+        "Em jul/2026, o atendimento recebia ~335 mensagens por dia, de passageiros e motoristas, em 5 canais. Só o cadastro de motorista travado somou 1.237 conversas em 90 dias, 66% das conversas classificadas do WhatsApp.",
+        "Antes do modelo, cada mensagem passa por um portão: palavra de risco vai para a fila prioritária humana, pedido de atendente vai direto para uma pessoa, e tentativa de injeção é detectada e auditada. CPF, cartão, e-mail, telefone e localização são mascarados antes de sair para o provedor. O modelo consulta conta, corridas, pagamento e a base por 9 tools, e o ID do cliente vem do servidor, nunca do modelo.",
+        "Depois do modelo, o guardrail confere a resposta: toda fonte citada tem que existir, todo número tem que estar numa fonte ou na mensagem do cliente, e afirmação de status precisa de fonte. O que passa vira rascunho para o atendente. O que não passa vai para a fila humana.",
+      ],
       specs: [
-        { term: "Modelo", value: "OpenAI via AI Gateway, com fallback. Claude selecionável no painel." },
-        { term: "Tools", value: "5 tools só de leitura, com allowlist e auditoria. No máximo 3 rodadas." },
-        { term: "Guardrails", value: "Checagem em camadas, LLM-juiz e mascaramento de dados pessoais." },
-        { term: "Evals", value: "Evals offline com datasets, gate e comparação de 4 modelos. Rollout em shadow e canary." },
-        { term: "Status", value: "Atendendo clientes reais, com handoff para humano.", status: "production", statusLabel: "Em produção" },
+        { term: "Modelo", value: "GPT-5.6 Luna, ~2,7× mais rápido que o GLM 5.3 Flash na mesma rodada de eval. O GLM deixou de concorrer a modelo principal: 3 rodadas de tools a ~5 s por chamada estouravam o teto de 30 s do turno. Ficou como fallback automático, rodando um turno só, o que também cobre o limite de taxa da plataforma (429 depois de ~150 chamadas em 20 min)." },
+        { term: "LLM-juiz", value: "Quando o filtro por palavra bloqueia uma afirmação, o juiz revisa o bloqueio e libera o falso positivo. Ele nunca bloqueia sozinho. Calibrei antes de ligar: em 55 frases rotuladas (20 legítimas e 35 que devem reprovar), o limiar 0,3 deu 0 falsos bloqueios e 0 bypasses, com p50 de 543 ms. A partir de 0,5, passou 1 bypass." },
+        { term: "Evals", value: "31 casos (7 adversariais): JSON inválido, intenção, handoff, citação válida, latência e respostas inseguras. Gate: zero respostas inseguras. Comparei 4 modelos no mesmo dataset, de US$ 0,008 a US$ 0,028 por rodada; o de produção na época (Llama 3.1 8B) aprovava 4 de 31.", link: { label: "Demo pública do método (dados sintéticos)", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
+        { term: "O que mudou", value: "Mesmo modelo (GPT-5.6 Luna), mesmos 31 casos: com o prompt v5 e o orquestrador e o guardrail revisados, os aprovados foram de 10 para 23, e o handoff caiu de 80,6% para 38,7%, com p50 de 2,0 s. Nessa rodada, os 5 bloqueios do guardrail foram todos acertos: sem artigo na base sobre o tema, o modelo tinha inventado menus e regras do app." },
+        { term: "Status", value: "Hoje roda supervisionado: a IA escreve o rascunho, e o atendente envia, edita ou descarta. Antes, rodou em shadow em produção, escrevendo sem enviar, e num piloto ao vivo com 3 contas de teste.", status: "production", statusLabel: "Em produção" },
+      ],
+    },
+    {
+      id: "construcao",
+      label: "06 / Como foi construído",
+      title: "Um time de agentes, com portões humanos.",
+      paragraphs: [
+        "Comecei o app do zero em 4/set/2026. Uma discovery com 12 agentes leu o app Flutter e a documentação do Expo SDK 57 e escreveu specs com fatos citados por arquivo e linha.",
+        "Depois, agentes coordenadores, um de cada vez, tocaram um backlog de ~200 frentes. As frentes rodavam em sessões paralelas, cada uma na sua worktree, e o coordenador integrava o resultado. A primeira integração entrou na main em 8/set/2026.",
+      ],
+      figures: [
+        {
+          number: "Fig. 04",
+          caption: "Construção com agentes",
+          direction: "horizontal",
+          nodes: [
+            { title: "Discovery", note: "lê o app Flutter" },
+            { title: "Backlog", note: "frentes em ondas" },
+            { title: "Coordenador", note: "agente · integra" },
+            { title: "Frentes", note: "paralelas · 1 worktree cada" },
+            { title: "Revisão", note: "outro provedor por frente" },
+            { title: "Portões humanos", note: "banco, main e lojas" },
+          ],
+        },
+      ],
+      specs: [
+        { term: "Arquitetura", value: "Defini a arquitetura na spec do app: auth próprio, conta no Postgres, hub em tempo real e suporte a OTA desde a primeira build." },
+        { term: "Evidência", value: "Cada frente fecha com uma prova por critério de aceite. O coordenador roda os checks de novo antes de integrar." },
+        { term: "Revisão", value: "Cada frente passa por revisão de um modelo de outro provedor. Por cima disso, 4 rodadas consolidadas deram GO ou NO-GO, e a primeira pegou 2 regressões críticas antes da main." },
+        { term: "Modelo por risco", value: "Modelo mais forte em dinheiro, auth, código nativo e arquitetura. Mais leve em portes 1:1 e telas simples." },
+        { term: "Portões", value: "Migração de banco, merge na main, redeploy de worker em produção e build de loja precisavam de uma pessoa: os agentes preparavam, e um humano autorizava, às vezes uma leva inteira de uma vez." },
       ],
     },
     {
       id: "decisoes",
-      label: "06 / Decisões e trade-offs",
-      title: "O que ficou de fora, de propósito.",
+      label: "07 / Decisões e trade-offs",
+      title: "O que escolhi, e por quê.",
       items: [
         {
-          index: "6.1",
-          badge: "Não usado",
-          title: "Sem RAG no MVP.",
-          text: "A base tem 58 entradas curadas, cada uma com dono, e busca por palavra‑chave. A decisão define quando reavaliar: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
+          index: "7.1",
+          title: "Base curada com busca por palavra‑chave.",
+          text: "A base tem 58 entradas curadas, cada uma aprovada antes de ir ao ar, e busca por palavra‑chave. O conteúdo candidato a entrar na base somava ~71 KB, e só ~5 KB eram de suporte de fato. A decisão define quando reavaliar o uso de RAG: só se o corpus passar de 200 KB de texto útil, se os \"não sei\" por falta de contexto passarem de 10% por duas semanas seguidas e se houver um dono para curar o corpus.",
         },
-        { index: "6.2", title: "Tools só de leitura.", text: "As tools só leem, com allowlist e auditoria. O agente tem handoff para humano." },
         {
-          index: "6.3",
+          index: "7.2",
+          title: "Tools com escopo mínimo.",
+          text: "9 tools: 7 só leem (identidade, conta, corridas, pagamento, tickets e base) e 2 têm efeito (nota interna e handoff). O ID do cliente vem do servidor, e tudo passa por allowlist e auditoria.",
+        },
+        {
+          index: "7.3",
+          title: "Intenções fechadas, rodadas limitadas.",
+          text: "O modelo inventava nomes de intenção, e cada nome novo virava handoff: a lista fechou em 12. O loop de tools era a maior fonte de handoff: os traces mostravam o modelo buscando na base de novo com a pergunta reescrita, mesmo com o artigo na mão e uma regra no prompt mandando responder. Por isso a correção foi no orquestrador, não no prompt: chamada repetida não roda, e a última das 3 rodadas vem sem tools, para o modelo responder. Nos mesmos 31 casos, as falhas por loop caíram de 5 para 1.",
+        },
+        {
+          index: "7.4",
+          title: "Um juiz que só libera.",
+          text: "O filtro por palavra bloqueia afirmação sem fonte. O LLM-juiz entra só nesses bloqueios e libera o falso positivo. Numa revisão adversarial do guardrail, a regra revisada deu 0 falso positivo em 39 frases legítimas.",
+        },
+        {
+          index: "7.5",
+          title: "App novo, não um remendo no Flutter.",
+          text: "A discovery de saída do GCP mostrou que o maior acoplamento estava no cliente: o Flutter falava com o Firebase direto pelo SDK. Para buscar dados, o app novo fala só com Workers próprios, e o Flutter segue nas lojas até a troca.",
+        },
+        {
+          index: "7.6",
+          title: "Conta no Postgres, Firebase Auth só no 1º login.",
+          text: "No app novo, a conta é um registro no Postgres. No primeiro login, o Worker de auth confere a senha no Firebase uma vez e grava um hash próprio. Depois disso, ele não chama mais o Firebase para aquela conta e nunca escreve nele.",
+        },
+        {
+          index: "7.7",
           title: "Strangler‑fig, não big bang.",
-          text: "Rotas migradas por service binding atrás do gateway. O que não migrou seguiu respondendo pelas functions.",
+          text: "Rotas migradas por service binding atrás do gateway, e o que não migrou seguiu nas functions. Só o compute saiu: Firestore e Realtime Database ficaram no GCP, porque a cota que travou era de vCPU.",
         },
-        { index: "6.4", title: "Só o compute saiu.", text: "Firestore e RTDB ficaram no GCP. A cota que travou era de vCPU." },
         {
-          index: "6.5",
+          index: "7.8",
           title: "Dinheiro isolado.",
-          text: "Serviço de pagamentos isolado, ledger de partida dobrada sem rota pública e webhooks com HMAC.",
+          text: "Serviço de pagamentos isolado, ledger de partida dobrada sem rota pública e webhooks com autenticidade verificada (HMAC quando o provedor assina). Cada movimento grava as duas pernas na mesma transação, e cada evento externo tem chave de idempotência única no banco.",
         },
       ],
     },
     {
       id: "resultado",
-      label: "07 / Resultado",
-      title: "No ar.",
+      label: "08 / Resultado",
+      title: "Agente no ar. App novo a caminho.",
+      paragraphs: [
+        "As primeiras builds de produção do app novo saíram em out/2026, e ele foi preparado para substituir o app Flutter como atualização nas lojas. O admin novo já roda na web, com dados de produção.",
+      ],
       stats: [
-        { value: "~158 → 22", label: "de Cloud Functions para Cloudflare Workers" },
-        { value: "~47,5 h", label: "até o porte completo" },
-        { value: "set/2026", label: "PIX em produção" },
-        { term: "IA", value: "IA", label: "Agente atendendo clientes reais.", status: "production", statusLabel: "Em produção" },
+        { term: "IA", value: "IA", label: "Agente nas conversas reais, com um atendente revisando cada resposta.", status: "production", statusLabel: "Em produção" },
+        { term: "App", value: "App", label: "App em Expo construído com agentes de código.", status: "prototype", statusLabel: "Construído" },
       ],
     },
   ],
-  next: { slug: "dental-smart", index: "02", title: "Dental Smart." },
+  next: { slug: "dental-smart", index: "03", title: "Dental Smart." },
   seo: {
-    title: "Tazz: migração para Cloudflare Workers e agente de atendimento · Everton Resende",
+    title: "Tazz: app em Expo construído do zero com agentes de IA · Everton Resende",
     description:
-      "Como portei ~158 Cloud Functions para 22 Cloudflare Workers em ~47,5 h e construí um agente de atendimento com tool calling, guardrails e evals em produção.",
+      "Como arquitetei um app de corridas em Expo e os Workers dele, construídos por agentes de código em paralelo. Também portei 100+ Cloud Functions para Cloudflare Workers em ~48 h e coloquei um agente de atendimento em produção.",
   },
 };

@@ -6,7 +6,7 @@ import { ArrowUp } from "./ui/icons";
 export function Footer({ site }: { site: SiteContent }) {
   const { footer } = site;
   return (
-    <footer className="relative z-10 border-t border-grid">
+    <footer data-theme="ink" className="grid-lines relative z-10 border-t border-grid bg-background text-foreground">
       <div className="label-mono flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-gutter py-6 text-muted">
         <span className="flex items-center gap-4">
           <FooterMark href={homePath(site.basePath)} label={site.nav.brand} />

@@ -14,7 +14,7 @@ export function SectionHeader({ id, label, title }: Props) {
   return (
     <div className="flex flex-wrap items-baseline gap-y-3">
       <p className="rail-aside label-mono m-0 px-gutter text-foreground">{label}</p>
-      <h2 id={id} className="rail-main text-display-2 m-0 px-gutter">
+      <h2 id={id} data-reveal="clip" className="rail-main text-display-2 m-0 px-gutter">
         {lines.map((line, i) => (
           <span key={line} className="block">
             <NoOrphan text={line} />

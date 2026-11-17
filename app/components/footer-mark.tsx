@@ -135,11 +135,11 @@ export function FooterMark({ href, label }: { href: string; label: string }) {
     <a
       href={href}
       aria-label={label}
-      className="relative block size-11 shrink-0 bg-foreground hover:outline-2 hover:outline-offset-3 hover:outline-accent"
+      className="relative block size-11 shrink-0 border border-rule bg-ink hover:outline-2 hover:outline-offset-3 hover:outline-accent"
     >
       <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 size-full forced-colors:hidden" />
       <svg viewBox="0 0 32 32" aria-hidden="true" className="absolute inset-0 size-full">
-        <path className="fill-background forced-colors:fill-[CanvasText]" d="M7 7h12v4h-8v3h7v4h-7v3h8v4H7z" />
+        <path className="fill-paper forced-colors:fill-[CanvasText]" d="M7 7h12v4h-8v3h7v4h-7v3h8v4H7z" />
         <rect x="21" y="21" width="4" height="4" className="fill-accent" />
       </svg>
     </a>

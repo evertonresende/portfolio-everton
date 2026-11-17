@@ -1,7 +1,7 @@
 import type { SiteContent } from "../types";
-import { home } from "./home";
-import { tazz } from "./cases/tazz";
-import { dentalSmart } from "./cases/dental-smart";
+import { home } from "./home.ts";
+import { tazz } from "./cases/tazz.ts";
+import { dentalSmart } from "./cases/dental-smart.ts";
 
 export const en: SiteContent = {
   locale: "en",
@@ -22,7 +22,7 @@ export const en: SiteContent = {
   },
   footer: {
     copyright: "© 2026 Everton Resende",
-    madeWith: "Built with React, Vite and Cloudflare Workers, with agents.",
+    madeWith: "Built with React, Vite, Cloudflare Workers and agents.",
     backToTop: "Back to top",
   },
   ui: {
