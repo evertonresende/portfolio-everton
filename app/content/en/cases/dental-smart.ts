@@ -1,7 +1,7 @@
 import type { CaseDetail } from "../../types";
 
 export const dentalSmart: CaseDetail = {
-  kicker: "Case 03 · SaaS for clinics · 2025 – present",
+  kicker: "Case 03 · SaaS for clinics · 2025 – present · Consulting and execution",
   title: "Dental Smart.",
   lead: "SaaS for dental clinics. I built it from scratch in 2025 and still own its engineering. During the appointment, the dentist records the visit, and the AI writes the clinical note into the patient’s record as a draft for the dentist to review.",
   factsTitle: "Fact sheet",

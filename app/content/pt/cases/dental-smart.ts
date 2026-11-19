@@ -1,7 +1,7 @@
 import type { CaseDetail } from "../../types";
 
 export const dentalSmart: CaseDetail = {
-  kicker: "Case 03 · SaaS para clínicas · 2025 – hoje",
+  kicker: "Case 03 · SaaS para clínicas · 2025 – hoje · Consultoria e execução",
   title: "Dental Smart.",
   lead: "SaaS para clínicas odontológicas. Construí o produto do zero em 2025 e sigo como engenheiro dele. Na consulta, o dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
   factsTitle: "Ficha técnica",

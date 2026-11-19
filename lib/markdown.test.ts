@@ -159,3 +159,24 @@ test("todo link .md do llms.txt e das páginas abre um Markdown que existe", () 
   assert.ok(links.size >= 6, `poucos links: ${[...links].join(", ")}`);
   for (const path of links) assert.ok(markdownRoute(path, null), path);
 });
+
+test("posicionamento: disponibilidade, trajetória com o cargo de consultoria e prova do agente-concierge nos dois idiomas", () => {
+  for (const locale of ["pt", "en"] as Locale[]) {
+    const site = getContent(locale);
+    const home = renderMarkdown({ kind: "home", locale });
+    assert.doesNotMatch(home, /contrato internacional|international contract/i);
+    assert.match(home, locale === "pt" ? /viagens pontuais/ : /occasional travel/);
+    assert.match(home, /LangChain\/LangGraph/);
+    assert.ok(home.includes("https://github.com/evertonresende/agente-concierge"));
+    assert.ok(home.includes("https://github.com/evertonresende/agent-evals-demo"));
+    assert.match(home, locale === "pt" ? /sintéticos/ : /synthetic/);
+    const { rows } = site.home.timeline;
+    const first = rows[0];
+    const coppay = rows.find((r) => r.company === "Coppay");
+    assert.ok(coppay, `${locale}: linha da Coppay`);
+    assert.equal(first.period.startsWith("2025"), true);
+    assert.match(first.company, /Coppay.*Tazz.*Rota Protegida.*Dental Smart.*Maximus.*Davions/);
+    assert.doesNotMatch(coppay.mode, /CLT/); // Coppay foi PJ
+    for (const item of site.home.cases.items) assert.match(item.meta, locale === "pt" ? /Consultoria e execução/ : /Consulting and execution/);
+  }
+});

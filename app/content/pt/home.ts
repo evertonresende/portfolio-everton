@@ -8,9 +8,9 @@ export const home: HomeContent = {
       "AI Engineer com 7+ anos desenvolvendo software. Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra, em TypeScript, Python, Cloudflare e AWS.",
   },
   hero: {
-    status: "Disponível · remoto · PJ, CLT ou contrato internacional",
-    title: "AI Engineer.",
-    lead: "Construo e coloco em produção sistemas com LLMs, agentes e RAG, da arquitetura à infra.",
+    status: "Disponível · remoto · PJ ou CLT · viagens pontuais",
+    title: "AI Engineer · agentes de IA em produção.",
+    lead: "Construo e coloco em produção agentes, RAG e evals, trabalhando direto com o cliente e o usuário.",
     sub: "Entrego produtos inteiros, do app ao backend, em SaaS para clínicas, fintech, mobilidade, apoio clínico e educação pública. Trabalho com agentes de código e respondo pelo que vai ao ar.",
     primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Ver cases", href: "#cases" },
@@ -20,7 +20,7 @@ export const home: HomeContent = {
     facts: [
       { term: "Foco", value: "LLMs, agentes e RAG em produção" },
       { term: "Carreira", value: "7+ anos desenvolvendo software" },
-      { term: "Stack", value: "TypeScript · Python · Cloudflare · AWS · Postgres" },
+      { term: "Stack", value: "Python · TypeScript · LangChain/LangGraph · AWS · Cloudflare · Postgres" },
       { term: "Local", value: "Pará de Minas, MG · remoto (UTC−3)" },
       { term: "Idiomas", value: "Português nativo · inglês: leio e entendo bem, conversação em evolução" },
       { term: "Status", value: "Disponível · remoto", status: "production" },
@@ -57,7 +57,7 @@ export const home: HomeContent = {
       {
         index: "1.1",
         title: "Arquiteto agentes.",
-        text: "Em TypeScript: tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz calibrado, evals com gate e fallback entre modelos. Em Python: times de agentes com triagem e handoff, em Agno.",
+        text: "Em TypeScript: tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz calibrado, evals com gate e fallback entre modelos. Em Python: times de agentes com triagem e handoff, em Agno. Uso LangChain/LangGraph e observabilidade no LangSmith.",
         proof: "Agente da Tazz · agentes em Python (Agno) na Coppay",
       },
       {
@@ -87,7 +87,7 @@ export const home: HomeContent = {
       {
         slug: "tazz",
         index: "01",
-        meta: "Mobilidade · 2026–hoje",
+        meta: "Mobilidade · 2026–hoje · Consultoria e execução",
         title: "Tazz.",
         hasPage: true,
         figure: {
@@ -118,7 +118,7 @@ export const home: HomeContent = {
       {
         slug: "rota-protegida",
         index: "02",
-        meta: "Educação pública · 2026",
+        meta: "Educação pública · 2026 · Consultoria e execução",
         title: "Rota Protegida.",
         hasPage: false,
         figure: {
@@ -154,7 +154,7 @@ export const home: HomeContent = {
       {
         slug: "dental-smart",
         index: "03",
-        meta: "SaaS para clínicas · 2025–hoje",
+        meta: "SaaS para clínicas · 2025–hoje · Consultoria e execução",
         title: "Dental Smart.",
         hasPage: true,
         figure: {
@@ -185,7 +185,7 @@ export const home: HomeContent = {
       {
         slug: "maximus",
         index: "04",
-        meta: "Saúde · 2026",
+        meta: "Saúde · 2026 · Consultoria e execução",
         title: "Maximus.",
         hasPage: false,
         figure: {
@@ -226,7 +226,7 @@ export const home: HomeContent = {
       {
         slug: "coppay",
         index: "05",
-        meta: "Fintech · 2025–2026",
+        meta: "Fintech · 2025–2026 · Consultoria e execução",
         title: "Coppay.",
         hasPage: false,
         figure: {
@@ -266,7 +266,7 @@ export const home: HomeContent = {
       {
         slug: "davions",
         index: "06",
-        meta: "SaaS para fotógrafos · 2026–hoje",
+        meta: "SaaS para fotógrafos · 2026–hoje · Consultoria e execução",
         title: "Davions.",
         hasPage: false,
         figure: {
@@ -328,7 +328,8 @@ export const home: HomeContent = {
         value: "Na Tazz, agentes coordenadores tocaram um backlog de ~200 frentes do app novo em sessões paralelas, uma worktree cada, com revisão de outro modelo.",
       },
       { term: "MCP", value: "Ligo os agentes aos sistemas por MCP: servidores locais (stdio) e remotos (HTTP), com token, OAuth ou sem auth, um por projeto e com produção separada de staging. No dia a dia: Supabase, Stripe, Sentry, Neon e Playwright." },
-      { term: "Evals", value: "Demo pública de como testo um agente antes de uma mudança ir para produção. Usa dados sintéticos: 40 casos, um juiz conferido com 26 rótulos manuais e um gate de CI que falha em qualquer resposta insegura.", link: { label: "Ver o repo", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
+      { term: "Agente com modelo real", value: "Agente de reservas de imóveis de temporada, com evals e conferências de código sobre a resposta, avaliado com o modelo real (Claude Haiku 5.5).", link: { label: "Ver o repo", href: "https://github.com/evertonresende/agente-concierge", external: true } },
+      { term: "Evals", value: "Demo pública, só com dados sintéticos, de como testo um agente antes de uma mudança ir para produção. Tem 40 casos, um juiz conferido com 26 rótulos manuais e um gate de CI que falha em qualquer resposta insegura.", link: { label: "Ver o repo", href: "https://github.com/evertonresende/agent-evals-demo", external: true } },
       { term: "Este site", value: "Foi refeito com esse mesmo processo. A spec e o plano estão em docs/ no GitHub.", link: { label: "Ver a spec", href: "https://github.com/evertonresende/portfolio-everton/blob/main/docs/superpowers/specs/2026-10-23-lp-v3-design.md", external: true } }
     ],
   },
@@ -336,10 +337,11 @@ export const home: HomeContent = {
     label: "04 / Trajetória",
     title: "Trajetória.",
     rows: [
-      { period: "out 2025 – out 2026", role: "AI Engineer", company: "Coppay", mode: "CLT · remoto" },
-      { period: "nov 2022 – out 2025", role: "Desenvolvedor de Software", company: "Softplan", mode: "CLT · remoto" },
+      { period: "2025 – hoje", role: "Consultor e engenheiro de IA", company: "PJ e freelance (Coppay, Tazz, Rota Protegida, Dental Smart, Maximus, Davions)", mode: "remoto" },
+      { period: "out 2025 – out 2026", role: "AI Engineer", company: "Coppay", mode: "PJ · remoto" },
+      { period: "nov 2022 – out 2025", role: "Desenvolvedor de Software", company: "Softplan · TypeScript, Node, React, SQL, AWS, Docker", mode: "CLT · remoto" },
       { period: "nov 2021 – out 2022", role: "Desenvolvedor Freelancer", company: "", mode: "" },
-      { period: "nov 2018 – out 2021", role: "Desenvolvedor de Software", company: "FAPAM", mode: "CLT · híbrido" },
+      { period: "nov 2018 – out 2021", role: "Desenvolvedor de Software", company: "FAPAM · TypeScript, Node, React, SQL, AWS, Docker", mode: "CLT · híbrido" },
     ],
     education: {
       index: "4.1",
@@ -350,7 +352,7 @@ export const home: HomeContent = {
   contact: {
     label: "05 / Contato",
     title: "Vamos conversar.",
-    status: "Disponível · remoto · PJ, CLT ou contrato internacional",
+    status: "Disponível · remoto · PJ ou CLT · viagens pontuais",
     primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Baixar CV (PDF)", href: CV_URL },
     listTitle: "Contatos",

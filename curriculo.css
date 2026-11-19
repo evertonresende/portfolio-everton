@@ -25,8 +25,8 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--fg);
   background: #fff;
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: 11.8px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -48,7 +48,7 @@ a { color: inherit; text-decoration: none; }
 /* Sem foto (decisão de 2026-11-03: vaga internacional costuma preferir sem). */
 .header { padding-bottom: 10px; border-bottom: 1px solid var(--fg); }
 
-.summary { margin-top: 12px; font-size: 11.4px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
+.summary { margin-top: 12px; font-size: 12.2px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
 .summary strong { color: var(--fg); font-weight: 600; }
 
 /* Seções: rótulo sem tracking, porque letra espaçada sai "E X P E R I Ê N C I A" para o ATS */
@@ -66,8 +66,7 @@ h2 {
 
 .item { margin-bottom: 9px; break-inside: avoid; }
 .item:last-child { margin-bottom: 0; }
-/* A experiência tem 4 itens (entrou o freelancer): vão 3px menor entre eles e no topo da seção,
-   para a página 1 continuar fechando com a Tazz e o CV caber em 2 páginas (medido por scripts/cv/measure.cjs). */
+/* A experiência tem 4 itens (consultoria, Softplan, freelancer, FAPAM): vão menor entre eles e no topo da seção, para fechar a página 1. */
 section:first-of-type { margin-top: 12px; }
 section:first-of-type .item { margin-bottom: 6px; }
 .item-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
@@ -98,3 +97,12 @@ li strong { color: var(--fg); font-weight: 600; }
 .plain p { color: var(--body); }
 .plain p + p { margin-top: 4px; }
 .nb { white-space: nowrap; }
+
+/* Parágrafo de abertura do cargo de consultoria, antes dos bullets por cliente. */
+.lede { color: var(--body); margin: 0 0 4px; text-wrap: pretty; }
+.plain p a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 2px; }
+
+/* Página 1 fecha com a experiência; a 2 abre em "Provas públicas". Seção nunca separa o título dos itens. */
+h2 { break-after: avoid; }
+.plain, .skills { break-inside: avoid; }
+section.new-page { break-before: page; margin-top: 0; }
