@@ -1,13 +1,13 @@
 import type { CaseDetail } from "../../types";
 
 export const dentalSmart: CaseDetail = {
-  kicker: "Case 03 · SaaS para clínicas · 2025 – hoje · Consultoria e execução",
+  kicker: "Case 03 · SaaS para clínicas · 1 ano, 2025 – 2026 · Consultoria e execução",
   title: "Dental Smart.",
-  lead: "SaaS para clínicas odontológicas. Construí o produto do zero em 2025 e sigo como engenheiro dele. Na consulta, o dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
+  lead: "SaaS para clínicas odontológicas. Construí o produto do zero, em 1 ano de trabalho (2025 – 2026). Na consulta, o dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, backend e IA" },
-    { term: "Período", value: "2025 – hoje" },
+    { term: "Período", value: "1 ano, 2025 – 2026" },
     { term: "Stack", value: "Next.js 16 · React 19 · Supabase · Postgres RLS · Edge Functions · Groq", mono: true },
     { term: "IA", value: "Nota clínica escrita a partir da consulta gravada", status: "production", statusLabel: "Em produção" },
   ],
@@ -33,7 +33,7 @@ export const dentalSmart: CaseDetail = {
       label: "02 / Contexto",
       title: "Construí do zero.",
       paragraphs: [
-        "Construí o produto do zero, em 2025. Ele é multi-tenant, com um tenant por clínica, e sigo construindo hoje.",
+        "Construí o produto do zero, em 2025. Ele é multi-tenant, com um tenant por clínica, e o construí ao longo de 1 ano.",
       ],
     },
     {

@@ -1,13 +1,13 @@
 import type { CaseDetail } from "../../types";
 
 export const dentalSmart: CaseDetail = {
-  kicker: "Case 03 · SaaS for clinics · 2025 – present · Consulting and execution",
+  kicker: "Case 03 · SaaS for clinics · 1 year, 2025 – 2026 · Consulting and execution",
   title: "Dental Smart.",
-  lead: "SaaS for dental clinics. I built it from scratch in 2025 and still own its engineering. During the appointment, the dentist records the visit, and the AI writes the clinical note into the patient’s record as a draft for the dentist to review.",
+  lead: "SaaS for dental clinics. I built it from scratch over 1 year of work (2025 – 2026). During the appointment, the dentist records the visit, and the AI writes the clinical note into the patient’s record as a draft for the dentist to review.",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, back end and AI" },
-    { term: "Period", value: "2025 – present" },
+    { term: "Period", value: "1 year, 2025 – 2026" },
     { term: "Stack", value: "Next.js 16 · React 19 · Supabase · Postgres RLS · Edge Functions · Groq", mono: true },
     { term: "AI", value: "Clinical note written from the recorded appointment", status: "production", statusLabel: "In production" },
   ],
@@ -33,7 +33,7 @@ export const dentalSmart: CaseDetail = {
       label: "02 / Context",
       title: "I built it from scratch.",
       paragraphs: [
-        "I built the product from scratch in 2025. It’s multi-tenant, with one tenant per clinic, and I’m still building it.",
+        "I built the product from scratch in 2025. It’s multi-tenant, with one tenant per clinic, and I built it over 1 year.",
       ],
     },
     {

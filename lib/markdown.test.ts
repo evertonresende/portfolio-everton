@@ -160,23 +160,29 @@ test("todo link .md do llms.txt e das páginas abre um Markdown que existe", () 
   for (const path of links) assert.ok(markdownRoute(path, null), path);
 });
 
-test("posicionamento: disponibilidade, trajetória com o cargo de consultoria e prova do agente-concierge nos dois idiomas", () => {
+test("posicionamento: consultoria encerrada, início imediato, MCP e provas públicas nos dois idiomas", () => {
   for (const locale of ["pt", "en"] as Locale[]) {
+    const pt = locale === "pt";
     const site = getContent(locale);
     const home = renderMarkdown({ kind: "home", locale });
     assert.doesNotMatch(home, /contrato internacional|international contract/i);
-    assert.match(home, locale === "pt" ? /viagens pontuais/ : /occasional travel/);
-    assert.match(home, /LangChain\/LangGraph/);
-    assert.ok(home.includes("https://github.com/evertonresende/agente-concierge"));
-    assert.ok(home.includes("https://github.com/evertonresende/agent-evals-demo"));
-    assert.match(home, locale === "pt" ? /sintéticos/ : /synthetic/);
+    assert.match(home, pt ? /início imediato/ : /immediate start/);
+    assert.match(home, pt ? /viagens pontuais/ : /occasional travel/);
+    assert.match(home, pt ? /servidores MCP/ : /MCP servers/);
+    assert.match(home, pt ? /LangChain, LangGraph e LangSmith/ : /LangChain, LangGraph and LangSmith/);
+    assert.ok(home.indexOf("agente-concierge") < home.indexOf("agent-evals-demo"), "agente-concierge vem primeiro");
+    assert.match(home, pt ? /sintéticos/ : /synthetic/);
+    // Nenhum vínculo em aberto: sem "– hoje/present" e sem "sigo como engenheiro".
+    for (const text of [home, ...Object.keys(site.cases).map((slug) => renderMarkdown({ kind: "case", locale, slug: slug as CaseSlug }))]) {
+      assert.doesNotMatch(text, /[–-]\s*(hoje|present)\b|sigo como engenheiro|still own|still building/i);
+    }
     const { rows } = site.home.timeline;
-    const first = rows[0];
+    assert.equal(rows[0].period, "2025 – 2026");
+    assert.match(rows[0].company, /Coppay.*Tazz.*Rota Protegida.*Dental Smart.*Maximus.*Davions/);
     const coppay = rows.find((r) => r.company === "Coppay");
     assert.ok(coppay, `${locale}: linha da Coppay`);
-    assert.equal(first.period.startsWith("2025"), true);
-    assert.match(first.company, /Coppay.*Tazz.*Rota Protegida.*Dental Smart.*Maximus.*Davions/);
     assert.doesNotMatch(coppay.mode, /CLT/); // Coppay foi PJ
-    for (const item of site.home.cases.items) assert.match(item.meta, locale === "pt" ? /Consultoria e execução/ : /Consulting and execution/);
+    for (const item of site.home.cases.items) assert.match(item.meta, pt ? /Consultoria e execução/ : /Consulting and execution/);
+    assert.match(site.home.cases.items[0].meta, pt ? /6 meses em 2026/ : /6 months in 2026/); // Tazz, igual ao CV
   }
 });

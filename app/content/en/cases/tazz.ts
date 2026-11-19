@@ -1,13 +1,13 @@
 import type { CaseDetail } from "../../types";
 
 export const tazz: CaseDetail = {
-  kicker: "Case 01 · Mobility · 2026 – present · Consulting and execution",
+  kicker: "Case 01 · Mobility · 6 months in 2026 · Consulting and execution",
   title: "Tazz.",
   lead: "A ride-hailing app in Brazil. I architected and built the new Expo app and its Workers from scratch, with AI agents writing the code in parallel. I also moved the backend’s compute to Cloudflare and shipped the support agent and Pix (Brazil’s instant payments).",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, app, backend and AI" },
-    { term: "Period", value: "2026 – present" },
+    { term: "Period", value: "6 months in 2026" },
     { term: "Stack", value: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres", mono: true },
     { term: "AI", value: "Agent under human review", status: "production", statusLabel: "In production" },
     { term: "New app", value: "Expo, to replace the Flutter app in the stores", status: "prototype", statusLabel: "Built" },
