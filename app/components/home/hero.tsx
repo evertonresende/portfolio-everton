@@ -1,5 +1,6 @@
 import type { SiteContent } from "../../content/types";
 import { homeAnchor } from "../../content";
+import { glueSeparators } from "../../../lib/utils";
 import { ButtonLink } from "../ui/button-link";
 import { Orbits } from "../ui/orbits";
 import { SpecList } from "../ui/spec-list";
@@ -19,9 +20,9 @@ export function Hero({ site }: { site: SiteContent }) {
           </span>
           <span className="min-w-0 flex-1">{hero.status}</span>
         </p>
-        {/* O cargo é o mesmo nos dois idiomas (PERSON.jobTitle), sempre em inglês. */}
-        <h1 id="hero-title" lang="en" className="text-display-1 serif-i m-0">
-          {hero.title}
+        {/* O cargo "AI Engineer" é o mesmo nos dois idiomas (PERSON.jobTitle); só o título em inglês leva lang="en", porque o do PT traz a frase em português. */}
+        <h1 id="hero-title" lang={site.locale === "en" ? "en" : undefined} className="text-display-1 serif-i m-0">
+          {glueSeparators(hero.title)}
         </h1>
       </div>
 

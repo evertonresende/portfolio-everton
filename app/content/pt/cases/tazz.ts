@@ -1,13 +1,13 @@
 import type { CaseDetail } from "../../types";
 
 export const tazz: CaseDetail = {
-  kicker: "Case 01 · Mobilidade · 2026 – hoje",
+  kicker: "Case 01 · Mobilidade · 6 meses em 2026 · Consultoria e execução",
   title: "Tazz.",
   lead: "App de corridas no Brasil. Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de IA escrevendo o código em paralelo. Também levei o compute do backend para Cloudflare e coloquei no ar o agente de atendimento e o PIX.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, app, backend e IA" },
-    { term: "Período", value: "2026 – hoje" },
+    { term: "Período", value: "6 meses em 2026" },
     { term: "Stack", value: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres", mono: true },
     { term: "IA", value: "Agente com supervisão humana", status: "production", statusLabel: "Em produção" },
     { term: "App novo", value: "Expo, para substituir o app Flutter nas lojas", status: "prototype", statusLabel: "Construído" },

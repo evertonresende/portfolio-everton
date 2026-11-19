@@ -9,7 +9,7 @@
   Fatos de app/content, mais extras confirmados na ficha privada (bullets da Softplan e da FAPAM, AWS, Node.js, idiomas).
   Apóstrofo em ASCII ('): o ' sai no texto do PDF como U+02BC e quebra a busca por palavra do ATS ("GCPʼs").
   Gerar: node scripts/cv/pdf.cjs curriculo-en.html public/cv-everton-resende-en.pdf evertonresende.com/en (A4, tagged, rodapé com nome, site e página).
-  A linha .result de cada item só traz fatos que já estão nos bullets ou em app/content (status e datas podem morar só nela); a seta "→" não existe na fonte do PDF, escreva "to".
+  Cada frase tem de ser rastreável a app/content ou à ficha privada (.private/evidencias-*.md); LangChain/LangGraph/LangSmith só em Skills, nunca ligados a um projeto; liderança só como "liderei projetos de 2 a 5 pessoas", sem título de cargo; a seta "→" não existe na fonte do PDF, escreva "to".
   Cabe em 2 páginas por pouco: node scripts/cv/measure.cjs curriculo-en.html mostra a folga antes de gerar.
   Mudou fato no site, mude aqui e em curriculo.html e gere os dois PDFs de novo.
 -->
@@ -20,7 +20,7 @@
 
     <header class="header">
       <h1 class="name">Everton Resende</h1>
-      <div class="role">AI Engineer</div>
+      <div class="role">AI Engineer · AI agents in production</div>
       <div class="contact">
         <span><a href="mailto:contato@evertonresende.com">contato@evertonresende.com</a></span>
         <span><a href="https://wa.me/5537999133556">+55 37 99913-3556</a></span>
@@ -28,12 +28,11 @@
         <span><a href="https://github.com/evertonresende">github.com/evertonresende</a></span>
         <span><a href="https://evertonresende.com/en">evertonresende.com/en</a></span>
       </div>
-      <div class="where">Pará de Minas, Minas Gerais, Brazil · remote (UTC-3)</div>
-      <div class="where">Open to international contracts, B2B contractor work, or full-time employment in Brazil (CLT)</div>
+      <div class="where">Pará de Minas, MG, Brazil · remote (UTC-3) · B2B contractor (PJ) or full-time (CLT) · available to start immediately · occasional travel</div>
     </header>
 
     <p class="summary">
-      I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS. <strong>7+ years in software development</strong>. AI in production: a support agent with evals, guardrails and human review (eval cases passing from 10 to 23 of 31, same model), LLM credit assessments at ~R$0.01 each, face recognition for a city's schools, AI clinical notes in a SaaS used by ~20 clinics and a clinical RAG chat. <span class="nb">Agent-first</span> workflow: I set the architecture and acceptance criteria, direct coding agents, then review, debug and own what ships.
+      <strong>AI Engineer with 7+ years in software.</strong> I put AI agents into production alongside the client, from requirements gathering to architecture and delivery, leading teams of 2 to 5 people. Live: a support agent with evals and LLM-as-judge (eval cases passing from 10 to 23 of 31, <span class="nb">same model</span>), LLM credit assessments at ~R$0.01 and face recognition in a city's schools.
     </p>
 
     <section>
@@ -41,18 +40,19 @@
 
       <div class="item">
         <div class="item-top">
-          <h3>AI Engineer <span class="org">— Coppay</span></h3>
-          <span class="date">Oct 2025 – Oct 2026</span>
+          <h3>AI Consultant and Engineer <span class="org">— B2B contractor</span></h3>
+          <span class="date">2025 – 2026</span>
         </div>
-        <div class="meta">Digital account and credit fintech · Full-time (CLT) · remote</div>
-        <div class="result">LLM credit assessments at ~R$0.01 each · account app in the stores · new BFF on the Asaas BaaS since Sep 2026</div>
+        <div class="meta">Remote</div>
+        <p class="lede">Requirements gathering and definition, scope and architecture directly with the client; AI-driven development. Led teams of 2 to 5 people (architecture and task breakdown) at Coppay, Tazz, Dental Smart and Davions.</p>
         <ul>
-          <li><strong>LLM credit assessments, in production:</strong> <span class="nb">gpt-oss-120b</span> cross-checks the credit bureau, the Central Bank registry and loan simulations, and returns risk, amount, installment and conditions in a fixed schema, at ~R$0.01 per assessment. Estimated income alone never leads to a rejection: it becomes an approval conditional on proof of income. The analyst decides.</li>
-          <li><strong>App, BFF and back office:</strong> Expo app on the app stores, used by real account holders; a Hono backend-for-frontend (BFF) on Cloudflare Workers integrating the providers Cronos, Asaas and HBI; a Next.js back office with RBAC and an audit log.</li>
-          <li><strong>New Banking-as-a-Service (BaaS) provider:</strong> in Sep 2026, a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.</li>
-          <li><strong>WhatsApp agent in Python:</strong> I built with Agno + FastAPI a lead agent that routes to 3 specialists, with read-only tools bound to the conversation's context (no IDOR) and human handoff.</li>
+          <li><strong>Coppay</strong> (fintech, B2B contractor, Oct 2025 – Oct 2026): built the LLM credit assessment (<span class="nb">gpt-oss-120b</span>), which cross-checks the credit bureau, the Central Bank registry and loan simulations into a fixed schema, at ~R$0.01 per assessment; built in Python (Agno + FastAPI) the WhatsApp agent in which a lead agent routes to 3 specialists; shipped the account app to the app stores (Expo); built the Hono backend-for-frontend (BFF) on Cloudflare Workers, integrated with Cronos, Asaas and HBI, and the Next.js back office with RBAC and an audit log.</li>
+          <li><strong>Tazz</strong> (mobility, 6 months in 2026): built the support agent with 31 evals (7 adversarial), guardrails and LLM-as-judge; with the same model, passing cases went from 10 to 23 and handoffs fell from 80.6% to 38.7%. Integrated agents with systems via MCP. <span class="nb">Ported</span> 100+ Cloud Functions to 8 Cloudflare Workers in <span class="nb">~47.5 hours</span>. Built from scratch the new Expo app and its Workers (in-house auth, a realtime hub on Durable Objects), with coding agents, and took Pix (Asaas) to production in Sep 2026, on a double-entry ledger.</li>
+          <li><strong>Rota Protegida</strong> (city government, 6 months in 2026): architected the school face recognition cascade (AuraFace, Vectorize, AWS Rekognition and human review), with children's biometrics under LGPD (Brazil's data protection law); in production since Jul 2026, handed over in Sep 2026. Compared a second model (AdaFace) on 862 events and turned it off, because it recovered no missed match. Implemented mandatory consent, automatic retention, a log of photo access and per-school isolation.</li>
+          <li><strong>Dental Smart</strong> (dental SaaS, 1 year, 2025 – 2026): built the multi-tenant SaaS used by ~20 clinics (zero churn), with AI clinical notes (Whisper + <span class="nb">Llama 3.3 70B</span>) and agents connected via MCP. Integrated NFS-e (Focus NFe) and a WhatsApp queue, with RLS isolation, one tenant per clinic.</li>
+          <li><strong>Maximus</strong> (healthcare, 5 months in 2026): built the clinical RAG chat (OpenAI file_search) for anesthesiologists, by text, image or voice (<span class="nb">gpt-4o-transcribe</span>). Replaced the manual RAG with native file_search, because the classifier was blocking legitimate searches.</li>
+          <li><strong>Davions</strong> (SaaS, 6 months in 2026): refactored the app onto 10 Cloudflare Workers, with escrow on Asaas, Pix payouts and 10 AI functions through AI Gateway.</li>
         </ul>
-        <div class="stack">TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI</div>
       </div>
 
       <div class="item">
@@ -62,7 +62,7 @@
         </div>
         <div class="meta">Full-time (CLT) · remote</div>
         <ul>
-          <li>Worked on software products for Brazil's Public Prosecutor's Offices (Ministério Público) and government attorney offices (Procuradorias).</li>
+          <li>Developed software products for Brazil's Public Prosecutor's Offices (Ministério Público) and government attorney offices (Procuradorias) in TypeScript, Node, React, SQL, AWS and Docker.</li>
           <li>Recognized 10 times in Softplan's Softplayer A+ recognition program.</li>
         </ul>
       </div>
@@ -72,6 +72,9 @@
           <h3>Freelance Developer</h3>
           <span class="date">Nov 2021 – Oct 2022</span>
         </div>
+        <ul>
+          <li>Developed custom software for clients.</li>
+        </ul>
       </div>
 
       <div class="item">
@@ -81,108 +84,30 @@
         </div>
         <div class="meta">Full-time (CLT) · hybrid</div>
         <ul>
-          <li>Academic portal serving 4,000+ students.</li>
+          <li>Academic portal serving 4,000+ students, in TypeScript, Node, React, SQL, AWS and Docker.</li>
         </ul>
       </div>
     </section>
 
-    <section>
-      <h2>Projects in production</h2>
-
-      <div class="item">
-        <div class="item-top">
-          <div class="title"><h3>Tazz <span class="org">— ride-hailing app</span></h3><a class="case" href="https://evertonresende.com/en/projects/tazz">evertonresende.com/en/projects/tazz</a></div>
-          <span class="date">2026 – present</span>
-        </div>
-        <div class="result">Support agent in production · evals 10 to 23 of 31 · 100+ Cloud Functions to 8 Workers · Pix since Sep 2026</div>
-        <ul>
-          <li><strong>New Expo app:</strong> I architected and built from scratch the rider and driver app and its new Workers: in-house auth, a realtime hub on Durable Objects and an API over Postgres. First production builds in Oct 2026, prepared to replace the Flutter app.</li>
-          <li><strong>Built with agents:</strong> I orchestrated coding agents on a ~200-workstream backlog in parallel, each with a proof per acceptance criterion and a cross-provider model review; human gates on database, main and stores.</li>
-          <li><strong>Migration:</strong> the backend ran on Cloud Functions and hit GCP's fixed <span class="nb">20 vCPU</span> quota in São Paulo with the app live. <span class="nb">I ported</span> 100+ of them to 8 Cloudflare Workers in <span class="nb">~47.5 hours</span>, strangler-fig style, with coding agents.</li>
-          <li><strong>Support agent:</strong> in production, with a person reviewing every draft. A risk gate, PII masking, 9 tools with the customer ID set by the server, a guardrail that requires a source for numbers and status, and an <span class="nb">LLM-as-judge</span> that only releases false positives, calibrated to 0 false blocks and 0 bypasses on 55 sentences.</li>
-          <li><strong>Evals:</strong> 31 cases (7 adversarial), a zero-unsafe gate and <span class="nb">4 models</span> compared. Same model, new prompt and guardrail: passing cases from 10 to 23 and handoffs from 80.6% to 38.7%. Public demo of the method: <a class="nb" href="https://github.com/evertonresende/agent-evals-demo">github.com/evertonresende/agent-evals-demo</a>.</li>
-          <li><strong>Knowledge base:</strong> 58 curated entries with keyword search and an objective trigger to revisit RAG.</li>
-          <li><strong>Payments:</strong> Pix (Brazil's instant payments) via Asaas, live since Sep 2026, on an isolated double-entry ledger.</li>
-        </ul>
-        <div class="stack">TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres</div>
-      </div>
-
-      <div class="item">
-        <div class="item-top">
-          <h3>Rota Protegida <span class="org">— school face recognition for a city government</span></h3>
-          <span class="date">2026</span>
-        </div>
-        <div class="result">In production since Jul 2026 · handed over to the city in Sep 2026 · children's biometrics under LGPD</div>
-        <ul>
-          <li><strong>Product:</strong> IP cameras at school entrances identify students and staff, record attendance and alert guardians over WhatsApp and email.</li>
-          <li><strong>Recognition cascade:</strong> Python on a VPS detects the face and extracts a <span class="nb">512-D</span> embedding (AuraFace); a Hono API on Cloudflare Workers searches Vectorize; in the gray zone, AWS Rekognition breaks the tie, then human review.</li>
-          <li><strong>Decision:</strong> I tested a second model (AdaFace) alongside AuraFace and compared 862 events with the AWS verdict: it recovered no match that AuraFace had missed and reinforced 45 wrong rejections. I turned it off.</li>
-          <li><strong>LGPD (Brazil's data protection law):</strong> children's biometrics with mandatory consent, automatic retention per data type, a log of who views photos, and per-school isolation in the vector index.</li>
-        </ul>
-        <div class="stack">TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition</div>
-      </div>
-
-      <div class="item">
-        <div class="item-top">
-          <h3>Maximus <span class="org">— app for anesthesiologists</span></h3>
-          <span class="date">2026</span>
-        </div>
-        <div class="result">Live, used by anesthesiologists · clinical RAG chat by text, image or voice · board-exam (TSA) questions</div>
-        <ul>
-          <li><strong>Product:</strong> Expo app and Hono API on Cloudflare Workers, with Supabase and RLS.</li>
-          <li><strong>Clinical RAG chat:</strong> Responses API (gpt-5.4) with file_search over an OpenAI vector store, code interpreter for charts, streaming, and questions by text, image or voice (<span class="nb">gpt-4o-transcribe</span>).</li>
-          <li><strong>Board-exam questions:</strong> practice questions for Brazil's anesthesiology board exam (TSA), generated from the vector knowledge base with structured output and validation.</li>
-          <li><strong>Decision:</strong> I built manual RAG (a <span class="nb">gpt-5-nano</span> classifier + vector search), then switched to native file_search, because the classifier was blocking legitimate searches.</li>
-        </ul>
-        <div class="stack">TypeScript · Expo · Hono · Workers · Supabase · OpenAI Responses API</div>
-      </div>
-
-      <div class="item">
-        <div class="item-top">
-          <div class="title"><h3>Dental Smart <span class="org">— SaaS for dental clinics</span></h3><a class="case" href="https://evertonresende.com/en/projects/dental-smart">evertonresende.com/en/projects/dental-smart</a></div>
-          <span class="date">2025 – present</span>
-        </div>
-        <div class="result">~20 active clinics · zero churn · AI clinical notes in production since Feb 2026</div>
-        <ul>
-          <li><strong>Multi-tenant:</strong> SaaS in Next.js and Supabase, with RLS isolation in Postgres (one tenant per clinic).</li>
-          <li><strong>AI clinical notes:</strong> the dentist records the visit, Whisper transcribes it and <span class="nb">Llama 3.3 70B</span> writes a 4-section note straight into the patient record, for the dentist to review.</li>
-          <li><strong>Integrations:</strong> WhatsApp message queue with LLM-generated variations, NFS-e service invoices via Focus NFe and contract signing over WhatsApp. CI on GitHub Actions and database backups to R2.</li>
-        </ul>
-        <div class="stack">Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq</div>
-      </div>
-
-      <div class="item">
-        <div class="item-top">
-          <h3>Davions <span class="org">— gallery SaaS for photographers</span></h3>
-          <span class="date">2026 – present</span>
-        </div>
-        <div class="result">Delivered in Oct 2026 · 10 Cloudflare Workers · 10 AI functions through AI Gateway · escrow with Pix payouts</div>
-        <ul>
-          <li><strong>Re-platforming:</strong> refactored the app, built in Lovable (an AI app builder), onto 10 Workers with Supabase and RLS.</li>
-          <li><strong>Payments:</strong> I architected escrow on Asaas (a Brazilian payment provider), with an SQL ledger and Pix payouts.</li>
-          <li><strong>AI:</strong> I moved the app's 10 AI functions onto Workers, through Cloudflare AI Gateway.</li>
-        </ul>
-        <div class="stack">TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect</div>
-      </div>
-    </section>
-
-    <section class="skills">
-      <h2>Skills</h2>
-      <p><b>Programming languages:</b><span>TypeScript, Python, SQL</span></p>
-      <p><b>Agents and LLMs:</b><span>OpenAI (Responses API), Groq, Workers AI; agents and tool calling, structured output, streaming, speech-to-text (Whisper, <span class="nb">gpt-4o-transcribe</span>); coding agents (Claude Code)</span></p>
-      <p><b>RAG and search:</b><span>OpenAI file_search and vector stores, Vectorize, embeddings, keyword search</span></p>
-      <p><b>Evals and guardrails:</b><span>adversarial evals, <span class="nb">LLM-as-judge</span>, guardrails, PII masking, human review and handoff</span></p>
-      <p><b>Vision:</b><span>face recognition (AuraFace, AWS Rekognition)</span></p>
-      <p><b>Cloudflare:</b><span>Workers, Durable Objects, Queues, D1, R2, Vectorize, AI Gateway, Workers AI</span></p>
-      <p><b>AWS (earlier projects):</b><span>EC2, ELB, Lightsail, Lambda, SQS, S3, Aurora, Rekognition</span></p>
-      <p><b>Backend and data:</b><span>Hono, FastAPI, Node.js, Postgres, Supabase (RLS, Edge Functions), Docker, <span class="nb">GitHub Actions CI</span></span></p>
-      <p><b>Frontend and mobile:</b><span>React, Next.js, React Native / Expo</span></p>
-      <p><b>Payments:</b><span>Pix, Asaas, Stripe Connect, double-entry ledger</span></p>
+    <section class="plain new-page">
+      <h2>Public proof</h2>
+      <p><a class="nb" href="https://github.com/evertonresende/agente-concierge">github.com/evertonresende/agente-concierge</a>: booking agent with evals, run against the real model (Claude Haiku 5.5).</p>
+      <p>Cases on the site: <a class="nb" href="https://evertonresende.com/en/projects/tazz">evertonresende.com/en/projects/tazz</a> · <a class="nb" href="https://evertonresende.com/en/projects/dental-smart">evertonresende.com/en/projects/dental-smart</a></p>
     </section>
 
     <section class="plain">
       <h2>Education</h2>
       <p>Information Systems, undergraduate studies (incomplete) · FAPAM · Nov 2018 – Dec 2020</p>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <p><b>AI and agents:</b><span>agents and tool calling, RAG, evals with a gate, guardrails, <span class="nb">LLM-as-judge</span>, LangChain, LangGraph, LangSmith, Agno, OpenAI Responses API, structured output, MCP (client and server)</span></p>
+      <p><b>Programming languages:</b><span>Python, TypeScript, SQL</span></p>
+      <p><b>Cloud and infrastructure:</b><span>AWS, Cloudflare, Docker</span></p>
+      <p><b>Backend and data:</b><span>Node.js, FastAPI, Hono, Postgres, Supabase</span></p>
+      <p><b>Frontend and mobile:</b><span>React, Next.js, Expo</span></p>
+      <p><b>Method:</b><span>development with coding agents, acceptance criteria, second-model review, human gates</span></p>
     </section>
 
     <section class="plain">
