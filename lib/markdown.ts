@@ -97,7 +97,7 @@ function specList(rows: readonly SpecRow[]): string {
     .join("\n");
 }
 
-/** withTerm: a faixa de números mostra o termo ("Tazz"); a lista de resultado do case não mostra. */
+/** withTerm: a faixa de números do topo do case mostra o termo ("Migração"); a lista de resultado do case não mostra. */
 function statList(stats: readonly Stat[], withTerm = true): string {
   return stats
     .map((stat) => {

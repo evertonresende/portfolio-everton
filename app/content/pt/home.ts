@@ -34,7 +34,7 @@ export const home: HomeContent = {
     items: [
       {
         index: "1.1",
-        title: "Agentes com evals e guardrail.",
+        title: "Agentes com evals e guardrails.",
         text: "Em TypeScript: tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz calibrado, evals com gate e fallback entre modelos. Em Python: times de agentes com triagem e handoff, em Agno.",
         proof: "Agente da Tazz · agentes em Python (Agno) na Coppay",
       },
