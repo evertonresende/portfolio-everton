@@ -46,12 +46,12 @@
         <div class="meta">Remote</div>
         <p class="lede">Requirements gathering and definition, scope and architecture directly with the client; AI-driven development. Led teams of 2 to 5 people (architecture and task breakdown) at Coppay, Tazz, Dental Smart and Davions.</p>
         <ul>
-          <li><strong>Coppay</strong> (fintech, B2B contractor, Oct 2025 – Oct 2026): built the LLM credit assessment (<span class="nb">gpt-oss-120b</span>), which cross-checks the credit bureau, the Central Bank registry and loan simulations into a fixed schema, at ~R$0.01 per assessment; built in Python (Agno + FastAPI) the WhatsApp agent in which a lead agent routes to 3 specialists; shipped the account app to the app stores (Expo); built the Hono backend-for-frontend (BFF) on Cloudflare Workers, integrated with Cronos, Asaas and HBI, and the Next.js back office with RBAC and an audit log.</li>
-          <li><strong>Tazz</strong> (mobility, 6 months in 2026): built the support agent with 31 evals (7 adversarial), guardrails and LLM-as-judge; with the same model, passing cases went from 10 to 23 and handoffs fell from 80.6% to 38.7%. Integrated agents with systems via MCP. <span class="nb">Ported</span> 100+ Cloud Functions to 8 Cloudflare Workers in <span class="nb">~47.5 hours</span>. Built from scratch the new Expo app and its Workers (in-house auth, a realtime hub on Durable Objects), with coding agents, and took Pix (Asaas) to production in Sep 2026, on a double-entry ledger.</li>
-          <li><strong>Rota Protegida</strong> (city government, 6 months in 2026): architected the school face recognition cascade (AuraFace, Vectorize, AWS Rekognition and human review), with children's biometrics under LGPD (Brazil's data protection law); in production since Jul 2026, handed over in Sep 2026. Compared a second model (AdaFace) on 862 events and turned it off, because it recovered no missed match. Implemented mandatory consent, automatic retention, a log of photo access and per-school isolation.</li>
-          <li><strong>Dental Smart</strong> (dental SaaS, 1 year, 2025 – 2026): built the multi-tenant SaaS used by ~20 clinics (zero churn), with AI clinical notes (Whisper + <span class="nb">Llama 3.3 70B</span>) and agents connected via MCP. Integrated NFS-e (Focus NFe) and a WhatsApp queue, with RLS isolation, one tenant per clinic.</li>
-          <li><strong>Maximus</strong> (healthcare, 5 months in 2026): built the clinical RAG chat (OpenAI file_search) for anesthesiologists, by text, image or voice (<span class="nb">gpt-4o-transcribe</span>). Replaced the manual RAG with native file_search, because the classifier was blocking legitimate searches.</li>
-          <li><strong>Davions</strong> (SaaS, 6 months in 2026): refactored the app onto 10 Cloudflare Workers, with escrow on Asaas, Pix payouts and 10 AI functions through AI Gateway.</li>
+          <li>Built for <strong>Coppay</strong> (fintech, B2B contractor, Oct 2025 – Oct 2026) the LLM credit assessment at ~R$0.01 each and the WhatsApp agent in Python (Agno + FastAPI); shipped the account app to the app stores.</li>
+          <li>Created for <strong>Tazz</strong> (mobility, 6 months in 2026) the support agent with 31 evals, guardrails and LLM-as-judge: passing cases from 10 to 23 and handoffs from 80.6% to 38.7%. Ported 100+ Cloud Functions to 8 Workers in <span class="nb">~47.5 hours</span>.</li>
+          <li>Architected for a city government <strong>Rota Protegida</strong> (6 months in 2026): school face recognition cascade (AuraFace, Vectorize, AWS Rekognition, human review), under LGPD, in production since Jul 2026.</li>
+          <li>Developed <strong>Dental Smart</strong> (dental SaaS, 1 year, 2025 – 2026), used by ~20 clinics with zero churn: AI clinical notes (Whisper + <span class="nb">Llama 3.3 70B</span>) and agents connected via MCP.</li>
+          <li>Delivered <strong>Maximus</strong> (healthcare, 5 months in 2026): clinical RAG chat (OpenAI file_search) for anesthesiologists, by text, image or voice.</li>
+          <li>Refactored <strong>Davions</strong> (SaaS, 6 months in 2026) onto 10 Cloudflare Workers, with escrow on Asaas, Pix payouts and 10 AI functions through AI Gateway.</li>
         </ul>
       </div>
 
@@ -84,7 +84,7 @@
         </div>
         <div class="meta">Full-time (CLT) · hybrid</div>
         <ul>
-          <li>Academic portal serving 4,000+ students, in TypeScript, Node, React, SQL, AWS and Docker.</li>
+          <li>Worked on the academic portal serving 4,000+ students, with TypeScript, Node, React, SQL, AWS and Docker.</li>
         </ul>
       </div>
     </section>
