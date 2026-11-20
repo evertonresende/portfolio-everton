@@ -60,7 +60,13 @@ function SpecValue({ row, layout }: { row: SpecRow; layout: "case" | "compact" }
     return (
       <span className="flex flex-col items-start gap-2">
         <SpecValue row={{ ...row, link: undefined }} layout={layout} />
-        <ButtonLink href={row.link.href} external={row.link.external} icon={row.link.external ? "external" : "right"}>
+        {/* Rótulo longo ("Demo pública do método (dados sintéticos)") quebra no celular em vez de vazar 5px da tela. */}
+        <ButtonLink
+          href={row.link.href}
+          external={row.link.external}
+          icon={row.link.external ? "external" : "right"}
+          className="max-sm:whitespace-normal max-sm:leading-snug"
+        >
           {row.link.label}
         </ButtonLink>
       </span>
