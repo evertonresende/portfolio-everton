@@ -9,7 +9,8 @@ export const home: HomeContent = {
   },
   hero: {
     status: "Disponível · remoto · início imediato · PJ ou CLT · viagens pontuais",
-    title: "AI Engineer · agentes de IA em produção.",
+    title: "AI Engineer",
+    tagline: "agentes de IA em produção.",
     lead: "Coloco agentes de IA em produção junto com o cliente, do levantamento da demanda à entrega, liderando equipes de 2 a 5 pessoas.",
     sub: "Entrego produtos inteiros, do app ao backend, em SaaS para clínicas, fintech, mobilidade, apoio clínico e educação pública. Trabalho com agentes de código e respondo pelo que vai ao ar.",
     primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
@@ -24,29 +25,6 @@ export const home: HomeContent = {
       { term: "Local", value: "Pará de Minas, MG · remoto (UTC−3)" },
       { term: "Idiomas", value: "Português nativo · inglês: leio e entendo bem, conversação em evolução" },
       { term: "Status", value: "Disponível · início imediato", status: "production" },
-    ],
-    proofs: [
-      {
-        term: "Tazz",
-        value: "10→23",
-        label: "Casos aprovados, de 31, nos evals do agente de atendimento: mesmo modelo, com prompt e guardrail novos. O agente escreve rascunhos, e uma pessoa revisa cada um.",
-        status: "production",
-        statusLabel: "Em produção",
-      },
-      {
-        term: "Dental\u00a0Smart",
-        value: "~20",
-        label: "Clínicas no SaaS odontológico que eu construo, com notas por IA da consulta gravada · 0 churn",
-        status: "production",
-        statusLabel: "Em produção",
-      },
-      {
-        term: "Maximus",
-        value: "RAG",
-        label: "Chat clínico com RAG atendendo anestesistas",
-        status: "production",
-        statusLabel: "Em produção",
-      },
     ],
   },
   delivery: {

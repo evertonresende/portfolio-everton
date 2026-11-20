@@ -1,13 +1,12 @@
 import type { SiteContent } from "../../content/types";
 import { homeAnchor } from "../../content";
-import { glueSeparators } from "../../../lib/utils";
 import { ButtonLink } from "../ui/button-link";
+import { NoOrphan } from "../ui/no-orphan";
 import { Orbits } from "../ui/orbits";
 import { SpecList } from "../ui/spec-list";
-import { StatStrip } from "../ui/stat-strip";
 import { Dot } from "../ui/status-mark";
 
-/** Hero: status, H1, linha de apoio, CTAs, foto + ficha técnica e faixa de provas. */
+/** Hero: status, H1 (cargo + tagline), linha de apoio, CTAs, foto e ficha técnica. */
 export function Hero({ site }: { site: SiteContent }) {
   const { hero } = site.home;
   return (
@@ -20,16 +19,25 @@ export function Hero({ site }: { site: SiteContent }) {
           </span>
           <span className="min-w-0 flex-1">{hero.status}</span>
         </p>
-        {/* O cargo "AI Engineer" é o mesmo nos dois idiomas (PERSON.jobTitle); só o título em inglês leva lang="en", porque o do PT traz a frase em português. */}
-        <h1 id="hero-title" lang={site.locale === "en" ? "en" : undefined} className="text-display-1 serif-i m-0">
-          {glueSeparators(hero.title)}
+        {/* Cargo grande numa linha e tagline menor embaixo: a frase inteira no tamanho do cargo quebrava em 3 a 4 linhas, com o "·" sobrando no fim da primeira.
+            O "·" segue no texto (só para leitor de tela e extração), então o H1 continua sendo "AI Engineer · agentes de IA em produção.", igual ao CV e ao LinkedIn.
+            O cargo é inglês nos dois idiomas (PERSON.jobTitle), por isso o lang="en" fixo nele. O serif-i fica no H1 todo para "AI agents" não virar "Al agents".
+            md:gap-10 dá folga ao rabo do "g" de "Engineer" sobre a tagline no desktop. */}
+        <h1 id="hero-title" className="serif-i m-0 flex flex-col gap-6 md:gap-10">
+          <span lang="en" className="text-display-1">
+            {hero.title}
+          </span>
+          <span className="sr-only"> · </span>
+          <span className="text-display-2 text-muted">{hero.tagline}</span>
         </h1>
       </div>
 
       <div data-reveal className="auto-grid-lg border-t border-grid">
         <div className="flex flex-col gap-6 px-gutter py-cell">
           <p className="text-lead m-0 max-w-lg">{hero.lead}</p>
-          <p className="text-sub m-0 max-w-lg text-muted">{hero.sub}</p>
+          <p className="text-sub m-0 max-w-lg text-muted">
+            <NoOrphan text={hero.sub} />
+          </p>
           <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4">
             <ButtonLink href={hero.primary.href} external={hero.primary.external} variant="primary" className="max-sm:justify-between">
               {hero.primary.label}
@@ -74,8 +82,6 @@ export function Hero({ site }: { site: SiteContent }) {
           </div>
         </div>
       </div>
-
-      <StatStrip stats={hero.proofs} label={site.ui.proofs} />
     </section>
   );
 }

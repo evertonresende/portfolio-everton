@@ -9,7 +9,8 @@ export const home: HomeContent = {
   },
   hero: {
     status: "Available · remote · immediate start · B2B contractor or full-time in Brazil (CLT) · occasional travel",
-    title: "AI Engineer · AI agents in production.",
+    title: "AI Engineer",
+    tagline: "AI agents in production.",
     lead: "I put AI agents into production alongside the client, from requirements gathering to delivery, leading teams of 2 to 5 people.",
     sub: "I ship whole products, from the app to the backend, in SaaS for clinics, fintech, mobility, clinical support and public education. I work with coding agents and own what ships.",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
@@ -24,29 +25,6 @@ export const home: HomeContent = {
       { term: "Location", value: "Pará de Minas, Brazil · remote (UTC−3)" },
       { term: "Languages", value: "Portuguese (native) · English: good reading and listening, speaking still developing" },
       { term: "Status", value: "Available · immediate start", status: "production" },
-    ],
-    proofs: [
-      {
-        term: "Tazz",
-        value: "10→23",
-        label: "Eval cases passed by the support agent, out of 31: same model, with a new prompt and guardrail. The agent writes drafts, and a person reviews each one.",
-        status: "production",
-        statusLabel: "In production",
-      },
-      {
-        term: "Dental\u00a0Smart",
-        value: "~20",
-        label: "Clinics on the dental SaaS I build, with AI notes from recorded visits · 0 churn",
-        status: "production",
-        statusLabel: "In production",
-      },
-      {
-        term: "Maximus",
-        value: "RAG",
-        label: "Clinical RAG chat used by anesthesiologists",
-        status: "production",
-        statusLabel: "In production",
-      },
     ],
   },
   delivery: {

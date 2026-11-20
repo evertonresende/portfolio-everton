@@ -120,7 +120,9 @@ export interface HomeContent {
   readonly seo: { readonly title: string; readonly description: string };
   readonly hero: {
     readonly status: string;
+    /** O cargo, em inglês nos dois idiomas; com a tagline, forma o posicionamento "AI Engineer · agentes de IA em produção." do CV e do LinkedIn. */
     readonly title: string;
+    readonly tagline: string;
     readonly lead: string;
     readonly sub: string;
     readonly primary: Link;
@@ -129,7 +131,6 @@ export interface HomeContent {
     readonly photoAlt: string;
     readonly factsTitle: string;
     readonly facts: readonly SpecRow[];
-    readonly proofs: readonly Stat[];
   };
   readonly delivery: {
     readonly label: string;
@@ -190,8 +191,7 @@ export interface SiteContent {
     readonly skipToContent: string;
     readonly mainNav: string;
     readonly notFound: { readonly title: string; readonly text: string; readonly back: string };
-    /** Rótulos acessíveis: faixa de provas, faixa de números do case, trilha. */
-    readonly proofs: string;
+    /** Rótulos acessíveis: faixa de números do case, trilha. */
     readonly numbers: string;
     readonly breadcrumb: string;
     readonly specLabels: {

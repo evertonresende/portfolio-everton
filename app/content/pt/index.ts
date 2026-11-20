@@ -36,7 +36,6 @@ export const pt: SiteContent = {
       text: "O endereço não existe ou mudou. Os cases estão na home.",
       back: "Voltar para a home",
     },
-    proofs: "Provas",
     numbers: "Números",
     breadcrumb: "Trilha",
     specLabels: {

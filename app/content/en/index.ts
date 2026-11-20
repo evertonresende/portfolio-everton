@@ -36,7 +36,6 @@ export const en: SiteContent = {
       text: "This address does not exist or has moved. The cases are on the home page.",
       back: "Back to home",
     },
-    proofs: "Proof",
     numbers: "Numbers",
     breadcrumb: "Breadcrumb",
     specLabels: {

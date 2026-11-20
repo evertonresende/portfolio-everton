@@ -97,6 +97,8 @@ test("o Markdown traz o conteúdo das páginas, sem buraco, nos dois idiomas", (
     const site = getContent(locale);
     const home = renderMarkdown({ kind: "home", locale });
     assert.doesNotMatch(home, /undefined|\[object|NaN/);
+    // O H1 virou cargo + tagline em duas linhas; o Markdown mantém a frase inteira do posicionamento.
+    assert.ok(home.includes(`**AI Engineer · ${site.home.hero.tagline}**`), `${locale} home: posicionamento`);
     for (const item of site.home.cases.items) assert.ok(home.includes(item.title) && home.includes(item.result), `${locale} home: ${item.title}`);
     assert.ok(home.includes(CONTACT.email));
     assert.ok(home.includes(`https://evertonresende.com${site.home.hero.cv.href}`));
