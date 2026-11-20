@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS for clinics · 1 year, 2025 – 2026 · Consulting and execution",
   title: "Dental Smart.",
-  lead: "SaaS for dental clinics. I built it from scratch over 1 year of work (2025 – 2026). During the appointment, the dentist records the visit, and the AI writes the clinical note into the patient’s record as a draft for the dentist to review.",
+  lead: "Multi-tenant SaaS for dental clinics, built from scratch and used by ~20 clinics with zero churn. The dentist records the visit in the browser, and Whisper and Llama 3.3 70B write the clinical note into the patient’s record as a draft for the dentist to review.",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, back end and AI" },

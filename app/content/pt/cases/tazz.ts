@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobilidade · 6 meses em 2026 · Consultoria e execução",
   title: "Tazz.",
-  lead: "App de corridas no Brasil. Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de IA escrevendo o código em paralelo. Também levei o compute do backend para Cloudflare e coloquei no ar o agente de atendimento e o PIX.",
+  lead: "App de corridas no Brasil. Quando o backend bateu na cota fixa de 20 vCPU do GCP, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Depois arquitetei e construí do zero o novo app em Expo, com agentes de código em paralelo, e coloquei no ar o agente de atendimento e o PIX.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, app, backend e IA" },

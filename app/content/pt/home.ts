@@ -11,7 +11,7 @@ export const home: HomeContent = {
     status: "Disponível · remoto · início imediato · PJ ou CLT · viagens pontuais",
     title: "AI Engineer",
     tagline: "agentes de IA em produção.",
-    lead: "Coloco agentes de IA em produção junto com o cliente, do levantamento da demanda à entrega, liderando equipes de 2 a 5 pessoas.",
+    lead: "Do escopo com o cliente ao deploy: arquiteto agentes de IA, RAG e sistemas com LLM, liderando equipes de 2 a 5 pessoas.",
     sub: "Entrego produtos inteiros, do app ao backend, em SaaS para clínicas, fintech, mobilidade, apoio clínico e educação pública. Trabalho com agentes de código e respondo pelo que vai ao ar.",
     primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Ver cases", href: "#cases" },
@@ -29,30 +29,30 @@ export const home: HomeContent = {
   },
   delivery: {
     label: "01 / O que eu entrego",
-    title: "Da arquitetura à produção.",
+    title: "Do prompt ao PIX.",
     proofLabel: "Prova",
     items: [
       {
         index: "1.1",
-        title: "Arquiteto agentes.",
+        title: "Agentes com evals e guardrail.",
         text: "Em TypeScript: tools com escopo mínimo, guardrail que confere fonte e número, LLM-juiz calibrado, evals com gate e fallback entre modelos. Em Python: times de agentes com triagem e handoff, em Agno.",
         proof: "Agente da Tazz · agentes em Python (Agno) na Coppay",
       },
       {
         index: "1.2",
-        title: "Coloco RAG em produção.",
+        title: "RAG, e quando não usar.",
         text: "Coloquei o file_search da OpenAI em produção no Maximus, no lugar do RAG com classificador que eu tinha construído. Na Tazz, decidi não usar RAG numa base curada pequena e deixei por escrito quando reavaliar.",
         proof: "Chat clínico do Maximus · decisão da base da Tazz",
       },
       {
         index: "1.3",
-        title: "Construo e opero a infra.",
-        text: "Cloudflare (Workers, Durable Objects, Queues), Postgres com RLS, Docker e CI. Na AWS: EC2, ELB, Lambda, SQS, S3, Aurora e Rekognition.",
+        title: "Infra que eu mesmo opero.",
+        text: "Tirei o compute da Tazz da cota fixa de 20 vCPU do GCP portando 100+ Cloud Functions para Workers, e isolo os dados de cada clínica com RLS no Postgres. No dia a dia: Cloudflare (Workers, Durable Objects, Queues), Docker e CI. Na AWS: EC2, ELB, Lambda, SQS, S3, Aurora e Rekognition.",
         proof: "Migração da Tazz · Coppay · Dental\u00a0Smart · AWS em projetos anteriores",
       },
       {
         index: "1.4",
-        title: "Construo o caminho do dinheiro.",
+        title: "O caminho do dinheiro.",
         text: "No ledger de partida dobrada da Tazz, construí o pagamento da corrida, o estorno que espelha as pernas, o PIX de saída e a retenção de chargeback. Cada evento externo vira uma chave de idempotência única no banco, então webhook repetido não lança duas vezes.",
         proof: "Ledger da Tazz · escrow da Davions · conta digital da Coppay",
       },
@@ -199,7 +199,7 @@ export const home: HomeContent = {
             text: "Construí RAG manual (classificador gpt-5-nano + busca vetorial) e troquei pelo file_search nativo: o classificador barrava buscas legítimas.",
           },
         ],
-        result: "No ar, em uso por anestesistas",
+        result: "Em uso por anestesistas · chat com RAG e questões do TSA",
       },
       {
         slug: "coppay",
@@ -239,7 +239,7 @@ export const home: HomeContent = {
             text: "Agente de WhatsApp em Python (Agno + FastAPI): um líder faz a triagem para 3 especialistas (empréstimo, conta e suporte), com tools de leitura e handoff. As tools ignoram os argumentos do modelo e usam o contexto confiável da conversa, o que bloqueia IDOR. Passou numa bateria ao vivo de 6 cenários, incluindo injeção.",
           },
         ],
-        result: "App nas lojas com correntistas reais",
+        result: "App nas lojas com correntistas reais · parecer de crédito por LLM a ~R$\u00a00,01",
       },
       {
         slug: "davions",
@@ -259,7 +259,7 @@ export const home: HomeContent = {
         whatIDid:
           "Migrei e refatorei o app para 10 Cloudflare Workers com Supabase e RLS, e arquitetei o escrow com o Asaas: ledger em SQL e saque por PIX. Também levei as 10 funções de IA do app para os Workers, via Cloudflare AI Gateway.",
         stack: "TypeScript · React · Cloudflare Workers · R2 · Supabase RLS · Asaas · Stripe Connect",
-        result: "Entregue em out/2026",
+        result: "Migrado para 10 Workers, com escrow e saque por PIX · entregue em out/2026",
       },
     ],
   },
