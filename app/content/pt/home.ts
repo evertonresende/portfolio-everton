@@ -11,7 +11,7 @@ export const home: HomeContent = {
     status: "Disponível · remoto · início imediato · PJ ou CLT · viagens pontuais",
     title: "AI Engineer",
     tagline: "agentes de IA em produção.",
-    lead: "Do escopo com o cliente ao deploy: arquiteto agentes de IA, RAG e sistemas com LLM, liderando equipes de 2 a 5 pessoas.",
+    lead: "Do escopo com o cliente ao deploy: arquiteto e coloco no ar agentes de IA, RAG e sistemas com LLM, liderando equipes de 2 a 5 pessoas.",
     sub: "Entrego produtos inteiros, do app ao backend, em SaaS para clínicas, fintech, mobilidade, apoio clínico e educação pública. Trabalho com agentes de código e respondo pelo que vai ao ar.",
     primary: { label: "Agendar conversa", href: CONTACT.whatsapp, external: true },
     secondary: { label: "Ver cases", href: "#cases" },
@@ -47,12 +47,12 @@ export const home: HomeContent = {
       {
         index: "1.3",
         title: "Infra que eu mesmo opero.",
-        text: "Tirei o compute da Tazz da cota fixa de 20 vCPU do GCP portando 100+ Cloud Functions para Workers, e isolo os dados de cada clínica com RLS no Postgres. No dia a dia: Cloudflare (Workers, Durable Objects, Queues), Docker e CI. Na AWS: EC2, ELB, Lambda, SQS, S3, Aurora e Rekognition.",
+        text: "Tirei o compute da Tazz da cota fixa de 20 vCPU do GCP portando 100+ Cloud Functions para Workers, e isolo os dados de cada clínica do Dental\u00a0Smart com RLS no Postgres. No dia a dia: Cloudflare (Workers, Durable Objects, Queues), Docker e CI. Na AWS: EC2, ELB, Lambda, SQS, S3, Aurora e Rekognition.",
         proof: "Migração da Tazz · Coppay · Dental\u00a0Smart · AWS em projetos anteriores",
       },
       {
         index: "1.4",
-        title: "O caminho do dinheiro.",
+        title: "Pagamento, estorno e PIX.",
         text: "No ledger de partida dobrada da Tazz, construí o pagamento da corrida, o estorno que espelha as pernas, o PIX de saída e a retenção de chargeback. Cada evento externo vira uma chave de idempotência única no banco, então webhook repetido não lança duas vezes.",
         proof: "Ledger da Tazz · escrow da Davions · conta digital da Coppay",
       },
@@ -199,7 +199,7 @@ export const home: HomeContent = {
             text: "Construí RAG manual (classificador gpt-5-nano + busca vetorial) e troquei pelo file_search nativo: o classificador barrava buscas legítimas.",
           },
         ],
-        result: "Em uso por anestesistas · chat com RAG e questões do TSA",
+        result: "Em uso por anestesistas · chat com RAG e questões para a prova do TSA",
       },
       {
         slug: "coppay",

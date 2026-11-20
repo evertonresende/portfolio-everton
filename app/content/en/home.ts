@@ -11,7 +11,7 @@ export const home: HomeContent = {
     status: "Available · remote · immediate start · B2B contractor or full-time in Brazil (CLT) · occasional travel",
     title: "AI Engineer",
     tagline: "AI agents in production.",
-    lead: "From scoping with the client to deploy: I architect AI agents, RAG and LLM systems, leading teams of 2 to 5 people.",
+    lead: "From client scoping to deployment: I architect and ship AI agents, RAG and LLM systems, leading teams of 2 to 5 people.",
     sub: "I ship whole products, from the app to the backend, in SaaS for clinics, fintech, mobility, clinical support and public education. I work with coding agents and own what ships.",
     primary: { label: "Book a call", href: CONTACT.whatsapp, external: true },
     secondary: { label: "View cases", href: "#cases" },
@@ -47,12 +47,12 @@ export const home: HomeContent = {
       {
         index: "1.3",
         title: "Infra I run myself.",
-        text: "I moved Tazz’s compute off GCP’s fixed 20 vCPU quota by porting 100+ Cloud Functions to Workers, and I isolate each clinic’s data with Postgres RLS. Day to day: Cloudflare (Workers, Durable Objects, Queues), Docker and CI. On AWS: EC2, ELB, Lambda, SQS, S3, Aurora and Rekognition.",
+        text: "I moved Tazz’s compute off GCP’s fixed 20 vCPU quota by porting 100+ Cloud Functions to Workers, and I isolate each Dental\u00a0Smart clinic’s data with Postgres RLS. Day to day: Cloudflare (Workers, Durable Objects, Queues), Docker and CI. On AWS: EC2, ELB, Lambda, SQS, S3, Aurora and Rekognition.",
         proof: "Tazz migration · Coppay · Dental\u00a0Smart · AWS in earlier projects",
       },
       {
         index: "1.4",
-        title: "The money path.",
+        title: "Payments, reversals and payouts.",
         text: "On Tazz’s double-entry ledger, I built ride payment, reversals that mirror the legs, Pix payouts and chargeback holds. Each external event becomes a unique idempotency key in the database, so a repeated webhook never posts twice.",
         proof: "Tazz ledger · Davions escrow · Coppay digital account",
       },
@@ -199,7 +199,7 @@ export const home: HomeContent = {
             text: "I built manual RAG (a gpt-5-nano classifier + vector search), then switched to native file_search: the classifier was blocking legitimate searches.",
           },
         ],
-        result: "Used by anesthesiologists · RAG chat and TSA exam questions",
+        result: "Used by anesthesiologists · RAG chat and board-exam (TSA) practice questions",
       },
       {
         slug: "coppay",
@@ -239,7 +239,7 @@ export const home: HomeContent = {
             text: "WhatsApp agent in Python (Agno + FastAPI): a lead agent routes to 3 specialists (loans, account and support), with read-only tools and handoff. The tools ignore the model’s arguments and use the conversation’s trusted context, which blocks IDOR. It passed a live battery of 6 scenarios, including prompt injection.",
           },
         ],
-        result: "App in the stores with real account holders · LLM credit assessment at ~R$0.01 each",
+        result: "App in the stores with real account holders · LLM credit assessments at ~R$0.01 each",
       },
       {
         slug: "davions",

@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobility · 6 months in 2026 · Consulting and execution",
   title: "Tazz.",
-  lead: "A ride-hailing app in Brazil. When the backend hit GCP’s fixed 20 vCPU quota, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. Then I architected and built the new Expo app from scratch, with coding agents in parallel, and shipped the support agent and Pix (Brazil’s instant payments).",
+  lead: "A ride-hailing app in Brazil. When the backend hit GCP’s fixed 20 vCPU quota, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. Then I architected and built the new Expo app from scratch, using parallel coding agents, and shipped the support agent and Pix (Brazil’s instant payments).",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, app, backend and AI" },

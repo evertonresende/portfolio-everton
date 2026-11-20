@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS para clínicas · 1 ano, 2025 – 2026 · Consultoria e execução",
   title: "Dental Smart.",
-  lead: "SaaS multi-tenant para clínicas odontológicas, construído do zero e usado por ~20 clínicas, com 0 churn. O dentista grava a consulta no navegador, e o Whisper e o Llama 3.3 70B escrevem a nota clínica no prontuário do paciente, como rascunho para ele revisar.",
+  lead: "SaaS multi-tenant para clínicas odontológicas, construído do zero e usado por ~20 clínicas, com 0 churn. O dentista grava a consulta no navegador, e o Whisper e o Llama 3.3 70B escrevem a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, backend e IA" },
