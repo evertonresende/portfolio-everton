@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS for clinics · 1 year, 2025 – 2026 · Consulting and execution",
   title: "Dental Smart.",
-  lead: "Multi-tenant SaaS for dental clinics, built from scratch and used by ~20 clinics with zero churn. The dentist records the visit in the browser, and Whisper and Llama 3.3 70B write the clinical note into the patient’s record as a draft for the dentist to review.",
+  lead: "Multi-tenant SaaS for dental clinics, built from scratch. The dentist records the visit in the browser, and Whisper and Llama 3.3 70B write the clinical note into the patient’s record as a draft for the dentist to review.",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, back end and AI" },
@@ -12,8 +12,8 @@ export const dentalSmart: CaseDetail = {
     { term: "AI", value: "Clinical note written from the recorded appointment", status: "production", statusLabel: "In production" },
   ],
   stats: [
-    { term: "Clinics", value: "~20", label: "active clinics" },
-    { term: "Churn", value: "0", label: "no clinic has cancelled" },
+    { term: "Build", value: "1 year", label: "from scratch, 2025 to 2026" },
+    { term: "Clinical note", value: "4 sections", label: "complaints, observations, procedures and next steps" },
     { term: "AI", value: "Feb 2026", label: "AI clinical notes in production" },
   ],
   sections: [
@@ -158,8 +158,8 @@ export const dentalSmart: CaseDetail = {
     {
       id: "resultado",
       label: "07 / Result",
-      title: "No clinic has cancelled.",
-      paragraphs: ["~20 active clinics, each in its own tenant isolated by RLS."],
+      title: "Live, with AI in the patient record.",
+      paragraphs: ["Each clinic runs in its own tenant isolated by RLS, and every note the AI writes reaches the patient record as a draft for the dentist to review."],
       stats: [
         { term: "AI", value: "AI", label: "Clinical note written from the recorded appointment, in the patient’s record, since Feb 2026.", status: "production", statusLabel: "In production" },
       ],
@@ -169,6 +169,6 @@ export const dentalSmart: CaseDetail = {
   seo: {
     title: "Dental Smart: multi-tenant SaaS with AI in production · Everton Resende",
     description:
-      "How I built a multi-tenant SaaS for ~20 dental clinics where the recorded appointment becomes a structured clinical note in the patient record, with Whisper and Llama 3.3 70B, RLS isolation and dentist review.",
+      "How I built a multi-tenant SaaS for dental clinics where the recorded appointment becomes a structured clinical note in the patient record, with Whisper and Llama 3.3 70B, RLS isolation and dentist review.",
   },
 };

@@ -158,7 +158,7 @@ export const home: HomeContent = {
             text: "O dentista grava a consulta no navegador. O Whisper transcreve, e o Llama 3.3 70B escreve a nota em 4 blocos (queixas, observações clínicas, procedimentos e próximos passos) direto no prontuário, com o selo \u201cGerado por IA\u201d para o dentista revisar.",
           },
         ],
-        result: "~20 clínicas · 0 churn",
+        result: "Nota clínica por IA em produção desde fev/2026 · RLS por clínica",
       },
       {
         slug: "maximus",

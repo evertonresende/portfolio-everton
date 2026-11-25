@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const dentalSmart: CaseDetail = {
   kicker: "Case 03 · SaaS para clínicas · 1 ano, 2025 – 2026 · Consultoria e execução",
   title: "Dental Smart.",
-  lead: "SaaS multi-tenant para clínicas odontológicas, construído do zero e usado por ~20 clínicas, com 0 churn. O dentista grava a consulta no navegador, e o Whisper e o Llama 3.3 70B escrevem a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
+  lead: "SaaS multi-tenant para clínicas odontológicas, construído do zero. O dentista grava a consulta no navegador, e o Whisper e o Llama 3.3 70B escrevem a nota clínica no prontuário do paciente, como rascunho para o dentista revisar.",
   factsTitle: "Ficha técnica",
   facts: [
     { term: "Papel", value: "Arquitetura, backend e IA" },
@@ -12,8 +12,8 @@ export const dentalSmart: CaseDetail = {
     { term: "IA", value: "Nota clínica escrita a partir da consulta gravada", status: "production", statusLabel: "Em produção" },
   ],
   stats: [
-    { term: "Clínicas", value: "~20", label: "clínicas ativas" },
-    { term: "Churn", value: "0", label: "nenhuma clínica cancelou" },
+    { term: "Construção", value: "1 ano", label: "do zero, de 2025 a 2026" },
+    { term: "Nota clínica", value: "4 blocos", label: "queixas, observações, procedimentos e próximos passos" },
     { term: "IA", value: "fev/2026", label: "nota clínica com IA em produção" },
   ],
   sections: [
@@ -158,8 +158,8 @@ export const dentalSmart: CaseDetail = {
     {
       id: "resultado",
       label: "07 / Resultado",
-      title: "Nenhuma clínica cancelou.",
-      paragraphs: ["~20 clínicas ativas, cada uma num tenant isolado por RLS."],
+      title: "No ar, com a IA no prontuário.",
+      paragraphs: ["Cada clínica roda num tenant isolado por RLS, e toda nota escrita pela IA chega ao prontuário como rascunho para o dentista revisar."],
       stats: [
         { term: "IA", value: "IA", label: "Nota clínica escrita da consulta gravada, no prontuário do paciente, desde fev/2026.", status: "production", statusLabel: "Em produção" },
       ],
@@ -169,6 +169,6 @@ export const dentalSmart: CaseDetail = {
   seo: {
     title: "Dental Smart: SaaS multi-tenant com IA em produção · Everton Resende",
     description:
-      "Como construí um SaaS multi-tenant para ~20 clínicas odontológicas em que a consulta gravada vira nota clínica estruturada no prontuário, com Whisper e Llama 3.3 70B, isolamento por RLS e revisão do dentista.",
+      "Como construí um SaaS multi-tenant para clínicas odontológicas em que a consulta gravada vira nota clínica estruturada no prontuário, com Whisper e Llama 3.3 70B, isolamento por RLS e revisão do dentista.",
   },
 };

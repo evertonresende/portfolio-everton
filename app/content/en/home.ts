@@ -158,7 +158,7 @@ export const home: HomeContent = {
             text: "The dentist records the appointment in the browser. Whisper transcribes it, and Llama 3.3 70B writes a note in 4 sections (complaints, clinical findings, procedures and next steps) straight into the patient record, with an \u201cAI-generated\u201d badge for the dentist to review.",
           },
         ],
-        result: "~20 clinics · 0 churn",
+        result: "AI clinical notes in production since Feb 2026 · RLS per clinic",
       },
       {
         slug: "maximus",
