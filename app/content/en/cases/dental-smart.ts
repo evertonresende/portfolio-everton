@@ -23,17 +23,18 @@ export const dentalSmart: CaseDetail = {
       title: "The whole clinic in one system.",
       stat: { value: "RLS", label: "one tenant per clinic · isolated in the database" },
       paragraphs: [
+        "I talked to dentists, receptionists and dental assistants to understand the clinic’s routine.",
         "Dental clinics needed scheduling, finance, e-invoicing (Brazil’s NFS-e) and WhatsApp in one system. And each clinic can only see its own data, because this is patient health data.",
         "At the practice, someone had to type up the patient’s notes after each visit.",
-        "I talked to dentists, receptionists and dental assistants.",
       ],
     },
     {
       id: "contexto",
       label: "02 / Context",
-      title: "I built it from scratch.",
+      title: "From one clinic to a SaaS.",
       paragraphs: [
-        "I built the product from scratch in 2025. It’s multi-tenant, with one tenant per clinic, and I built it over 1 year.",
+        "The system started in 2025 for a single clinic, already with scheduling and WhatsApp. In Dec 2025, I began the move to multi-tenant: the clinic’s record became the tenant, and RLS started isolating each clinic’s data.",
+        "E-invoicing (NFS-e) arrived in Jan 2026, and AI clinical notes in Feb 2026.",
       ],
     },
     {

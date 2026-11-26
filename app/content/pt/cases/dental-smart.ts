@@ -23,17 +23,18 @@ export const dentalSmart: CaseDetail = {
       title: "A clínica inteira num sistema só.",
       stat: { value: "RLS", label: "um tenant por clínica · isolado no banco" },
       paragraphs: [
+        "Conversei com dentistas, recepcionistas e auxiliares para entender a rotina da clínica.",
         "Clínicas odontológicas precisavam de agenda, financeiro, NFS-e e WhatsApp num só sistema. E cada clínica só pode ver os próprios dados, porque são dados de saúde de pacientes.",
         "No consultório, o registro de cada consulta dependia de alguém digitar as anotações do paciente depois do atendimento.",
-        "Conversei com dentistas, recepcionistas e auxiliares.",
       ],
     },
     {
       id: "contexto",
       label: "02 / Contexto",
-      title: "Construí do zero.",
+      title: "De uma clínica a um SaaS.",
       paragraphs: [
-        "Construí o produto do zero, em 2025. Ele é multi-tenant, com um tenant por clínica, e o construí ao longo de 1 ano.",
+        "O sistema nasceu em 2025, para uma clínica só, já com agenda e WhatsApp. Em dez/2025, comecei a migração para multi-tenant: o cadastro da clínica virou o tenant, e a RLS passou a isolar os dados de cada uma.",
+        "A NFS-e entrou em jan/2026, e a nota clínica com IA, em fev/2026.",
       ],
     },
     {
