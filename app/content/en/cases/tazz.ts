@@ -3,7 +3,7 @@ import type { CaseDetail } from "../../types";
 export const tazz: CaseDetail = {
   kicker: "Case 01 · Mobility · 6 months in 2026 · Consulting and execution",
   title: "Tazz.",
-  lead: "A ride-hailing app in Brazil. When the backend hit GCP’s fixed 20 vCPU quota, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. Then I architected and built the new Expo app from scratch, using parallel coding agents, and shipped the support agent and Pix (Brazil’s instant payments).",
+  lead: "A ride-hailing app in Brazil with ~335 support messages a day. I built the agent that drafts replies with checked sources for a person to review: in evals, passing cases went from 10 to 23 out of 31. I also ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h, built the new Expo app from scratch and shipped Pix (Brazil’s instant payments).",
   factsTitle: "Fact sheet",
   facts: [
     { term: "Role", value: "Architecture, app, backend and AI" },
@@ -21,9 +21,11 @@ export const tazz: CaseDetail = {
     {
       id: "problema",
       label: "01 / Problem",
-      title: "A quota ceiling and an app tied to Firebase.",
+      title: "A support queue, a quota ceiling and an app tied to Firebase.",
       stat: { value: "20", label: "vCPU · fixed quota · São Paulo" },
       paragraphs: [
+        "In Jul 2026, support got ~335 messages a day from riders and drivers, across 5 channels. Stalled driver sign-ups alone made up 1,237 conversations in 90 days, 66% of the classified WhatsApp conversations.",
+        "In the agent’s evals, the model in production at the time (Llama 3.1 8B) passed 4 of 31 cases.",
         "The backend ran on Cloud Functions on GCP and hit the fixed 20 vCPU quota in the São Paulo region, with the app live.",
         "Moving the backend was not enough to leave GCP. The Flutter app talked straight to Firestore, Realtime Database, Storage and Firebase Auth through the SDK, even in native code.",
       ],
@@ -119,7 +121,6 @@ export const tazz: CaseDetail = {
       label: "05 / Where AI comes in",
       title: "An agent with checked sources and human review.",
       paragraphs: [
-        "In Jul 2026, support got ~335 messages a day from riders and drivers, across 5 channels. Stalled driver sign-ups alone made up 1,237 conversations in 90 days, 66% of the classified WhatsApp conversations.",
         "Before the model, every message goes through a gate: risk words go to a priority human queue, a request for a person goes straight to one, and prompt injection is detected and audited. Tax IDs, cards, emails, phone numbers and locations are masked before anything goes to the provider. The model looks up the account, rides, payments and the knowledge base through 9 tools, and the customer ID comes from the server, never from the model.",
         "After the model, the guardrail checks the reply: every cited source must exist, every number must appear in a source or in the customer’s own message, and any status claim needs a source. What passes becomes a draft for the operator. What fails goes to the human queue.",
       ],
@@ -214,18 +215,21 @@ export const tazz: CaseDetail = {
       label: "08 / Result",
       title: "Agent live. New app on the way.",
       paragraphs: [
+        "The agent runs on real conversations under supervision: it writes the draft, and a person on the team sends, edits or discards it. In the run that took passing cases from 10 to 23, the handoffs left were requests for a person, high risk, money actions or the guardrail blocking made-up content.",
+        "The agent’s numbers come from evals, not production: in production, a person still reviews every reply.",
         "The new app’s first production builds came out in Oct 2026, and it is set up to replace the Flutter app as an update in the stores. The new admin app already runs on the web, on production data.",
       ],
       stats: [
-        { term: "AI", value: "AI", label: "Agent in real conversations, with a person reviewing every reply.", status: "production", statusLabel: "In production" },
-        { term: "App", value: "App", label: "Expo app built with coding agents.", status: "prototype", statusLabel: "Built" },
+        { term: "Agent", value: "23/31", label: "Cases passed in evals on the same model (up from 10). In production, a person reviews every reply.", status: "production", statusLabel: "In production" },
+        { term: "Handoff", value: "38.7%", label: "Handoffs on the same 31 cases (down from 80.6%)." },
+        { term: "App", value: "Oct 2026", label: "First production builds of the new Expo app, built with coding agents.", status: "prototype", statusLabel: "Built" },
       ],
     },
   ],
   next: { slug: "dental-smart", index: "03", title: "Dental Smart." },
   seo: {
-    title: "Tazz: an Expo app built from scratch with AI agents · Everton Resende",
+    title: "Tazz: a support agent with evals and an Expo app from scratch · Everton Resende",
     description:
-      "How I architected a ride-hailing app in Expo and its Workers, built by coding agents in parallel. I also ported 100+ Cloud Functions to Cloudflare Workers in ~48 h and put a support agent in production.",
+      "How I took a ride-hailing app’s support agent from 10 to 23 passing cases in 31 evals, with a guardrail and an LLM judge. And how I architected the new Expo app, built by coding agents, and ported 100+ Cloud Functions to Cloudflare Workers in ~48 h.",
   },
 };
