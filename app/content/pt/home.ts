@@ -70,14 +70,18 @@ export const home: HomeContent = {
         hasPage: true,
         figure: {
           number: "Fig. 01",
-          caption: "Arquitetura",
+          caption: "Atendimento",
           direction: "vertical",
-          nodes: [{ title: "App Expo" }, { title: "Workers" }, { title: "Postgres" }],
-          footnote: "App novo do zero · agentes de código em paralelo",
+          nodes: [
+            { title: "Mensagem", note: "5 canais" },
+            { title: "Agente", note: "9 tools · guardrail" },
+            { title: "Atendente", note: "envia, edita ou descarta" },
+          ],
+          footnote: "Fonte, número e status conferidos antes do rascunho",
         },
-        problem: "O backend do app de corridas bateu na cota fixa de 20 vCPU do GCP em São Paulo, e o app em Flutter falava direto com o Firebase.",
+        problem: "O atendimento do app de corridas recebia ~335 mensagens por dia, em 5 canais. Ao mesmo tempo, o backend bateu na cota fixa de 20 vCPU do GCP em São Paulo, e o app em Flutter falava direto com o Firebase.",
         whatIDid:
-          "Arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de código em paralelo. Antes, portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h. Também construí o agente de atendimento e os fluxos de dinheiro do ledger, e levei o PIX do Asaas à produção.",
+          "Construí o agente de atendimento, com tools, guardrail, LLM-juiz e evals. Portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h e depois arquitetei e construí do zero o novo app em Expo e os Workers dele, com agentes de código em paralelo. Também construí os fluxos de dinheiro do ledger e levei o PIX do Asaas à produção.",
         stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {

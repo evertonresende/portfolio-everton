@@ -70,14 +70,18 @@ export const home: HomeContent = {
         hasPage: true,
         figure: {
           number: "Fig. 01",
-          caption: "Architecture",
+          caption: "Support",
           direction: "vertical",
-          nodes: [{ title: "Expo app" }, { title: "Workers" }, { title: "Postgres" }],
-          footnote: "New app from scratch · coding agents in parallel",
+          nodes: [
+            { title: "Message", note: "5 channels" },
+            { title: "Agent", note: "9 tools · guardrail" },
+            { title: "Operator", note: "sends, edits or discards" },
+          ],
+          footnote: "Sources, numbers and status checked before the draft",
         },
-        problem: "The ride-hailing app’s backend hit GCP’s fixed 20 vCPU quota in São Paulo, and the Flutter app talked straight to Firebase.",
+        problem: "The ride-hailing app’s support got ~335 messages a day across 5 channels. At the same time, the backend hit GCP’s fixed 20 vCPU quota in São Paulo, and the Flutter app talked straight to Firebase.",
         whatIDid:
-          "I architected and built the new Expo app and its Workers from scratch, with coding agents working in parallel. Before that, I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h. I also built the support agent and the ledger’s money flows, and shipped Pix (Brazil’s instant payments) via Asaas.",
+          "I built the support agent, with tools, a guardrail, an LLM judge and evals. I ported 100+ Cloud Functions to 8 Cloudflare Workers in ~47.5\u00a0h, then architected and built the new Expo app and its Workers from scratch, with coding agents working in parallel. I also built the ledger’s money flows and shipped Pix (Brazil’s instant payments) via Asaas.",
         stack: "TypeScript · Expo · Cloudflare Workers · Durable Objects · Queues · Postgres",
         ai: [
           {
