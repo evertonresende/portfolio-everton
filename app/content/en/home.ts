@@ -316,7 +316,7 @@ export const home: HomeContent = {
     label: "04 / Experience",
     title: "Experience.",
     rows: [
-      { period: "2025 – 2026", role: "AI consultant and engineer", company: "B2B contractor · Coppay, Tazz, Rota Protegida, Dental Smart, Maximus, Davions", mode: "remote" },
+      { period: "Oct 2025 – Nov 2026", role: "AI consultant and engineer", company: "B2B contractor · Coppay, Tazz, Rota Protegida, Dental Smart, Maximus, Davions", mode: "remote" },
       { period: "Oct 2025 – Oct 2026", role: "AI Engineer", company: "Coppay", mode: "B2B contractor · remote" },
       { period: "Nov 2022 – Oct 2025", role: "Software Developer", company: "Softplan · TypeScript, Node, React, SQL, AWS, Docker", mode: "Full-time (CLT) · remote" },
       { period: "Nov 2021 – Oct 2022", role: "Freelance Developer", company: "", mode: "" },

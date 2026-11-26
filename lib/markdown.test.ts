@@ -179,7 +179,7 @@ test("posicionamento: consultoria encerrada, início imediato, MCP e provas púb
       assert.doesNotMatch(text, /[–-]\s*(hoje|present)\b|sigo como engenheiro|still own|still building/i);
     }
     const { rows } = site.home.timeline;
-    assert.equal(rows[0].period, "2025 – 2026");
+    assert.equal(rows[0].period, pt ? "out 2025 – nov 2026" : "Oct 2025 – Nov 2026"); // com mês, igual ao CV
     assert.match(rows[0].company, /Coppay.*Tazz.*Rota Protegida.*Dental Smart.*Maximus.*Davions/);
     const coppay = rows.find((r) => r.company === "Coppay");
     assert.ok(coppay, `${locale}: linha da Coppay`);

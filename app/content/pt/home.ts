@@ -316,7 +316,7 @@ export const home: HomeContent = {
     label: "04 / Trajetória",
     title: "Trajetória.",
     rows: [
-      { period: "2025 – 2026", role: "Consultor e engenheiro de IA", company: "PJ · Coppay, Tazz, Rota Protegida, Dental Smart, Maximus, Davions", mode: "remoto" },
+      { period: "out 2025 – nov 2026", role: "Consultor e engenheiro de IA", company: "PJ · Coppay, Tazz, Rota Protegida, Dental Smart, Maximus, Davions", mode: "remoto" },
       { period: "out 2025 – out 2026", role: "AI Engineer", company: "Coppay", mode: "PJ · remoto" },
       { period: "nov 2022 – out 2025", role: "Desenvolvedor de Software", company: "Softplan · TypeScript, Node, React, SQL, AWS, Docker", mode: "CLT · remoto" },
       { period: "nov 2021 – out 2022", role: "Desenvolvedor Freelancer", company: "", mode: "" },
