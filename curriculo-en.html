@@ -39,15 +39,15 @@ AI Engineer with 7+ years in software. From client scoping to deployment, I arch
 <div class="item">
 <span class="date">Oct 2025 – Nov 2026</span>
 <div>
-<h3>AI Consultant and Engineer, B2B contractor</h3>
+<h3>Forward Deployed AI Engineer, B2B contractor</h3>
 <div class="meta">Remote</div>
 <p class="lede">Defined scope and architecture directly with clients and shipped with coding agents. Led teams of 2 to 5 people (architecture and task breakdown) at Coppay, Tazz, Dental Smart and Davions.</p>
 <ul>
-<li>Architected and built <strong>Coppay</strong>'s digital account (fintech, B2B contractor, Oct 2025 – Oct 2026): Expo app in the stores with real customers, BFF on Workers, back office and LLM credit assessment at ~R$0.01. Also the WhatsApp agent in Python (Agno + FastAPI).</li>
-<li>Created for <strong>Tazz</strong> (mobility, 6 months in 2026) the support agent with 31 evals, guardrails and LLM-as-judge: passing cases from 10 to 23 and handoffs from 80.6% to 38.7%. Rewrote the Flutter app from scratch in <span class="nb">React Native</span> (Expo), with an AI voice assistant, and ported 100+ Cloud Functions to 8 Workers in <span class="nb">~47.5 hours</span>.</li>
-<li>Architected for a city government <strong>Rota Protegida</strong> (6 months in 2026): school face recognition cascade (AuraFace, Vectorize, AWS Rekognition, human review), under LGPD, in production since Jul 2026.</li>
+<li>Architected and built <strong>Coppay</strong>'s digital account (fintech, B2B contractor, Oct 2025 – Oct 2026): Expo app in the stores with real customers, BFF on Workers, back office with RBAC and audit log, LLM credit assessment at ~R$0.01 and LLM email triage. Also built the WhatsApp agent in Python (Agno + FastAPI): its tools ignore the model's arguments, which blocks IDOR, and it passed 6 live tests, including prompt injection.</li>
+<li>Created for <strong>Tazz</strong> (mobility, 6 months in 2026) the support agent with 31 evals, guardrails and LLM-as-judge: passing cases from 10 to 23 and handoffs from 80.6% to 38.7%. Rewrote the Flutter app from scratch in <span class="nb">React Native</span> (Expo), with an AI voice assistant, and ported 100+ Cloud Functions to 8 Workers in <span class="nb">~47.5 hours</span>. On the ledger, in production with Asaas since Sep 2026, built ride payment, reversals, Pix payouts and chargeback holds, with one idempotency key per event.</li>
+<li>Architected and built for a city government <strong>Rota Protegida</strong> (6 months in 2026): school face recognition cascade (AuraFace, Vectorize, AWS Rekognition, human review), in production since Jul 2026. Tested a second model (AdaFace) on 862 events and turned it off: it recovered no missed match and reinforced 45 wrong rejections. LGPD: mandatory consent, automatic retention and a log of who views the photos.</li>
 <li>Built <strong>Dental Smart</strong> from scratch (multi-tenant dental SaaS, 1 year, 2025 – 2026), with each clinic isolated by RLS: AI clinical notes (Whisper + <span class="nb">Llama 3.3 70B</span>) in production since 02/2026 and agents connected via MCP.</li>
-<li>Built <strong>Maximus</strong> (healthcare, 5 months in 2026), an Expo app and Workers API used by anesthesiologists: clinical RAG chat (OpenAI file_search) by text, image or voice.</li>
+<li>Built <strong>Maximus</strong> (healthcare, 5 months in 2026), an Expo app and Workers API used by anesthesiologists: clinical RAG chat (OpenAI file_search) by text, image or voice, and board-exam-style (TSA) questions generated with structured output and validation.</li>
 <li>Delivered <strong>Davions</strong> (SaaS for photographers, 6 months in 2026): designed its own architecture from scratch on 10 Cloudflare Workers with Supabase and RLS, migrated and refactored the app, architected escrow on Asaas with Pix payouts, and moved its 10 AI functions to AI Gateway.</li>
 </ul>
 </div>
