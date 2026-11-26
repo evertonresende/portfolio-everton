@@ -12,9 +12,9 @@ export const dentalSmart: CaseDetail = {
     { term: "AI", value: "Clinical note written from the recorded appointment", status: "production", statusLabel: "In production" },
   ],
   stats: [
-    { term: "Build", value: "1 year", label: "from scratch, 2025 to 2026" },
-    { term: "Clinical note", value: "4 sections", label: "complaints, observations, procedures and next steps" },
+    { term: "Clinical notes", value: "Thousands", label: "of notes written by the AI in patient records" },
     { term: "AI", value: "Feb 2026", label: "AI clinical notes in production" },
+    { term: "Build", value: "1 year", label: "from scratch, 2025 to 2026" },
   ],
   sections: [
     {
@@ -159,9 +159,9 @@ export const dentalSmart: CaseDetail = {
       id: "resultado",
       label: "07 / Result",
       title: "Live, with AI in the patient record.",
-      paragraphs: ["Each clinic runs in its own tenant isolated by RLS, and every note the AI writes reaches the patient record as a draft for the dentist to review."],
+      paragraphs: ["Since Feb 2026, the AI has written thousands of clinical notes into patient records. Each clinic runs in its own tenant isolated by RLS, and every note arrives as a draft for the dentist to review."],
       stats: [
-        { term: "AI", value: "AI", label: "Clinical note written from the recorded appointment, in the patient’s record, since Feb 2026.", status: "production", statusLabel: "In production" },
+        { term: "AI", value: "Thousands", label: "Clinical notes written by the AI from the recorded appointment, in the patient’s record, since Feb 2026.", status: "production", statusLabel: "In production" },
       ],
     },
   ],

@@ -12,9 +12,9 @@ export const dentalSmart: CaseDetail = {
     { term: "IA", value: "Nota clínica escrita a partir da consulta gravada", status: "production", statusLabel: "Em produção" },
   ],
   stats: [
-    { term: "Construção", value: "1 ano", label: "do zero, de 2025 a 2026" },
-    { term: "Nota clínica", value: "4 blocos", label: "queixas, observações, procedimentos e próximos passos" },
+    { term: "Nota clínica", value: "Milhares", label: "de notas escritas pela IA no prontuário" },
     { term: "IA", value: "fev/2026", label: "nota clínica com IA em produção" },
+    { term: "Construção", value: "1 ano", label: "do zero, de 2025 a 2026" },
   ],
   sections: [
     {
@@ -159,9 +159,9 @@ export const dentalSmart: CaseDetail = {
       id: "resultado",
       label: "07 / Resultado",
       title: "No ar, com a IA no prontuário.",
-      paragraphs: ["Cada clínica roda num tenant isolado por RLS, e toda nota escrita pela IA chega ao prontuário como rascunho para o dentista revisar."],
+      paragraphs: ["Desde fev/2026, a IA já escreveu milhares de notas clínicas nos prontuários. Cada clínica roda num tenant isolado por RLS, e toda nota chega como rascunho para o dentista revisar."],
       stats: [
-        { term: "IA", value: "IA", label: "Nota clínica escrita da consulta gravada, no prontuário do paciente, desde fev/2026.", status: "production", statusLabel: "Em produção" },
+        { term: "IA", value: "Milhares", label: "Notas clínicas escritas pela IA a partir da consulta gravada, no prontuário do paciente, desde fev/2026.", status: "production", statusLabel: "Em produção" },
       ],
     },
   ],
