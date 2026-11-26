@@ -1,12 +1,9 @@
-/* Estilo dos currículos (curriculo.html e curriculo-en.html). */
-/* Fontes estáticas (um arquivo por peso): a Inter variável do site sai no PDF com espaço no meio das palavras ("desenvo lvendo") para quem extrai o texto, como um ATS. */
-@font-face { font-family: "Inter"; font-weight: 400; font-display: block; src: url("scripts/fonts/cv/inter-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Inter"; font-weight: 500; font-display: block; src: url("scripts/fonts/cv/inter-latin-500-normal.woff2") format("woff2"); }
-@font-face { font-family: "Inter"; font-weight: 600; font-display: block; src: url("scripts/fonts/cv/inter-latin-600-normal.woff2") format("woff2"); }
-@font-face { font-family: "Inter"; font-weight: 700; font-display: block; src: url("scripts/fonts/cv/inter-latin-700-normal.woff2") format("woff2"); }
-@font-face { font-family: "Inter"; font-weight: 800; font-display: block; src: url("scripts/fonts/cv/inter-latin-800-normal.woff2") format("woff2"); }
-@font-face { font-family: "JetBrains Mono"; font-weight: 400; font-display: block; src: url("scripts/fonts/cv/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "JetBrains Mono"; font-weight: 500; font-display: block; src: url("scripts/fonts/cv/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+/* Estilo dos currículos (curriculo.html e curriculo-en.html). Visual de 2026-11-26: serifada, datas numa coluna à esquerda, fios escuros entre as seções. */
+/* Fontes estáticas (um arquivo por peso): fonte variável sai no PDF com espaço no meio das palavras ("desenvo lvendo") para quem extrai o texto, como um ATS. */
+/* Gelasio (OFL, métricas da Georgia): subset latino em woff2 feito com fontTools a partir dos TTF da versão 1.008. */
+@font-face { font-family: "Gelasio"; font-weight: 400; font-style: normal; font-display: block; src: url("scripts/fonts/cv/gelasio-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Gelasio"; font-weight: 700; font-style: normal; font-display: block; src: url("scripts/fonts/cv/gelasio-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Gelasio"; font-weight: 400; font-style: italic; font-display: block; src: url("scripts/fonts/cv/gelasio-latin-400-italic.woff2") format("woff2"); }
 
 /* Margem inferior guarda o rodapé (nome · site · página) que scripts/cv/pdf.cjs desenha nela. */
 @page { size: A4; margin: 12mm 16mm 14mm; }
@@ -14,18 +11,19 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --fg: #141414;
-  --body: #333;
-  --muted: #5e5e5e;
-  --rule: #bdbdbd;
-  --faint: #8a8a8a;
+  --fg: #1c2230;
+  --body: #2a303b;
+  --muted: #5b626e;
+  --rule: #1c2230;
+  --date-col: 134px;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  color: var(--fg);
+  font-family: "Gelasio", Georgia, serif;
+  font-variant-numeric: oldstyle-nums;
+  color: var(--body);
   background: #fff;
-  font-size: 11.8px;
+  font-size: 13px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -34,76 +32,48 @@ body {
 @media screen { .page { padding: 40px 48px; } }
 
 a { color: inherit; text-decoration: none; }
-.link { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 2px; }
+.nb { white-space: nowrap; }
 
-/* Cabeçalho */
-/* Sem tracking negativo: com -0.03em o espaço entre "Everton" e "Resende" ficava de 3,4pt e extratores de PDF podiam juntar o nome. */
-.name { font-size: 28px; font-weight: 800; letter-spacing: 0; word-spacing: 0.08em; line-height: 1.05; }
-.role { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-top: 2px; }
-.contact { margin-top: 8px; font-size: 10px; color: var(--fg); line-height: 1.7; }
+/* Cabeçalho centralizado. Sem tracking negativo no nome: extratores de PDF podiam juntar "Everton" e "Resende". */
+.header { text-align: center; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.name { font-size: 28px; font-weight: 700; color: var(--fg); line-height: 1.1; }
+.role { font-size: 15px; font-style: italic; color: var(--muted); margin-top: 2px; }
+.contact { margin-top: 7px; font-size: 11px; color: var(--muted); }
 .contact span { white-space: nowrap; }
-.contact span:not(:last-child)::after { content: "·"; margin: 0 6px; color: var(--faint); }
-/* Quebra proposital 3 + 2, sem "·" sobrando no fim da linha */
-.contact span:nth-child(3)::after { content: "\A"; white-space: pre; margin: 0; }
-.where { font-size: 10px; color: var(--muted); line-height: 1.6; }
-/* Sem foto (decisão de 2026-11-03: vaga internacional costuma preferir sem). */
-.header { padding-bottom: 10px; border-bottom: 1px solid var(--fg); }
+.contact span:not(:last-child)::after { content: "•"; margin: 0 7px; text-decoration: none; display: inline-block; }
+/* Quebra proposital 3 + 2, sem "•" sobrando no fim da linha. */
+.contact span:nth-child(3)::after { content: "\A"; white-space: pre; margin: 0; display: inline; }
+.contact a { text-decoration: underline; text-decoration-color: #a3a8b0; text-underline-offset: 2px; }
+.where { margin-top: 1px; font-size: 11px; color: var(--muted); }
 
-.summary { margin-top: 12px; font-size: 12.2px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
-.summary strong { color: var(--fg); font-weight: 600; }
+/* Seções separadas por fio escuro; rótulo em caixa alta sem tracking, porque letra espaçada sai "E X P E R I Ê N C I A" para o ATS. */
+section { margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--rule); }
+.header + section { border-top: 0; margin-top: 0; }
+h2 { font-size: 11px; font-weight: 400; text-transform: uppercase; color: var(--fg); margin-bottom: 7px; break-after: avoid; }
 
-/* Seções: rótulo sem tracking, porque letra espaçada sai "E X P E R I Ê N C I A" para o ATS */
-section { margin-top: 16px; }
-h2 {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10.4px;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--fg);
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 6px;
-}
+.summary { font-size: 13px; line-height: 1.5; text-wrap: pretty; }
 
-.item { margin-bottom: 9px; break-inside: avoid; }
+/* Item: data na coluna da esquerda, cargo e conteúdo na direita. A data vem antes no HTML para a ordem de leitura do PDF. */
+.item { display: grid; grid-template-columns: var(--date-col) 1fr; column-gap: 12px; margin-bottom: 10px; break-inside: avoid; }
 .item:last-child { margin-bottom: 0; }
-/* A experiência tem 4 itens (consultoria, Softplan, freelancer, FAPAM): vão menor entre eles e no topo da seção, para fechar a página 1. */
-section:first-of-type { margin-top: 12px; }
-section:first-of-type .item { margin-bottom: 6px; }
-.item-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-h3 { font-size: 12.4px; font-weight: 700; letter-spacing: -0.01em; }
-h3 .org { font-weight: 400; color: var(--muted); }
-/* Link do case no site, na linha do título (não custa altura). Fora do h3 para não entrar no bookmark do PDF. */
-.title { display: flex; align-items: baseline; gap: 8px; }
-.case { font-family: "JetBrains Mono", monospace; font-size: 9.6px; color: var(--muted); white-space: nowrap; }
-.date { font-family: "JetBrains Mono", monospace; font-size: 9.6px; color: var(--muted); white-space: nowrap; }
-.meta { font-size: 10px; color: var(--muted); margin-bottom: 4px; }
-.item-top + ul { margin-top: 4px; }
-/* Resultado em uma linha, antes dos bullets: o que saiu do item, para quem só passa o olho (os bullets repetem com contexto). Só fatos que já estão nos bullets. */
-.result { margin: 2px 0 4px; font-family: "JetBrains Mono", monospace; font-size: 9.6px; font-weight: 500; color: var(--fg); }
-.meta + .result { margin-top: -2px; }
+.date { font-size: 12.4px; color: var(--muted); white-space: nowrap; }
+h3 { font-size: 13.4px; font-weight: 700; color: var(--fg); }
+.meta { margin-bottom: 3px; }
+.lede { margin: 0 0 3px; text-wrap: pretty; }
+h3 + ul { margin-top: 2px; }
 
 ul { list-style: none; }
 /* Sem position no li: elemento posicionado é pintado por último e o texto sai fora de ordem no PDF. */
-li { padding-left: 12px; margin-bottom: 1px; color: var(--body); text-wrap: pretty; }
-li::before { content: "–"; display: inline-block; width: 12px; margin-left: -12px; color: var(--muted); }
-li strong { color: var(--fg); font-weight: 600; }
+li { padding-left: 11px; margin-bottom: 1px; text-wrap: pretty; }
+li::before { content: "•"; display: inline-block; width: 11px; margin-left: -11px; color: var(--fg); }
+li strong { color: var(--fg); font-weight: 700; }
 
-.stack { margin-top: 4px; font-family: "JetBrains Mono", monospace; font-size: 9.6px; color: var(--muted); }
+/* Competências e idiomas: rótulo na coluna da esquerda; dois-pontos no texto para o parser separar rótulo e valor. */
+.skills p { display: grid; grid-template-columns: var(--date-col) 1fr; column-gap: 12px; margin-bottom: 4px; }
+.skills b { font-weight: 400; color: var(--muted); }
 
-/* Habilidades: uma linha por grupo, com dois-pontos no texto para o parser separar rótulo e valor */
-.skills p { display: flex; gap: 8px; margin-bottom: 4px; color: var(--body); }
-.skills b { flex: 0 0 150px; font-weight: 600; color: var(--fg); }
-
-.plain p { color: var(--body); }
 .plain p + p { margin-top: 4px; }
-.nb { white-space: nowrap; }
-
-/* Parágrafo de abertura do cargo de consultoria, antes dos bullets por cliente. */
-.lede { color: var(--body); margin: 0 0 4px; text-wrap: pretty; }
-.plain p a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 2px; }
 
 /* Página 1 fecha com a experiência; a 2 abre em "Provas públicas". Seção nunca separa o título dos itens. */
-h2 { break-after: avoid; }
 .plain, .skills { break-inside: avoid; }
 section.new-page { break-before: page; margin-top: 0; }

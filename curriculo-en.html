@@ -15,106 +15,102 @@
 -->
 <link rel="stylesheet" href="curriculo.css">
 </head>
-<body>
-  <div class="page">
-
-    <header class="header">
-      <h1 class="name">Everton Resende</h1>
-      <div class="role">AI Engineer · AI agents in production</div>
-      <div class="contact">
-        <span><a href="mailto:contato@evertonresende.com">contato@evertonresende.com</a></span>
-        <span><a href="https://wa.me/5537999133556">+55 37 99913-3556</a></span>
-        <span><a href="https://linkedin.com/in/evertonresende">linkedin.com/in/evertonresende</a></span>
-        <span><a href="https://github.com/evertonresende">github.com/evertonresende</a></span>
-        <span><a href="https://evertonresende.com/en">evertonresende.com/en</a></span>
-      </div>
-      <div class="where">Pará de Minas, MG, Brazil · remote (UTC-3) · B2B contractor (PJ) or full-time (CLT) · available to start immediately · occasional travel</div>
-    </header>
-
-    <p class="summary">
-      <strong>AI Engineer with 7+ years in software.</strong> From client scoping to deployment, I architect and ship AI agents, leading teams of 2 to 5 people. Live: a support agent with evals and LLM-as-judge (eval cases passing from 10 to 23 of 31, <span class="nb">same model</span>), LLM credit assessments at ~R$0.01, a multi-tenant dental SaaS with AI clinical notes, and face recognition in a city's schools.
-    </p>
-
-    <section>
-      <h2>Experience</h2>
-
-      <div class="item">
-        <div class="item-top">
-          <h3>AI Consultant and Engineer <span class="org">— B2B contractor</span></h3>
-          <span class="date">2025 – 2026</span>
-        </div>
-        <div class="meta">Remote</div>
-        <p class="lede">Defined scope and architecture directly with clients and shipped with coding agents. Led teams of 2 to 5 people (architecture and task breakdown) at Coppay, Tazz, Dental Smart and Davions.</p>
-        <ul>
-          <li>Built for <strong>Coppay</strong> (fintech, B2B contractor, Oct 2025 – Oct 2026) the LLM credit assessment at ~R$0.01 each and the WhatsApp agent in Python (Agno + FastAPI); shipped the account app to the app stores.</li>
-          <li>Created for <strong>Tazz</strong> (mobility, 6 months in 2026) the support agent with 31 evals, guardrails and LLM-as-judge: passing cases from 10 to 23 and handoffs from 80.6% to 38.7%. Ported 100+ Cloud Functions to 8 Workers in <span class="nb">~47.5 hours</span>.</li>
-          <li>Architected for a city government <strong>Rota Protegida</strong> (6 months in 2026): school face recognition cascade (AuraFace, Vectorize, AWS Rekognition, human review), under LGPD, in production since Jul 2026.</li>
-          <li>Built <strong>Dental Smart</strong> from scratch (multi-tenant dental SaaS, 1 year, 2025 – 2026), with each clinic isolated by RLS: AI clinical notes (Whisper + <span class="nb">Llama 3.3 70B</span>) in production since 02/2026 and agents connected via MCP.</li>
-          <li>Delivered <strong>Maximus</strong> (healthcare, 5 months in 2026): clinical RAG chat (OpenAI file_search) for anesthesiologists, by text, image or voice.</li>
-          <li>Delivered <strong>Davions</strong> (SaaS for photographers, 6 months in 2026): designed its own architecture from scratch on 10 Cloudflare Workers with Supabase and RLS, migrated and refactored the app, architected escrow on Asaas with Pix payouts, and moved its 10 AI functions to AI Gateway.</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <div class="item-top">
-          <h3>Software Developer <span class="org">— Softplan</span></h3>
-          <span class="date">Nov 2022 – Oct 2025</span>
-        </div>
-        <div class="meta">Full-time (CLT) · remote</div>
-        <ul>
-          <li>Developed enterprise software at Latin America's largest legaltech (TypeScript, Node, React, SQL, AWS, Docker).</li>
-          <li>Recognized 10 times in Softplan's Softplayer A+ recognition program.</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <div class="item-top">
-          <h3>Freelance Developer</h3>
-          <span class="date">Nov 2021 – Oct 2022</span>
-        </div>
-        <ul>
-          <li>Developed custom software for clients.</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <div class="item-top">
-          <h3>Software Developer <span class="org">— FAPAM</span></h3>
-          <span class="date">Nov 2018 – Oct 2021</span>
-        </div>
-        <div class="meta">Full-time (CLT) · hybrid</div>
-        <ul>
-          <li>Worked on the academic portal serving 4,000+ students, with TypeScript, Node, React, SQL, AWS and Docker.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="plain new-page">
-      <h2>Public proof</h2>
-      <p><a class="nb" href="https://github.com/evertonresende/agente-concierge">github.com/evertonresende/agente-concierge</a>: booking agent with evals, run against the real model (Claude Haiku 5.5).</p>
-      <p>Cases on the site: <a class="nb" href="https://evertonresende.com/en/projects/tazz">evertonresende.com/en/projects/tazz</a> · <a class="nb" href="https://evertonresende.com/en/projects/dental-smart">evertonresende.com/en/projects/dental-smart</a></p>
-    </section>
-
-    <section class="plain">
-      <h2>Education</h2>
-      <p>Information Systems, undergraduate studies (incomplete) · FAPAM · Nov 2018 – Dec 2020</p>
-    </section>
-
-    <section class="skills">
-      <h2>Skills</h2>
-      <p><b>AI and agents:</b><span>agents and tool calling, RAG, evals with a gate, guardrails, <span class="nb">LLM-as-judge</span>, LangChain, LangGraph, LangSmith, Agno, OpenAI Responses API, structured output, MCP (client and server)</span></p>
-      <p><b>Programming languages:</b><span>Python, TypeScript, SQL</span></p>
-      <p><b>Cloud and infrastructure:</b><span>AWS, Cloudflare, Docker</span></p>
-      <p><b>Backend and data:</b><span>Node.js, FastAPI, Hono, Postgres, Supabase</span></p>
-      <p><b>Frontend and mobile:</b><span>React, Next.js, Expo</span></p>
-      <p><b>Method:</b><span>development with coding agents, acceptance criteria, second-model review, human gates</span></p>
-    </section>
-
-    <section class="plain">
-      <h2>Languages</h2>
-      <p>Portuguese (native) · English (good reading and listening; speaking still developing)</p>
-    </section>
-
-  </div>
+<body><div class="page">
+<header class="header">
+<h1 class="name">Everton Resende</h1>
+<div class="role">AI Engineer · AI agents in production</div>
+<div class="contact">
+<span><a href="https://wa.me/5537999133556">+55 37 99913-3556</a></span>
+<span><a href="mailto:contato@evertonresende.com">contato@evertonresende.com</a></span>
+<span><a href="https://evertonresende.com/en">evertonresende.com/en</a></span>
+<span><a href="https://linkedin.com/in/evertonresende">linkedin.com/in/evertonresende</a></span>
+<span><a href="https://github.com/evertonresende">github.com/evertonresende</a></span>
+</div>
+<div class="where">Pará de Minas, MG, Brazil · remote (UTC-3) · B2B contractor (PJ) or full-time (CLT) · available to start immediately · occasional travel</div>
+</header>
+<section>
+<h2>Summary</h2>
+<p class="summary">
+AI Engineer with 7+ years in software. From client scoping to deployment, I architect and ship AI agents, leading teams of 2 to 5 people. Live: a support agent with evals and LLM-as-judge (eval cases passing from 10 to 23 of 31, <span class="nb">same model</span>), LLM credit assessments at ~R$0.01, a multi-tenant dental SaaS with AI clinical notes, and face recognition in a city's schools.
+</p>
+</section>
+<section>
+<h2>Experience</h2>
+<div class="item">
+<span class="date">2025 – 2026</span>
+<div>
+<h3>AI Consultant and Engineer, B2B contractor</h3>
+<div class="meta">Remote</div>
+<p class="lede">Defined scope and architecture directly with clients and shipped with coding agents. Led teams of 2 to 5 people (architecture and task breakdown) at Coppay, Tazz, Dental Smart and Davions.</p>
+<ul>
+<li>Built for <strong>Coppay</strong> (fintech, B2B contractor, Oct 2025 – Oct 2026) the LLM credit assessment at ~R$0.01 each and the WhatsApp agent in Python (Agno + FastAPI); shipped the account app to the app stores.</li>
+<li>Created for <strong>Tazz</strong> (mobility, 6 months in 2026) the support agent with 31 evals, guardrails and LLM-as-judge: passing cases from 10 to 23 and handoffs from 80.6% to 38.7%. Ported 100+ Cloud Functions to 8 Workers in <span class="nb">~47.5 hours</span>.</li>
+<li>Architected for a city government <strong>Rota Protegida</strong> (6 months in 2026): school face recognition cascade (AuraFace, Vectorize, AWS Rekognition, human review), under LGPD, in production since Jul 2026.</li>
+<li>Built <strong>Dental Smart</strong> from scratch (multi-tenant dental SaaS, 1 year, 2025 – 2026), with each clinic isolated by RLS: AI clinical notes (Whisper + <span class="nb">Llama 3.3 70B</span>) in production since 02/2026 and agents connected via MCP.</li>
+<li>Delivered <strong>Maximus</strong> (healthcare, 5 months in 2026): clinical RAG chat (OpenAI file_search) for anesthesiologists, by text, image or voice.</li>
+<li>Delivered <strong>Davions</strong> (SaaS for photographers, 6 months in 2026): designed its own architecture from scratch on 10 Cloudflare Workers with Supabase and RLS, migrated and refactored the app, architected escrow on Asaas with Pix payouts, and moved its 10 AI functions to AI Gateway.</li>
+</ul>
+</div>
+</div>
+<div class="item">
+<span class="date">Nov 2022 – Oct 2025</span>
+<div>
+<h3>Software Developer, Softplan</h3>
+<div class="meta">Full-time (CLT) · remote</div>
+<ul>
+<li>Developed enterprise software at Latin America's largest legaltech (TypeScript, Node, React, SQL, AWS, Docker).</li>
+<li>Recognized 10 times in Softplan's Softplayer A+ recognition program.</li>
+</ul>
+</div>
+</div>
+<div class="item">
+<span class="date">Nov 2021 – Oct 2022</span>
+<div>
+<h3>Freelance Developer</h3>
+<ul>
+<li>Developed custom software for clients.</li>
+</ul>
+</div>
+</div>
+<div class="item">
+<span class="date">Nov 2018 – Oct 2021</span>
+<div>
+<h3>Software Developer, FAPAM</h3>
+<div class="meta">Full-time (CLT) · hybrid</div>
+<ul>
+<li>Worked on the academic portal serving 4,000+ students, with TypeScript, Node, React, SQL, AWS and Docker.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="plain new-page">
+<h2>Public proof</h2>
+<p><a class="nb" href="https://github.com/evertonresende/agente-concierge">github.com/evertonresende/agente-concierge</a>: booking agent with evals, run against the real model (Claude Haiku 5.5).</p>
+<p>Cases on the site: <a class="nb" href="https://evertonresende.com/en/projects/tazz">evertonresende.com/en/projects/tazz</a> · <a class="nb" href="https://evertonresende.com/en/projects/dental-smart">evertonresende.com/en/projects/dental-smart</a></p>
+</section>
+<section>
+<h2>Education</h2>
+<div class="item">
+<span class="date">Nov 2018 – Dec 2020</span>
+<div>
+<h3>Information Systems, undergraduate studies (incomplete), FAPAM</h3>
+</div>
+</div>
+</section>
+<section class="skills">
+<h2>Skills</h2>
+<p><b>AI and agents:</b><span>agents and tool calling • RAG • evals with a gate • guardrails • <span class="nb">LLM-as-judge</span> • LangChain • LangGraph • LangSmith • Agno • OpenAI Responses API • structured output • MCP (client and server)</span></p>
+<p><b>Programming languages:</b><span>Python • TypeScript • SQL</span></p>
+<p><b>Cloud and infrastructure:</b><span>AWS • Cloudflare • Docker</span></p>
+<p><b>Backend and data:</b><span>Node.js • FastAPI • Hono • Postgres • Supabase</span></p>
+<p><b>Frontend and mobile:</b><span>React • Next.js • Expo</span></p>
+<p><b>Method:</b><span>development with coding agents • acceptance criteria • second-model review • human gates</span></p>
+</section>
+<section class="skills">
+<h2>Languages</h2>
+<p><b>Portuguese:</b><span>native</span></p>
+<p><b>English:</b><span>good reading and listening; speaking still developing</span></p>
+</section>
+</div>
 </body>
 </html>
