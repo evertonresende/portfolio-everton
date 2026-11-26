@@ -74,6 +74,6 @@ li strong { color: var(--fg); font-weight: 700; }
 
 .plain p + p { margin-top: 4px; }
 
-/* Página 1 fecha com a experiência; a 2 abre em "Provas públicas". Seção nunca separa o título dos itens. */
+/* Página 1 fica com o cargo atual e a Softplan; os dois empregos mais antigos abrem a 2 (.item.new-page). Seção nunca separa o título dos itens. */
 .plain, .skills { break-inside: avoid; }
-section.new-page { break-before: page; margin-top: 0; }
+.new-page { break-before: page; }
