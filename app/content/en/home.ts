@@ -70,24 +70,31 @@ export const home: HomeContent = {
         hasPage: false,
         figure: {
           number: "Fig. 01",
-          caption: "Architecture",
+          caption: "Credit analysis",
           direction: "vertical",
           nodes: [
-            { title: "App", note: "Expo" },
-            { title: "BFF", note: "Hono · Workers" },
-            { title: "BaaS", note: "Cronos → Asaas" },
+            { title: "CPF", note: "lookup in the back office" },
+            { title: "Bureau + SCR", note: "real registered debt" },
+            { title: "Review", note: "LLM · fixed schema" },
+            { title: "Analyst", note: "decides" },
           ],
-          footnote: "Back office in Next.js · RBAC · audit log",
+          footnote: "Estimated income alone never rejects",
         },
-        problem: "A fintech needed a digital account, credit and customer support running on a Banking-as-a-Service (BaaS) provider, from the app to the back office.",
+        problem:
+          "A fintech needed to assess payroll-deducted and personal loan requests using the customer’s real registered debt, not only the bureau score. It also needed a digital account running on a Banking-as-a-Service (BaaS) provider, from the app to the back office.",
         whatIDid:
-          "I built the Expo app and the Hono BFF on Cloudflare Workers, integrated with Cronos, Asaas and HBI. I also built the Next.js back office, with RBAC and an audit log, and the AI features: email triage, LLM-assisted credit reviews and the WhatsApp agent. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
+          "I built the credit analysis pipeline: one lookup by CPF (the Brazilian taxpayer ID) cross-checks the payroll-loan margin, the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and an LLM writes the credit review for the analyst. I also built the Expo app and the Hono BFF on Cloudflare Workers, integrated with Cronos, Asaas and HBI, and the Next.js back office, with RBAC and an audit log. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
             status: "production",
             label: "In production",
-            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Estimated income alone never leads to a rejection: it becomes an approval conditional on proof of income, and the analyst makes the final call. It costs ~R$0.01 per review, with results reused for 30 days and a cap of 100 lookups per operator per day.",
+            text: "Credit review: an operator looks up a CPF in the back office, and gpt-oss-120b receives the credit bureau report, the Central Bank credit registry (SCR) and the loan simulations. It returns a 4-level risk tier, amount, installment and conditions in a fixed schema, on the proposal screen, and the analyst makes the final call. It costs ~R$0.01 per review, with results reused for 30 days and a cap of 100 lookups per operator per day.",
+          },
+          {
+            status: "decision",
+            label: "Decision",
+            text: "In the first real lookups, I found errors in the review and fixed them. The SCR parser counted credit card and overdraft limits as debt, so the risk came out higher than it was: I split debt from limits. The model rejected on estimated income alone, which is a bureau estimate: it now becomes an approval conditional on proof of income. And the code read the API envelope instead of the reply, so every review came out as high risk by default, with no analysis behind it: a reply outside the schema now fails with an error.",
           },
           {
             status: "production",
@@ -100,7 +107,7 @@ export const home: HomeContent = {
             text: "WhatsApp agent in Python (Agno + FastAPI): a lead agent routes to 3 specialists (loans, account and support), with read-only tools and handoff. The tools ignore the model’s arguments and use the conversation’s trusted context, which blocks IDOR. It passed a live battery of 6 scenarios, including prompt injection.",
           },
         ],
-        result: "App in the stores with real account holders · LLM credit assessments at ~R$0.01 each",
+        result: "LLM credit reviews at ~R$0.01 each, with the analyst making the final call · app in the stores with real account holders",
       },
       {
         slug: "tazz",

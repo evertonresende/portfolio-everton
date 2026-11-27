@@ -70,24 +70,31 @@ export const home: HomeContent = {
         hasPage: false,
         figure: {
           number: "Fig. 01",
-          caption: "Arquitetura",
+          caption: "Análise de crédito",
           direction: "vertical",
           nodes: [
-            { title: "App", note: "Expo" },
-            { title: "BFF", note: "Hono · Workers" },
-            { title: "BaaS", note: "Cronos → Asaas" },
+            { title: "CPF", note: "consulta no back-office" },
+            { title: "Bureau + SCR", note: "dívida real registrada" },
+            { title: "Parecer", note: "LLM · schema fixo" },
+            { title: "Analista", note: "decide" },
           ],
-          footnote: "Back-office em Next.js · RBAC · audit log",
+          footnote: "Renda presumida sozinha não reprova",
         },
-        problem: "Uma fintech precisava de conta digital, crédito e atendimento rodando sobre um BaaS, do app ao back-office.",
+        problem:
+          "Uma fintech precisava analisar pedidos de crédito consignado e pessoal com a dívida real do cliente, e não só com o score do bureau. Também precisava da conta digital rodando sobre um BaaS, do app ao back-office.",
         whatIDid:
-          "Construí o app em Expo e o BFF em Hono sobre Cloudflare Workers, integrado a Cronos, Asaas e HBI. Também construí o back-office em Next.js, com RBAC e audit log, e os recursos de IA: triagem de e-mail, parecer de crédito assistido por LLM e o agente de WhatsApp. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
+          "Construí a esteira de análise de crédito: uma consulta por CPF cruza a margem do consignado, o bureau, o SCR do Banco Central e as simulações, e um LLM escreve o parecer para o analista. Também construí o app em Expo e o BFF em Hono sobre Cloudflare Workers, integrado a Cronos, Asaas e HBI, e o back-office em Next.js, com RBAC e audit log. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
             status: "production",
             label: "Em produção",
-            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante, e a decisão final é do analista. Custa ~R$ 0,01 por parecer, com reuso por 30 dias e teto de 100 consultas por operador ao dia.",
+            text: "Parecer de crédito: o operador consulta um CPF no back-office, e o gpt-oss-120b recebe o bureau, o SCR do Banco Central e as simulações. Ele devolve risco em 4 faixas, valor, parcela e condições num schema fixo, na tela da proposta, e a decisão final é do analista. Custa ~R$ 0,01 por parecer, com reuso por 30 dias e teto de 100 consultas por operador ao dia.",
+          },
+          {
+            status: "decision",
+            label: "Decisão",
+            text: "Nas primeiras consultas reais, achei erros no parecer e corrigi. O parser do SCR somava limite de cartão e de cheque especial como dívida, e o risco saía maior do que era: separei dívida de limite. O modelo reprovava só pela renda presumida, que é uma estimativa do bureau: agora ela vira aprovação condicionada a comprovante. E o código lia o envelope da API no lugar da resposta, então todo parecer saía como risco alto por padrão, sem análise nenhuma: agora uma resposta fora do schema falha com erro.",
           },
           {
             status: "production",
@@ -100,7 +107,7 @@ export const home: HomeContent = {
             text: "Agente de WhatsApp em Python (Agno + FastAPI): um líder faz a triagem para 3 especialistas (empréstimo, conta e suporte), com tools de leitura e handoff. As tools ignoram os argumentos do modelo e usam o contexto confiável da conversa, o que bloqueia IDOR. Passou numa bateria ao vivo de 6 cenários, incluindo injeção.",
           },
         ],
-        result: "App nas lojas com correntistas reais · parecer de crédito por LLM a ~R$\u00a00,01",
+        result: "Parecer de crédito por LLM a ~R$\u00a00,01, com a decisão do analista · app nas lojas com correntistas reais",
       },
       {
         slug: "tazz",
