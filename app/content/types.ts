@@ -102,7 +102,7 @@ export interface CaseSection {
 }
 
 /** Slugs com página própria: o tsc pega link para case que não existe e idioma sem o mesmo case. */
-export type CaseSlug = "tazz" | "dental-smart";
+export type CaseSlug = "coppay" | "tazz" | "dental-smart";
 
 export interface CaseDetail {
   readonly kicker: string;

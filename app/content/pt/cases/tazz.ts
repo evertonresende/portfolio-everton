@@ -1,7 +1,7 @@
 import type { CaseDetail } from "../../types";
 
 export const tazz: CaseDetail = {
-  kicker: "Case 01 · Mobilidade · 6 meses em 2026 · Consultoria e execução",
+  kicker: "Case 02 · Mobilidade · 6 meses em 2026 · Consultoria e execução",
   title: "Tazz.",
   lead: "App de corridas no Brasil, com ~335 mensagens de atendimento por dia. Construí o agente que escreve as respostas com fonte conferida, para um atendente revisar: nos evals, os aprovados foram de 10 para 23 em 31 casos. Também portei 100+ Cloud Functions para 8 Cloudflare Workers em ~47,5\u00a0h, construí do zero o novo app em Expo e coloquei o PIX no ar.",
   factsTitle: "Ficha técnica",

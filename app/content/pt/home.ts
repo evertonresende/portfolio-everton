@@ -67,7 +67,7 @@ export const home: HomeContent = {
         index: "01",
         meta: "Fintech · 2025–2026 · Consultoria e execução",
         title: "Coppay.",
-        hasPage: false,
+        hasPage: true,
         figure: {
           number: "Fig. 01",
           caption: "Análise de crédito",
@@ -83,7 +83,7 @@ export const home: HomeContent = {
         problem:
           "Uma fintech precisava analisar pedidos de crédito consignado e pessoal com a dívida real do cliente, e não só com o score do bureau. Também precisava da conta digital rodando sobre um BaaS, do app ao back-office.",
         whatIDid:
-          "Construí a esteira de análise de crédito: uma consulta por CPF cruza a margem do consignado, o bureau, o SCR do Banco Central e as simulações, e um LLM escreve o parecer para o analista. Também construí o app em Expo e o BFF em Hono sobre Cloudflare Workers, integrado a Cronos, Asaas e HBI, e o back-office em Next.js, com RBAC e audit log. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
+          "Construí a esteira de análise de crédito: uma consulta por CPF cruza a margem do consignado, o bureau, o SCR do Banco Central e as simulações, e um LLM escreve o parecer para o analista. Também construí o app em Expo e o BFF em Hono sobre Cloudflare Workers, integrado a Cronos, Asaas e HBI, e o back-office em Next.js, com RBAC e audit log. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, publicado ao lado do legado e ainda sem tráfego real.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
@@ -94,17 +94,17 @@ export const home: HomeContent = {
           {
             status: "decision",
             label: "Decisão",
-            text: "Nas primeiras consultas reais, achei erros no parecer e corrigi. O parser do SCR somava limite de cartão e de cheque especial como dívida, e o risco saía maior do que era: separei dívida de limite. O modelo reprovava só pela renda presumida, que é uma estimativa do bureau: agora ela vira aprovação condicionada a comprovante. E o código lia o envelope da API no lugar da resposta, então todo parecer saía como risco alto por padrão, sem análise nenhuma: agora uma resposta fora do schema falha com erro.",
+            text: "Nas primeiras consultas reais, achei erros no parecer e corrigi. O parser do SCR somava limite de cartão e de cheque especial como dívida, e o risco saía maior do que era: separei dívida de limite. O modelo reprovava só pela renda presumida, que é uma estimativa do bureau: agora ela vira aprovação condicionada a comprovante. E o código lia o envelope da API no lugar da resposta, então todo parecer saía como risco alto por padrão, sem análise nenhuma: agora uma resposta sem os campos do parecer falha com erro.",
           },
           {
             status: "production",
             label: "Em produção",
-            text: "Caixa de e-mail do time: cada e-mail passa por triagem (categoria, prioridade e resumo) num Durable Object por caixa, e um botão sugere a resposta pela thread. Deixei a detecção de spam fora da IA: numa fintech, um falso positivo custa mais caro, então quem decide é SPF, DKIM e DMARC.",
+            text: "Caixa de e-mail do time: cada e-mail passa por triagem (categoria, prioridade e resumo) num Durable Object por caixa, e um botão sugere a resposta pela thread. Tirei do modelo a decisão de spam depois que ele marcou e-mails legítimos: numa fintech, um falso positivo custa mais caro. O filtro ficou com o Cloudflare Email Routing (SPF, DKIM e DMARC).",
           },
           {
             status: "offline",
             label: "Construído",
-            text: "Agente de WhatsApp em Python (Agno + FastAPI): um líder faz a triagem para 3 especialistas (empréstimo, conta e suporte), com tools de leitura e handoff. As tools ignoram os argumentos do modelo e usam o contexto confiável da conversa, o que bloqueia IDOR. Passou numa bateria ao vivo de 6 cenários, incluindo injeção.",
+            text: "Agente de WhatsApp em Python (Agno + FastAPI): um líder faz a triagem para 3 especialistas (empréstimo, conta e suporte), com tools de leitura e handoff. As tools ignoram os argumentos do modelo e usam o contexto confiável da conversa, o que bloqueia IDOR. Passou numa bateria ao vivo de 6 cenários, com o modelo real e tools simuladas, incluindo injeção.",
           },
         ],
         result: "Parecer de crédito por LLM a ~R$\u00a00,01, com a decisão do analista · app nas lojas com correntistas reais",

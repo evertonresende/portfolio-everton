@@ -67,7 +67,7 @@ export const home: HomeContent = {
         index: "01",
         meta: "Fintech · 2025–2026 · Consulting and execution",
         title: "Coppay.",
-        hasPage: false,
+        hasPage: true,
         figure: {
           number: "Fig. 01",
           caption: "Credit analysis",
@@ -83,7 +83,7 @@ export const home: HomeContent = {
         problem:
           "A fintech needed to assess payroll-deducted and personal loan requests using the customer’s real registered debt, not only the bureau score. It also needed a digital account running on a Banking-as-a-Service (BaaS) provider, from the app to the back office.",
         whatIDid:
-          "I built the credit analysis pipeline: one lookup by CPF (the Brazilian taxpayer ID) cross-checks the payroll-loan margin, the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and an LLM writes the credit review for the analyst. I also built the Expo app and the Hono BFF on Cloudflare Workers, integrated with Cronos, Asaas and HBI, and the Next.js back office, with RBAC and an audit log. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
+          "I built the credit analysis pipeline: one lookup by CPF (the Brazilian taxpayer ID) cross-checks the payroll-loan margin, the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and an LLM writes the credit review for the analyst. I also built the Expo app and the Hono BFF on Cloudflare Workers, integrated with Cronos, Asaas and HBI, and the Next.js back office, with RBAC and an audit log. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, deployed next to the legacy one and still without real traffic.",
         stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
         ai: [
           {
@@ -94,17 +94,17 @@ export const home: HomeContent = {
           {
             status: "decision",
             label: "Decision",
-            text: "In the first real lookups, I found errors in the review and fixed them. The SCR parser counted credit card and overdraft limits as debt, so the risk came out higher than it was: I split debt from limits. The model rejected on estimated income alone, which is a bureau estimate: it now becomes an approval conditional on proof of income. And the code read the API envelope instead of the reply, so every review came out as high risk by default, with no analysis behind it: a reply outside the schema now fails with an error.",
+            text: "In the first real lookups, I found errors in the review and fixed them. The SCR parser counted credit card and overdraft limits as debt, so the risk came out higher than it was: I split debt from limits. The model rejected on estimated income alone, which is a bureau estimate: it now becomes an approval conditional on proof of income. And the code read the API envelope instead of the reply, so every review came out as high risk by default, with no analysis behind it: a reply without the review’s fields now fails with an error.",
           },
           {
             status: "production",
             label: "In production",
-            text: "Team inbox: every email is triaged (category, priority and summary) in a Durable Object per mailbox, and a button suggests a reply from the thread. I kept spam detection out of the AI: in a fintech a false positive costs more, so SPF, DKIM and DMARC decide.",
+            text: "Team inbox: every email is triaged (category, priority and summary) in a Durable Object per mailbox, and a button suggests a reply from the thread. I took the spam decision away from the model after it flagged legitimate emails: in a fintech a false positive costs more. The filter stayed with Cloudflare Email Routing (SPF, DKIM and DMARC).",
           },
           {
             status: "offline",
             label: "Built",
-            text: "WhatsApp agent in Python (Agno + FastAPI): a lead agent routes to 3 specialists (loans, account and support), with read-only tools and handoff. The tools ignore the model’s arguments and use the conversation’s trusted context, which blocks IDOR. It passed a live battery of 6 scenarios, including prompt injection.",
+            text: "WhatsApp agent in Python (Agno + FastAPI): a lead agent routes to 3 specialists (loans, account and support), with read-only tools and handoff. The tools ignore the model’s arguments and use the conversation’s trusted context, which blocks IDOR. It passed a live battery of 6 scenarios, with the real model and simulated tools, including prompt injection.",
           },
         ],
         result: "LLM credit reviews at ~R$0.01 each, with the analyst making the final call · app in the stores with real account holders",

@@ -1,5 +1,6 @@
 import type { SiteContent } from "../types";
 import { home } from "./home.ts";
+import { coppay } from "./cases/coppay.ts";
 import { tazz } from "./cases/tazz.ts";
 import { dentalSmart } from "./cases/dental-smart.ts";
 
@@ -47,5 +48,5 @@ export const pt: SiteContent = {
     },
   },
   home,
-  cases: { tazz, "dental-smart": dentalSmart },
+  cases: { coppay, tazz, "dental-smart": dentalSmart },
 };

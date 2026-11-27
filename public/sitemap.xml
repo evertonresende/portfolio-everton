@@ -13,6 +13,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://evertonresende.com"/>
   </url>
   <url>
+    <loc>https://evertonresende.com/projects/coppay</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://evertonresende.com/projects/coppay"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://evertonresende.com/en/projects/coppay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://evertonresende.com/projects/coppay"/>
+  </url>
+  <url>
+    <loc>https://evertonresende.com/en/projects/coppay</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://evertonresende.com/projects/coppay"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://evertonresende.com/en/projects/coppay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://evertonresende.com/projects/coppay"/>
+  </url>
+  <url>
     <loc>https://evertonresende.com/projects/tazz</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://evertonresende.com/projects/tazz"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://evertonresende.com/en/projects/tazz"/>

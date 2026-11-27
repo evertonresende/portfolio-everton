@@ -125,7 +125,7 @@ test("llms.txt segue o formato do llmstxt.org: toda linha de lista é '- [nome](
   for (const line of sections.join("\n").split("\n").filter((l) => l.startsWith("-"))) assert.match(line, item);
 });
 
-test("/llms-full.txt junta as 6 páginas num arquivo só e o llms.txt aponta para ele", async () => {
+test("/llms-full.txt junta todas as páginas num arquivo só e o llms.txt aponta para ele", async () => {
   assert.deepEqual(markdownRoute("/llms-full.txt", null), { kind: "llms-full" });
   const res = markdownResponse("GET", "/llms-full.txt", null);
   assert.equal(res?.headers.get("Content-Type"), "text/plain; charset=utf-8");
@@ -193,5 +193,12 @@ test("posicionamento: consultoria encerrada, início imediato, MCP e provas púb
     for (const detail of Object.values(site.cases)) {
       if (detail.next) assert.equal(detail.next.index, site.home.cases.items.find((item) => item.slug === detail.next?.slug)?.index);
     }
+    // Página de case: o número do kicker é o da home, e o cartão da home leva o botão "Ver case".
+    for (const [slug, detail] of Object.entries(site.cases)) {
+      const item = site.home.cases.items.find((i) => i.slug === slug);
+      assert.equal(item?.hasPage, true, `${locale}/${slug}: hasPage`);
+      assert.ok(detail.kicker.startsWith(`Case ${item?.index} · `), `${locale}/${slug}: kicker ${detail.kicker}`);
+    }
+    assert.deepEqual(Object.keys(site.cases), ["coppay", "tazz", "dental-smart"]);
   }
 });

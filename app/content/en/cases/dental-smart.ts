@@ -1,7 +1,7 @@
 import type { CaseDetail } from "../../types";
 
 export const dentalSmart: CaseDetail = {
-  kicker: "Case 03 · SaaS for clinics · 1 year, 2025 – 2026 · Consulting and execution",
+  kicker: "Case 04 · SaaS for clinics · 1 year, 2025 – 2026 · Consulting and execution",
   title: "Dental Smart.",
   lead: "Multi-tenant SaaS for dental clinics, built from scratch. The dentist records the visit in the browser, and Whisper and Llama 3.3 70B write the clinical note into the patient’s record as a draft for the dentist to review.",
   factsTitle: "Fact sheet",
@@ -166,7 +166,7 @@ export const dentalSmart: CaseDetail = {
       ],
     },
   ],
-  next: { slug: "tazz", index: "02", title: "Tazz." },
+  next: { slug: "coppay", index: "01", title: "Coppay." },
   seo: {
     title: "Dental Smart: multi-tenant SaaS with AI in production · Everton Resende",
     description:
