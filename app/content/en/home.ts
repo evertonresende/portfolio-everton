@@ -63,13 +63,53 @@ export const home: HomeContent = {
     title: ["Shipped products."],
     items: [
       {
-        slug: "tazz",
+        slug: "coppay",
         index: "01",
+        meta: "Fintech · 2025–2026 · Consulting and execution",
+        title: "Coppay.",
+        hasPage: false,
+        figure: {
+          number: "Fig. 01",
+          caption: "Architecture",
+          direction: "vertical",
+          nodes: [
+            { title: "App", note: "Expo" },
+            { title: "BFF", note: "Hono · Workers" },
+            { title: "BaaS", note: "Cronos → Asaas" },
+          ],
+          footnote: "Back office in Next.js · RBAC · audit log",
+        },
+        problem: "A fintech needed a digital account, credit and customer support running on a Banking-as-a-Service (BaaS) provider, from the app to the back office.",
+        whatIDid:
+          "I built the Expo app and the Hono BFF on Cloudflare Workers, integrated with Cronos, Asaas and HBI. I also built the Next.js back office, with RBAC and an audit log, and the AI features: email triage, LLM-assisted credit reviews and the WhatsApp agent. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
+        stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
+        ai: [
+          {
+            status: "production",
+            label: "In production",
+            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Estimated income alone never leads to a rejection: it becomes an approval conditional on proof of income, and the analyst makes the final call. It costs ~R$0.01 per review, with results reused for 30 days and a cap of 100 lookups per operator per day.",
+          },
+          {
+            status: "production",
+            label: "In production",
+            text: "Team inbox: every email is triaged (category, priority and summary) in a Durable Object per mailbox, and a button suggests a reply from the thread. I kept spam detection out of the AI: in a fintech a false positive costs more, so SPF, DKIM and DMARC decide.",
+          },
+          {
+            status: "offline",
+            label: "Built",
+            text: "WhatsApp agent in Python (Agno + FastAPI): a lead agent routes to 3 specialists (loans, account and support), with read-only tools and handoff. The tools ignore the model’s arguments and use the conversation’s trusted context, which blocks IDOR. It passed a live battery of 6 scenarios, including prompt injection.",
+          },
+        ],
+        result: "App in the stores with real account holders · LLM credit assessments at ~R$0.01 each",
+      },
+      {
+        slug: "tazz",
+        index: "02",
         meta: "Mobility · 6 months in 2026 · Consulting and execution",
         title: "Tazz.",
         hasPage: true,
         figure: {
-          number: "Fig. 01",
+          number: "Fig. 02",
           caption: "Support",
           direction: "vertical",
           nodes: [
@@ -98,80 +138,13 @@ export const home: HomeContent = {
         result: "Agent in production · Pix since Sep 2026 · new app on its way to the stores",
       },
       {
-        slug: "rota-protegida",
-        index: "02",
-        meta: "Public education · 6 months in 2026 · Consulting and execution",
-        title: "Rota Protegida.",
-        hasPage: false,
-        figure: {
-          number: "Fig. 02",
-          caption: "Recognition",
-          direction: "vertical",
-          nodes: [
-            { title: "IP camera", note: "photo over SFTP" },
-            { title: "AuraFace", note: "512-D embedding" },
-            { title: "Vectorize", note: "similarity search" },
-          ],
-          footnote: "Gray zone: AWS Rekognition breaks the tie · then human review",
-        },
-        problem:
-          "A city government needed to record when students enter and leave school and alert families right away, with children's biometrics handled under Brazil's data protection law (LGPD).",
-        whatIDid:
-          "I architected and built the whole system. IP cameras send photos over SFTP to a Python service on a VPS, which detects the face and extracts the embedding (AuraFace). The Hono API on Cloudflare Workers searches Vectorize, records attendance and alerts guardians over WhatsApp and email. The web dashboard serves the city, the schools and human review. For LGPD: mandatory consent, automatic retention per data type, a log of who views photos, and per-school isolation in the vector index.",
-        stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
-        ai: [
-          {
-            status: "production",
-            label: "In production",
-            text: "Face recognition as a cascade: AuraFace and vector search on Vectorize; in the gray zone, AWS Rekognition breaks the tie through a queue, and anything still uncertain goes to human review.",
-          },
-          {
-            status: "decision",
-            label: "Decision",
-            text: "I tested a second model (AdaFace) alongside AuraFace and compared 862 events with the AWS verdict: it recovered no match that AuraFace had missed and reinforced 45 wrong rejections. I turned it off and kept AuraFace + AWS in the gray zone.",
-          },
-        ],
-        result: "In production since Jul 2026 · handed over to the city in Sep 2026",
-      },
-      {
-        slug: "dental-smart",
-        index: "03",
-        meta: "SaaS for clinics · 1 year, 2025–2026 · Consulting and execution",
-        title: "Dental Smart.",
-        hasPage: true,
-        figure: {
-          number: "Fig. 03",
-          caption: "From appointment to record",
-          direction: "vertical",
-          nodes: [
-            { title: "Recorded appointment", note: "browser" },
-            { title: "Whisper", note: "Portuguese transcription" },
-            { title: "Llama 3.3 70B", note: "clinical note in 4 sections" },
-          ],
-          footnote: "Lands in the patient record in real time · the dentist reviews it",
-        },
-        problem:
-          "Dental clinics needed scheduling, finance, e-invoicing (Brazil’s NFS-e) and WhatsApp in one system, with each clinic’s health data isolated. And the record of each appointment was typed by hand.",
-        whatIDid:
-          "I’ve been building the multi-tenant SaaS. The patient fills in the medical history through a WhatsApp link before arriving. The dentist records the visit, and the AI writes the clinical note into the patient’s record. Also: RLS per clinic, finance, NFS-e invoices and scheduled messages.",
-        stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
-        ai: [
-          {
-            status: "production",
-            label: "In production",
-            text: "The dentist records the appointment in the browser. Whisper transcribes it, and Llama 3.3 70B writes a note in 4 sections (complaints, clinical findings, procedures and next steps) straight into the patient record, with an \u201cAI-generated\u201d badge for the dentist to review.",
-          },
-        ],
-        result: "Thousands of clinical notes written by AI since Feb 2026 · RLS per clinic",
-      },
-      {
         slug: "maximus",
-        index: "04",
+        index: "03",
         meta: "Healthcare · 5 months in 2026 · Consulting and execution",
         title: "Maximus.",
         hasPage: false,
         figure: {
-          number: "Fig. 04",
+          number: "Fig. 03",
           caption: "RAG",
           direction: "vertical",
           nodes: [
@@ -206,44 +179,71 @@ export const home: HomeContent = {
         result: "Used by anesthesiologists · RAG chat and board-exam (TSA) practice questions",
       },
       {
-        slug: "coppay",
-        index: "05",
-        meta: "Fintech · 2025–2026 · Consulting and execution",
-        title: "Coppay.",
-        hasPage: false,
+        slug: "dental-smart",
+        index: "04",
+        meta: "SaaS for clinics · 1 year, 2025–2026 · Consulting and execution",
+        title: "Dental Smart.",
+        hasPage: true,
         figure: {
-          number: "Fig. 05",
-          caption: "Architecture",
+          number: "Fig. 04",
+          caption: "From appointment to record",
           direction: "vertical",
           nodes: [
-            { title: "App", note: "Expo" },
-            { title: "BFF", note: "Hono · Workers" },
-            { title: "BaaS", note: "Cronos → Asaas" },
+            { title: "Recorded appointment", note: "browser" },
+            { title: "Whisper", note: "Portuguese transcription" },
+            { title: "Llama 3.3 70B", note: "clinical note in 4 sections" },
           ],
-          footnote: "Back office in Next.js · RBAC · audit log",
+          footnote: "Lands in the patient record in real time · the dentist reviews it",
         },
-        problem: "A fintech needed a digital account, credit and customer support running on a Banking-as-a-Service (BaaS) provider, from the app to the back office.",
+        problem:
+          "Dental clinics needed scheduling, finance, e-invoicing (Brazil’s NFS-e) and WhatsApp in one system, with each clinic’s health data isolated. And the record of each appointment was typed by hand.",
         whatIDid:
-          "I built the Expo app and the Hono BFF on Cloudflare Workers, integrated with Cronos, Asaas and HBI. I also built the Next.js back office, with RBAC and an audit log, and the AI features: email triage, LLM-assisted credit reviews and the WhatsApp agent. In Sep 2026, I built a new BFF on the Asaas BaaS, with one subaccount per customer, running side by side with the legacy one.",
-        stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
+          "I’ve been building the multi-tenant SaaS. The patient fills in the medical history through a WhatsApp link before arriving. The dentist records the visit, and the AI writes the clinical note into the patient’s record. Also: RLS per clinic, finance, NFS-e invoices and scheduled messages.",
+        stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           {
             status: "production",
             label: "In production",
-            text: "Credit review: gpt-oss-120b cross-checks the credit bureau, the Central Bank credit registry (SCR) and the loan simulations, and returns a 4-level risk tier, amount, installment and conditions in a fixed schema. Estimated income alone never leads to a rejection: it becomes an approval conditional on proof of income, and the analyst makes the final call. It costs ~R$0.01 per review, with results reused for 30 days and a cap of 100 lookups per operator per day.",
+            text: "The dentist records the appointment in the browser. Whisper transcribes it, and Llama 3.3 70B writes a note in 4 sections (complaints, clinical findings, procedures and next steps) straight into the patient record, with an \u201cAI-generated\u201d badge for the dentist to review.",
           },
+        ],
+        result: "Thousands of clinical notes written by AI since Feb 2026 · RLS per clinic",
+      },
+      {
+        slug: "rota-protegida",
+        index: "05",
+        meta: "Public education · 6 months in 2026 · Consulting and execution",
+        title: "Rota Protegida.",
+        hasPage: false,
+        figure: {
+          number: "Fig. 05",
+          caption: "Recognition",
+          direction: "vertical",
+          nodes: [
+            { title: "IP camera", note: "photo over SFTP" },
+            { title: "AuraFace", note: "512-D embedding" },
+            { title: "Vectorize", note: "similarity search" },
+          ],
+          footnote: "Gray zone: AWS Rekognition breaks the tie · then human review",
+        },
+        problem:
+          "A city government needed to record when students enter and leave school and alert families right away, with children's biometrics handled under Brazil's data protection law (LGPD).",
+        whatIDid:
+          "I architected and built the whole system. IP cameras send photos over SFTP to a Python service on a VPS, which detects the face and extracts the embedding (AuraFace). The Hono API on Cloudflare Workers searches Vectorize, records attendance and alerts guardians over WhatsApp and email. The web dashboard serves the city, the schools and human review. For LGPD: mandatory consent, automatic retention per data type, a log of who views photos, and per-school isolation in the vector index.",
+        stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
+        ai: [
           {
             status: "production",
             label: "In production",
-            text: "Team inbox: every email is triaged (category, priority and summary) in a Durable Object per mailbox, and a button suggests a reply from the thread. I kept spam detection out of the AI: in a fintech a false positive costs more, so SPF, DKIM and DMARC decide.",
+            text: "Face recognition as a cascade: AuraFace and vector search on Vectorize; in the gray zone, AWS Rekognition breaks the tie through a queue, and anything still uncertain goes to human review.",
           },
           {
-            status: "offline",
-            label: "Built",
-            text: "WhatsApp agent in Python (Agno + FastAPI): a lead agent routes to 3 specialists (loans, account and support), with read-only tools and handoff. The tools ignore the model’s arguments and use the conversation’s trusted context, which blocks IDOR. It passed a live battery of 6 scenarios, including prompt injection.",
+            status: "decision",
+            label: "Decision",
+            text: "I tested a second model (AdaFace) alongside AuraFace and compared 862 events with the AWS verdict: it recovered no match that AuraFace had missed and reinforced 45 wrong rejections. I turned it off and kept AuraFace + AWS in the gray zone.",
           },
         ],
-        result: "App in the stores with real account holders · LLM credit assessments at ~R$0.01 each",
+        result: "In production since Jul 2026 · handed over to the city in Sep 2026",
       },
       {
         slug: "davions",

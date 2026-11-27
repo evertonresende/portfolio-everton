@@ -63,13 +63,53 @@ export const home: HomeContent = {
     title: ["Produtos no ar."],
     items: [
       {
-        slug: "tazz",
+        slug: "coppay",
         index: "01",
+        meta: "Fintech · 2025–2026 · Consultoria e execução",
+        title: "Coppay.",
+        hasPage: false,
+        figure: {
+          number: "Fig. 01",
+          caption: "Arquitetura",
+          direction: "vertical",
+          nodes: [
+            { title: "App", note: "Expo" },
+            { title: "BFF", note: "Hono · Workers" },
+            { title: "BaaS", note: "Cronos → Asaas" },
+          ],
+          footnote: "Back-office em Next.js · RBAC · audit log",
+        },
+        problem: "Uma fintech precisava de conta digital, crédito e atendimento rodando sobre um BaaS, do app ao back-office.",
+        whatIDid:
+          "Construí o app em Expo e o BFF em Hono sobre Cloudflare Workers, integrado a Cronos, Asaas e HBI. Também construí o back-office em Next.js, com RBAC e audit log, e os recursos de IA: triagem de e-mail, parecer de crédito assistido por LLM e o agente de WhatsApp. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
+        stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
+        ai: [
+          {
+            status: "production",
+            label: "Em produção",
+            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante, e a decisão final é do analista. Custa ~R$ 0,01 por parecer, com reuso por 30 dias e teto de 100 consultas por operador ao dia.",
+          },
+          {
+            status: "production",
+            label: "Em produção",
+            text: "Caixa de e-mail do time: cada e-mail passa por triagem (categoria, prioridade e resumo) num Durable Object por caixa, e um botão sugere a resposta pela thread. Deixei a detecção de spam fora da IA: numa fintech, um falso positivo custa mais caro, então quem decide é SPF, DKIM e DMARC.",
+          },
+          {
+            status: "offline",
+            label: "Construído",
+            text: "Agente de WhatsApp em Python (Agno + FastAPI): um líder faz a triagem para 3 especialistas (empréstimo, conta e suporte), com tools de leitura e handoff. As tools ignoram os argumentos do modelo e usam o contexto confiável da conversa, o que bloqueia IDOR. Passou numa bateria ao vivo de 6 cenários, incluindo injeção.",
+          },
+        ],
+        result: "App nas lojas com correntistas reais · parecer de crédito por LLM a ~R$\u00a00,01",
+      },
+      {
+        slug: "tazz",
+        index: "02",
         meta: "Mobilidade · 6 meses em 2026 · Consultoria e execução",
         title: "Tazz.",
         hasPage: true,
         figure: {
-          number: "Fig. 01",
+          number: "Fig. 02",
           caption: "Atendimento",
           direction: "vertical",
           nodes: [
@@ -98,80 +138,13 @@ export const home: HomeContent = {
         result: "Agente em produção · PIX desde set/2026 · app novo a caminho das lojas",
       },
       {
-        slug: "rota-protegida",
-        index: "02",
-        meta: "Educação pública · 6 meses em 2026 · Consultoria e execução",
-        title: "Rota Protegida.",
-        hasPage: false,
-        figure: {
-          number: "Fig. 02",
-          caption: "Reconhecimento",
-          direction: "vertical",
-          nodes: [
-            { title: "Câmera IP", note: "foto por SFTP" },
-            { title: "AuraFace", note: "embedding 512-D" },
-            { title: "Vectorize", note: "busca por similaridade" },
-          ],
-          footnote: "Zona cinza: AWS Rekognition desempata · depois, revisão humana",
-        },
-        problem:
-          "Uma prefeitura precisava registrar a entrada e a saída dos alunos nas escolas e avisar as famílias na hora, com a biometria das crianças tratada dentro da LGPD.",
-        whatIDid:
-          "Arquitetei e construí o sistema inteiro. Câmeras IP mandam fotos por SFTP para um serviço em Python numa VPS, que detecta o rosto e extrai o embedding (AuraFace). A API em Hono sobre Cloudflare Workers busca no Vectorize, registra a presença e avisa os responsáveis por WhatsApp e e-mail. O painel web atende a prefeitura, as escolas e a revisão humana. Para a LGPD: consentimento obrigatório, retenção automática por tipo de dado, log de quem vê as fotos e isolamento por escola no índice vetorial.",
-        stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
-        ai: [
-          {
-            status: "production",
-            label: "Em produção",
-            text: "Reconhecimento facial em cascata: AuraFace e busca vetorial no Vectorize; na zona cinza, o AWS Rekognition desempata por fila, e o que segue em dúvida vai para revisão humana.",
-          },
-          {
-            status: "decision",
-            label: "Decisão",
-            text: "Testei um 2º modelo (AdaFace) junto com o AuraFace e comparei 862 eventos com o veredito do AWS: ele não recuperou nenhum match que o AuraFace tinha perdido e reforçou 45 rejeições erradas. Desliguei e fiquei com AuraFace + AWS na zona cinza.",
-          },
-        ],
-        result: "Em produção desde jul/2026 · entregue à prefeitura em set/2026",
-      },
-      {
-        slug: "dental-smart",
-        index: "03",
-        meta: "SaaS para clínicas · 1 ano, 2025–2026 · Consultoria e execução",
-        title: "Dental Smart.",
-        hasPage: true,
-        figure: {
-          number: "Fig. 03",
-          caption: "Da consulta ao prontuário",
-          direction: "vertical",
-          nodes: [
-            { title: "Consulta gravada", note: "navegador" },
-            { title: "Whisper", note: "transcrição em português" },
-            { title: "Llama 3.3 70B", note: "nota clínica em 4 blocos" },
-          ],
-          footnote: "Cai no prontuário em tempo real · o dentista revisa",
-        },
-        problem:
-          "Clínicas odontológicas precisavam de agenda, financeiro, NFS-e e WhatsApp num só sistema, com os dados de saúde de cada clínica isolados. E o registro de cada consulta era digitado à mão.",
-        whatIDid:
-          "Construo o SaaS multi-tenant. O paciente responde a anamnese por um link no WhatsApp antes de chegar. O dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente. Também: RLS por clínica, financeiro, NFS-e e mensagens agendadas.",
-        stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
-        ai: [
-          {
-            status: "production",
-            label: "Em produção",
-            text: "O dentista grava a consulta no navegador. O Whisper transcreve, e o Llama 3.3 70B escreve a nota em 4 blocos (queixas, observações clínicas, procedimentos e próximos passos) direto no prontuário, com o selo \u201cGerado por IA\u201d para o dentista revisar.",
-          },
-        ],
-        result: "Milhares de notas clínicas escritas por IA desde fev/2026 · RLS por clínica",
-      },
-      {
         slug: "maximus",
-        index: "04",
+        index: "03",
         meta: "Saúde · 5 meses em 2026 · Consultoria e execução",
         title: "Maximus.",
         hasPage: false,
         figure: {
-          number: "Fig. 04",
+          number: "Fig. 03",
           caption: "RAG",
           direction: "vertical",
           nodes: [
@@ -206,44 +179,71 @@ export const home: HomeContent = {
         result: "Em uso por anestesistas · chat com RAG e questões para a prova do TSA",
       },
       {
-        slug: "coppay",
-        index: "05",
-        meta: "Fintech · 2025–2026 · Consultoria e execução",
-        title: "Coppay.",
-        hasPage: false,
+        slug: "dental-smart",
+        index: "04",
+        meta: "SaaS para clínicas · 1 ano, 2025–2026 · Consultoria e execução",
+        title: "Dental Smart.",
+        hasPage: true,
         figure: {
-          number: "Fig. 05",
-          caption: "Arquitetura",
+          number: "Fig. 04",
+          caption: "Da consulta ao prontuário",
           direction: "vertical",
           nodes: [
-            { title: "App", note: "Expo" },
-            { title: "BFF", note: "Hono · Workers" },
-            { title: "BaaS", note: "Cronos → Asaas" },
+            { title: "Consulta gravada", note: "navegador" },
+            { title: "Whisper", note: "transcrição em português" },
+            { title: "Llama 3.3 70B", note: "nota clínica em 4 blocos" },
           ],
-          footnote: "Back-office em Next.js · RBAC · audit log",
+          footnote: "Cai no prontuário em tempo real · o dentista revisa",
         },
-        problem: "Uma fintech precisava de conta digital, crédito e atendimento rodando sobre um BaaS, do app ao back-office.",
+        problem:
+          "Clínicas odontológicas precisavam de agenda, financeiro, NFS-e e WhatsApp num só sistema, com os dados de saúde de cada clínica isolados. E o registro de cada consulta era digitado à mão.",
         whatIDid:
-          "Construí o app em Expo e o BFF em Hono sobre Cloudflare Workers, integrado a Cronos, Asaas e HBI. Também construí o back-office em Next.js, com RBAC e audit log, e os recursos de IA: triagem de e-mail, parecer de crédito assistido por LLM e o agente de WhatsApp. Em set/2026, construí um BFF novo sobre o BaaS do Asaas, com uma subconta por cliente, rodando lado a lado com o legado.",
-        stack: "TypeScript · Expo · Hono · Cloudflare Workers · Durable Objects · Postgres · Python · FastAPI",
+          "Construo o SaaS multi-tenant. O paciente responde a anamnese por um link no WhatsApp antes de chegar. O dentista grava o atendimento, e a IA escreve a nota clínica no prontuário do paciente. Também: RLS por clínica, financeiro, NFS-e e mensagens agendadas.",
+        stack: "Next.js · React · Supabase · Postgres RLS · Edge Functions · Groq",
         ai: [
           {
             status: "production",
             label: "Em produção",
-            text: "Parecer de crédito: o gpt-oss-120b cruza bureau, SCR do Banco Central e as simulações e devolve risco em 4 faixas, valor, parcela e condições num schema fixo. Renda presumida sozinha não reprova: vira aprovação condicionada a comprovante, e a decisão final é do analista. Custa ~R$ 0,01 por parecer, com reuso por 30 dias e teto de 100 consultas por operador ao dia.",
+            text: "O dentista grava a consulta no navegador. O Whisper transcreve, e o Llama 3.3 70B escreve a nota em 4 blocos (queixas, observações clínicas, procedimentos e próximos passos) direto no prontuário, com o selo \u201cGerado por IA\u201d para o dentista revisar.",
           },
+        ],
+        result: "Milhares de notas clínicas escritas por IA desde fev/2026 · RLS por clínica",
+      },
+      {
+        slug: "rota-protegida",
+        index: "05",
+        meta: "Educação pública · 6 meses em 2026 · Consultoria e execução",
+        title: "Rota Protegida.",
+        hasPage: false,
+        figure: {
+          number: "Fig. 05",
+          caption: "Reconhecimento",
+          direction: "vertical",
+          nodes: [
+            { title: "Câmera IP", note: "foto por SFTP" },
+            { title: "AuraFace", note: "embedding 512-D" },
+            { title: "Vectorize", note: "busca por similaridade" },
+          ],
+          footnote: "Zona cinza: AWS Rekognition desempata · depois, revisão humana",
+        },
+        problem:
+          "Uma prefeitura precisava registrar a entrada e a saída dos alunos nas escolas e avisar as famílias na hora, com a biometria das crianças tratada dentro da LGPD.",
+        whatIDid:
+          "Arquitetei e construí o sistema inteiro. Câmeras IP mandam fotos por SFTP para um serviço em Python numa VPS, que detecta o rosto e extrai o embedding (AuraFace). A API em Hono sobre Cloudflare Workers busca no Vectorize, registra a presença e avisa os responsáveis por WhatsApp e e-mail. O painel web atende a prefeitura, as escolas e a revisão humana. Para a LGPD: consentimento obrigatório, retenção automática por tipo de dado, log de quem vê as fotos e isolamento por escola no índice vetorial.",
+        stack: "TypeScript · Python · Hono · Cloudflare Workers · D1 · Vectorize · R2 · Queues · AWS Rekognition",
+        ai: [
           {
             status: "production",
             label: "Em produção",
-            text: "Caixa de e-mail do time: cada e-mail passa por triagem (categoria, prioridade e resumo) num Durable Object por caixa, e um botão sugere a resposta pela thread. Deixei a detecção de spam fora da IA: numa fintech, um falso positivo custa mais caro, então quem decide é SPF, DKIM e DMARC.",
+            text: "Reconhecimento facial em cascata: AuraFace e busca vetorial no Vectorize; na zona cinza, o AWS Rekognition desempata por fila, e o que segue em dúvida vai para revisão humana.",
           },
           {
-            status: "offline",
-            label: "Construído",
-            text: "Agente de WhatsApp em Python (Agno + FastAPI): um líder faz a triagem para 3 especialistas (empréstimo, conta e suporte), com tools de leitura e handoff. As tools ignoram os argumentos do modelo e usam o contexto confiável da conversa, o que bloqueia IDOR. Passou numa bateria ao vivo de 6 cenários, incluindo injeção.",
+            status: "decision",
+            label: "Decisão",
+            text: "Testei um 2º modelo (AdaFace) junto com o AuraFace e comparei 862 eventos com o veredito do AWS: ele não recuperou nenhum match que o AuraFace tinha perdido e reforçou 45 rejeições erradas. Desliguei e fiquei com AuraFace + AWS na zona cinza.",
           },
         ],
-        result: "App nas lojas com correntistas reais · parecer de crédito por LLM a ~R$\u00a00,01",
+        result: "Em produção desde jul/2026 · entregue à prefeitura em set/2026",
       },
       {
         slug: "davions",

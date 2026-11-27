@@ -226,7 +226,7 @@ export const tazz: CaseDetail = {
       ],
     },
   ],
-  next: { slug: "dental-smart", index: "03", title: "Dental Smart." },
+  next: { slug: "dental-smart", index: "04", title: "Dental Smart." },
   seo: {
     title: "Tazz: agente de atendimento com evals e app em Expo do zero · Everton Resende",
     description:

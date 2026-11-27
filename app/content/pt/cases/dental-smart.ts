@@ -166,7 +166,7 @@ export const dentalSmart: CaseDetail = {
       ],
     },
   ],
-  next: { slug: "tazz", index: "01", title: "Tazz." },
+  next: { slug: "tazz", index: "02", title: "Tazz." },
   seo: {
     title: "Dental Smart: SaaS multi-tenant com IA em produção · Everton Resende",
     description:

@@ -185,6 +185,13 @@ test("posicionamento: consultoria encerrada, início imediato, MCP e provas púb
     assert.ok(coppay, `${locale}: linha da Coppay`);
     assert.doesNotMatch(coppay.mode, /CLT/); // Coppay foi PJ
     for (const item of site.home.cases.items) assert.match(item.meta, pt ? /Consultoria e execução/ : /Consulting and execution/);
-    assert.match(site.home.cases.items[0].meta, pt ? /6 meses em 2026/ : /6 months in 2026/); // Tazz, igual ao CV
+    const tazz = site.home.cases.items.find((item) => item.slug === "tazz");
+    assert.match(tazz?.meta ?? "", pt ? /6 meses em 2026/ : /6 months in 2026/); // igual ao CV
+    // Ordem dos cases (escolha dele, 2026-11-27): fintech primeiro; index e next acompanham.
+    assert.deepEqual(site.home.cases.items.map((item) => item.slug), ["coppay", "tazz", "maximus", "dental-smart", "rota-protegida", "davions"]);
+    site.home.cases.items.forEach((item, i) => assert.equal(item.index, `0${i + 1}`));
+    for (const detail of Object.values(site.cases)) {
+      if (detail.next) assert.equal(detail.next.index, site.home.cases.items.find((item) => item.slug === detail.next?.slug)?.index);
+    }
   }
 });
