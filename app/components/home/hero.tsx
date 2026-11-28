@@ -23,11 +23,12 @@ export function Hero({ site }: { site: SiteContent }) {
             O " " entre qualificador e cargo e o "·" seguem no texto (flex ignora espaço solto), então o H1 lê
             "Forward Deployed AI Engineer · agentes de IA em produção.", igual ao LinkedIn.
             O cargo é inglês nos dois idiomas (PERSON.jobTitle), por isso o lang="en" fixo nele. O serif-i fica no H1 todo para "AI agents" não virar "Al agents".
-            md:gap-10 dá folga ao rabo do "g" de "Engineer" sobre a tagline no desktop. */}
+            md:gap-10 dá folga ao rabo do "g" de "Engineer" sobre a tagline no desktop.
+            Abaixo de 400px o piso de 60px do display-1 quebrava "AI Engineer" em duas linhas (375 e 360) e "Forward Deployed" no piso de 36px também; 14vw e 9vw cabem até 320px. Só aqui: o case usa os mesmos tokens. */}
         <h1 id="hero-title" className="serif-i m-0 flex flex-col gap-6 md:gap-10">
-          <span lang="en" className="flex flex-col gap-3 md:gap-5">
-            <span className="text-display-2">{hero.qualifier}</span>{" "}
-            <span className="text-display-1">{hero.title}</span>
+          <span lang="en" className="flex flex-col gap-2 md:gap-3">
+            <span className="text-display-2 max-[400px]:text-[length:9vw]">{hero.qualifier}</span>{" "}
+            <span className="text-display-1 max-[400px]:text-[length:14vw]">{hero.title}</span>
           </span>
           <span className="sr-only"> · </span>
           <span className="text-display-2 text-muted">{hero.tagline}</span>
