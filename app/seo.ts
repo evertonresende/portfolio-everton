@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import type { Locale, SiteContent } from "./content/types";
 import { getContent, homePath, markdownPath } from "./content";
-import { PERSON, SITE_URL } from "./content/shared";
+import { OG_IMAGE, PERSON, SITE_URL } from "./content/shared";
 
 const OG_LOCALE: Record<Locale, string> = { pt: "pt_BR", en: "en_US" };
-const OG_IMAGE: Record<Locale, string> = { pt: "/og.png", en: "/og-en.png" };
 
 /** URL absoluta de `path` ("/" ou "/projects/tazz") no idioma: "/en" para a home em inglês, sem barra final. */
 function absoluteUrl(locale: Locale, path: string): string {

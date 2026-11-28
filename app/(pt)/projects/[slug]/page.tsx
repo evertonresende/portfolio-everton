@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CasePage } from "../../../components/case/case-page";
+import { JsonLd } from "../../../components/json-ld";
 import { PageFrame } from "../../../components/page-frame";
 import { casePath, getContent } from "../../../content";
 import type { CaseSlug } from "../../../content/types";
 import { notFoundMetadata, pageMetadata } from "../../../seo";
+import { caseJsonLd } from "../../../../lib/json-ld";
 
 const site = getContent("pt");
 
@@ -33,6 +35,7 @@ export default async function Page({ params }: Props) {
   if (!detail) notFound();
   return (
     <PageFrame site={site} alternateHref={casePath(site.nav.alternate.basePath, slug)}>
+      <JsonLd data={caseJsonLd(site, slug as CaseSlug, detail)} />
       <CasePage site={site} detail={detail} />
     </PageFrame>
   );

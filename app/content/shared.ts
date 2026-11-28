@@ -14,8 +14,13 @@ export const CONTACT = {
   whatsapp: "https://wa.me/5537999133556",
 } as const;
 
+// Prévia de link (Open Graph) e imagem dos cases no JSON-LD.
+export const OG_IMAGE = { pt: "/og.png", en: "/og-en.png" } as const;
+
 export const PERSON = {
   name: "Everton Resende",
+  // Grafia com acento, como ele assina: quem busca "Éverton Resende" chega à mesma pessoa.
+  alternateName: "Éverton Resende",
   jobTitle: "AI Engineer",
   locality: "Pará de Minas",
   region: "MG",

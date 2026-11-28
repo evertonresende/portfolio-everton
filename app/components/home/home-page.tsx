@@ -1,7 +1,8 @@
 import type { SiteContent } from "../../content/types";
 import { homePath } from "../../content";
 import { PageFrame } from "../page-frame";
-import { PersonJsonLd } from "../json-ld";
+import { JsonLd } from "../json-ld";
+import { homeJsonLd } from "../../../lib/json-ld";
 import { Hero } from "./hero";
 import { Delivery } from "./delivery";
 import { Cases } from "./cases";
@@ -13,7 +14,7 @@ import { Contact } from "./contact";
 export function HomePage({ site }: { site: SiteContent }) {
   return (
     <PageFrame site={site} alternateHref={homePath(site.nav.alternate.basePath)}>
-      <PersonJsonLd site={site} />
+      <JsonLd data={homeJsonLd(site)} />
       <Hero site={site} />
       <Delivery site={site} />
       <Cases site={site} />
