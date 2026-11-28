@@ -23,7 +23,7 @@ touches:
 - "run_worker_first": true to route static files through the worker: fetch(request) takes no env, so handler.fetch gets no ASSETS and every static file would 404. Needs env passed through and an env.ASSETS.fetch fallback first.
 
 ## Watch out
-- Static files on www. and http:// still answer 200 (no 301): the worker never sees them. A zone-level "Always Use HTTPS" plus a www redirect rule would cover them.
+- Static files never reach the worker, so www./http:// for them is covered by a zone Single Redirect rule (phase http_request_dynamic_redirect, added 2026-11-28 next to a disabled "molt-token-redirect" rule that must stay): (http.host eq "www.evertonresende.com") or (http.host eq "evertonresende.com" and not ssl) → concat("https://evertonresende.com", http.request.uri.path), 301, query kept. The worker rule stays as the versioned fallback. Add rules to that ruleset with create-rule, never a PUT of the whole entrypoint, or the other rule is lost.
 - _headers host placeholders do not match a period, so the rule is https://:worker.:subdomain.workers.dev/* (preview hosts are "<prefix>-portfolio-everton.<account>.workers.dev", the same shape).
 
 In the code: lib/redirects.ts canonicalRedirect, worker/index.ts, public/_headers, lib/json-ld.ts (homeJsonLd, caseJsonLd), app/components/json-ld.tsx.
