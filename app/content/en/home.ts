@@ -3,12 +3,13 @@ import { CV_URL_EN, CONTACT } from "../shared.ts";
 
 export const home: HomeContent = {
   seo: {
-    title: "Everton Resende · AI Engineer",
+    title: "Everton Resende · Forward Deployed AI Engineer",
     description:
-      "AI Engineer with 7+ years in software development. I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS.",
+      "Forward Deployed AI Engineer with 7+ years in software development. I build LLM, agent and RAG systems and ship them to production, from architecture to infrastructure, with TypeScript, Python, Cloudflare and AWS.",
   },
   hero: {
     status: "Available · remote · immediate start · B2B contractor or full-time in Brazil (CLT) · occasional travel",
+    qualifier: "Forward Deployed",
     title: "AI Engineer",
     tagline: "AI agents in production.",
     lead: "From client scoping to deployment: I architect and ship AI agents, RAG and LLM systems, leading teams of 2 to 5 people.",

@@ -17,6 +17,7 @@ touches:
 
 ## Decided
 - The hero H1 is two lines: "AI Engineer" at text-display-1 and the tagline ("agentes de IA em produção." / "AI agents in production.") at text-display-2 in text-muted. The whole sentence at display-1 wrapped to 3–4 lines on desktop and left the "·" hanging at the end of line 1, and the user called it ugly (2026-11-20).
+- 2026-11-28: the role became "Forward Deployed AI Engineer" (his choice, same as LinkedIn and the CV job title). The full role at display-1 wraps to 3–4 lines, so the H1 has three tiers: "Forward Deployed" at text-display-2 in foreground, "AI Engineer" at display-1, the tagline at display-2 muted. The content keeps hero.qualifier and hero.title apart only for this layout; a plain " " between them keeps the H1 text and the Markdown reading "Forward Deployed AI Engineer · …". The OG images were remade the same way (og-v2.png, og-en-v2.png).
 - A visually hidden " · " stays between the spans, so the H1 text and the Markdown still read "AI Engineer · agentes de IA em produção.", the same line as the CV and LinkedIn.
 - serif-i (Inter cv08) sits on the whole H1, not only the role line. Without it the gray EN tagline reads "Al agents".
 - The three-cell stats strip under the hero (Tazz 10→23, Dental Smart ~20, Maximus RAG) was removed. The user found it weak ("RAG" is not a number) and the same facts are in the Cases rows. StatStrip now serves only the case pages.

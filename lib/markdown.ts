@@ -158,7 +158,7 @@ export function homeMarkdown(site: SiteContent): string {
       header(site),
       `> ${seo.description}`,
       hero.status,
-      `**${hero.title} · ${hero.tagline}** ${hero.lead}`,
+      `**${hero.qualifier} ${hero.title} · ${hero.tagline}** ${hero.lead}`,
       hero.sub,
       `${link(hero.primary.label, hero.primary.href)} · ${link(hero.cv.label, hero.cv.href)}`,
       `## ${hero.factsTitle}`,

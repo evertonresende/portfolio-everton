@@ -15,13 +15,13 @@ export const CONTACT = {
 } as const;
 
 // Prévia de link (Open Graph) e imagem dos cases no JSON-LD.
-export const OG_IMAGE = { pt: "/og.png", en: "/og-en.png" } as const;
+export const OG_IMAGE = { pt: "/og-v2.png", en: "/og-en-v2.png" } as const; // v2: "Forward Deployed AI Engineer" (2026-11-28); nome novo fura o cache das prévias
 
 export const PERSON = {
   name: "Everton Resende",
   // Grafia com acento, como ele assina: quem busca "Éverton Resende" chega à mesma pessoa.
   alternateName: "Éverton Resende",
-  jobTitle: "AI Engineer",
+  jobTitle: "Forward Deployed AI Engineer",
   locality: "Pará de Minas",
   region: "MG",
   country: "BR",

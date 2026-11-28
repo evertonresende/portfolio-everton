@@ -84,7 +84,7 @@
   text-wrap: balance;
 }
 
-/* I com serifa do Inter (cv08): só no H1 do hero ("AI Engineer" e a tagline), que precisa ler certo sem contexto ("Al" vs "AI", "Al agents"). */
+/* I com serifa do Inter (cv08): só no H1 do hero (cargo e tagline), que precisa ler certo sem contexto ("Al" vs "AI", "Al agents"). */
 @utility serif-i {
   font-feature-settings: "cv08";
 }

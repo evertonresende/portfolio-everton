@@ -120,7 +120,9 @@ export interface HomeContent {
   readonly seo: { readonly title: string; readonly description: string };
   readonly hero: {
     readonly status: string;
-    /** O cargo, em inglês nos dois idiomas; com a tagline, forma o posicionamento "AI Engineer · agentes de IA em produção." do CV e do LinkedIn. */
+    /** O cargo é qualifier + title ("Forward Deployed" + "AI Engineer", igual a PERSON.jobTitle), em inglês nos dois idiomas; com a tagline,
+     * forma o posicionamento "Forward Deployed AI Engineer · agentes de IA em produção." do LinkedIn. Separados só para o layout do H1. */
+    readonly qualifier: string;
     readonly title: string;
     readonly tagline: string;
     readonly lead: string;

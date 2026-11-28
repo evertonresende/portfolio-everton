@@ -19,13 +19,15 @@ export function Hero({ site }: { site: SiteContent }) {
           </span>
           <span className="min-w-0 flex-1">{hero.status}</span>
         </p>
-        {/* Cargo grande numa linha e tagline menor embaixo: a frase inteira no tamanho do cargo quebrava em 3 a 4 linhas, com o "·" sobrando no fim da primeira.
-            O "·" segue no texto (só para leitor de tela e extração), então o H1 continua sendo "AI Engineer · agentes de IA em produção.", igual ao CV e ao LinkedIn.
+        {/* "AI Engineer" grande, com "Forward Deployed" menor em cima e a tagline menor embaixo: o cargo inteiro no tamanho grande quebrava em 3 a 4 linhas.
+            O " " entre qualificador e cargo e o "·" seguem no texto (flex ignora espaço solto), então o H1 lê
+            "Forward Deployed AI Engineer · agentes de IA em produção.", igual ao LinkedIn.
             O cargo é inglês nos dois idiomas (PERSON.jobTitle), por isso o lang="en" fixo nele. O serif-i fica no H1 todo para "AI agents" não virar "Al agents".
             md:gap-10 dá folga ao rabo do "g" de "Engineer" sobre a tagline no desktop. */}
         <h1 id="hero-title" className="serif-i m-0 flex flex-col gap-6 md:gap-10">
-          <span lang="en" className="text-display-1">
-            {hero.title}
+          <span lang="en" className="flex flex-col gap-3 md:gap-5">
+            <span className="text-display-2">{hero.qualifier}</span>{" "}
+            <span className="text-display-1">{hero.title}</span>
           </span>
           <span className="sr-only"> · </span>
           <span className="text-display-2 text-muted">{hero.tagline}</span>
