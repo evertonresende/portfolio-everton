@@ -38,7 +38,9 @@ Single-page portfolio site built with **React 19 Server Components** via Vite RS
 | `worker/index.ts` | Cloudflare Worker entry point (vinext handler) |
 | `lib/utils.ts` | `cn()` utility (clsx + tailwind-merge) |
 | `lib/markdown.ts` | Markdown version of every page + `/llms.txt` + `/llms-full.txt` (all pages, EN then PT), generated from `app/content` (for AI agents) |
-| `lib/redirects.ts` | 301s: removed case pages → home section; `/llm.txt`, `/llm.md`, `/llms.md`, `/llm-full.txt` → standard llms names |
+| `lib/redirects.ts` | 301s: removed case pages → home section; `/llm.txt`, `/llm.md`, `/llms.md`, `/llm-full.txt` → standard llms names; www/http → https apex (`canonicalRedirect`) |
+| `lib/json-ld.ts` | schema.org JSON-LD: one Person (`#person`) on both homes and as author of every case |
+| `docs/seo.md` | SEO state: what is live, what lives outside the repo (Cloudflare rule, Search Console, Bing, Brave), the same-role-everywhere checklist, next keyword plan |
 | `wrangler.jsonc` | Workers config: routes, custom domains, observability |
 
 ### How It Works
