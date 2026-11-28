@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;src:url("../../public/fonts/inter-latin.woff2") format("woff2");font-weight:400 800}
+@font-face{font-family:"JetBrains Mono";src:url("../../public/fonts/jetbrains-mono-latin.woff2") format("woff2");font-weight:400 500}
+:root{--bg:#fafafa;--fg:#141414;--muted:#5e5e5e;--rule:#d4d4d4;--grid:#e3e3e3;--accent:#2b4bff}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden;background:var(--bg);color:var(--fg)}
+.frame{position:absolute;inset:0 48px;border-left:1px solid var(--grid);border-right:1px solid var(--grid);
+  background:repeating-linear-gradient(to right,transparent 0 91px,var(--grid) 91px 92px)}
+.top{position:absolute;left:48px;right:48px;top:0;height:104px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 25px;
+  font:500 24px/1 "JetBrains Mono",monospace}
+.top .url{display:flex;align-items:center;gap:14px}
+.top .dot{width:16px;height:16px;border-radius:50%;background:var(--accent)}
+.title{position:absolute;left:68px;bottom:190px;font-family:Inter;font-weight:800;font-feature-settings:"cv08";letter-spacing:-0.045em;white-space:nowrap}
+.q{font-size:70px;line-height:1;letter-spacing:-0.035em;margin:0 0 16px 3px}
+.r{font-size:182px;line-height:0.88;letter-spacing:-0.045em}
+.rule{position:absolute;left:48px;right:48px;top:505px;border-top:1px solid var(--fg)}
+.sub{position:absolute;left:73px;top:542px;font:400 24px/1.2 "JetBrains Mono",monospace;color:var(--muted)}
+</style></head><body>
+<div class="frame"></div>
+<div class="top"><span>Everton Resende</span><span class="url"><span class="dot"></span>evertonresende.com</span></div>
+<div class="title"><div class="q">Forward Deployed</div><div class="r">AI Engineer.</div></div>
+<div class="rule"></div>
+<div class="sub" id="sub"></div>
+<script>document.getElementById("sub").textContent=new URLSearchParams(location.search).get("sub")</script>
+</body></html>
