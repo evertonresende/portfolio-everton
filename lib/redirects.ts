@@ -13,6 +13,18 @@ const LLMS_ALIASES: Readonly<Record<string, string>> = {
   "/llm-full.txt": "/llms-full.txt",
 };
 
+const HOST = "evertonresende.com";
+
+/**
+ * 301 de www e de http para https://evertonresende.com, com o mesmo caminho e query: o Google vê um endereço só.
+ * null = já está no endereço certo, ou não é o domínio de produção (preview em workers.dev, localhost).
+ */
+export function canonicalRedirect(url: URL): string | null {
+  const production = url.hostname === HOST || url.hostname === `www.${HOST}`;
+  if (!production || (url.hostname === HOST && url.protocol === "https:")) return null;
+  return `https://${HOST}${url.pathname}${url.search}`;
+}
+
 /** Destino do 301: apelido do llms.txt, ou página removida → seção da home no mesmo idioma. null = segue para o app. */
 export function legacyRedirect(pathname: string): string | null {
   if (Object.hasOwn(LLMS_ALIASES, pathname)) return LLMS_ALIASES[pathname];

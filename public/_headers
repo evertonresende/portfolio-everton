@@ -6,3 +6,6 @@
   Cache-Control: public, max-age=2592000
 /images/*
   Cache-Control: public, max-age=2592000
+# Cópias do site em workers.dev (padrão e URLs de preview): arquivos estáticos fora do Google, como as páginas (worker/index.ts).
+https://:worker.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex
